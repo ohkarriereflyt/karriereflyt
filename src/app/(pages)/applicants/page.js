@@ -1,63 +1,52 @@
-'use client'
-// TODO: go through all 'use client' and figure out whats best
-import { useState } from 'react';
+async function getData() {
+  const apiKey = process.env.RECMAN_API_SECRET;
+  const res = await fetch(`https://api.recman.no/v2/get/?key=${apiKey}&scope=jobPost&fields=projectId, name, title, ingress, body, numberOfPositions, startDate, endDate, logo, deadline, address1, address2, postalCode, city, applyUrl, companyName, workplace, position, positionType`);
+  if (!res.ok) {
+    throw new Error('Failed to fetch data');
+  }
+  return res.json();
+}
 
-// Example job listings (replace with real data fetched from an API or database)
-const jobListings = [
-    { id: 1, title: 'Software Engineer', type: 'Full-time', location: 'Oslo' },
-    { id: 2, title: 'Product Manager', type: 'Full-time', location: 'Bergen' },
-    { id: 3, title: 'Graphic Designer', type: 'Part-time', location: 'Trondheim' },
-    // Add more job listings as needed
-];
+export default async function Page() {
+  const response = await getData();
 
-export default function Page() {
-    const [searchTerm, setSearchTerm] = useState('');
-    const [filter, setFilter] = useState('');
+  const jobListings = response.data ? Object.values(response.data).map(jobListing => ({
+    id: jobListing.jobPostId,
+    name: jobListing.name,
+    title: jobListing.title,
+    ingress: jobListing.ingress,
+    body: jobListing.body,
+    numberOfPositions: jobListing.numberOfPositions,
+    startDate: jobListing.startDate,
+    endDate: jobListing.endDate,
+    logo: jobListing.logo,
+    deadline: jobListing.deadline,
+    address1: jobListing.address1,
+    address2: jobListing.address2,
+    postalCode: jobListing.postalCode,
+    city: jobListing.city,
+    applyUrl: jobListing.applyUrl,
+    companyName: jobListing.companyName,
+    workplace: jobListing.workplace,
+    position: jobListing.position,
+    positionType: jobListing.positionType,
+  })) : [];
 
-    // Function to handle search (update to implement actual search logic)
-    const handleSearch = (e) => {
-        setSearchTerm(e.target.value);
-    };
-
-    // Function to handle filter change (update to implement actual filter logic)
-    const handleFilterChange = (e) => {
-        setFilter(e.target.value);
-    };
-
-    return (
-        <div className="p-6">
-            <h1 className="text-3xl font-bold mb-4">How to Apply for a Job</h1>
-            <p className="mb-6">[Include application information here]</p>
-
-            <div className="mb-6">
-                <input
-                    type="text"
-                    placeholder="Search jobs..."
-                    value={searchTerm}
-                    onChange={handleSearch}
-                    className="border p-2 w-full mb-4"
-                />
-                <select onChange={handleFilterChange} className="border p-2 w-full">
-                    <option value="">Filter by type...</option>
-                    <option value="Full-time">Full-time</option>
-                    <option value="Part-time">Part-time</option>
-                    {/* Add more filter options as needed */}
-                </select>
-            </div>
-
-            <ul className="space-y-4">
-                {jobListings
-                    // Filter jobs based on search term and filter selection (simplified example)
-                    .filter((job) =>
-                        job.title.toLowerCase().includes(searchTerm.toLowerCase()) && (filter ? job.type === filter : true)
-                    )
-                    .map((job) => (
-                        <li key={job.id} className="border p-4">
-                            <h2 className="text-xl font-bold">{job.title}</h2>
-                            <p>{job.type} | {job.location}</p>
-                        </li>
-                    ))}
-            </ul>
+  return (
+    <main>
+      {jobListings.map(jobListing => (
+        <div key={jobListing.id} className="bg-gray-100 p-4 flex items-center rounded-lg mb-4 shadow-sm">
+          <img src={jobListing.logo} alt="Company Logo" className="w-16 h-16 mr-4 rounded-full" />
+          <div className="flex-grow">
+            <h3 className="text-lg font-semibold">{jobListing.companyName}</h3>
+            <p className="text-sm">{jobListing.title}</p>
+            <p className="text-sm text-gray-600">{jobListing.name}</p>
+          </div>
+          <a href={jobListing.applyUrl} className="ml-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" target="_blank" rel="noopener noreferrer">
+            Les mer
+          </a>
         </div>
-    )
+      ))}
+    </main>
+  );
 }
