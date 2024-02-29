@@ -2,4 +2,135 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
 
+#backgroundOne {
+    position: absolute;
+    height: 60%;
+    width: 60%;
+    border-radius: 32px;
+    rotate: 45deg;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 200px;
+
+    background: linear-gradient(#e6dbd1, #EFEAE4, #FAF7F3);
+    z-index: -2;
+    border: 2px solid #f1f1f1a8;
+    transform: translateZ(-10px) scale(2);
+    transform-style: preserve-3d;
+    margin-left: -90%;
+    margin-top: -20%;
+    
+}
+
+#backgroundTwo {
+    position: absolute;
+    height: 50%;
+    width: 50%;
+    border-radius: 32px;
+    rotate: 45deg;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 100px;
+    margin-left: -80%;
+    margin-top: -10%;
+
+    background: linear-gradient(#e6dbd1, #EFEAE4, #ffffff);
+    z-index: -2;
+    transform-style: preserve-3d;
+
+    border: 2px solid #f1f1f1a8;
+    transform: translateZ(-7px) scale(1.7);
+
+}
+
+#backgroundThree {
+    position: absolute;
+    height: 50%;
+    width: 50%;
+    border-radius: 32px;
+    rotate: 45deg;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 100px;
+
+    margin-top: 80%;
+    margin-left: 32%;
+    background: linear-gradient(#e6dbd1, #EFEAE4, #FAF7F3);
+    z-index: -2;
+    border-left: 4px solid #f1f1f1a8;
+    transform-style: preserve-3d;
+
+    transform: translateZ(-10px) scale(2);
+}
+
+#backgroundFour {
+    position: absolute;
+    height: 50%;
+    width: 50%;
+    border-radius: 32px;
+    rotate: -135deg;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 100px;
+    margin-top: -20%;
+    margin-left: 80%;
+    background: linear-gradient(#e6dbd1, #e7dacb, #FAF7F3);
+    z-index: -1;
+    border-top: 4px solid #f1f1f1a8;
+    transform-style: preserve-3d;
+
+    transform: translateZ(-5px) scale(1.5);
+}
+
+#backgroundFive {
+    position: absolute;
+    height: 50%;
+    width: 50%;
+    border-radius: 32px;
+    rotate: -135deg;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 100px;
+    margin-top: 20%;
+    margin-left: 89%;
+    background: linear-gradient(#e6dbd1, #e7dacb, #FAF7F3);
+    z-index: -2;
+    transform-style: preserve-3d;
+    border-top: 4px solid #f1f1f1a1;
+    transform: translateZ(-7px) scale(1.7);
+}
+
+#backgroundSix {
+    position: absolute;
+    height: 50%;
+    width: 50%;
+    border-radius: 32px;
+    rotate: -135deg;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 100px;
+    margin-top: 40%;
+    margin-left: 80%;
+    background: linear-gradient(#e6dbd1, #e7dacb, #FAF7F3);
+    z-index: -3;
+    border-top: 4px solid #f1f1f1a1;
+    transform: translateZ(-7px) scale(1.7);
+    
+}
+
+#main {
+    background-color: #E9E3DD;
+}
+
+#boxCollection {
+
+    height: 100vh;
+    overflow-y: auto;
+    width: 100%;
+    overflow-x: hidden;
+    perspective: 10px;
+}
+
+#backgroundDiffuser {
+    width: 100%;
+    margin-top: -30%;
+    position: absolute;
+    height: 100%;
+    background-color:#6B858D;
+    z-index: -1;
+    /* transform-style: preserve-3d;
+    transform: translateZ(-5px) scale(1.5); */
+}
