@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
 
 #backgroundOne {
     position: absolute;
@@ -13,7 +17,7 @@
 
     background: linear-gradient(#e6dbd1, #EFEAE4, #FAF7F3);
     z-index: -2;
-    border: 8px solid #f1f1f1a8;
+    border: 2px solid #f1f1f1a8;
     transform: translateZ(-10px) scale(2);
     transform-style: preserve-3d;
     margin-left: -90%;
@@ -35,7 +39,7 @@
     z-index: -2;
     transform-style: preserve-3d;
 
-    border: 8px solid #f1f1f1a8;
+    border: 2px solid #f1f1f1a8;
     transform: translateZ(-7px) scale(1.7);
 
 }
@@ -52,7 +56,7 @@
     margin-left: 32%;
     background: linear-gradient(#e6dbd1, #EFEAE4, #FAF7F3);
     z-index: -2;
-    border: 8px solid #f1f1f1a8;
+    border-left: 4px solid #f1f1f1a8;
     transform-style: preserve-3d;
 
     transform: translateZ(-10px) scale(2);
@@ -69,7 +73,7 @@
     margin-left: 80%;
     background: linear-gradient(#e6dbd1, #e7dacb, #FAF7F3);
     z-index: -1;
-    border: 8px solid #f1f1f1a8;
+    border-top: 4px solid #f1f1f1a8;
     transform-style: preserve-3d;
 
     transform: translateZ(-5px) scale(1.5);
@@ -87,7 +91,7 @@
     background: linear-gradient(#e6dbd1, #e7dacb, #FAF7F3);
     z-index: -2;
     transform-style: preserve-3d;
-    border: 8px solid #f1f1f1a1;
+    border-top: 4px solid #f1f1f1a1;
     transform: translateZ(-7px) scale(1.7);
 }
 
@@ -102,7 +106,7 @@
     margin-left: 80%;
     background: linear-gradient(#e6dbd1, #e7dacb, #FAF7F3);
     z-index: -3;
-    border: 8px solid #f1f1f1a1;
+    border-top: 4px solid #f1f1f1a1;
     transform: translateZ(-7px) scale(1.7);
     
 }

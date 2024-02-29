@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from './components/Navbar';
-
+import BackgroundBoxes from "./components/BackgroundBoxes";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -19,14 +19,7 @@ export default function RootLayout({ children }) {
             <Navbar />
             
                 <div id="boxCollection">
-            <div className="flex" id="backgroundOne"></div>
-            <div className="flex" id="backgroundTwo"></div>
-
-            <div id="backgroundThree"></div>
-            <div id="backgroundFour"></div>
-            <div id="backgroundFive"></div>
-            <div id="backgroundSix"></div>
-        
+                <BackgroundBoxes />
            
             {children}
             <div id="backgroundDiffuser"></div>
