@@ -1,12 +1,12 @@
-import Image from 'next/image';
 import HeroCardTitle from '@/app/components/HeroCardTitle';
 import HeroCardImages from '@/app/components/HeroCardImages';
 import List from '@/app/components/List';
-import ServiceBox from '@/app/components/ServiceBox';
+import ServiceCardLeft from '@/app/components/ServiceCardLeft';
+import ServiceCardRight from '@/app/components/ServiceCardRight';
 
 export default function Page() {
     return (
-        <div className="bg-gray-100">
+        <div>
             {/* Hero Section */}
             <div className="text-center p-12">
                 <HeroCardTitle heading="Våre tjenester"
@@ -24,26 +24,39 @@ export default function Page() {
 
             {/* Services Section */}
             <div className="grid md:grid-cols-2 gap-8 p-8">
-                {/* Each Service */}
-                <ServiceBox
-                    title="Rekruttering"
-                    description="Detailed description of Rekruttering service..."
-                    iconName="icon-path"
+                <ServiceCardLeft
+                    icon="✚"
+                    conColor="text-gray-600"
+                    squareColor="bg-blue-300"
+                    headingOneText="Rekruttering"
+                    headingFourText="Kandidater"
+                    headingFourColor="text-gray-700"
+                    headingOneColor="text-gray-800"
+                    listItems={[
+                        { icon: "✓", text: "Custom list item 1" },
+                        { icon: "✓", text: "Custom list item 2" },
+                        { icon: "✓", text: "Custom list item 2" },
+                    ]}
+                    buttonColor="bg-green-500"
+                    buttonHoverColor="hover:bg-green-700"
+                    buttonText="Custom Button Text" 
                 />
-                <ServiceBox
-                    title="Utleie av personell"
-                    description="Detailed description of Utleie av personell service..."
-                    iconName="icon-path"
-                />
-                <ServiceBox
-                    title="Rådgiving"
-                    description="Detailed description of Rådgiving service..."
-                    iconName="icon-path"
-                />
-                <ServiceBox
-                    title="Headhunting"
-                    description="Detailed description of Headhunting service..."
-                    iconName="icon-path"
+                <ServiceCardRight
+                    icon="✚"
+                    iconColor="text-gray-600"
+                    squareColor="bg-blue-300"
+                    headingOneText="Rekruttering"
+                    headingFourText="Kandidater"
+                    headingFourColor="text-gray-700"
+                    headingOneColor="text-gray-800"
+                    listItems={[
+                        { icon: "✓", text: "Custom list item 1" },
+                        { icon: "✓", text: "Custom list item 2" },
+                        { icon: "✓", text: "Custom list item 2" },
+                    ]}
+                    buttonColor="bg-green-500"
+                    buttonHoverColor="hover:bg-green-700"
+                    buttonText="Custom Button Text"
                 />
             </div>
             
