@@ -1,50 +1,53 @@
-'use client'
-import { usePathname } from 'next/navigation'
-import Link from 'next/link';
+"use client";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 //Componentsimport
-import CtaButtons from './components/CTAbuttons';
-import HeroCardImages from './components/HeroCardImages';
-import HeroCardTitle from './components/HeroCardTitle';
-import CustomerFeedback from './components/CustomerFeedback';
-import JobbkretserPartner from './components/JobbkretserPartner';
-import PartnersAndSertifications from './components/PartnersAndSertifications';
+import CtaButtons from "./components/CTAbuttons";
+import HeroCardImages from "./components/HeroCardImages";
+import HeroCardTitle from "./components/HeroCardTitle";
+import CustomerFeedback from "./components/CustomerFeedback";
+import JobbkretserPartner from "./components/JobbkretserPartner";
+import PartnersAndSertifications from "./components/PartnersAndSertifications";
+import ImagesInSaquares from "./components/ImagesInSquares";
+import Statistics from "./components/Statistics";
 
 export default function Home() {
-    const pathname = usePathname();
-    return (
-        <main>
-            {/* Hero section with text and images */}
-            <div className="flex justify-between items-center h-screen">
-                <div className="w-3/5 mx-auto">
-                    <div className="flex flex-wrap justify-between items-center">
-                    <div className="w-full lg:w-1/2 p-8">
-                        <HeroCardTitle heading="Rekruttering & bemanning"
-                        subtitle="Profesjonell samarbeidspartner i ansettelser, headhunting og innleie"/>
-                            <CtaButtons />
-                     </div>
-                        <HeroCardImages />
-                    </div>
-                    </div>
-                </div>
-                
-           
-            {/* Content section at 60% */}
-          
-                {/* Tilbakemeldinger fra våre kunder */}
-                <CustomerFeedback />
+  const pathname = usePathname();
+  return (
+    <main>
+      {/* Hero section with text and images */}
+      <div className="flex justify-between items-center h-screen">
+        <div className="w-3/5 mx-auto">
+          <div className="flex flex-wrap justify-between items-center">
+            <div className="w-full lg:w-1/2 p-8">
+              <HeroCardTitle
+                heading="Rekruttering & bemanning"
+                subtitle="Profesjonell samarbeidspartner i ansettelser, headhunting og innleie"
+              />
+              <CtaButtons />
+            </div>
+            <ImagesInSaquares />
+          </div>
+        </div>
+      </div>
 
-                {/* Som partner med jobbkrester */}
-                <JobbkretserPartner />
+      {/* Content section at 60% */}
 
-                {/* Samarbeidspartnere og sertifiseringer */}
-                <PartnersAndSertifications />
+      {/* Tilbakemeldinger fra våre kunder */}
+      <CustomerFeedback />
 
-                {/* Bottom buttons */}
-                <div className="flex justify-center space-x-4 py-8">
-                    <CtaButtons />
-                </div>
-         
-        </main>
-    );
+      {/* Som partner med jobbkrester */}
+      <JobbkretserPartner />
+
+      {/* Samarbeidspartnere og sertifiseringer */}
+      <PartnersAndSertifications />
+      <Statistics />
+
+      {/* Bottom buttons */}
+      <div className="flex justify-center space-x-4 py-8">
+        <CtaButtons />
+      </div>
+    </main>
+  );
 }
