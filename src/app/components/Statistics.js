@@ -15,7 +15,7 @@ export default function Statistics() {
   ];
 
   return (
-    <div className="items-center text-white py-12 justify-center flex text-center gap-12 bg-button-color">
+    <div className="items-center text-white py-12 mb-8 justify-evenly flex text-center gap-12 bg-button-color">
       {statistics.map((statistic) => (
         <div key={statistics.headline}>
           <h1 className="text-largeH1">{statistic.number}</h1>
