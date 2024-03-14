@@ -2,4 +2,199 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: FilsonProMedium;
+  src: url(./fonts/filsonpro/FilsonProMedium.otf);
+}
 
+@font-face {
+  font-family: FilsonProRegular;
+  src: url(./fonts/filsonpro/FilsonProRegular.otf);
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+p {
+  font-family: FilsonProRegular;
+}
+
+h1,
+h2 {
+  font-family: FilsonProMedium;
+}
+
+#backgroundOne {
+  position: absolute;
+  height: 60%;
+  width: 60%;
+  border-radius: 32px;
+  rotate: 45deg;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 200px;
+  background: linear-gradient(#e6dbd1, #efeae4, #faf7f3);
+  z-index: -2;
+  border: 2px solid #f1f1f1a8;
+  transform: translateZ(-10px) scale(2);
+  transform-style: preserve-3d;
+  margin-left: -90%;
+  margin-top: -20%;
+}
+
+#backgroundTwo {
+  position: absolute;
+  height: 50%;
+  width: 50%;
+  border-radius: 32px;
+  rotate: 45deg;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 100px;
+  margin-left: -80%;
+  margin-top: -10%;
+
+  background: linear-gradient(#e6dbd1, #efeae4, #ffffff);
+  z-index: -2;
+  transform-style: preserve-3d;
+
+  border: 2px solid #f1f1f1a8;
+  transform: translateZ(-7px) scale(1.7);
+}
+
+#backgroundThree {
+  position: absolute;
+  height: 50%;
+  width: 50%;
+  border-radius: 32px;
+  rotate: 45deg;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 100px;
+
+  margin-top: 80%;
+  margin-left: 32%;
+  background: linear-gradient(#e6dbd1, #efeae4, #faf7f3);
+  z-index: -2;
+  border-left: 4px solid #f1f1f1a8;
+  transform-style: preserve-3d;
+
+  transform: translateZ(-10px) scale(2);
+}
+
+#backgroundFour {
+  position: absolute;
+  height: 50%;
+  width: 50%;
+  border-radius: 32px;
+  rotate: -135deg;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 100px;
+  margin-top: -20%;
+  margin-left: 80%;
+  background: linear-gradient(#e6dbd1, #e7dacb, #faf7f3);
+  z-index: -1;
+  border-top: 4px solid #f1f1f1a8;
+  transform-style: preserve-3d;
+
+  transform: translateZ(-5px) scale(1.5);
+}
+
+#backgroundFive {
+  position: absolute;
+  height: 50%;
+  width: 50%;
+  border-radius: 32px;
+  rotate: -135deg;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 100px;
+  margin-top: 20%;
+  margin-left: 89%;
+  background: linear-gradient(#e6dbd1, #e7dacb, #faf7f3);
+  z-index: -2;
+  transform-style: preserve-3d;
+
+  transform: translateZ(-7px) scale(1.7);
+  border-left: 4px solid #f1f1f1a8;
+}
+
+#backgroundSix {
+  position: absolute;
+  height: 50%;
+  width: 50%;
+  border-radius: 32px;
+  rotate: -135deg;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 100px;
+  margin-top: 40%;
+  margin-left: 80%;
+  background: linear-gradient(#e6dbd1, #e7dacb, #faf7f3);
+  z-index: -3;
+  border-top: 4px solid #f1f1f1a1;
+  transform: translateZ(-7px) scale(1.7);
+}
+
+#main {
+  background-color: #e9e3dd;
+}
+
+#boxCollection {
+  height: 100vh;
+  overflow-y: auto;
+  width: 100%;
+  overflow-x: hidden;
+  perspective: 10px;
+}
+
+#backgroundDiffuser {
+  width: 100%;
+  margin-top: -82.6%;
+  position: absolute;
+  height: 90%;
+  background-color: #6b858d;
+  z-index: -2;
+  /* transform-style: preserve-3d;
+    transform: translateZ(-5px) scale(1.5); */
+}
+
+#kretsBoxOne {
+  position: absolute;
+  rotate: 45deg;
+  width: 250px;
+  height: 250px;
+  margin-top: 20px;
+  margin-left: -20px;
+  background: linear-gradient(#e6dbd1, #e7dacb, #faf7f3);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 100px;
+  border: 8px solid #f1f1f1a8;
+}
+
+#kretsBoxTwo {
+  position: absolute;
+  rotate: 135deg;
+  margin-left: 215px;
+  width: 270px;
+  height: 284px;
+  background: linear-gradient(#e6dbd1, #e7dacb, #faf7f3);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 100px;
+  z-index: 1;
+  border: 8px solid #f1f1f1a8;
+}
+
+#kretsBoxThree {
+  position: absolute;
+  rotate: 135deg;
+  margin-left: 100px;
+  margin-top: -100px;
+  width: 243px;
+  height: 253px;
+  background: linear-gradient(#e6dbd1, #e7dacb, #faf7f3);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 100px;
+  border: 8px solid #f1f1f1a8;
+}
+
+#kretsBoxFour {
+  position: absolute;
+  rotate: 135deg;
+  margin-left: 115px;
+  margin-top: 120px;
+  width: 250px;
+  height: 250px;
+  background: linear-gradient(#e6dbd1, #e7dacb, #faf7f3);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 100px;
+  z-index: -1;
+  border: 8px solid #f1f1f1a8;
+}
