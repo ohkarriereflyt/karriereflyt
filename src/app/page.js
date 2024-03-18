@@ -11,6 +11,8 @@ import JobbkretserPartner from "./components/JobbkretserPartner";
 import PartnersAndSertifications from "./components/PartnersAndSertifications";
 import ImagesInSaquares from "./components/ImagesInSquares";
 import Statistics from "./components/Statistics";
+import PageTitle from "./components/PageTitle";
+import Footer from "./components/Footer";
 
 export default function Home() {
   const pathname = usePathname();
@@ -43,11 +45,13 @@ export default function Home() {
       {/* Samarbeidspartnere og sertifiseringer */}
       <PartnersAndSertifications />
       <Statistics />
+      <PageTitle title="Vi hjelper deg med dine behov" />
 
       {/* Bottom buttons */}
-      <div className="flex justify-center space-x-4 py-8">
-        <CtaButtons />
+      <div className="flex justify-center items-center space-x-4 mx-60 py-12">
+        <CtaButtons widthOne="15%" widthTwo="15%" />
       </div>
+      <Footer />
     </main>
   );
 }
