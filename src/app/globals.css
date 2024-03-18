@@ -13,7 +13,7 @@
 }
 
 body {
-  overflow-x: hidden;
+  overflow-y: hidden;
   overflow-y: hidden;
 }
 
@@ -141,7 +141,7 @@ h2 {
 
 #backgroundDiffuser {
   width: 100%;
-  margin-top: -82.6%;
+  margin-top: -120%;
   position: absolute;
   height: 90%;
   background-color: #6b858d;
