@@ -49,6 +49,7 @@ module.exports = {
         footerTitle: "16px",
         footer: "12px",
         button: "16px",
+        icon: "18px",
       },
 
       borderRadius: {
