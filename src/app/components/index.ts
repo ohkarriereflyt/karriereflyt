@@ -12,6 +12,10 @@ import ServiceBox from "./ServiceBox";
 import List from "./List";
 import ServiceCardLeft from "./ServiceCardLeft";
 import ServiceCardRight from "./ServiceCardRight";
+import OurHistorySection from "./OurHistorySection";
+import ContactButton from "./ContactButton";
+import EmployeSection from "./EmployeSection";
+import ContactEmployee from "./ContactEmployee";
 
 export {
   CTAButtons,
@@ -27,5 +31,9 @@ export {
   ServiceBox,
   List,
   ServiceCardLeft,
-  ServiceCardRight
+  ServiceCardRight,
+  OurHistorySection,
+  ContactButton,
+  EmployeSection,
+  ContactEmployee,
 };
