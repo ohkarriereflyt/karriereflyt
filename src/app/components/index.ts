@@ -10,6 +10,8 @@ import PageTitle from "./PageTitle";
 import Footer from "./Footer";
 import ServiceBox from "./ServiceBox";
 import List from "./List";
+import ServiceCardLeft from "./ServiceCardLeft";
+import ServiceCardRight from "./ServiceCardRight";
 
 export {
   CTAButtons,
@@ -23,5 +25,7 @@ export {
   PageTitle,
   Footer,
   ServiceBox,
-  List
+  List,
+  ServiceCardLeft,
+  ServiceCardRight
 };
