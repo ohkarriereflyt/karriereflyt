@@ -1,9 +1,4 @@
 import Image from "next/image";
-// import HeroCardTitle from '@/app/components/HeroCardTitle';
-// import HeroCardImages from '@/app/components/HeroCardImages';
-// import List from '@/app/components/List';
-// import ServiceBox from '@/app/components/ServiceBox';
-
 import {
   HeroCardTitle,
   HeroCardImages,
@@ -17,7 +12,7 @@ export default function Page() {
       {/* Hero Section */}
       <div className="text-center p-12">
         <HeroCardTitle
-          heading="Våre tjenester"
+          heading="V책re tjenester"
           subtitle="Vi tilbyr blablabla.."
         />
         {/* Placeholder for artwork */}
@@ -28,7 +23,7 @@ export default function Page() {
         <List
           listItemOne="Rekruttering"
           listItemTwo="Utleie av personell"
-          listItemThree="Rådgivning"
+          listItemThree="R책dgivning"
           listItemFour="Headhunting"
         />
       </div>
@@ -47,8 +42,8 @@ export default function Page() {
           iconName="icon-path"
         />
         <ServiceBox
-          title="Rådgiving"
-          description="Detailed description of Rådgiving service..."
+          title="R책dgiving"
+          description="Detailed description of R책dgiving service..."
           iconName="icon-path"
         />
         <ServiceBox
