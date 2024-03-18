@@ -28,11 +28,16 @@ export default function SocialMediaIcons() {
 
   return (
     <>
-      {socialMediaIcons.map((socialMediaIcon) => (
-        <div key={socialMediaIcon.name}>
-          {/* <FontAwesomeIcon className="text-text" icon={socialMediaIcon.icon} /> */}
-        </div>
-      ))}
+      <div className=" text-text-flat-inverted flex text-center">
+        {socialMediaIcons.map((socialMediaIcon) => (
+          <div key={socialMediaIcon.name}>
+            <FontAwesomeIcon
+              className="text-icon ml-5 mt-24"
+              icon={socialMediaIcon.icon}
+            />
+          </div>
+        ))}
+      </div>
     </>
   );
 }

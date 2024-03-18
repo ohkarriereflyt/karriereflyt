@@ -2,17 +2,17 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
-//Componentsimport
-import CtaButtons from "./components/CTAbuttons";
-import HeroCardImages from "./components/HeroCardImages";
-import HeroCardTitle from "./components/HeroCardTitle";
-import CustomerFeedback from "./components/CustomerFeedback";
-import JobbkretserPartner from "./components/JobbkretserPartner";
-import PartnersAndSertifications from "./components/PartnersAndSertifications";
-import ImagesInSaquares from "./components/ImagesInSquares";
-import Statistics from "./components/Statistics";
-import PageTitle from "./components/PageTitle";
-import Footer from "./components/Footer";
+import {
+  CTAButtons,
+  HeroCardTitle,
+  CustomerFeedback,
+  JobbkretserPartner,
+  PartnersAndSertifications,
+  ImagesInSaquares,
+  Statistics,
+  PageTitle,
+  Footer,
+} from "./components/index";
 
 export default function Home() {
   const pathname = usePathname();
@@ -27,7 +27,7 @@ export default function Home() {
                 heading="Rekruttering & bemanning"
                 subtitle="Profesjonell samarbeidspartner i ansettelser, headhunting og innleie"
               />
-              <CtaButtons />
+              <CTAButtons />
             </div>
             <ImagesInSaquares />
           </div>
@@ -45,11 +45,14 @@ export default function Home() {
       {/* Samarbeidspartnere og sertifiseringer */}
       <PartnersAndSertifications />
       <Statistics />
-      <PageTitle title="Vi hjelper deg med dine behov" />
+      <PageTitle
+        className="text-headline1"
+        title="Vi strekker oss lenger for å gi deg det du trenger!"
+      />
 
       {/* Bottom buttons */}
       <div className="flex justify-center items-center space-x-4 mx-60 py-12">
-        <CtaButtons widthOne="15%" widthTwo="15%" />
+        <CTAButtons widthOne="15%" widthTwo="15%" />
       </div>
       <Footer />
     </main>
