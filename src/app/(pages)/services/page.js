@@ -4,6 +4,8 @@ import {
   HeroCardImages,
   List,
   ServiceBox,
+  ServiceCardLeft,
+  ServiceCardRight,
 } from "../../components/index";
 
 export default function Page() {
@@ -26,6 +28,8 @@ export default function Page() {
           listItemThree="R책dgivning"
           listItemFour="Headhunting"
         />
+        <ServiceCardLeft />
+        <ServiceCardRight />
       </div>
 
       {/* Services Section */}
