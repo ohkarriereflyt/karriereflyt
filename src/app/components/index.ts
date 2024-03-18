@@ -8,6 +8,8 @@ import ImagesInSaquares from "./ImagesInSquares";
 import Statistics from "./Statistics";
 import PageTitle from "./PageTitle";
 import Footer from "./Footer";
+import ServiceBox from "./ServiceBox";
+import List from "./List";
 
 export {
   CTAButtons,
@@ -20,4 +22,6 @@ export {
   Statistics,
   PageTitle,
   Footer,
+  ServiceBox,
+  List
 };
