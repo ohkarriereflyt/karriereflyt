@@ -1,8 +1,13 @@
+import { Squada_One } from "next/font/google";
+
 export default function ImagesInSaquares() {
+
+
   return (
     <>
       <div
-        className="rounded-connie border-4 border-box-border-color"
+        id="squareOne"
+        className="rounded-connie border-4 border-box-border-color lg:tra"
         style={{
           position: "absolute",
           width: "350px",
@@ -11,10 +16,12 @@ export default function ImagesInSaquares() {
           marginLeft: "33%",
           backgroundColor: "black",
           zIndex: "2",
+
         }}
       ></div>
       <div
         className="rounded-connie border-4 border-box-border-color"
+        id="squareTwo"
         style={{
           position: "absolute",
           width: "350px",
@@ -29,6 +36,7 @@ export default function ImagesInSaquares() {
       ></div>
       <div
         className="rounded-connie border-4 border-box-border-color"
+        id="squareThree"
         style={{
           position: "absolute",
           width: "350px",

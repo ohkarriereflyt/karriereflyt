@@ -19,22 +19,23 @@ export default function Home() {
   return (
     <main>
       {/* Hero section with text and images */}
-      <div className="flex justify-between items-center h-screen">
-        <div className="w-3/5 mx-auto">
-          <div className="flex flex-wrap justify-between items-center">
-            <div className="w-full lg:w-1/2 p-8">
+      <div className="lg:flex xl:h-screen">
+        <div className="w-3/5 mx-auto  lg:flex xl:flex-row lg:flex-col lg:items-center">
+          <div className="w-full lg:w-1/2 p-8">
+            <div>
               <HeroCardTitle
                 heading="Rekruttering & bemanning"
                 subtitle="Profesjonell samarbeidspartner i ansettelser, headhunting og innleie"
               />
+            </div>
+            <div>
               <CTAButtons />
             </div>
-            <ImagesInSaquares />
           </div>
+
+          <ImagesInSaquares />
         </div>
       </div>
-
-      {/* Content section at 60% */}
 
       {/* Tilbakemeldinger fra våre kunder */}
       <CustomerFeedback />
