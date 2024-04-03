@@ -3,18 +3,47 @@
 @tailwind utilities;
 
 @font-face {
+  font-family: FilsonProRegular;
+  src: url(./fonts/filsonpro/FilsonProRegular.otf);
+}
+@font-face {
   font-family: FilsonProMedium;
   src: url(./fonts/filsonpro/FilsonProMedium.otf);
 }
-
 @font-face {
-  font-family: FilsonProRegular;
-  src: url(./fonts/filsonpro/FilsonProRegular.otf);
+  font-family: FilsonProBold;
+  src: url(./fonts/filsonpro/FilsonProBold.otf);
+}
+
+* {
+  --color-text: #4A4A4A;
+  --color-text-inverted: #FFFBF8;
+  --color-icon: linear-gradient(180deg, #FFFBF8 0%, #EDE4DE 100%);
+  --background: #FFFBF8;
+  --background-inverted: #4A4A4A;
+  --background-gradient: linear-gradient(180deg, #FAF7F3 0%, #EFEAE4 50%, #D1C9C1 100%);
+  /* --background-gradient: linear-gradient(180deg, #ECEAE8 0%, #140901 100%); */
+
+  --color-slate-gray: #6B858D;
+  --color-pistachio: #8A9482;
+  --color-vanilla-latte: #A59584;
+
+  --color-red: #998787;
+  --color-purple: #8F8799;
+  --color-green: #6B8D8B;
+  
+  --color-border-light: #ffffff33;
+  --color-border-dark: #4a4a4a33;
+
+  --color-background-box: #f4ece2;
+
+  --box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 200px;
 }
 
 body {
   overflow-y: hidden;
   overflow-y: hidden;
+  color: var(--color-text);
 }
 
 p {
