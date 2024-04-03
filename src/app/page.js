@@ -20,16 +20,18 @@ export default function Home() {
     <main>
       {/* Hero section with text and images */}
       <div className="lg:flex xl:h-screen">
-        <div className="w-3/5 mx-auto  lg:flex xl:flex-row lg:flex-col lg:items-center">
-          <div className="w-full lg:w-1/2 p-8">
-            <div>
+        <div className="w-3/5  mx-auto  lg:flex xl:flex-row lg:flex-col mt-36">
+          <div className="w-full p-8">
+            <div className="w-1/2">
               <HeroCardTitle
                 heading="Rekruttering & bemanning"
+                headingSize="text-headline"
                 subtitle="Profesjonell samarbeidspartner i ansettelser, headhunting og innleie"
+                subtitleSize="text-subHeadline"
               />
             </div>
-            <div>
-              <CTAButtons />
+            <div className="mt-24">
+              <CTAButtons widthOne="170px" widtTwo="170px" />
             </div>
           </div>
 
