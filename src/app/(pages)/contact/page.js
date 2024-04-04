@@ -2,9 +2,11 @@ import { PageTitle, ContactEmployee } from "../../components/index";
 
 export default function Page() {
   return (
-    <div className="max-w-4xl mx-auto py-12 px-4">
+    <div className="mx-auto w-full backdrop-blur-xl">
       <PageTitle title="Kontakt oss" />
-      <ContactEmployee />
+      <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8" >
+        <ContactEmployee />
+      </div>
     </div>
   );
 }
