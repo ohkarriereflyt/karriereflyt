@@ -5,18 +5,30 @@ import {
   List,
   ServiceCardLeft,
   ServiceCardRight,
+  Pentagon
 } from "../../components/index";
 
 export default function Page() {
   return (
-    <div className="bg-gray-100">
+    <div>
       <div className="mx-auto max-w-[60%]">
         <div className="text-left p-12">
-          <HeroCardTitle heading="Våre tjenester" />
-          <List listItemOne="Rekruttering" listItemTwo="Utleie av personell" listItemThree="Rådgivning" listItemFour="Headhunting" />
+          <div className="flex flex-col md:flex-row justify-between  items-start">
+            <div> 
+            <HeroCardTitle heading="Våre tjenester" headingSize="text-headline"/>
+              <List listItemOne="Rekruttering" listItemTwo="Utleie av personell" listItemThree="Rådgivning" listItemFour="Headhunting" />
+            </div>
+            <div>
+              <Pentagon/>
+            </div>
+          </div>
           <h1 className="text-center text-4xl">Våre tjenester</h1>
+        </div>
+      </div>
 
-          <div className="mb-8"> 
+      <div className="w-full backdrop-filter backdrop-blur-sm px-12">
+        <div className="mx-auto max-w-[60%]">
+          <div className="mb-8">
             <ServiceCardLeft 
               icon="✚" 
               iconColor="text-blue-600" 
@@ -32,8 +44,8 @@ export default function Page() {
               ]}
             />
           </div>
-          
-          <div className="mb-8"> {/* Optionally add margin bottom here too if needed */}
+
+          <div className="mb-8">
             <ServiceCardRight 
               icon="✚" 
               iconColor="text-blue-600"  
@@ -45,10 +57,10 @@ export default function Page() {
               listItems={[
                 { icon: "✓", text: "Vi finner den perfekter ansatte for akkurat deg" }, 
                 { icon: "✓", text: "Bistand til utleie av personell" },  
-                { icon: "✓", text: "Grundig utvelgelsess prosses, intervju og referansesjekk" }  
+                { icon: "✓", text: "Grundig utvelgelsess prosess, intervju og referansesjekk" }  
               ]}
             />
-          </div> 
+          </div>
         </div>
       </div>
     </div>
