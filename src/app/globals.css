@@ -68,6 +68,10 @@ h2 {
   rotate: 45deg;
 }
 
+.background-flat path {
+  fill: var(--background);
+}
+
 #backgroundOne {
   height: 60%;
   width: 60%;
