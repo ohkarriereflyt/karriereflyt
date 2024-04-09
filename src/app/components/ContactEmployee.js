@@ -63,8 +63,8 @@ export default function ContactEmployee() {
         <div className="grid gap-8 xl:grid-cols-3 md:grid-cols-2">
             {teamMembers.map((member) => (
                 <div className="flex justify-center ">
-                    <div className="w-[362px] h-[788px] bg-slate-500 rounded-2xl shadow border-4 border-white border-opacity-20 flex-col justify-start items-start gap-2.5 inline-flex">
-                        <div className="self-stretch h-[350px] bg-stone-200 rounded-tl-xl rounded-tr-xl flex-col justify-start items-start gap-2.5 flex">
+                    <div className="w-[362px] h-[788px] bg-slate-gray-flat rounded-2xl shadow border-4 border-white border-opacity-20 flex-col justify-start items-start gap-2.5 inline-flex">
+                        <div className="self-stretch h-[350px] bg-white rounded-tl-xl rounded-tr-xl flex-col justify-start items-start gap-2.5 flex">
                             <Image
                                 className="self-stretch h-[350px] rounded-tl-xl rounded-tr-xl shadow-inner"
                                 width={362}
@@ -75,32 +75,32 @@ export default function ContactEmployee() {
                         </div>
                         <div className="self-stretch h-[420px] px-3 py-2 flex-col justify-start items-end flex">
                             <div className="self-stretch justify-between items-center inline-flex">
-                                <div className="text-stone-50 text-xl font-bold font-['Filson Pro']">{member.name}</div>
+                                <div className="text-text-flat-inverted text-xl font-bold font-['Filson Pro']">{member.name}</div>
                                 <div className="justify-center items-center gap-[12.86px] flex">
                                     <div className="w-9 h-9 py-3 origin-top-left -rotate-90 flex-col justify-center items-center inline-flex"></div>
                                 </div>
                             </div>
-                            <div className="self-stretch text-stone-50 text-base font-normal font-['Filson Pro'] leading-loose">{member.title}</div>
+                            <div className="self-stretch text-text-flat-inverted text-base font-normal font-['Filson Pro'] leading-loose">{member.title}</div>
                             <div className="self-stretch h-20 py-2 flex-col justify-start items-end flex">
                                 <div className="self-stretch justify-start items-center gap-2.5 inline-flex">
-                                    <div className="w-16 text-stone-50 text-base font-bold font-['Filson Pro']">Email:</div>
-                                    <div className="text-stone-50 text-base font-normal font-['Filson Pro'] leading-loose">{member.email}</div>
+                                    <div className="w-16 text-text-flat-inverted text-base font-bold font-['Filson Pro']">Email:</div>
+                                    <div className="text-text-flat-inverted text-base font-normal font-['Filson Pro'] leading-loose">{member.email}</div>
                                 </div>
                                 <div className="self-stretch justify-start items-center gap-2.5 inline-flex">
-                                    <div className="w-16 text-stone-50 text-base font-bold font-['Filson Pro']">Telefon:</div>
-                                    <div className="text-stone-50 text-base font-normal font-['Filson Pro'] leading-loose">{member.phone}</div>
+                                    <div className="w-16 text-text-flat-inverted text-base font-bold font-['Filson Pro']">Telefon:</div>
+                                    <div className="text-text-flat-inverted text-base font-normal font-['Filson Pro'] leading-loose">{member.phone}</div>
                                 </div>
                             </div>
                             <div className="self-stretch py-2 justify-start items-end gap-2.5 inline-flex">
-                                <div className="grow shrink basis-0 text-stone-50 text-base font-normal font-['Filson Pro'] leading-loose">Øyvind Haugen er en erfaren leder og grunnlegger av Karriereflyt, et selskap dedikert til å hjelpe enkeltpersoner med å navigere gjennom karriereveien sin.</div>
+                                <div className="grow shrink basis-0 text-text-flat-inverted text-base font-normal font-['Filson Pro'] leading-loose">Øyvind Haugen er en erfaren leder og grunnlegger av Karriereflyt, et selskap dedikert til å hjelpe enkeltpersoner med å navigere gjennom karriereveien sin.</div>
                             </div>
                             <div className="h-14 py-2 justify-center items-center gap-4 inline-flex">
-                                <div className="text-stone-50 text-base font-medium font-['Filson Pro']">Les mer</div>
-                                <div className="justify-center items-center gap-[12.86px] flex">
-                                    <div className="w-9 h-9 relative">
-                                        <div className="w-9 h-9 left-0 top-[36px] absolute origin-top-left -rotate-90 opacity-20 bg-stone-50 rounded-full"></div>
-                                    </div>
-                                </div>
+                                <div className="text-text-flat-inverted text-base font-medium font-['Filson Pro']">Les mer</div>
+                                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <ellipse opacity="0.2" cx="18.0011" cy="18.0037" rx="18.0002" ry="18.0008" transform="rotate(-90 18.0011 18.0037)" fill="#FFFBF8" />
+                                    <path d="M11.9996 18H23.9996" stroke="#FFFBF8" stroke-width="2.57143" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M18.0007 12.0039L24.0007 18.0039L18.0007 24.0039" stroke="#FFFBF8" stroke-width="2.57143" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
                             </div>
                             <div className="self-stretch px-6 py-3 justify-between items-center inline-flex background-flat">
                                 <div className="w-8 h-8 flex-col justify-center items-center inline-flex">

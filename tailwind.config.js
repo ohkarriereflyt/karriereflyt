@@ -26,8 +26,7 @@ module.exports = {
         "pistasch-flat": "#8A9482",
         "vanilla-latte-flat": "#A59584",
         // Primary gradient
-        "slate-gray-gradient":
-          "linear-gradient(90deg, #7E9AA3 0%, #516F76 100%)",
+        "slate-gray-gradient": "linear-gradient(90deg, #7E9AA3 0%, #516F76 100%)",
         "pistach-gradient": "linear-gradient(90deg, #9CA594 0%, #77826F 100%)",
         "vanilla-latte": "linear-gradient(90deg, #C2B2A2 0%, #8D7D6D 100%)",
         // Secondary flat
@@ -37,8 +36,7 @@ module.exports = {
         "background-flat-inverted": "#4A4A4A",
         // Secondary gradiant
         "icons-gradient": "linear-gradient(90deg, #FFFBF8 0%, #EDE4DE 100%)",
-        "background-gradient":
-          "linear-gradient(90deg, #ECEAE8 0%, #DEDBD9 100%)",
+        "background-gradient": "linear-gradient(90deg, #ECEAE8 0%, #DEDBD9 100%)",
       },
       fontSize: {
         headline: "69px",
