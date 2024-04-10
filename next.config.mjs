@@ -7,6 +7,11 @@ const nextConfig = {
                 hostname: 'onedrive.live.com',
                 pathname: '/**',
             },
+            {
+                protocol: 'https',
+                hostname: 'upload.wikimedia.org',
+                pathname: '/**',
+            }
         ],
     },
 };
