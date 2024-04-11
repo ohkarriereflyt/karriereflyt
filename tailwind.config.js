@@ -25,6 +25,8 @@ module.exports = {
         "slate-gray-flat": "#6B858D",
         "pistasch-flat": "#8A9482",
         "vanilla-latte-flat": "#A59584",
+        "purple": "#8F8799",
+        "weird-red": "#998787",
         // Primary gradient
         "slate-gray-gradient":
           "linear-gradient(90deg, #7E9AA3 0%, #516F76 100%)",

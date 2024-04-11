@@ -1,10 +1,8 @@
-import {
-  ReadMore,
-  }from "../components/index";
+import { ReadMore } from "../components/index";
 
+// Adjust the props to include an SvgIcon component, similar to ServiceCardLeft
 const ServiceCardRight = ({
-  icon = "✚", 
-  iconColor = "text-gray-600", 
+  SvgIcon, 
   squareColor = "bg-gray-300", 
   headingFourText = "Default Title", 
   headingFourColor = "text-gray-700", 
@@ -27,12 +25,12 @@ const ServiceCardRight = ({
                           ))}
                       </ul>
                   </div>
-                  {/* Replaced button with ReadMore component */}
                   <ReadMore direction="down" />
               </div>
           </div>
+          {/* This div now potentially contains the passed component */}
           <div className={`flex-none w-64 ${squareColor} flex items-center justify-center`}>
-              <span className={`text-4xl ${iconColor}`}>{icon}</span>
+              {SvgIcon && <SvgIcon />} 
           </div>
       </div>
   );
