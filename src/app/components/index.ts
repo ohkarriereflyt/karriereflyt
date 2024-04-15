@@ -17,6 +17,9 @@ import ContactButton from "./ContactButton";
 import EmployeSection from "./EmployeSection";
 import ContactEmployee from "./ContactEmployee";
 import ReadMore from "./ReadMore";
+import ContactForm from "./ContactForm";
+import ContactInfo from "./ContactInfo";
+import Location from "./Location";
 
 export {
   CTAButtons,
@@ -38,4 +41,7 @@ export {
   EmployeSection,
   ContactEmployee,
   ReadMore,
+  ContactForm,
+  ContactInfo,
+  Location,
 };

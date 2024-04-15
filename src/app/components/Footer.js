@@ -47,7 +47,7 @@ export default function Footer() {
       >
         {footerItems.map((footerItem, index) => (
           <div key={index} className="flex-1 text-text-flat-inverted">
-            <h1 className="pb-1 header3">{footerItem.header}</h1>
+            <h3 className="pb-1">{footerItem.header}</h3>
             <p className="pb-1 text-footer">{footerItem.subOne}</p>
             <p className="pb-1 text-footer">{footerItem.subTwo}</p>
             <p className="pb-1 text-footer">{footerItem.subThree}</p>

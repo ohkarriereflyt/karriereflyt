@@ -34,6 +34,7 @@ module.exports = {
         "text-flat-inverted": "#FFFBF8",
         "background-flat": "#FFFBF8",
         "background-flat-inverted": "#4A4A4A",
+        "3": "#E6E4E2",
         // Secondary gradiant
         "icons-gradient": "linear-gradient(90deg, #FFFBF8 0%, #EDE4DE 100%)",
         "background-gradient": "linear-gradient(90deg, #ECEAE8 0%, #DEDBD9 100%)",
