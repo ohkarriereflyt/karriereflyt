@@ -16,6 +16,8 @@ import OurHistorySection from "./OurHistorySection";
 import ContactButton from "./ContactButton";
 import EmployeSection from "./EmployeSection";
 import ContactEmployee from "./ContactEmployee";
+import ReadMore from "./ReadMore";
+import Pentagon from "./Pentagon";
 
 export {
   CTAButtons,
@@ -36,4 +38,6 @@ export {
   ContactButton,
   EmployeSection,
   ContactEmployee,
+  ReadMore,
+  Pentagon,
 };
