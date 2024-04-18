@@ -20,6 +20,7 @@ import ReadMore from "./ReadMore";
 import ContactForm from "./ContactForm";
 import ContactInfo from "./ContactInfo";
 import Location from "./Location";
+import NodeMailer from "../../pages/api/nodemailer";
 
 export {
   CTAButtons,
@@ -44,4 +45,5 @@ export {
   ContactForm,
   ContactInfo,
   Location,
+  NodeMailer,
 };

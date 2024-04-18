@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image'
 import localImg from '../imagesMidlertidig/øyvind-haugen.png'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const teamMembers = [
     {
@@ -194,18 +194,18 @@ const DesktopCard = ({ member, index, openIndex, toggleOpen }) => {
                         {openIndex === index && (
                             <>
                                 <div className="self-stretch h-20 py-2 flex-col justify-start items-end flex">
-                                {member.email && (
-                                    <div className="self-stretch justify-start items-center gap-2.5 inline-flex">
-                                        <div className="w-16 text-text-flat-inverted text-base font-bold font-['Filson Pro']">Email:</div>
-                                        <div className="text-text-flat-inverted text-base font-normal font-['Filson Pro'] leading-loose">{member.email}</div>
-                                    </div>
-                                )}
-                                {member.phone && (
-                                    <div className="self-stretch justify-start items-center gap-2.5 inline-flex">
-                                        <div className="w-16 text-text-flat-inverted text-base font-bold font-['Filson Pro']">Telefon:</div>
-                                        <div className="text-text-flat-inverted text-base font-normal font-['Filson Pro'] leading-loose">{member.phone}</div>
-                                    </div>
-                                )}
+                                    {member.email && (
+                                        <div className="self-stretch justify-start items-center gap-2.5 inline-flex">
+                                            <div className="w-16 text-text-flat-inverted text-base font-bold font-['Filson Pro']">Email:</div>
+                                            <div className="text-text-flat-inverted text-base font-normal font-['Filson Pro'] leading-loose">{member.email}</div>
+                                        </div>
+                                    )}
+                                    {member.phone && (
+                                        <div className="self-stretch justify-start items-center gap-2.5 inline-flex">
+                                            <div className="w-16 text-text-flat-inverted text-base font-bold font-['Filson Pro']">Telefon:</div>
+                                            <div className="text-text-flat-inverted text-base font-normal font-['Filson Pro'] leading-loose">{member.phone}</div>
+                                        </div>
+                                    )}
                                 </div>
                                 <div className="self-stretch py-2 justify-start items-end gap-2.5 inline-flex">
                                     <div className="grow shrink basis-0 text-text-flat-inverted text-base font-normal font-['Filson Pro'] leading-loose">Øyvind Haugen er en erfaren leder og grunnlegger av Karriereflyt, et selskap dedikert til å hjelpe enkeltpersoner med å navigere gjennom karriereveien sin.</div>
@@ -274,9 +274,10 @@ const DesktopCard = ({ member, index, openIndex, toggleOpen }) => {
 export default function ContactEmployee() {
     // Store the index of the currently open member, null if none are open
     const [openIndex, setOpenIndex] = useState(null);
+
+    const [mobile, setMobile] = useState(false);
+    const [smallWidth, setSmallWidth] = useState(false);
     // Store the screen width
-    const [mobile, setMobile] = useState(window.innerWidth < 768);
-    const [smallWidth, setSmallWidth] = useState(window.innerWidth >= 550);
 
     // Function to toggle the open state of a member by index
     const toggleOpen = (index) => {
@@ -284,11 +285,13 @@ export default function ContactEmployee() {
         setOpenIndex(openIndex === index ? null : index);
     };
 
-    // Add an event listener to update the screen width state when the window is resized
-    window.addEventListener('resize', () => {
-        setMobile(window.innerWidth < 768);
-        setSmallWidth(window.innerWidth >= 550);
-    });
+    if (typeof window !== 'undefined') {
+        // Add an event listener to update the screen width state when the window is resized
+        window.addEventListener('resize', () => {
+            setMobile(window.innerWidth < 768);
+            setSmallWidth(window.innerWidth >= 550);
+        });
+    }
 
     return (
         <div className="grid md:gap-8 gap-4 xl:grid-cols-3 md:grid-cols-2">
