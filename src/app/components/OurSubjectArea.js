@@ -91,7 +91,7 @@ export default function OurSubjectArea() {
           merkantile fag. Ta gjerne kontakt direkte med oss dersom du har et
           behov!
         </p>
-        <ContactButton />
+        {/* <ContactButton /> */}
       </div>
     </>
   );
