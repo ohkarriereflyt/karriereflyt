@@ -35,7 +35,7 @@ export default function Home() {
             <ImagesInSaquares />
           </div>
           <div className="xl:mt-12 mt-96 order-3 w-full xl:ml-0 ml-36 lg:mb-0 mb-12">
-            <CTAButtons widthOne="w-96" widtTwo="w-24" />
+            <CTAButtons widthOne="w-48" widtTwo="w-24" />
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@ export default function Home() {
       </div>
 
       {/* Som partner med jobbkrester */}
-      {/* <JobbkretserPartner /> */}
+      <JobbkretserPartner />
 
       {/* Samarbeidspartnere og sertifiseringer */}
       <PartnersAndSertifications />
