@@ -11,7 +11,7 @@ export default function ImagesInSaquares() {
           width: "350px",
           height: "350px",
           rotate: "45deg",
-          marginLeft: "33%",
+
           backgroundColor: "pink",
           marginTop: "10%",
           zIndex: "2",
@@ -28,28 +28,31 @@ export default function ImagesInSaquares() {
           width: "350px",
           height: "350px",
           rotate: "45deg",
-          marginLeft: "45%",
+          marginLeft: "12%",
           backgroundColor: "white",
           marginTop: "15%",
           boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 200px 100px",
           zIndex: "-1",
+          // marginLeft: window.innerWidth <= 1280 ? "20%" : "12%",
+          // marginTop: window.innerWidth <= 1280 ? "7.5%" : "10%",
         }}
       >
         2
       </div>
       <div
-        className="rounded-connie border-4 border-box-border-color"
+        className="rounded-connie border-4 border-box-border-color xl:ml-0 "
         id="squareThree"
         style={{
           position: "absolute",
           width: "350px",
           height: "350px",
           rotate: "45deg",
-          marginLeft: "45%",
+          marginLeft: "12%",
           marginTop: "",
           boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 200px 100px",
           backgroundColor: "grey",
           zIndex: "-1",
+          // marginLeft: window.innerWidth <= 1280 ? "16%" : "12%",
         }}
       >
         3

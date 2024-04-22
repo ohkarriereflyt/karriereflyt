@@ -3,127 +3,260 @@
 @tailwind utilities;
 
 @font-face {
+  font-family: FilsonProRegular;
+  src: url(./fonts/filsonpro/FilsonProRegular.otf);
+}
+
+@font-face {
   font-family: FilsonProMedium;
   src: url(./fonts/filsonpro/FilsonProMedium.otf);
 }
 
 @font-face {
-  font-family: FilsonProRegular;
-  src: url(./fonts/filsonpro/FilsonProRegular.otf);
+  font-family: FilsonProBold;
+  src: url(./fonts/filsonpro/FilsonProBold.otf);
+}
+
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+
+  --color-text: #4A4A4A;
+  --color-text-inverted: #FFFBF8;
+  --color-icon: linear-gradient(180deg, #FFFBF8 0%, #EDE4DE 100%);
+  --background: #FFFBF8;
+  --background-inverted: #4A4A4A;
+  --background-gradient: linear-gradient(180deg, #FAF7F3 0%, #EFEAE4 50%, #D1C9C1 100%);
+  /* --background-gradient: linear-gradient(180deg, #ECEAE8 0%, #140901 100%); */
+
+  --color-slate-gray: #6B858D;
+  --color-pistachio: #8A9482;
+  --color-vanilla-latte: #A59584;
+
+  --color-red: #998787;
+  --color-purple: #8F8799;
+  --color-green: #6B8D8B;
+
+  --color-border-light: #ffffff33;
+  --color-border-dark: #4a4a4a33;
+
+  --color-background-box: #f4ece2;
+
+  --box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 200px;
 }
 
 body {
   overflow-y: hidden;
   overflow-y: hidden;
+  color: var(--color-text);
+}
+
+headline,
+subheadline {
+  display: flex;
+  margin: 1rem;
+}
+
+headline {
+  font-family: FilsonProMedium;
+  font-size: 42px;
+}
+
+subheadline {
+  font-family: FilsonProRegular;
+  font-size: 21px;
+}
+
+h1 {
+  font-family: FilsonProRegular;
+  font-size: 28px;
+}
+
+h2 {
+  font-family: FilsonProBold;
+  font-size: 16px;
+}
+
+h3 {
+  font-family: FilsonProBold;
+  font-size: 14px;
 }
 
 p {
   font-family: FilsonProRegular;
+  font-size: 12px;
 }
 
-h1,
-h2 {
+button,
+button[type="submit"],
+input[type="file"]::file-selector-button {
   font-family: FilsonProMedium;
+  font-size: 12px;
+  height: 44px;
+  padding: 0 20px;
+  border: 4px solid var(--color-border-light);
+  border-radius: 12px;
+  background-color: var(--background-inverted);
+  color: var(--color-text-inverted);
+}
+
+button:hover,
+button[type="submit"]:hover,
+input[type="file"]::file-selector-button:hover {
+  cursor: pointer;
+  filter: brightness(1.1);
+}
+
+input:focus,
+textarea:focus {
+  border: 4px solid var(--color-slate-gray);
+  outline: none;
+}
+
+input[type="file"]:focus {
+  border: none
+}
+
+button:focus,
+input[type="file"]:focus::file-selector-button {
+  outline: none;
+  filter: brightness(1.2);
+}
+
+@media (min-width: 500px) {
+  headline {
+    font-size: 69px;
+  }
+
+  subheadline {
+    font-size: 32px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  button,
+  button[type="submit"],
+  input[type="file"]::file-selector-button {
+    font-size: 16px;
+    padding: 0 32px;
+    height: 56px;
+    border-radius: 16px;
+  }
+}
+
+.noStyle {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+.cursor-default {
+  cursor: default !important;
+}
+
+.kf-border,
+.kf-border-dark {
+  border: 4px solid var(--color-border-light);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.kf-border-dark {
+  border: 4px solid var(--color-border-dark);
+}
+
+.background-3 {
+  background: linear-gradient(90deg, #ECEAE8 0%, #DEDBD9 100%);
+}
+
+.backgroundBox {
+  position: absolute;
+  border-radius: 32px;
+  box-shadow: var(--box-shadow);
+  border: 4px solid var(--color-border-light);
+  transform-style: preserve-3d;
+  background-color: var(--color-background-box);
+
+  height: 50%;
+  width: 50%;
+  rotate: 45deg;
+}
+
+.background-flat path {
+  fill: var(--background);
+}
+
+.contact-icon {
+  height: 28px;
+  width: 28px;
+}
+
+@media (min-width: 400px) {
+  .contact-icon {
+    height: 32px;
+    width: 32px;
+  }
 }
 
 #backgroundOne {
-  position: absolute;
   height: 60%;
   width: 60%;
-  border-radius: 32px;
-  rotate: 45deg;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 200px;
-  background: linear-gradient(#e6dbd1, #efeae4, #faf7f3);
   z-index: -2;
-  border: 2px solid #f1f1f1a8;
   transform: translateZ(-10px) scale(2);
-  transform-style: preserve-3d;
   margin-left: -90%;
   margin-top: -20%;
 }
 
 #backgroundTwo {
-  position: absolute;
-  height: 50%;
-  width: 50%;
-  border-radius: 32px;
-  rotate: 45deg;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 100px;
   margin-left: -80%;
   margin-top: -10%;
-
-  background: linear-gradient(#e6dbd1, #efeae4, #ffffff);
   z-index: -2;
-  transform-style: preserve-3d;
-
-  border: 2px solid #f1f1f1a8;
   transform: translateZ(-7px) scale(1.7);
 }
 
 #backgroundThree {
-  position: absolute;
-  height: 50%;
-  width: 50%;
-  border-radius: 32px;
-  rotate: 45deg;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 100px;
-
   margin-top: 80%;
   margin-left: 32%;
-  background: linear-gradient(#e6dbd1, #efeae4, #faf7f3);
   z-index: -2;
-  border-left: 4px solid #f1f1f1a8;
-  transform-style: preserve-3d;
-
   transform: translateZ(-10px) scale(2);
 }
 
 #backgroundFour {
-  position: absolute;
-  height: 50%;
-  width: 50%;
-  border-radius: 32px;
   rotate: -135deg;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 100px;
   margin-top: -20%;
   margin-left: 80%;
-  background: linear-gradient(#e6dbd1, #e7dacb, #faf7f3);
   z-index: -1;
-  border-top: 4px solid #f1f1f1a8;
-  transform-style: preserve-3d;
-
   transform: translateZ(-5px) scale(1.5);
 }
 
 #backgroundFive {
-  position: absolute;
-  height: 50%;
-  width: 50%;
-  border-radius: 32px;
   rotate: -135deg;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 100px;
   margin-top: 20%;
   margin-left: 89%;
-  background: linear-gradient(#e6dbd1, #e7dacb, #faf7f3);
   z-index: -2;
-  transform-style: preserve-3d;
-
   transform: translateZ(-7px) scale(1.7);
-  border-left: 4px solid #f1f1f1a8;
 }
 
 #backgroundSix {
-  position: absolute;
-  height: 50%;
-  width: 50%;
-  border-radius: 32px;
   rotate: -135deg;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 100px;
   margin-top: 40%;
   margin-left: 80%;
-  background: linear-gradient(#e6dbd1, #e7dacb, #faf7f3);
   z-index: -3;
-  border-top: 4px solid #f1f1f1a1;
   transform: translateZ(-7px) scale(1.7);
 }
 
@@ -137,6 +270,16 @@ h2 {
   width: 100%;
   overflow-x: hidden;
   perspective: 10px;
+}
+
+.waveOneFooter {
+  min-height: 2vh;
+  background-color: rgba(107, 133, 141, 0.2);
+}
+
+.waveTwoFooter {
+  min-height: 2vh;
+  background-color: rgba(107, 133, 141, 0.6);
 }
 
 #backgroundDiffuser {
@@ -199,3 +342,97 @@ h2 {
   border: 8px solid #f1f1f1a8;
 }
 
+.waveTop {
+  top: 0;
+  left: 0;
+  width: 2000px;
+  z-index: -1;
+  height: 300px;
+  margin-top: 62px;
+  display: block;
+
+  margin-left: -6%;
+}
+
+.waveMiddle {
+  top: 0;
+  left: 0;
+  width: 2000px;
+  z-index: -2;
+  height: 300px;
+
+  display: block;
+  rotate: 3deg;
+  margin-top: 65px;
+
+  margin-left: -6%;
+  transform: translateZ(-7px) scale(1.7);
+}
+
+.waveBottom {
+  top: 0;
+  left: 0;
+  width: 2000px;
+  z-index: -2;
+  height: 300px;
+  margin-top: 70px;
+  margin-left: -6%;
+}
+
+.waves-container svg {
+  position: absolute;
+
+  pointer-events: none; /* ensure SVG doesn't capture mouse events */
+}
+
+.backgroundColor {
+  top: 0;
+  left: 0;
+  position: absolute;
+  background-color: #6b858d;
+  height: 1200px;
+  width: 2200px;
+  margin-top: 300px;
+  z-index: -1;
+}
+
+@media screen and (min-width: 2080px) {
+  .waveBottom {
+    margin-left: 1%;
+    margin-top: 120px;
+    rotate: -6deg;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .backgroundColor {
+    height: 1600px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .backgroundColor {
+    height: 2300px;
+  }
+}
+
+@media screen and (max-width: 60px) {
+  .backgroundColor {
+    height: 3600px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  #squareTwo {
+    margin-left: 15px;
+    margin-top: 2%;
+  }
+
+  #squareThree {
+    background-color: green;
+    margin-left: 20px;
+    width: 150px;
+    height: 150px;
+    margin-top: 2%;
+  }
+}
