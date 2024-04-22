@@ -208,3 +208,98 @@ h2 {
   z-index: -1;
   border: 8px solid #f1f1f1a8;
 }
+
+.waveTop {
+  top: 0;
+  left: 0;
+  width: 2000px;
+  z-index: -1;
+  height: 300px;
+  margin-top: 62px;
+  display: block;
+
+  margin-left: -6%;
+}
+
+.waveMiddle {
+  top: 0;
+  left: 0;
+  width: 2000px;
+  z-index: -2;
+  height: 300px;
+
+  display: block;
+  rotate: 3deg;
+  margin-top: 65px;
+
+  margin-left: -6%;
+  transform: translateZ(-7px) scale(1.7);
+}
+
+.waveBottom {
+  top: 0;
+  left: 0;
+  width: 2000px;
+  z-index: -2;
+  height: 300px;
+  margin-top: 70px;
+  margin-left: -6%;
+}
+
+.waves-container svg {
+  position: absolute;
+
+  pointer-events: none; /* ensure SVG doesn't capture mouse events */
+}
+
+.backgroundColor {
+  top: 0;
+  left: 0;
+  position: absolute;
+  background-color: #6b858d;
+  height: 1200px;
+  width: 2200px;
+  margin-top: 300px;
+  z-index: -1;
+}
+
+@media screen and (min-width: 2080px) {
+  .waveBottom {
+    margin-left: 1%;
+    margin-top: 120px;
+    rotate: -6deg;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .backgroundColor {
+    height: 1600px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .backgroundColor {
+    height: 2300px;
+  }
+}
+
+@media screen and (max-width: 60px) {
+  .backgroundColor {
+    height: 3600px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  #squareTwo {
+    margin-left: 15px;
+    margin-top: 2%;
+  }
+
+  #squareThree {
+    background-color: green;
+    margin-left: 20px;
+    width: 150px;
+    height: 150px;
+    margin-top: 2%;
+  }
+}
