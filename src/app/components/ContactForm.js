@@ -2,7 +2,7 @@
 import React, { useState, } from 'react';
 import { sendContactForm } from '../lib/api';
 
-const initValues = { name: "", email: "", subject: "", message: "" };
+const initValues = { name: "", email: "", subject: "", message: "", file: null }
 const initState = { isLoading: false, error: "", values: initValues };
 
 const ContactForm = () => {
@@ -35,7 +35,27 @@ const ContactForm = () => {
         }));
         try {
             console.log(values)
-            await sendContactForm(values);
+            const data = new FormData();
+            data.append("name", values.name);
+            data.append("email", values.email);
+            data.append("subject", values.subject);
+            data.append("message", values.message);
+            data.append("file", file);
+            await fetch("/api/nodemailer", {
+                method: "POST",
+                body: data,
+            }).then(response => {
+                if (response.ok) {
+                    return response.json(); // Process success response
+                } else {
+                    throw new Error('Failed to send message with status: ' + response.status);
+                }
+            }).then(data => {
+                console.log('Success:', data); // Success data from the server
+            }).catch(error => {
+                console.error('Error:', error); // Handle any errors
+            });
+
             setTouched({});
             setState(initState);
             alert("Message sent.");
