@@ -1,5 +1,4 @@
 import BackgroundBoxes from "./BackgroundBoxes";
-// import ContactButton from "./ContactButton";
 import ContactEmployee from "./ContactEmployee";
 import CTAButtons from "./CTAButtons";
 import CustomerFeedback from "./CustomerFeedback";
@@ -19,6 +18,11 @@ import ReadMore from "./ReadMore";
 import ServiceBox from "./ServiceBox";
 import ServiceCardLeft from "./ServiceCardLeft";
 import ServiceCardRight from "./ServiceCardRight";
+import ContactButton from "./ContactButton";
+import ContactForm from "./ContactForm";
+import ContactInfo from "./ContactInfo";
+import Location from "./Location";
+import Modal from "./Modal";
 import SocialMediaIcons from "./SocialMediaIcons";
 import Statistics from "./Statistics";
 import WavesBackground from "./WavesBackground";
@@ -47,6 +51,11 @@ export {
   ServiceBox,
   ServiceCardLeft,
   ServiceCardRight,
+  ContactButton,
+  ContactForm,
+  ContactInfo,
+  Location,
+  Modal,
   SocialMediaIcons,
   Statistics,
   WavesBackground,
