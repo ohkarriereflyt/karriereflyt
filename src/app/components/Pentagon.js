@@ -1,8 +1,8 @@
 export default function Pentagon() {
   return (
-    <div className="relative" style={{ width: '400px', height: '400px' }}>
+    <div className="relative w-full" style={{ aspectRatio: '1 / 1', minWidth: '200px', minHeight: '200px', maxHeight: '600px', maxWidth: '600px' }}>
         <div className="absolute" style={{ width: '20%', height: '20%', top: '40%', left: '40%', display: 'flex', justifyContent: 'center', alignItems: 'center'  }}>
-            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="128" height="128" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fillRule="evenodd" clipRule="evenodd" d="M34.917 57.9089C40.3599 59.6214 46.4739 60.4131 51.7545 56.704C51.7759 56.6861 51.7868 56.6768 51.7868 56.6768C52.9022 54.7056 50.2264 55.2747 45.8934 56.1961C42.8158 56.8505 38.9021 57.6828 34.917 57.9089Z" fill="#53727A"/>
               <path fillRule="evenodd" clipRule="evenodd" d="M34.917 57.9089C40.3599 59.6214 46.4739 60.4131 51.7545 56.704C51.7759 56.6861 51.7868 56.6768 51.7868 56.6768C52.9022 54.7056 50.2264 55.2747 45.8934 56.1961C42.8158 56.8505 38.9021 57.6828 34.917 57.9089Z" fill="url(#paint0_linear_848_314)"/>
               <path d="M51.787 56.5868C51.787 56.5868 43.5222 63.6341 34.0216 63.9658C24.521 64.2976 15.9113 61.4692 15.7934 58.094C15.6755 54.7188 18.3908 53.6227 22.016 53.4961C27.1414 53.3171 41.1601 64.092 51.787 56.5868Z" fill="url(#paint1_linear_848_314)"/>

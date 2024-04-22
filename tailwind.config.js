@@ -27,6 +27,7 @@ module.exports = {
         "vanilla-latte-flat": "#A59584",
         "purple": "#8F8799",
         "weird-red": "#998787",
+        "weird-green": "#6B8D8B",
         // Primary gradient
         "slate-gray-gradient":
           "linear-gradient(90deg, #7E9AA3 0%, #516F76 100%)",
