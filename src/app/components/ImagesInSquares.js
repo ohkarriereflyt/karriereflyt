@@ -33,8 +33,8 @@ export default function ImagesInSaquares() {
           marginTop: "15%",
           boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 200px 100px",
           zIndex: "-1",
-          marginLeft: window.innerWidth <= 1280 ? "20%" : "12%",
-          marginTop: window.innerWidth <= 1280 ? "7.5%" : "10%",
+          // marginLeft: window.innerWidth <= 1280 ? "20%" : "12%",
+          // marginTop: window.innerWidth <= 1280 ? "7.5%" : "10%",
         }}
       >
         2
@@ -52,7 +52,7 @@ export default function ImagesInSaquares() {
           boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 200px 100px",
           backgroundColor: "grey",
           zIndex: "-1",
-          marginLeft: window.innerWidth <= 1280 ? "16%" : "12%",
+          // marginLeft: window.innerWidth <= 1280 ? "16%" : "12%",
         }}
       >
         3
