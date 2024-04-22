@@ -40,10 +40,10 @@ export default function CustomerFeedback() {
         <h2 className="text-3xl font-bold text-gray-800 mb-12">
           Tilbakemeldinger fra våre kunder
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:px-0 px-6">
           {customerFeedback.map((customer) => (
             <div
-              className="flex flex-col rounded-lg bg-card-gradient text-start px-6 py-3 shadow-xl"
+              className="flex flex-col rounded-lg bg-background-flat text-start px-6 py-5 shadow-xl"
               key={customer.name}
             >
               <h2 className="my-3  text-card-text-color">

@@ -139,6 +139,16 @@ h2 {
   perspective: 10px;
 }
 
+.waveOneFooter {
+  min-height: 2vh;
+  background-color: rgba(107, 133, 141, 0.2);
+}
+
+.waveTwoFooter {
+  min-height: 2vh;
+  background-color: rgba(107, 133, 141, 0.6);
+}
+
 #backgroundDiffuser {
   width: 100%;
   margin-top: -120%;
@@ -198,4 +208,3 @@ h2 {
   z-index: -1;
   border: 8px solid #f1f1f1a8;
 }
-

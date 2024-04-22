@@ -21,9 +21,8 @@ export default function RootLayout({ children }) {
           <BackgroundBoxes />
 
           {children}
-          
+
         </div>
-       
       </body>
     </html>
   );
