@@ -38,11 +38,12 @@ export default function Footer() {
 
   return (
     <footer className="relative">
+      <div className="waveOneFooter"></div>
+      <div className="waveTwoFooter"></div>
       <div
-        className="flex justify-evenly bg-slate-gray-flat pl-80 pt-4 pb-6"
+        className="bg-slate-gray-flat pt-4  pb-6  "
         style={{
           minHeight: "30vh",
-          position: "relative",
         }}
       >
         {footerItems.map((footerItem, index) => (
@@ -59,7 +60,7 @@ export default function Footer() {
 
       {/* Centering SocialMediaIcons and footerItem.subTitle */}
       {footerItems[1].subTitle && (
-        <div className="absolute inset-x-0 bottom-0 text-center justify-center mb-8">
+        <div className="absolute inset-x-0 bottom-0 text-center justify-center mb-8 lg:pt-0 md:pt-12">
           <div className="items-center text-text-flat-inverted">
             {socialMediaIcons.map((icon, index) => (
               <a
