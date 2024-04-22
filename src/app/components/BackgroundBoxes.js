@@ -1,8 +1,8 @@
 export default function BackgroundBoxes() {
   return (
     <>
-      <div className="backgroundBox" id="backgroundOne"></div>
-      <div className="backgroundBox" id="backgroundTwo"></div>
+      <div className="backgroundBox flex" id="backgroundOne"></div>
+      <div className="backgroundBox flex" id="backgroundTwo"></div>
 
       <div className="backgroundBox" id="backgroundThree"></div>
       <div className="backgroundBox" id="backgroundFour"></div>
