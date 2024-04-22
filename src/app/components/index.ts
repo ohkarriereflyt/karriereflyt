@@ -21,6 +21,7 @@ import ContactForm from "./ContactForm";
 import ContactInfo from "./ContactInfo";
 import Location from "./Location";
 import NodeMailer from "../../pages/api/nodemailer";
+import Modal from "./Modal";
 
 export {
   CTAButtons,
@@ -45,5 +46,6 @@ export {
   ContactForm,
   ContactInfo,
   Location,
+  Modal,
   NodeMailer,
 };

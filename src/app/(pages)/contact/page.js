@@ -1,4 +1,4 @@
-import { ContactEmployee, ContactForm, ContactInfo, Footer } from "../../components/index";
+import { ContactEmployee, ContactForm, ContactInfo, Footer, Modal } from "../../components/index";
 import dynamic from 'next/dynamic';
 
 const LocationWithNoSSR = dynamic(() => import('../../components/Location'), {

@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, } from 'react';
-import { sendContactForm } from '../lib/api';
+import Modal from './Modal';
 
 const initValues = { name: "", email: "", subject: "", message: "", file: null }
 const initState = { isLoading: false, error: "", values: initValues };
@@ -9,6 +9,8 @@ const ContactForm = () => {
     const [state, setState] = useState(initState);
     const [touched, setTouched] = useState({});
     const [file, setFile] = useState(null);
+    const message = state.error ? state.error : 'Meldingen ble sendt!';
+    const [isModalOpen, setModalOpen] = useState(false);
 
     const handleFileChange = (e) => {
         setFile(e.target.files[0]);
@@ -28,37 +30,43 @@ const ContactForm = () => {
         }))
     };
 
-    const onSubmit = async () => {
+    const closeModal = () => {
+        setModalOpen(false); // Function to close the modal
+    };
+
+    const onSubmit = async (e) => {
+        e.preventDefault();
+    
         setState((prev) => ({
             ...prev,
             isLoading: true,
         }));
         try {
-            console.log(values)
-            const data = new FormData();
-            data.append("name", values.name);
-            data.append("email", values.email);
-            data.append("subject", values.subject);
-            data.append("message", values.message);
-            data.append("file", file);
-            await fetch("/api/nodemailer", {
-                method: "POST",
-                body: data,
-            }).then(response => {
-                if (response.ok) {
-                    return response.json(); // Process success response
-                } else {
-                    throw new Error('Failed to send message with status: ' + response.status);
-                }
-            }).then(data => {
-                console.log('Success:', data); // Success data from the server
-            }).catch(error => {
-                console.error('Error:', error); // Handle any errors
-            });
+            // const data = new FormData();
+            // data.append("name", values.name);
+            // data.append("email", values.email);
+            // data.append("subject", values.subject);
+            // data.append("message", values.message);
+            // data.append("file", file);
+            // await fetch("/api/nodemailer", {
+            //     method: "POST",
+            //     body: data,
+            // }).then(response => {
+            //     if (response.ok) {
+            //         return response.json(); // Process success response
+            //     } else {
+            //         throw new Error('Failed to send message with status: ' + response.status);
+            //     }
+            // }).then(data => {
+            //     console.log('Success:', data); // Success data from the server
+            // }).catch(error => {
+            //     console.error('Error:', error); // Handle any errors
+            // });
 
-            setTouched({});
+            // Wait for 2 seconds to see if isLoading is working
+            await new Promise((resolve) => setTimeout(resolve, 1000));
             setState(initState);
-            alert("Message sent.");
+            setModalOpen(true);
         } catch (error) {
             setState((prev) => ({
                 ...prev,
@@ -66,7 +74,7 @@ const ContactForm = () => {
                 error: error.message,
             }));
             console.error(error);
-            alert("Failed to send message");
+            setModalOpen(true);
         }
     };
 
@@ -133,11 +141,15 @@ const ContactForm = () => {
                         <label htmlFor="attachment" className="sr-only">Vedlegg:</label>
                         <input type="file" id="attachment" onChange={handleFileChange} className="text-text-flat" />
                     </div>
-                    <button type="submit" disabled={isLoading || !values.name || !values.email || !values.subject || !values.message} className={`${!values.name || !values.email || !values.subject || !values.message ? 'opacity-60' : 'opacity-100'}`}>
+                    <button type="submit" disabled={isLoading} className={`${isLoading || !values.name || !values.email || !values.subject || !values.message ? 'opacity-60' : 'opacity-100'}`}>
                         {isLoading ? 'Sender...' : 'Send'}
                     </button>
                 </div>
             </form>
+            <Modal isOpen={isModalOpen} onClose={closeModal} className="relative" >
+                <p className='p-4' >{message}</p>
+                <button onClick={closeModal} className="mt-4 px-4 py-2 bg-slate-gray-flat">Close</button>
+            </Modal>
         </div>
     );
 };
