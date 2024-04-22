@@ -19,6 +19,16 @@ import ReadMore from "./ReadMore";
 import ServiceBox from "./ServiceBox";
 import ServiceCardLeft from "./ServiceCardLeft";
 import ServiceCardRight from "./ServiceCardRight";
+import OurHistorySection from "./OurHistorySection";
+import ContactButton from "./ContactButton";
+import EmployeSection from "./EmployeSection";
+import ContactEmployee from "./ContactEmployee";
+import ReadMore from "./ReadMore";
+import ContactForm from "./ContactForm";
+import ContactInfo from "./ContactInfo";
+import Location from "./Location";
+import NodeMailer from "../../pages/api/nodemailer";
+import Modal from "./Modal";
 import SocialMediaIcons from "./SocialMediaIcons";
 import Statistics from "./Statistics";
 import WavesBackground from "./WavesBackground";
@@ -47,6 +57,16 @@ export {
   ServiceBox,
   ServiceCardLeft,
   ServiceCardRight,
+  OurHistorySection,
+  ContactButton,
+  EmployeSection,
+  ContactEmployee,
+  ReadMore,
+  ContactForm,
+  ContactInfo,
+  Location,
+  Modal,
+  NodeMailer,
   SocialMediaIcons,
   Statistics,
   WavesBackground,
