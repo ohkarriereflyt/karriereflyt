@@ -233,7 +233,7 @@ export default function Navbar() {
           </Link>
 
           <ul className="hidden md:flex space-x-7">
-            <li>
+            <li className="flex items-center">
               <Link
                 hrefLang="javascript:void(0)"
                 className={`hover:text-blue-400 ${
@@ -246,7 +246,7 @@ export default function Navbar() {
                 For jobbsøkere
               </Link>
             </li>
-            <li>
+            <li className="flex items-center">
               <Link
                 hrefLang="javascript:void(0)"
                 className={`hover:text-blue-400 ${
@@ -259,7 +259,7 @@ export default function Navbar() {
                 Tjenester
               </Link>
             </li>
-            <li>
+            <li className="flex items-center">
               <Link
                 hrefLang="javascript:void(0)"
                 className={`hover:text-blue-400 ${
@@ -272,7 +272,7 @@ export default function Navbar() {
                 Om oss
               </Link>
             </li>
-            <li>
+            <li className="flex items-center">
               <Link
                 hrefLang="javascript:void(0)"
                 className={`hover:text-blue-400 ${
@@ -282,7 +282,7 @@ export default function Navbar() {
                 }`}
                 href="/contact"
               >
-                {/* <ContactButton bgColor="bg-secondary-btn" /> */}
+                <button className="bg-background-flat kf-border-dark text-text-flat">Kontakt oss</button>
               </Link>
             </li>
           </ul>
