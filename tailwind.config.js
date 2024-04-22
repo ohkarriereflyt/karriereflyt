@@ -39,6 +39,15 @@ module.exports = {
         "pistasch-flat": "#8A9482",
         "vanilla-latte-flat": "#A59584",
 
+        "purple": "#8F8799",
+        "weird-red": "#998787",
+        "weird-green": "#6B8D8B",
+        // Primary gradient
+        "slate-gray-gradient":
+          "linear-gradient(90deg, #7E9AA3 0%, #516F76 100%)",
+        "pistach-gradient": "linear-gradient(90deg, #9CA594 0%, #77826F 100%)",
+        "vanilla-latte": "linear-gradient(90deg, #C2B2A2 0%, #8D7D6D 100%)",
+
         // Secondary flat
         "text-flat": "#4A4A4A",
         "text-flat-inverted": "#FFFBF8",
