@@ -15,7 +15,7 @@ export default function Statistics() {
   ];
 
   return (
-    <div className="items-center text-white py-12 mb-8 justify-evenly flex text-center gap-12 bg-secondary-grey">
+    <div className="items-center text-white py-12 mb-8 justify-evenly flex text-center gap-12 bg-secondary-grey mt-12">
       {statistics.map((statistic) => (
         <div key={statistics.headline}>
           <h1 className="text-header1">{statistic.number}</h1>

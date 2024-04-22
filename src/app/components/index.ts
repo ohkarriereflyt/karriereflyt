@@ -16,6 +16,8 @@ import OurHistorySection from "./OurHistorySection";
 import ContactButton from "./ContactButton";
 import EmployeSection from "./EmployeSection";
 import ContactEmployee from "./ContactEmployee";
+import OurSubjectArea from "./OurSubjectArea";
+import WavesBackground from "./WavesBackground";
 
 export {
   CTAButtons,
@@ -36,4 +38,6 @@ export {
   ContactButton,
   EmployeSection,
   ContactEmployee,
+  OurSubjectArea,
+  WavesBackground,
 };

@@ -21,9 +21,7 @@ export default function RootLayout({ children }) {
           <BackgroundBoxes />
 
           {children}
-          <div id="backgroundDiffuser"></div>
         </div>
-       
       </body>
     </html>
   );
