@@ -34,8 +34,11 @@ export default function Home() {
           <div className="xl:w-full flex-1 w-full xl:mt-12 xl:mb-0 mb-48 mt-12 order-2 ">
             <ImagesInSaquares />
           </div>
+
           <div className="xl:mt-12 mt-96 order-3 w-full xl:ml-0 lg:mb-0 mb-12">
             <CTAButtons widthOne="md:w-48" widthTwo="w-36" />
+
+
           </div>
         </div>
       </div>
@@ -61,8 +64,15 @@ export default function Home() {
       />
 
       {/* Bottom buttons */}
-      <div className="flex justify-center items-center space-x-4 mx-60 py-12">
-        <CTAButtons widthOne="15%" widthTwo="15%" />
+      <div className="flex justify-center items-center gap-4 py-12">
+        <>
+          <Link href="/applicants">
+            <button>For jobbsøkere</button>
+          </Link>
+          <Link href="/services">
+            <button className="bg-3 kf-border-dark text-text-flat">For bedrifter</button>
+          </Link>
+        </>
       </div>
       <Footer />
     </main>
