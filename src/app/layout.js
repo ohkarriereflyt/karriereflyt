@@ -17,7 +17,9 @@ export default function RootLayout({ children }) {
         <Navbar />
         <div id="boxCollection">
           <BackgroundBoxes />
-          {children}
+          <div className="mt-24">
+            {children}
+          </div>
         </div>
       </body>
     </html>
