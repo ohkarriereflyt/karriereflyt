@@ -28,14 +28,14 @@ export default function Navbar() {
               className="mr-2"
             >
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M34.917 57.9089C40.3599 59.6214 46.4739 60.4131 51.7545 56.704C51.7759 56.6861 51.7868 56.6768 51.7868 56.6768C52.9022 54.7056 50.2264 55.2747 45.8934 56.1961C42.8158 56.8505 38.9021 57.6828 34.917 57.9089Z"
                 fill="#53727A"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M34.917 57.9089C40.3599 59.6214 46.4739 60.4131 51.7545 56.704C51.7759 56.6861 51.7868 56.6768 51.7868 56.6768C52.9022 54.7056 50.2264 55.2747 45.8934 56.1961C42.8158 56.8505 38.9021 57.6828 34.917 57.9089Z"
                 fill="url(#paint0_linear_848_314)"
               />
@@ -44,26 +44,26 @@ export default function Navbar() {
                 fill="url(#paint1_linear_848_314)"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M60.5799 38.8859C60.6073 39.0541 61.7113 46.1817 52.0757 45.8452C47.3748 45.681 41.9343 43.3673 36.2993 40.9708C35.6811 40.708 35.0606 40.4441 34.4385 40.1819C34.3229 38.8624 34.4054 37.9879 34.4054 37.9879C45.4394 44.7401 52.262 41.3275 56.3122 39.3017C58.4146 38.2501 59.7699 37.5722 60.5794 38.8835C60.5794 38.8835 60.5796 38.8843 60.5799 38.8859C60.5799 38.8859 60.5799 38.8859 60.5799 38.8859ZM60.817 41.9764C60.7264 46.1006 58.966 52.8445 48.3398 52.4734C48.2179 52.4691 48.0963 52.4643 47.9751 52.4587C48.0956 52.4647 48.2171 52.4699 48.3398 52.4742C58.9666 52.8453 60.7266 46.1006 60.817 41.9764Z"
                 fill="#53727A"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M60.5799 38.8859C60.6073 39.0541 61.7113 46.1817 52.0757 45.8452C47.3748 45.681 41.9343 43.3673 36.2993 40.9708C35.6811 40.708 35.0606 40.4441 34.4385 40.1819C34.3229 38.8624 34.4054 37.9879 34.4054 37.9879C45.4394 44.7401 52.262 41.3275 56.3122 39.3017C58.4146 38.2501 59.7699 37.5722 60.5794 38.8835C60.5794 38.8835 60.5796 38.8843 60.5799 38.8859C60.5799 38.8859 60.5799 38.8859 60.5799 38.8859ZM60.817 41.9764C60.7264 46.1006 58.966 52.8445 48.3398 52.4734C48.2179 52.4691 48.0963 52.4643 47.9751 52.4587C48.0956 52.4647 48.2171 52.4699 48.3398 52.4742C58.9666 52.8453 60.7266 46.1006 60.817 41.9764Z"
                 fill="url(#paint2_linear_848_314)"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M34.857 49.3851C31.799 48.1207 29.0384 46.6424 26.5183 45.2929C22.4988 43.1405 19.0914 41.3158 16.0662 41.2102C8.6907 40.9526 0.903693 45.3116 5.46191 50.9779C5.13638 50.6589 4.84412 50.3354 4.58386 50.0085C4.84327 50.3354 5.13562 50.6595 5.46226 50.9796C7.89001 53.3588 11.5923 52.3049 16.1656 51.0031C21.5811 49.4616 28.218 47.5724 35.4064 50.6241C35.4064 50.6241 35.2231 50.1556 34.857 49.3851Z"
                 fill="#53727A"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M34.857 49.3851C31.799 48.1207 29.0384 46.6424 26.5183 45.2929C22.4988 43.1405 19.0914 41.3158 16.0662 41.2102C8.6907 40.9526 0.903693 45.3116 5.46191 50.9779C5.13638 50.6589 4.84412 50.3354 4.58386 50.0085C4.84327 50.3354 5.13562 50.6595 5.46226 50.9796C7.89001 53.3588 11.5923 52.3049 16.1656 51.0031C21.5811 49.4616 28.218 47.5724 35.4064 50.6241C35.4064 50.6241 35.2231 50.1556 34.857 49.3851Z"
                 fill="url(#paint3_linear_848_314)"
               />
@@ -72,26 +72,26 @@ export default function Navbar() {
                 fill="url(#paint4_linear_848_314)"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M60.8064 25.4141C60.8053 29.2275 55.6705 30.3089 53.9195 29.9778C50.1762 29.2698 47.5098 26.0428 44.5673 22.1876C45.5447 23.1273 46.8999 24.2356 48.6834 25.2889C50.8223 26.5522 53.1488 25.7923 55.2792 25.0964C57.4665 24.3819 59.4473 23.7349 60.8064 25.4141ZM61.0195 25.6854C61.7588 26.6639 62.2428 27.6724 62.5039 28.6755C62.2953 27.732 61.8139 26.7278 61.0195 25.6854Z"
                 fill="#53727A"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M60.8064 25.4141C60.8053 29.2275 55.6705 30.3089 53.9195 29.9778C50.1762 29.2698 47.5098 26.0428 44.5673 22.1876C45.5447 23.1273 46.8999 24.2356 48.6834 25.2889C50.8223 26.5522 53.1488 25.7923 55.2792 25.0964C57.4665 24.3819 59.4473 23.7349 60.8064 25.4141ZM61.0195 25.6854C61.7588 26.6639 62.2428 27.6724 62.5039 28.6755C62.2953 27.732 61.8139 26.7278 61.0195 25.6854Z"
                 fill="url(#paint5_linear_848_314)"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M40.9921 31.7269C40.2448 30.9644 39.4856 30.1703 38.7116 29.3605C33.3646 23.7672 27.3066 17.4299 19.544 15.6377C5.65494 12.4312 1.67694 19.0814 1.8703 23.2349C1.8707 23.2364 1.87109 23.238 1.87148 23.2395C3.32329 28.8635 7.87344 27.9149 14.0305 26.6312C21.5316 25.0674 31.4177 23.0064 40.9921 31.7269Z"
                 fill="#53727A"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M40.9921 31.7269C40.2448 30.9644 39.4856 30.1703 38.7116 29.3605C33.3646 23.7672 27.3066 17.4299 19.544 15.6377C5.65494 12.4312 1.67694 19.0814 1.8703 23.2349C1.8707 23.2364 1.87109 23.238 1.87148 23.2395C3.32329 28.8635 7.87344 27.9149 14.0305 26.6312C21.5316 25.0674 31.4177 23.0064 40.9921 31.7269Z"
                 fill="url(#paint6_linear_848_314)"
               />
@@ -100,14 +100,14 @@ export default function Navbar() {
                 fill="url(#paint7_linear_848_314)"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M25.4737 1.07874C25.4729 1.07932 25.472 1.07991 25.4711 1.08049C23.0427 2.70222 23.0049 5.64611 29.2208 7.08114C34.2149 8.23413 40.3105 9.64142 43.9188 13.0046C40.3052 8.03229 36.0061 2.80661 30.328 1.17364C30.328 1.17364 27.547 0.439501 25.4737 1.07874Z"
                 fill="#53727A"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M25.4737 1.07874C25.4729 1.07932 25.472 1.07991 25.4711 1.08049C23.0427 2.70222 23.0049 5.64611 29.2208 7.08114C34.2149 8.23413 40.3105 9.64142 43.9188 13.0046C40.3052 8.03229 36.0061 2.80661 30.328 1.17364C30.328 1.17364 27.547 0.439501 25.4737 1.07874Z"
                 fill="url(#paint8_linear_848_314)"
               />
@@ -124,8 +124,8 @@ export default function Navbar() {
                   y2="58.0959"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-opacity="0.2" />
-                  <stop offset="1" stop-opacity="0.5" />
+                  <stop stopOpacity="0.2" />
+                  <stop offset="1" stopOpacity="0.5" />
                 </linearGradient>
                 <linearGradient
                   id="paint1_linear_848_314"
@@ -135,8 +135,8 @@ export default function Navbar() {
                   y2="63.9658"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#7E9AA3" />
-                  <stop offset="1" stop-color="#516F76" />
+                  <stop stopColor="#7E9AA3" />
+                  <stop offset="1" stopColor="#516F76" />
                 </linearGradient>
                 <linearGradient
                   id="paint2_linear_848_314"
@@ -146,8 +146,8 @@ export default function Navbar() {
                   y2="40.9957"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-opacity="0.5" />
-                  <stop offset="1" stop-opacity="0.2" />
+                  <stop stopOpacity="0.5" />
+                  <stop offset="1" stopOpacity="0.2" />
                 </linearGradient>
                 <linearGradient
                   id="paint3_linear_848_314"
@@ -157,8 +157,8 @@ export default function Navbar() {
                   y2="50.8346"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-opacity="0.2" />
-                  <stop offset="1" stop-opacity="0.5" />
+                  <stop stopOpacity="0.2" />
+                  <stop offset="1" stopOpacity="0.5" />
                 </linearGradient>
                 <linearGradient
                   id="paint4_linear_848_314"
@@ -168,8 +168,8 @@ export default function Navbar() {
                   y2="54.5695"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#7E9AA3" />
-                  <stop offset="1" stop-color="#516F76" />
+                  <stop stopColor="#7E9AA3" />
+                  <stop offset="1" stopColor="#516F76" />
                 </linearGradient>
                 <linearGradient
                   id="paint5_linear_848_314"
@@ -179,8 +179,8 @@ export default function Navbar() {
                   y2="23.9591"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-opacity="0.5" />
-                  <stop offset="1" stop-opacity="0.2" />
+                  <stop stopOpacity="0.5" />
+                  <stop offset="1" stopOpacity="0.2" />
                 </linearGradient>
                 <linearGradient
                   id="paint6_linear_848_314"
@@ -190,8 +190,8 @@ export default function Navbar() {
                   y2="32.5886"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-opacity="0.5" />
-                  <stop offset="1" stop-opacity="0.2" />
+                  <stop stopOpacity="0.5" />
+                  <stop offset="1" stopOpacity="0.2" />
                 </linearGradient>
                 <linearGradient
                   id="paint7_linear_848_314"
@@ -201,8 +201,8 @@ export default function Navbar() {
                   y2="33.9434"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#7E9AA3" />
-                  <stop offset="1" stop-color="#516F76" />
+                  <stop stopColor="#7E9AA3" />
+                  <stop offset="1" stopColor="#516F76" />
                 </linearGradient>
                 <linearGradient
                   id="paint8_linear_848_314"
@@ -212,8 +212,8 @@ export default function Navbar() {
                   y2="8.15899"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-opacity="0.5" />
-                  <stop offset="1" stop-opacity="0.2" />
+                  <stop stopOpacity="0.5" />
+                  <stop offset="1" stopOpacity="0.2" />
                 </linearGradient>
                 <linearGradient
                   id="paint9_linear_848_314"
@@ -223,8 +223,8 @@ export default function Navbar() {
                   y2="20.3133"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#7E9AA3" />
-                  <stop offset="1" stop-color="#516F76" />
+                  <stop stopColor="#7E9AA3" />
+                  <stop offset="1" stopColor="#516F76" />
                 </linearGradient>
               </defs>
             </svg>

@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image'
 import localImg from '../imagesMidlertidig/øyvind-haugen.png'
+import Link from 'next/link'
 import { useState, useEffect } from 'react'
 
 const teamMembers = [
@@ -155,14 +156,16 @@ const MobileCard = ({ member, index, openIndex, toggleOpen, smallWidth }) => {
                         <p className="text-text-flat-inverted">Øyvind Haugen er en erfaren leder og grunnlegger av Karriereflyt, et selskap dedikert til å hjelpe enkeltpersoner med å navigere gjennom karriereveien sin.</p>
                     </div>
                     <div className='px-3 w-full flex justify-end'>
-                        <button className="noStyle h-14 py-2 justify-center items-center gap-4 inline-flex text-text-flat-inverted">
-                            Les mer
-                            <svg width="28" height="28" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <ellipse opacity="0.2" cx="18.0011" cy="18.0037" rx="18.0002" ry="18.0008" transform="rotate(-90 18.0011 18.0037)" fill="#FFFBF8" />
-                                <path d="M11.9996 18H23.9996" stroke="#FFFBF8" strokeWidth="2.57143" strokeLinecap="round" strokeLinejoin="round" />
-                                <path d="M18.0007 12.0039L24.0007 18.0039L18.0007 24.0039" stroke="#FFFBF8" strokeWidth="2.57143" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                        </button>
+                        <Link href={`/contact/${encodeURIComponent(member.name)}`}>
+                            <button className="noStyle h-14 py-2 justify-center items-center gap-4 inline-flex text-text-flat-inverted">
+                                Les mer
+                                <svg width="28" height="28" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <ellipse opacity="0.2" cx="18.0011" cy="18.0037" rx="18.0002" ry="18.0008" transform="rotate(-90 18.0011 18.0037)" fill="#FFFBF8" />
+                                    <path d="M11.9996 18H23.9996" stroke="#FFFBF8" strokeWidth="2.57143" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M18.0007 12.0039L24.0007 18.0039L18.0007 24.0039" stroke="#FFFBF8" strokeWidth="2.57143" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </button>
+                        </Link>
                     </div>
                 </>
             )}
@@ -210,13 +213,15 @@ const DesktopCard = ({ member, index, openIndex, toggleOpen }) => {
                                 <div className="self-stretch py-2 justify-start items-end gap-2.5 inline-flex">
                                     <div className="grow shrink basis-0 text-text-flat-inverted text-base font-normal font-['Filson Pro'] leading-loose">Øyvind Haugen er en erfaren leder og grunnlegger av Karriereflyt, et selskap dedikert til å hjelpe enkeltpersoner med å navigere gjennom karriereveien sin.</div>
                                 </div>
-                                <div className="h-14 p-2 justify-center items-center gap-4 inline-flex">
-                                    <button className="noStyle text-text-flat-inverted text-base font-medium font-['Filson Pro']">Les mer</button>
-                                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <ellipse opacity="0.2" cx="18.0011" cy="18.0037" rx="18.0002" ry="18.0008" transform="rotate(-90 18.0011 18.0037)" fill="#FFFBF8" />
-                                        <path d="M11.9996 18H23.9996" stroke="#FFFBF8" strokeWidth="2.57143" strokeLinecap="round" strokeLinejoin="round" />
-                                        <path d="M18.0007 12.0039L24.0007 18.0039L18.0007 24.0039" stroke="#FFFBF8" strokeWidth="2.57143" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
+                                <div className="h-14 p-2 justify-center items-center gap-4 inline-flex cursor-pointer">
+                                    <Link href={`/contact/${encodeURIComponent(member.name)}`}>
+                                        <button className="noStyle text-text-flat-inverted text-base font-medium font-['Filson Pro']">Les mer</button>
+                                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <ellipse opacity="0.2" cx="18.0011" cy="18.0037" rx="18.0002" ry="18.0008" transform="rotate(-90 18.0011 18.0037)" fill="#FFFBF8" />
+                                            <path d="M11.9996 18H23.9996" stroke="#FFFBF8" strokeWidth="2.57143" strokeLinecap="round" strokeLinejoin="round" />
+                                            <path d="M18.0007 12.0039L24.0007 18.0039L18.0007 24.0039" stroke="#FFFBF8" strokeWidth="2.57143" strokeLinecap="round" strokeLinejoin="round" />
+                                        </svg>
+                                    </Link>
                                 </div>
                             </>
                         )}
