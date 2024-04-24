@@ -4,7 +4,8 @@ import {
   List,
   ServiceCardLeft,
   ServiceCardRight,
-  Pentagon
+  Pentagon,
+  Footer
 } from "../../components/index";
 
 import BriefCase from "../../imagesMidlertidig/briefcase.svg";
@@ -16,6 +17,7 @@ import Brain from "../../imagesMidlertidig/head.svg";
 
 export default function Page() {
   return (
+    <div>
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-auto">
       <div className="p-12 flex flex-col md:flex-row items-start md:items-center justify-start md:justify-center">
         <div className="flex-1">
@@ -149,6 +151,11 @@ export default function Page() {
           />
         </div>
       </div>
+      
+    </div>
+    <div className="pt-10"> 
+        <Footer />
+    </div>
     </div>
   );
 }

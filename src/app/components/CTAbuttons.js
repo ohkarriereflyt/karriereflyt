@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function CTAButtons() {
+export default function CTAButtons(props) {
 
   return (
     <>

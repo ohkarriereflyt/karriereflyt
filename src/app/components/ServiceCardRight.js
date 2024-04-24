@@ -17,8 +17,8 @@ const ServiceCardRight = ({
   readMoreProps = {} // Adding a prop to pass down to ReadMore
 }) => {
   return (
-    <div className="flex flex-col bg-gray-100 rounded-lg shadow-md overflow-hidden md:flex-row-reverse">
-      <div className={`flex-none w-full ${squareColor} flex items-center justify-center p-6 md:w-1/3`}>
+    <div className="flex flex-col bg-gray-100 rounded-lg shadow-md overflow-hidden md:flex-row-reverse ">
+      <div className={`flex-none w-full ${squareColor} flex items-center justify-center p-6 md:w-1/3 border-t-2 border-r-2 border-b-2`} style={{ borderColor: 'rgba(255, 255, 255, 0.2)' }}>
         {SvgIcon && <SvgIcon />}
       </div>
       
