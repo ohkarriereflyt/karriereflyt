@@ -33,13 +33,13 @@
   --color-dark: #4A4A4A;
   --color-gray: linear-gradient(180deg, #ECEAE8 0%, #DEDBD9 100%);
 
-  --color-slate-gray: #6B858D;
-  --color-pistachio: #8A9482;
-  --color-vanilla-latte: #A59584;
+  --color-slate-gray: #6b858d;
+  --color-pistachio: #8a9482;
+  --color-vanilla-latte: #a59584;
 
   --color-red: #998787;
-  --color-purple: #8F8799;
-  --color-green: #6B8D8B;
+  --color-purple: #8f8799;
+  --color-green: #6b8d8b;
 
   --color-border-light: #ffffff33;
   --color-border-dark: #4a4a4a33;
@@ -50,7 +50,6 @@
 }
 
 body {
-  overflow-y: hidden;
   overflow-y: hidden;
   color: var(--color-text);
 }
@@ -128,7 +127,7 @@ textarea:focus {
 }
 
 input[type="file"]:focus {
-  border: none
+  border: none;
 }
 
 button:focus,
@@ -247,7 +246,7 @@ button[type="submit"]::after,
 }
 
 .background-3 {
-  background: linear-gradient(90deg, #ECEAE8 0%, #DEDBD9 100%);
+  background: linear-gradient(90deg, #eceae8 0%, #dedbd9 100%);
 }
 
 .backgroundBox {
@@ -456,6 +455,30 @@ button[type="submit"]::after,
   transform: translateZ(-7px) scale(1.7);
 }
 
+#backgroundSeven {
+  rotate: -135deg;
+  margin-top: 200%;
+  margin-left: 30%;
+  z-index: -3;
+  transform: translateZ(-7px) scale(1.7);
+}
+
+#backgroundEight {
+  rotate: -135deg;
+  margin-top: 130%;
+  margin-left: 50%;
+  z-index: -3;
+  transform: translateZ(-7px) scale(1.7);
+}
+
+#backgroundNine {
+  rotate: -135deg;
+  margin-top: 120%;
+  margin-left: 80%;
+  z-index: -3;
+  transform: translateZ(-7px) scale(1.7);
+}
+
 #main {
   background-color: #e9e3dd;
 }
@@ -586,7 +609,7 @@ button[type="submit"]::after,
   left: 0;
   position: absolute;
   background-color: #6b858d;
-  height: 1200px;
+  height: 1800px;
   width: 2200px;
   margin-top: 300px;
   z-index: -1;
@@ -602,23 +625,50 @@ button[type="submit"]::after,
 
 @media screen and (max-width: 1280px) {
   .backgroundColor {
-    height: 1600px;
+    height: 2200px;
+  }
+  #backgroundOne {
+    margin-left: -100%;
+  }
+  #backgroundTwo {
+    margin-left: -90%;
+  }
+  #backgroundThree {
+    margin-left: 140%;
+    border: black solid 1px;
+  }
+  #backgroundFour {
+    margin-left: 130%;
+    border: pink solid 20px;
+  }
+
+  #backgroundFive {
+    margin-left: 120%;
+    border: pink solid 20px;
+  }
+
+  #backgroundSix {
+    margin-left: 110%;
+    border: pink solid 20px;
   }
 }
 
 @media screen and (max-width: 800px) {
   .backgroundColor {
-    height: 2300px;
+    height: 4000px;
   }
 }
 
-@media screen and (max-width: 60px) {
+@media screen and (max-width: 620px) {
   .backgroundColor {
-    height: 3600px;
+    height: 3400px;
   }
 }
 
 @media screen and (max-width: 1280px) {
+  .backgroundColor {
+    height: 2700px;
+  }
   #squareTwo {
     margin-left: 15px;
     margin-top: 2%;

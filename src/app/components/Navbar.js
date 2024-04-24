@@ -11,7 +11,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="bg-gradient-to-b from-gr-start to-gr-end text-text-flat p-5 backdrop-blur-3xl ">
+      <nav className="fixed z-10 w-full bg-gradient-to-b from-gr-start to-gr-end text-text-flat p-5 backdrop-blur-3xl ">
         <div className="md:w-3/5 mx-auto flex justify-between items-center">
           <Link
             className={`flex hover:text-blue-400 ${
