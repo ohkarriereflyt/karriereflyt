@@ -13,7 +13,8 @@ const ServiceCardRight = ({
     { text: "Item 1 Description" },
     { text: "Item 2 Description" },
     { text: "Item 3 Description" }
-  ]
+  ],
+  readMoreProps = {} // Adding a prop to pass down to ReadMore
 }) => {
   return (
     <div className="flex flex-col bg-gray-100 rounded-lg shadow-md overflow-hidden md:flex-row-reverse">
@@ -28,13 +29,13 @@ const ServiceCardRight = ({
             <h1 className={`text-3xl ${headingOneColor}`}>{headingOneText}</h1>
             <ul className="list-none mt-4">
               {listItems.map((item, index) => (
-                <li key={index} className="flex items-center">
+                <li key={index} className="flex items-center mb-4"> 
                   <FontAwesomeIcon icon={faCheck} className="text-secondary-grey mr-2 w-4 h-4" /> {item.text}
                 </li>
               ))}
             </ul>
           </div>
-          <ReadMore direction="down" />
+          <ReadMore {...readMoreProps} />  {/* Pass custom props to ReadMore */}
         </div>
       </div>
     </div>

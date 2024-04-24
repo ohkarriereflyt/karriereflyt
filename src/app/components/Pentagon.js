@@ -1,6 +1,12 @@
+import Curve from "../imagesMidlertidig/curve.svg";
+import Image from "next/image";
+
 export default function Pentagon() {
   return (
     <div className="relative w-full" style={{ aspectRatio: '1 / 1', minWidth: '200px', minHeight: '200px', maxHeight: '600px', maxWidth: '600px' }}>
+      <div className="absolute w-1/5 h-1/5 top-38 left-1/3 transform -translate-x-1/2 rotate-180">
+          <Image src={Curve} alt="Curve"  />
+        </div>
         <div className="absolute" style={{ width: '20%', height: '20%', top: '40%', left: '40%', display: 'flex', justifyContent: 'center', alignItems: 'center'  }}>
             <svg width="128" height="128" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fillRule="evenodd" clipRule="evenodd" d="M34.917 57.9089C40.3599 59.6214 46.4739 60.4131 51.7545 56.704C51.7759 56.6861 51.7868 56.6768 51.7868 56.6768C52.9022 54.7056 50.2264 55.2747 45.8934 56.1961C42.8158 56.8505 38.9021 57.6828 34.917 57.9089Z" fill="#53727A"/>
@@ -62,9 +68,8 @@ export default function Pentagon() {
               </linearGradient>
               </defs>
             </svg>
-
         </div>
-
+        
       <div className="absolute bg-slate-gray-flat rounded-connie border-2 border-box-border-color" style={{
         width: '20%', height: '20%', top: '10%', left: '40%',
         transform: 'rotate(45deg)',
