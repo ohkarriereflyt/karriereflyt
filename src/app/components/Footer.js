@@ -46,16 +46,18 @@ export default function Footer() {
           minHeight: "30vh",
         }}
       >
-        {footerItems.map((footerItem, index) => (
-          <div key={index} className="flex-1 text-text-flat-inverted">
-            <h3 className="pb-1">{footerItem.header}</h3>
-            <p className="pb-1 text-footer">{footerItem.subOne}</p>
-            <p className="pb-1 text-footer">{footerItem.subTwo}</p>
-            <p className="pb-1 text-footer">{footerItem.subThree}</p>
-            <p className="pb-1 text-footer">{footerItem.subFour}</p>
-            <p className="pb-1 text-footer">{footerItem.subFive}</p>
-          </div>
-        ))}
+        <div className="lg:flex xl:flex-row lg:flex-col w-3/5 mx-auto pl-36">
+          {footerItems.map((footerItem, index) => (
+            <div key={index} className="flex-1 text-text-flat-inverted">
+              <h3 className="pb-1">{footerItem.header}</h3>
+              <p className="pb-1 text-footer">{footerItem.subOne}</p>
+              <p className="pb-1 text-footer">{footerItem.subTwo}</p>
+              <p className="pb-1 text-footer">{footerItem.subThree}</p>
+              <p className="pb-1 text-footer">{footerItem.subFour}</p>
+              <p className="pb-1 text-footer">{footerItem.subFive}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Centering SocialMediaIcons and footerItem.subTitle */}

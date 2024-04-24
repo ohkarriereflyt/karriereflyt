@@ -22,21 +22,26 @@
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
 
-  --color-text: #4A4A4A;
-  --color-text-inverted: #FFFBF8;
-  --color-icon: linear-gradient(180deg, #FFFBF8 0%, #EDE4DE 100%);
-  --background: #FFFBF8;
-  --background-inverted: #4A4A4A;
-  --background-gradient: linear-gradient(180deg, #FAF7F3 0%, #EFEAE4 50%, #D1C9C1 100%);
+  --color-text: #4a4a4a;
+  --color-text-inverted: #fffbf8;
+  --color-icon: linear-gradient(180deg, #fffbf8 0%, #ede4de 100%);
+  --background: #fffbf8;
+  --background-inverted: #4a4a4a;
+  --background-gradient: linear-gradient(
+    180deg,
+    #faf7f3 0%,
+    #efeae4 50%,
+    #d1c9c1 100%
+  );
   /* --background-gradient: linear-gradient(180deg, #ECEAE8 0%, #140901 100%); */
 
-  --color-slate-gray: #6B858D;
-  --color-pistachio: #8A9482;
-  --color-vanilla-latte: #A59584;
+  --color-slate-gray: #6b858d;
+  --color-pistachio: #8a9482;
+  --color-vanilla-latte: #a59584;
 
   --color-red: #998787;
-  --color-purple: #8F8799;
-  --color-green: #6B8D8B;
+  --color-purple: #8f8799;
+  --color-green: #6b8d8b;
 
   --color-border-light: #ffffff33;
   --color-border-dark: #4a4a4a33;
@@ -47,7 +52,6 @@
 }
 
 body {
-  overflow-y: hidden;
   overflow-y: hidden;
   color: var(--color-text);
 }
@@ -115,7 +119,7 @@ textarea:focus {
 }
 
 input[type="file"]:focus {
-  border: none
+  border: none;
 }
 
 button:focus,
@@ -181,7 +185,7 @@ input[type="file"]:focus::file-selector-button {
 }
 
 .background-3 {
-  background: linear-gradient(90deg, #ECEAE8 0%, #DEDBD9 100%);
+  background: linear-gradient(90deg, #eceae8 0%, #dedbd9 100%);
 }
 
 .backgroundBox {
@@ -255,6 +259,30 @@ input[type="file"]:focus::file-selector-button {
 #backgroundSix {
   rotate: -135deg;
   margin-top: 40%;
+  margin-left: 80%;
+  z-index: -3;
+  transform: translateZ(-7px) scale(1.7);
+}
+
+#backgroundSeven {
+  rotate: -135deg;
+  margin-top: 200%;
+  margin-left: 30%;
+  z-index: -3;
+  transform: translateZ(-7px) scale(1.7);
+}
+
+#backgroundEight {
+  rotate: -135deg;
+  margin-top: 130%;
+  margin-left: 50%;
+  z-index: -3;
+  transform: translateZ(-7px) scale(1.7);
+}
+
+#backgroundNine {
+  rotate: -135deg;
+  margin-top: 120%;
   margin-left: 80%;
   z-index: -3;
   transform: translateZ(-7px) scale(1.7);
@@ -390,7 +418,7 @@ input[type="file"]:focus::file-selector-button {
   left: 0;
   position: absolute;
   background-color: #6b858d;
-  height: 1200px;
+  height: 1800px;
   width: 2200px;
   margin-top: 300px;
   z-index: -1;
@@ -406,23 +434,50 @@ input[type="file"]:focus::file-selector-button {
 
 @media screen and (max-width: 1280px) {
   .backgroundColor {
-    height: 1600px;
+    height: 2200px;
+  }
+  #backgroundOne {
+    margin-left: -100%;
+  }
+  #backgroundTwo {
+    margin-left: -90%;
+  }
+  #backgroundThree {
+    margin-left: 140%;
+    border: black solid 1px;
+  }
+  #backgroundFour {
+    margin-left: 130%;
+    border: pink solid 20px;
+  }
+
+  #backgroundFive {
+    margin-left: 120%;
+    border: pink solid 20px;
+  }
+
+  #backgroundSix {
+    margin-left: 110%;
+    border: pink solid 20px;
   }
 }
 
 @media screen and (max-width: 800px) {
   .backgroundColor {
-    height: 2300px;
+    height: 4000px;
   }
 }
 
-@media screen and (max-width: 60px) {
+@media screen and (max-width: 620px) {
   .backgroundColor {
-    height: 3600px;
+    height: 3400px;
   }
 }
 
 @media screen and (max-width: 1280px) {
+  .backgroundColor {
+    height: 2700px;
+  }
   #squareTwo {
     margin-left: 15px;
     margin-top: 2%;

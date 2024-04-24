@@ -10,7 +10,9 @@ export default function JobbkretserPartner() {
     <div className="w-3/5 mx-auto mt-12 py-32 text-white">
       <div className="text-center py-8 grid grid-cols-1 md:grid-cols-2 gap-12">
         <div className=" w-4/5 flex flex-col text-start text-gray-">
-          <h2 className="text-3xl mb-8">Som partner med jobbkrester er vi:</h2>
+          <h2 className="text-3xl mb-8 text-text-flat-inverted">
+            Som partner med jobbkrester er vi:
+          </h2>
 
           <Sertifications />
           <ReadMore />
