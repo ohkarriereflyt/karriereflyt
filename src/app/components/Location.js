@@ -56,7 +56,8 @@ const Location = ({ address }) => {
     const redirectToGoogleMaps = () => {
         const formattedAddress = encodeURIComponent(address);
         const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${formattedAddress}`;
-        window.open(googleMapsUrl, '_blank');
+        if (window)
+            window.open(googleMapsUrl, '_blank');
     };
 
     return (

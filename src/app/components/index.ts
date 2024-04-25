@@ -10,6 +10,7 @@ import ImagesInSaquares from "./ImagesInSquares";
 import JobbkretserPartner from "./JobbkretserPartner";
 import List from "./List";
 import OurHistorySection from "./OurHistorySection";
+import OurVisionSection from "./OurVisionSection";
 import OurSubjectArea from "./OurSubjectArea";
 import PageTitle from "./PageTitle";
 import PartnersAndSertifications from "./PartnersAndSertifications";
@@ -29,6 +30,9 @@ import WavesBackground from "./WavesBackground";
 import Sertifications from "./Sertifications";
 import Navbar from "./Navbar";
 import ButtonArrow from "./ButtonArrow";
+import Banner from "./Banner";
+import TransitionLine from "./TransitionLine";
+import TransitionWave from "./TransitionWave";
 
 export {
   BackgroundBoxes,
@@ -43,6 +47,7 @@ export {
   JobbkretserPartner,
   List,
   OurHistorySection,
+  OurVisionSection,
   OurSubjectArea,
   PageTitle,
   PartnersAndSertifications,
@@ -62,4 +67,7 @@ export {
   WavesBackground,
   Navbar,
   ButtonArrow,
+  Banner,
+  TransitionLine,
+  TransitionWave,
 };
