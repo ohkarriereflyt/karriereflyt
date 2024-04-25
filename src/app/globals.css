@@ -23,20 +23,23 @@
   -webkit-box-sizing: border-box;
 
   --color-text: #4A4A4A;
-  --color-text-inverted: #FFFBF8;
+  --color-text-light: #FFFBF8;
   --color-icon: linear-gradient(180deg, #FFFBF8 0%, #EDE4DE 100%);
   --background: #FFFBF8;
-  --background-inverted: #4A4A4A;
+  --background-dark: #4A4A4A;
   --background-gradient: linear-gradient(180deg, #FAF7F3 0%, #EFEAE4 50%, #D1C9C1 100%);
-  /* --background-gradient: linear-gradient(180deg, #ECEAE8 0%, #140901 100%); */
 
-  --color-slate-gray: #6B858D;
-  --color-pistachio: #8A9482;
-  --color-vanilla-latte: #A59584;
+  --color-light: #FFFBF8;
+  --color-dark: #4A4A4A;
+  --color-gray: linear-gradient(180deg, #ECEAE8 0%, #DEDBD9 100%);
+
+  --color-slate-gray: #6b858d;
+  --color-pistachio: #8a9482;
+  --color-vanilla-latte: #a59584;
 
   --color-red: #998787;
-  --color-purple: #8F8799;
-  --color-green: #6B8D8B;
+  --color-purple: #8f8799;
+  --color-green: #6b8d8b;
 
   --color-border-light: #ffffff33;
   --color-border-dark: #4a4a4a33;
@@ -47,7 +50,6 @@
 }
 
 body {
-  overflow-y: hidden;
   overflow-y: hidden;
   color: var(--color-text);
 }
@@ -85,20 +87,26 @@ h3 {
 
 p {
   font-family: FilsonProRegular;
+  font-size: 14px;
+}
+
+.button-text,
+button,
+button[type="submit"],
+input[type="file"]::file-selector-button {
+  position: relative;
+  font-family: FilsonProMedium;
   font-size: 12px;
+  color: var(--color-text-light);
 }
 
 button,
 button[type="submit"],
 input[type="file"]::file-selector-button {
-  font-family: FilsonProMedium;
-  font-size: 12px;
   height: 44px;
   padding: 0 20px;
-  border: 4px solid var(--color-border-light);
   border-radius: 12px;
-  background-color: var(--background-inverted);
-  color: var(--color-text-inverted);
+  background-color: var(--background-dark);
 }
 
 button:hover,
@@ -108,6 +116,10 @@ input[type="file"]::file-selector-button:hover {
   filter: brightness(1.1);
 }
 
+input[type="file"]::file-selector-button {
+  border: 4px solid var(--color-border-light);
+}
+
 input:focus,
 textarea:focus {
   border: 4px solid var(--color-slate-gray);
@@ -115,13 +127,18 @@ textarea:focus {
 }
 
 input[type="file"]:focus {
-  border: none
+  border: none;
 }
 
 button:focus,
 input[type="file"]:focus::file-selector-button {
   outline: none;
   filter: brightness(1.2);
+}
+
+.button-arrow {
+  height: 28px;
+  width: 28px;
 }
 
 @media (min-width: 500px) {
@@ -149,12 +166,33 @@ input[type="file"]:focus::file-selector-button {
     font-size: 16px;
   }
 
+  .button-text,
   button,
   button[type="submit"],
   input[type="file"]::file-selector-button {
     font-size: 16px;
+  }
+
+  button,
+  button[type="submit"],
+  input[type="file"]::file-selector-button {
     padding: 0 32px;
     height: 56px;
+    border-radius: 16px;
+  }
+
+  .button-arrow {
+    height: 36px;
+    width: 36px;
+  }
+
+  .kf-border-light,
+  .kf-border-dark,
+  button::after,
+  button[type="submit"]::after,
+  .kf-border-light::after,
+  .kf-border-dark::after,
+  .kf-border-dark-hard {
     border-radius: 16px;
   }
 }
@@ -165,23 +203,50 @@ input[type="file"]:focus::file-selector-button {
   padding: 0;
 }
 
+.noStyle::after {
+  content: none;
+}
+
 .cursor-default {
   cursor: default !important;
 }
 
-.kf-border,
+.kf-border-light,
 .kf-border-dark {
-  border: 4px solid var(--color-border-light);
-  border-radius: 16px;
+  /* border: 4px solid var(--color-border-light); */
+  position: relative;
+  border-radius: 12px;
   overflow: hidden;
 }
 
-.kf-border-dark {
+button::after,
+button[type="submit"]::after,
+.kf-border-light::after,
+.kf-border-dark::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 4px solid var(--color-border-light);
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+.kf-border-dark::after {
   border: 4px solid var(--color-border-dark);
 }
 
+.kf-border-dark-hard {
+  border: 4px solid var(--color-border-dark);
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
 .background-3 {
-  background: linear-gradient(90deg, #ECEAE8 0%, #DEDBD9 100%);
+  background: linear-gradient(90deg, #eceae8 0%, #dedbd9 100%);
 }
 
 .backgroundBox {
@@ -197,9 +262,139 @@ input[type="file"]:focus::file-selector-button {
   rotate: 45deg;
 }
 
-.background-flat path {
-  fill: var(--background);
+.light {
+  color: var(--color-light);
 }
+
+.light-background {
+  background-color: var(--color-light);
+}
+
+.light-fill {
+  fill: var(--color-light);
+}
+
+.light-stroke {
+  stroke: var(--color-light);
+}
+
+.dark {
+  color: var(--color-dark);
+}
+
+.dark-background {
+  background-color: var(--color-dark);
+}
+
+.dark-fill {
+  fill: var(--color-dark);
+}
+
+.dark-stroke {
+  stroke: var(--color-dark);
+}
+
+.gray-background {
+  background: linear-gradient(#ECEAE8, #DEDBD9);
+}
+
+.slate-gray {
+  color: var(--color-slate-gray);
+}
+
+.slate-gray-background {
+  background-color: var(--color-slate-gray);
+}
+
+.slate-gray-fill {
+  fill: var(--color-slate-gray);
+}
+
+.slate-gray-stroke {
+  stroke: var(--color-slate-gray);
+}
+
+.pistachio {
+  color: var(--color-pistachio);
+}
+
+.pistachio-background {
+  background-color: var(--color-pistachio);
+}
+
+.pistachio-fill {
+  fill: var(--color-pistachio);
+}
+
+.pistachio-stroke {
+  stroke: var(--color-pistachio);
+}
+
+.vanilla-latte {
+  color: var(--color-vanilla-latte);
+}
+
+.vanilla-latte-background {
+  background-color: var(--color-vanilla-latte);
+}
+
+.vanilla-latte-fill {
+  fill: var(--color-vanilla-latte);
+}
+
+.vanilla-latte-stroke {
+  stroke: var(--color-vanilla-latte);
+}
+
+.red {
+  color: var(--color-red);
+}
+
+.red-background {
+  background-color: var(--color-red);
+}
+
+.red-fill {
+  fill: var(--color-red);
+}
+
+.red-stroke {
+  stroke: var(--color-red);
+}
+
+.purple {
+  color: var(--color-purple);
+}
+
+.purple-background {
+  background-color: var(--color-purple);
+}
+
+.purple-fill {
+  fill: var(--color-purple);
+}
+
+.purple-stroke {
+  stroke: var(--color-purple);
+}
+
+.green {
+  color: var(--color-green);
+}
+
+.green-background {
+  background-color: var(--color-green);
+}
+
+.green-fill {
+  fill: var(--color-green);
+}
+
+.green-stroke {
+  stroke: var(--color-green);
+}
+
+
 
 .contact-icon {
   height: 28px;
@@ -255,6 +450,30 @@ input[type="file"]:focus::file-selector-button {
 #backgroundSix {
   rotate: -135deg;
   margin-top: 40%;
+  margin-left: 80%;
+  z-index: -3;
+  transform: translateZ(-7px) scale(1.7);
+}
+
+#backgroundSeven {
+  rotate: -135deg;
+  margin-top: 200%;
+  margin-left: 30%;
+  z-index: -3;
+  transform: translateZ(-7px) scale(1.7);
+}
+
+#backgroundEight {
+  rotate: -135deg;
+  margin-top: 130%;
+  margin-left: 50%;
+  z-index: -3;
+  transform: translateZ(-7px) scale(1.7);
+}
+
+#backgroundNine {
+  rotate: -135deg;
+  margin-top: 120%;
   margin-left: 80%;
   z-index: -3;
   transform: translateZ(-7px) scale(1.7);
@@ -381,8 +600,8 @@ input[type="file"]:focus::file-selector-button {
 
 .waves-container svg {
   position: absolute;
-
-  pointer-events: none; /* ensure SVG doesn't capture mouse events */
+  pointer-events: none;
+  /* ensure SVG doesn't capture mouse events */
 }
 
 .backgroundColor {
@@ -390,7 +609,7 @@ input[type="file"]:focus::file-selector-button {
   left: 0;
   position: absolute;
   background-color: #6b858d;
-  height: 1200px;
+  height: 1800px;
   width: 2200px;
   margin-top: 300px;
   z-index: -1;
@@ -406,23 +625,50 @@ input[type="file"]:focus::file-selector-button {
 
 @media screen and (max-width: 1280px) {
   .backgroundColor {
-    height: 1600px;
+    height: 2200px;
+  }
+  #backgroundOne {
+    margin-left: -100%;
+  }
+  #backgroundTwo {
+    margin-left: -90%;
+  }
+  #backgroundThree {
+    margin-left: 140%;
+    border: black solid 1px;
+  }
+  #backgroundFour {
+    margin-left: 130%;
+    border: pink solid 20px;
+  }
+
+  #backgroundFive {
+    margin-left: 120%;
+    border: pink solid 20px;
+  }
+
+  #backgroundSix {
+    margin-left: 110%;
+    border: pink solid 20px;
   }
 }
 
 @media screen and (max-width: 800px) {
   .backgroundColor {
-    height: 2300px;
+    height: 4000px;
   }
 }
 
-@media screen and (max-width: 60px) {
+@media screen and (max-width: 620px) {
   .backgroundColor {
-    height: 3600px;
+    height: 3400px;
   }
 }
 
 @media screen and (max-width: 1280px) {
+  .backgroundColor {
+    height: 2700px;
+  }
   #squareTwo {
     margin-left: 15px;
     margin-top: 2%;

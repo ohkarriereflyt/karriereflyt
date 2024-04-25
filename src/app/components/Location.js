@@ -61,7 +61,7 @@ const Location = ({ address }) => {
 
     return (
         <div className="flex flex-col">
-            <div id="map" className="w-full h-64 bg-background-flat kf-border-dark mb-4"></div>
+            <div id="map" className="w-full h-64 bg-background-flat kf-border-dark-hard mb-4"></div>
             <div>
                 <button className="noStyle gap-4 items-center inline-flex" onClick={redirectToGoogleMaps}>
                     <h3 className="text-text-flat-inverted">Veibeskrivelse</h3>

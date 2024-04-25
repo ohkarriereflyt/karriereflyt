@@ -86,7 +86,7 @@ export default function OurSubjectArea() {
         </div>
       </div>
       <div className="w-3/5 mx-auto mb-36 mt-12">
-        <p className="text-center text-normal">
+        <p className="text-center text-normal text-text-flat-inverted">
           Vi har likevel god innsikt i det meste av stillingsvarianter innen
           merkantile fag. Ta gjerne kontakt direkte med oss dersom du har et
           behov!

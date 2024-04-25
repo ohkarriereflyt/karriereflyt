@@ -1,5 +1,5 @@
 import BackgroundBoxes from "./BackgroundBoxes";
-import ContactEmployee from "./ContactEmployee";
+import EmployeeGrid from "./EmployeeGrid";
 import CTAButtons from "./CTAButtons";
 import CustomerFeedback from "./CustomerFeedback";
 import EmployeSection from "./EmployeSection";
@@ -28,10 +28,11 @@ import Statistics from "./Statistics";
 import WavesBackground from "./WavesBackground";
 import Sertifications from "./Sertifications";
 import Navbar from "./Navbar";
+import ButtonArrow from "./ButtonArrow";
 
 export {
   BackgroundBoxes,
-  ContactEmployee,
+  EmployeeGrid,
   CTAButtons,
   CustomerFeedback,
   EmployeSection,
@@ -60,4 +61,5 @@ export {
   Statistics,
   WavesBackground,
   Navbar,
+  ButtonArrow,
 };

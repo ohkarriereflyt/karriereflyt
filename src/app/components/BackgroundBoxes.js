@@ -7,6 +7,9 @@ export default function BackgroundBoxes() {
       <div className="backgroundBox" id="backgroundFour"></div>
       <div className="backgroundBox" id="backgroundFive"></div>
       <div className="backgroundBox" id="backgroundSix"></div>
+      <div className="backgroundBox" id="backgroundSeven"></div>
+      <div className="backgroundBox" id="backgroundEight"></div>
+      <div className="backgroundBox" id="backgroundNine"></div>
     </>
   );
 }
