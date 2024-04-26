@@ -23,7 +23,6 @@ export default function Footer({ transitionLine = true }) {
       items: [
         "E-post: post@karriereflyt.no",
         "Telefon: +47 41 28 28 78",
-        "Karriereflyt AS © 2024",
       ],
     },
     {
