@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { BackgroundBoxes, EmployeeGrid, localImg, TransitionLine } from '../../components/index';
+import { Footer, EmployeeGrid, localImg, TransitionLine } from '../../components/index';
 
 const employees = [
   {
@@ -92,6 +92,7 @@ export default function Page() {
             </div>
           </div>
         </div>
+        <Footer transitionLine={false}/>
       </div>
   );
 }

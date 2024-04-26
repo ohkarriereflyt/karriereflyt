@@ -116,7 +116,7 @@ export default function Page() {
           <ContactForm />
         </div>
       </div>
-      {/* <Footer /> */}
+      <Footer transitionLine={false}/>
     </div>
   );
 }

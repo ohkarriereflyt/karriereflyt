@@ -5,6 +5,7 @@ import EmployeeGrid from '../../app/components/EmployeeGrid';
 import "../../app/globals.css";
 import localImg from '../../app/imagesMidlertidig/øyvind-haugen.png';
 import TransitionLine from '../../app/components/TransitionLine';
+import Footer from '../../app/components/Footer';
 
 const employees = [
     {
@@ -188,6 +189,7 @@ const MemberDetailPage = () => {
                     </div>
                 </div>
             </div>
+            <Footer transitionLine={false}/>
         </>
     );
 };

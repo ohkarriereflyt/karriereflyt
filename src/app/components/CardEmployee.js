@@ -96,7 +96,9 @@ const CardEmployee = ({ index, member, backgroundColor = 'slate-gray', foregroun
                                     </defs>
                                 </svg>
                             </button>
-                            <button className={`hover:scale-105 noStyle w-8 h-8 flex-col justify-center items-center inline-flex ${!member.facebook && 'opacity-50 cursor-default'}`}>
+                            <button
+                                onClick={() => member.facebook && window.open(member.facebook, '_self')}
+                                className={`hover:scale-105 noStyle w-8 h-8 flex-col justify-center items-center inline-flex ${!member.facebook && 'opacity-50 cursor-default'}`}>
                                 <svg className="contact-icon" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g clipPath="url(#clip0_810_12797)">
                                         <path className={`${foregroundColor}-fill`} fillRule="evenodd" clipRule="evenodd" d="M13.8006 32.0477V21.0651H10.0498V16.6031H13.7924V13.3286C13.7924 9.5201 16.0786 7.44552 19.4084 7.44552C20.5311 7.44135 21.6537 7.49975 22.7695 7.62211V11.6002H20.4752C18.6645 11.6002 18.313 12.4818 18.313 13.7694V16.6115H22.6401L22.0801 21.0735H18.313V32.2272C26.3134 31.3914 32.6738 24.5163 32.6738 16.3202C32.6738 7.58731 25.4112 0.328125 16.6582 0.328125C7.9209 0.328125 0.673828 7.58731 0.673828 16.3202C0.673828 24.0887 6.40025 30.6704 13.8006 32.0477Z" />
@@ -108,7 +110,9 @@ const CardEmployee = ({ index, member, backgroundColor = 'slate-gray', foregroun
                                     </defs>
                                 </svg>
                             </button>
-                            <button className={`hover:scale-105 noStyle w-8 h-8 flex-col justify-center items-center inline-flex ${!member.linkedin && 'opacity-50 cursor-default'}`}>
+                            <button
+                                onClick={() => member.linkedin && window.open(member.linkedin, '_self')}
+                                className={`hover:scale-105 noStyle w-8 h-8 flex-col justify-center items-center inline-flex ${!member.linkedin && 'opacity-50 cursor-default'}`}>
                                 <svg className="contact-icon" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path className={`${foregroundColor}-fill`} fillRule="evenodd" clipRule="evenodd" d="M4.8 0.40625C2.14903 0.40625 0 2.55528 0 5.20625V27.6063C0 30.2572 2.14903 32.4062 4.8 32.4062H27.2C29.851 32.4062 32 30.2572 32 27.6063V5.20625C32 2.55528 29.851 0.40625 27.2 0.40625H4.8ZM4.7998 9.04469C4.7998 10.3247 5.7598 11.2847 7.1998 11.2847C8.7998 11.2847 9.75983 10.3247 9.75983 9.04469C9.75983 7.76469 8.7998 6.80469 7.3598 6.80469C5.7598 6.80469 4.7998 7.76469 4.7998 9.04469ZM4.7998 26.6272H9.75983V12.8672H4.7998V26.6272ZM27.1848 26.6272H22.2248V19.1072C22.2248 17.0272 20.9448 16.5472 20.4648 16.5472C19.9848 16.5472 18.3848 16.8672 18.3848 19.1072V26.6272H13.4248V12.8672H18.3848V14.7872C19.0248 13.6672 20.3048 12.8672 22.7048 12.8672C25.1048 12.8672 27.1848 14.7872 27.1848 19.1072V26.6272Z" />
                                 </svg>
