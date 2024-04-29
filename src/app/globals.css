@@ -193,8 +193,13 @@ input[type="file"]:focus::file-selector-button {
   .kf-border-light::after,
   .kf-border-dark::after,
   .kf-border-dark-hard {
-    border-radius: 16px;
+    border-radius: 16px !important;
   }
+}
+
+.background-blur {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .noStyle {
@@ -489,16 +494,6 @@ button[type="submit"]::after,
   width: 100%;
   overflow-x: hidden;
   perspective: 10px;
-}
-
-.waveOneFooter {
-  min-height: 2vh;
-  background-color: rgba(107, 133, 141, 0.2);
-}
-
-.waveTwoFooter {
-  min-height: 2vh;
-  background-color: rgba(107, 133, 141, 0.6);
 }
 
 #backgroundDiffuser {
