@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Pentagon() {
   return (
-    <div className="relative w-full" style={{ aspectRatio: '1 / 1', minWidth: '200px', minHeight: '200px', maxHeight: '600px', maxWidth: '600px' }}>
+    <div className="relative w-full  " style={{ aspectRatio: '1 / 1', minWidth: '200px', minHeight: '200px', maxHeight: '600px', maxWidth: '600px' }}>
       <div className="absolute" style={{ width: '14%', height: '14%',top: '25%', left: '35%', transform: 'rotate(210deg)', }}>
           <Image src={Curve} alt="Curve"  />
         </div>

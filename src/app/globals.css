@@ -490,7 +490,7 @@ button[type="submit"]::after,
 
 #boxCollection {
   height: 100vh;
-  overflow-y: auto;
+  overflow-y:auto;
   width: 100%;
   overflow-x: hidden;
   perspective: 10px;
