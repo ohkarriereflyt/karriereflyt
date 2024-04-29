@@ -181,7 +181,7 @@ const MemberDetailPage = () => {
                 </div>
                 <TransitionLine />
                 <div className="bg-slate-gray-flat w-full">
-                    <div className="max-w-7xl mx-auto px-4 md:px-8 p-16">
+                    <div className="max-w-7xl mx-auto px-4 md:p-8">
                         <h1 className="text-center light mb-8">Lær mer om gjengen vår</h1>
                         <div className="w-full">
                             <EmployeeGrid employees={employees} exclude={member.name} backgroundColor='gray' foregroundColor='dark' border='dark' />

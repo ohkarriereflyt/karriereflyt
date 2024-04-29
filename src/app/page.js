@@ -31,14 +31,17 @@ export default function Home() {
               subtitleSize="text-subHeadline"
             />
           </div>
-          <div className="xl:w-full flex-1 w-full xl:mt-12 xl:mb-0 mb-48 mt-12 order-2 ">
+          <div className="relative xl:w-full flex-1 w-full xl:mt-12 xl:mb-0 m-12 order-2">
             <ImagesInSaquares />
           </div>
 
-          <div className="xl:mt-12 mt-96 order-3 w-full xl:ml-0 lg:mb-0 mb-12">
-            <CTAButtons widthOne="md:w-48" widthTwo="w-36" />
-
-
+          <div className="w-full order-3 flex gap-4 py-12">
+              <Link href="/applicants">
+                <button className="button md:w-48">For jobbsøkere</button>
+              </Link>
+              <Link href="/services">
+                <button className="button light-background kf-border-dark dark">For bedrifter</button>
+              </Link>
           </div>
         </div>
       </div>
@@ -65,14 +68,12 @@ export default function Home() {
 
       {/* Bottom buttons */}
       <div className="flex justify-center items-center gap-4 py-12">
-        <>
           <Link href="/applicants">
-            <button>For jobbsøkere</button>
+            <button className="button">For jobbsøkere</button>
           </Link>
           <Link href="/services">
-            <button className="bg-3 kf-border-dark text-text-flat">For bedrifter</button>
+            <button className="button light-background kf-border-dark dark">For bedrifter</button>
           </Link>
-        </>
       </div>
       <Footer />
     </main>

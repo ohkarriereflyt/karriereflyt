@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Footer, EmployeeGrid, localImg, TransitionLine } from '../../components/index';
+import { Footer, EmployeeGrid, TransitionLine } from '../../components/index';
 
 const employees = [
   {
@@ -68,9 +68,7 @@ const employees = [
 import {
   OurHistorySection,
   OurVisionSection,
-  Banner,
-  EmployeSection,
-  ContactButton,
+  Banner
 } from "../../components/index";
 
 export default function Page() {
@@ -80,15 +78,16 @@ export default function Page() {
         <OurHistorySection />
         <OurVisionSection />
         <div className="bg-slate-gray-flat w-full">
-          <div className="max-w-7xl mx-auto px-4 md:px-8 p-16">
+          <div className="max-w-7xl mx-auto px-4 md:p-8">
             <h1 className="text-center light mb-8">Våre ansatte</h1>
             <div className="w-full mb-8">
               <EmployeeGrid employees={employees} backgroundColor='gray' foregroundColor='dark' border='dark' />
             </div>
             <div className='flex justify-center'>
               <Link href="/contact">
-                <button className="bg-primary-flat text-white py-4">Kontakt oss</button>
+                <button className="light">Kontakt oss</button>
               </Link>
+              <TransitionLine />
             </div>
           </div>
         </div>

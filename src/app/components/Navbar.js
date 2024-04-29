@@ -282,7 +282,7 @@ export default function Navbar() {
                 }`}
                 href="/contact"
               >
-                <button className="bg-background-flat kf-border-dark text-text-flat">Kontakt oss</button>
+                <button className="button light-background kf-border-dark dark">Kontakt oss</button>
               </Link>
             </li>
           </ul>
