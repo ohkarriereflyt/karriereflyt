@@ -18,16 +18,18 @@ import Brain from "../../imagesMidlertidig/head.svg";
 export default function Page() {
   return (
     <div>
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-auto">
-      <div className="p-12 flex flex-col md:flex-row items-start md:items-center justify-start md:justify-center">
+    <div >
+    <div className="max-w-7xl mx-auto  sm:px-6 lg:px-8 overflow-auto">
+      <div className="py-12 flex flex-col md:flex-row items-start md:items-center justify-start md:justify-center">
         <div className="flex-1">
           <HeroCardTitle heading="Våre tjenester" headingSize="text-5xl" />
           <List listItemOne="Rekruttering" listItemTwo="Utleie av personell" listItemThree="Rådgivning" listItemFour="Headhunting" />
         </div>
         <Pentagon />
       </div>
-
-      <div className="backdrop-filter backdrop-blur-sm px-12 ">
+      </div>
+      <div className="backdrop-filter backdrop-blur-lg px-6 pt-8 pb-8 " style={{ borderTop: '4px solid rgba(255, 255, 255, 0.4)' }}>
+        <div className="max-w-7xl mx-auto  sm:px-6 lg:px-8 overflow-auto">
         <div className="text-center"> 
           <HeroCardTitle heading="Våre tjenester" headingSize="text-3xl"/>
         </div>
@@ -47,7 +49,11 @@ export default function Page() {
               direction: "down",
               textColor: "text-slate-gray-flat",
               iconColor: "text-slate-gray-flat",
-              circleColor:"bg-slate-gray-flat"
+              circleColor:"bg-slate-gray-flat",
+              text1:"Kandidater skal hos oss møte en oppmerksomhet og en oppfølging som bidrar til at de kommer nærmest mulig en optimal arbeidshverdag, og tar de rette stegene i sin karriere.",
+              text2: "Før vi setter i gang med å finne den rette kandidaten til et oppdrag må vi først bli kjent med bedriftens behov og ønsker, kompetansekrav og arbeidsoppgaver. Når vi har alt dette på plass, kan vi gå i gang med å finne den perfekte kandidaten for deg.",
+              text1Color: "text-gray-500",
+              text2Color: "text-gray-500"
             }}
           />
 
@@ -66,7 +72,11 @@ export default function Page() {
               direction: "down",
               textColor: "text-pistasch-flat",
               iconColor: "text-pistasch-flat",
-              circleColor:"bg-slate-gray-flat"
+              circleColor:"bg-slate-gray-flat",
+              text1:"Selv ved et midlertidig behov, er det viktig for oss at kunden får den kompetansen og kvaliteten de trenger av våre kandidater. For å finne den rette medarbeideren, gjennomgår våre kandidater en grundig utvelgelsesprosess med personlig intervju og referansesjekk.",
+              text2:"Har din bedrift et midlertidig behov for arbeidskraft, og ønsker et tilbud fra Karriereflyt på innleie av den rette kandidat? Ta kontakt med oss for konsultasjon og pris.",
+              text1Color: "text-gray-500",
+              text2Color: "text-gray-500"
             }}
           />
 
@@ -85,7 +95,11 @@ export default function Page() {
               direction: "down",
               textColor: "text-weird-red",
               iconColor: "text-weird-red",
-              circleColor:"bg-weird-red"
+              circleColor:"bg-weird-red",
+              text1:"Selv ved et midlertidig behov, er det viktig for oss at kunden får den kompetansen og kvaliteten de trenger av våre kandidater. For å finne den rette medarbeideren, gjennomgår våre kandidater en grundig utvelgelsesprosess med personlig intervju og referansesjekk.",
+              text2:"Har din bedrift et midlertidig behov for arbeidskraft, og ønsker et tilbud fra Karriereflyt på innleie av den rette kandidat? Ta kontakt med oss for konsultasjon og pris.",
+              text1Color: "text-gray-500",
+              text2Color: "text-gray-500"
             }}
           />
 
@@ -104,7 +118,11 @@ export default function Page() {
               direction: "down",
               textColor: "text-vanilla-latte-flat",
               iconColor: "text-vanilla-latte-flat",
-              circleColor:"bg-vanilla-latte-flat"
+              circleColor:"bg-vanilla-latte-flat",
+              text:"Selv ved et midlertidig behov, er det viktig for oss at kunden får den kompetansen og kvaliteten de trenger av våre kandidater. For å finne den rette medarbeideren, gjennomgår våre kandidater en grundig utvelgelsesprosess med personlig intervju og referansesjekk.",
+              text2:"Har din bedrift et midlertidig behov for arbeidskraft, og ønsker et tilbud fra Karriereflyt på innleie av den rette kandidat? Ta kontakt med oss for konsultasjon og pris",
+              text1Color: "text-gray-500",
+              text2Color: "text-gray-500"
             }}
           />
 
@@ -127,7 +145,11 @@ export default function Page() {
               direction: "down",
               textColor: "text-purple",
               iconColor: "text-purple",
-              circleColor:"bg-purple"
+              circleColor:"bg-purple",
+              text1:"Kandidater skal hos oss møte en oppmerksomhet og en oppfølging som bidrar til at de kommer nærmest mulig en optimal arbeidshverdag, og tar de rette stegene i sin karriere.",
+              text2:"Før vi setter i gang med å finne den rette kandidaten til et oppdrag må vi først bli kjent med bedriftens behov og ønsker, kompetansekrav og arbeidsoppgaver. Når vi har alt dette på plass, kan vi gå i gang med å finne den perfekte kandidaten for deg.",
+              text1Color: "text-gray-500",
+              text2Color: "text-gray-500"
             }}
           />
 
@@ -146,15 +168,17 @@ export default function Page() {
               direction: "down",
               textColor: "text-weird-green",
               iconColor: "text-weird-green",
-              circleColor:"bg-weird-green"
+              circleColor:"bg-weird-green",
+              text1:"Vi samarbeider med Jobbkretser for å tilby topprangerte personlighetstester i Norge, sikrer en god match mellom jobbsøkere og bedrifter. Vår tilnærming er grundig; vi evaluerer kandidaters egnethet nøye og sikrer at både bedrift og søker oppnår tilfredshet gjennom personlig og faglig tilpasning.",
+              text2:"For å sikre suksess i rekrutteringsprosessen, blir vi først godt kjent med bedriftens behov og preferanser. Med denne forståelsen finner vi den ideelle kandidaten for deg, ved å fokusere på kvalitet i hver fase av prosessen, fra innsiktfull rådgivning til nøye oppfølging og tilkobling med profesjonelle nettverk.",
+              text1Color: "text-gray-500",
+              text2Color: "text-gray-500"
             }}
           />
         </div>
+        </div>
       </div>
       
-    </div>
-    <div className="pt-10"> 
-        <Footer />
     </div>
     </div>
   );
