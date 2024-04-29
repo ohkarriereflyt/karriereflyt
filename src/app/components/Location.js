@@ -56,12 +56,13 @@ const Location = ({ address }) => {
     const redirectToGoogleMaps = () => {
         const formattedAddress = encodeURIComponent(address);
         const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${formattedAddress}`;
-        window.open(googleMapsUrl, '_blank');
+        if (window)
+            window.open(googleMapsUrl, '_blank');
     };
 
     return (
         <div className="flex flex-col">
-            <div id="map" className="w-full h-64 bg-background-flat kf-border-dark mb-4"></div>
+            <div id="map" className="w-full h-64 bg-background-flat kf-border-dark-hard mb-4"></div>
             <div>
                 <button className="noStyle gap-4 items-center inline-flex" onClick={redirectToGoogleMaps}>
                     <h3 className="text-text-flat-inverted">Veibeskrivelse</h3>

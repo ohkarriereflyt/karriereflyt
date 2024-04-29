@@ -1,9 +1,73 @@
-import { ContactEmployee, ContactForm, ContactInfo, Footer, Modal } from "../../components/index";
+import { EmployeeGrid, ContactForm, ContactInfo, Footer, Modal } from "../../components/index";
 import dynamic from 'next/dynamic';
 
 const LocationWithNoSSR = dynamic(() => import('../../components/Location'), {
   ssr: false,
 });
+
+const employees = [
+  {
+      name: 'Øyvind Haugen',
+      title: 'Daglig leder / CEO',
+      phone: '+47 41 28 28 78',
+      email: 'oyvind@karriereflyt.no',
+      // img: 'https://onedrive.live.com/embed?resid=4FD8064FD150BC9C%21547462&authkey=%21ALrmYuoavoKnmP4&width=256',
+      facebook: '',
+      linkedin: '',
+      stikkord: [
+          'Profesjonell',
+          'Hyggelig',
+          'Effektiv',
+      ],
+      bio: 'Øyvind Haugen er daglig leder i Karriereflyt AS. Han har lang erfaring fra rekrutteringsbransjen og har hjulpet mange kunder med å finne den rette kandidaten til stillingen. Øyvind er en hyggelig og profesjonell person som alltid er effektiv i sitt arbeid.',
+      bioShort: 'Øyvind Haugen er en erfaren leder og grunnlegger av Karriereflyt, et selskap dedikert til å hjelpe enkeltpersoner med å navigere gjennom karriereveien sin.',
+  },
+  {
+      name: 'Finn Christian Aakre',
+      title: 'Rekrutteringsrådgiver',
+      phone: '+47 46 84 91 97',
+      email: 'finn@karriereflyt.no',
+      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Face-smile.svg/768px-Face-smile.svg.png',
+      facebook: '',
+      linkedin: '',
+  },
+  {
+      name: 'Andrine Sanden',
+      title: 'Rekrutteringsrådgiver',
+      phone: '+47 99 49 66 35',
+      email: 'andrine@karriereflyt.no',
+      img: 'https://onedrive.live.com/embed?resid=4FD8064FD150BC9C%21547466&authkey=%21AEtsTInMxK8m00E&width=256',
+      facebook: '',
+      linkedin: '',
+  },
+  {
+      name: 'Hanna Arnesen',
+      title: 'Rekrutteringsrådgiver',
+      phone: '+47 47 84 88 62',
+      email: 'hanna@karriereflyt.no',
+      img: 'https://onedrive.live.com/embed?resid=4FD8064FD150BC9C%21547464&authkey=%21AOhOwwGCS6LEqNM&width=256',
+      facebook: '',
+      linkedin: '',
+  },
+  {
+      name: 'Sofie Malsen',
+      title: 'Rekrutteringsrådgiver',
+      phone: '+47 41 28 28 78',
+      email: 'sofie@karriereflyt.no',
+      img: 'https://onedrive.live.com/embed?resid=4FD8064FD150BC9C%21547460&authkey=%21AP45A98V2fZd1_s&width=256',
+      facebook: '',
+      linkedin: '',
+  },
+  {
+      name: 'Connie Haugen',
+      title: 'Styremedlem / Rådgiver',
+      phone: '',
+      email: 'connie@karriereflyt.no',
+      img: 'https://onedrive.live.com/embed?resid=4FD8064FD150BC9C%21547465&authkey=%21AOZmY5z_nDKRTN0&width=256',
+      facebook: '',
+      linkedin: '',
+  },
+];
 
 export default function Page() {
   return (
@@ -11,7 +75,7 @@ export default function Page() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 mb-16" >
         <headline className="justify-center text-center">Kontakt oss</headline>
         <subheadline className="justify-center text-center pb-4">Døren vår står alltid åpen, vi er også bare én telefonsamtale unna!</subheadline>
-        <ContactEmployee />
+        <EmployeeGrid employees={employees} />
       </div>
       <svg width="2560" height="60" viewBox="0 0 2560 60" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginBottom: '-0.1px' }}>
         <g clipPath="url(#clip0_650_12706)">
@@ -52,7 +116,7 @@ export default function Page() {
           <ContactForm />
         </div>
       </div>
-      {/* <Footer /> */}
+      <Footer transitionLine={false}/>
     </div>
   );
 }

@@ -44,7 +44,7 @@ export default function Home() {
       </div>
 
       {/* Tilbakemeldinger fra våre kunder */}
-      <div class="relative">
+      <div className="relative">
         <WavesBackground />
 
         <CustomerFeedback />

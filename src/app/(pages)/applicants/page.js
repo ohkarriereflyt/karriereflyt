@@ -1,3 +1,5 @@
+import { Footer } from "../../components";
+
 async function getData() {
   const apiKey = process.env.RECMAN_API_SECRET;
   const res = await fetch(`https://api.recman.no/v2/get/?key=${apiKey}&scope=jobPost&fields=projectId, name, title, ingress, body, numberOfPositions, startDate, endDate, logo, deadline, address1, address2, postalCode, city, applyUrl, companyName, workplace, position, positionType`);
@@ -47,6 +49,7 @@ export default async function Page() {
           </a>
         </div>
       ))}
+      <Footer/>
     </main>
   );
 }

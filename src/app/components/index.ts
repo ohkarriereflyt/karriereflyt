@@ -1,5 +1,5 @@
 import BackgroundBoxes from "./BackgroundBoxes";
-import ContactEmployee from "./ContactEmployee";
+import EmployeeGrid from "./EmployeeGrid";
 import CTAButtons from "./CTAButtons";
 import CustomerFeedback from "./CustomerFeedback";
 import EmployeSection from "./EmployeSection";
@@ -10,6 +10,7 @@ import ImagesInSaquares from "./ImagesInSquares";
 import JobbkretserPartner from "./JobbkretserPartner";
 import List from "./List";
 import OurHistorySection from "./OurHistorySection";
+import OurVisionSection from "./OurVisionSection";
 import OurSubjectArea from "./OurSubjectArea";
 import PageTitle from "./PageTitle";
 import PartnersAndSertifications from "./PartnersAndSertifications";
@@ -28,10 +29,14 @@ import Statistics from "./Statistics";
 import WavesBackground from "./WavesBackground";
 import Sertifications from "./Sertifications";
 import Navbar from "./Navbar";
+import ButtonArrow from "./ButtonArrow";
+import Banner from "./Banner";
+import TransitionLine from "./TransitionLine";
+import TransitionWave from "./TransitionWave";
 
 export {
   BackgroundBoxes,
-  ContactEmployee,
+  EmployeeGrid,
   CTAButtons,
   CustomerFeedback,
   EmployeSection,
@@ -42,6 +47,7 @@ export {
   JobbkretserPartner,
   List,
   OurHistorySection,
+  OurVisionSection,
   OurSubjectArea,
   PageTitle,
   PartnersAndSertifications,
@@ -60,4 +66,8 @@ export {
   Statistics,
   WavesBackground,
   Navbar,
+  ButtonArrow,
+  Banner,
+  TransitionLine,
+  TransitionWave,
 };
