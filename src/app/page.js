@@ -58,8 +58,15 @@ export default function Home() {
       />
 
       {/* Bottom buttons */}
-      <div className="flex justify-center items-center space-x-4 ">
-        <CTAButtons widthOne="" widthTwo="15%" />
+      <div className="flex justify-center items-center gap-4 py-12">
+        <>
+          <Link href="/applicants">
+            <button>For jobbsøkere</button>
+          </Link>
+          <Link href="/services">
+            <button className="bg-3 kf-border-dark text-text-flat">For bedrifter</button>
+          </Link>
+        </>
       </div>
     </main>
   );
