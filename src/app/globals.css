@@ -52,8 +52,9 @@
 }
 
 body {
-  overflow-y: hidden;
+  overflow-x: hidden;
   color: var(--color-text);
+  overflow-y: hidden;
 }
 
 headline,
@@ -296,8 +297,8 @@ input[type="file"]:focus::file-selector-button {
   height: 100vh;
   overflow-y: auto;
   width: 100%;
-  overflow-x: hidden;
-  perspective: 10px;
+
+  perspective: 12px;
 }
 
 .waveOneFooter {
@@ -310,101 +311,100 @@ input[type="file"]:focus::file-selector-button {
   background-color: rgba(107, 133, 141, 0.6);
 }
 
-#backgroundDiffuser {
-  width: 100%;
-  margin-top: -120%;
+.imagesInSquares {
+  width: 300px;
+  height: 300px;
+  rotate: 45deg;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   position: absolute;
-  height: 90%;
-  background-color: #6b858d;
-  z-index: -2;
-  /* transform-style: preserve-3d;
-    transform: translateZ(-5px) scale(1.5); */
+}
+
+#squareOne {
+  margin-top: 8%;
+  z-index: 2;
+
+  overflow: hidden;
+}
+
+.imageInSquareOne {
+  background-image: url(./imagesMidlertidig/officeImageOne.jpeg);
+}
+
+.imageInSquareTwo {
+  background-image: url(./imagesMidlertidig/officeImageTwo.jpeg);
+}
+
+.imageInSquareThree {
+  background-image: url(./imagesMidlertidig/officeImageThree.jpeg);
+}
+
+#squareTwo {
+  margin-left: 22%;
+  margin-top: 14%;
+
+  z-index: -1;
+  overflow: hidden;
+}
+
+#squareThree {
+  margin-left: 22%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.imageInSquareOne,
+.imageInSquareTwo,
+.imageInSquareThree {
+  height: 500px;
+  width: 500px;
+  margin-top: -120px;
+  margin-left: -60px;
+  rotate: -45deg;
+}
+
+.sharedBoxClass {
+  background: linear-gradient(#e6dbd1, #e7dacb, #faf7f3);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 100px;
+  border: 8px solid #f1f1f1a8;
 }
 
 #kretsBoxOne {
   position: absolute;
   rotate: 45deg;
-  width: 250px;
-  height: 250px;
-  margin-top: 20px;
+  width: 200px;
+  height: 200px;
+  margin-top: -140px;
   margin-left: -20px;
-  background: linear-gradient(#e6dbd1, #e7dacb, #faf7f3);
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 100px;
-  border: 8px solid #f1f1f1a8;
 }
 
 #kretsBoxTwo {
   position: absolute;
   rotate: 135deg;
-  margin-left: 215px;
-  width: 270px;
-  height: 284px;
-  background: linear-gradient(#e6dbd1, #e7dacb, #faf7f3);
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 100px;
+  margin-left: 200px;
+  width: 220px;
+  height: 224px;
+  margin-top: -140px;
+
   z-index: 1;
-  border: 8px solid #f1f1f1a8;
 }
 
 #kretsBoxThree {
   position: absolute;
   rotate: 135deg;
   margin-left: 100px;
-  margin-top: -100px;
-  width: 243px;
-  height: 253px;
-  background: linear-gradient(#e6dbd1, #e7dacb, #faf7f3);
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 100px;
-  border: 8px solid #f1f1f1a8;
+  margin-top: -250px;
+  width: 200px;
+  height: 200px;
 }
 
 #kretsBoxFour {
-  position: absolute;
   rotate: 135deg;
-  margin-left: 115px;
-  margin-top: 120px;
-  width: 250px;
-  height: 250px;
-  background: linear-gradient(#e6dbd1, #e7dacb, #faf7f3);
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 200px 100px;
+  margin-left: 100px;
+  margin-top: -30px;
+  width: 200px;
+  height: 200px;
+
   z-index: -1;
-  border: 8px solid #f1f1f1a8;
-}
-
-.waveTop {
-  top: 0;
-  left: 0;
-  width: 2000px;
-  z-index: -1;
-  height: 300px;
-  margin-top: 62px;
-  display: block;
-
-  margin-left: -6%;
-}
-
-.waveMiddle {
-  top: 0;
-  left: 0;
-  width: 2000px;
-  z-index: -2;
-  height: 300px;
-
-  display: block;
-  rotate: 3deg;
-  margin-top: 65px;
-
-  margin-left: -6%;
-  transform: translateZ(-7px) scale(1.7);
-}
-
-.waveBottom {
-  top: 0;
-  left: 0;
-  width: 2000px;
-  z-index: -2;
-  height: 300px;
-  margin-top: 70px;
-  margin-left: -6%;
 }
 
 .waves-container svg {
@@ -419,22 +419,38 @@ input[type="file"]:focus::file-selector-button {
   position: absolute;
   background-color: #6b858d;
   height: 1800px;
-  width: 2200px;
-  margin-top: 300px;
+  width: 100%;
+  margin-top: 500px;
   z-index: -1;
 }
 
-@media screen and (min-width: 2080px) {
-  .waveBottom {
-    margin-left: 1%;
-    margin-top: 120px;
-    rotate: -6deg;
-  }
+.bannerImage {
+  height: 90px;
+  width: 350px;
+  position: absolute;
+  margin-top: -70px;
+  margin-left: 30px;
+  z-index: 2;
+}
+
+#partnerBox {
+  width: 150px;
+  height: 150px;
 }
 
 @media screen and (max-width: 1280px) {
+  .sharedBoxClass {
+    width: 125px;
+    height: 125px;
+  }
+
+  #partnerBox {
+    width: 120px;
+    height: 120px;
+  }
+
   .backgroundColor {
-    height: 2200px;
+    height: 2000px;
   }
   #backgroundOne {
     margin-left: -100%;
@@ -444,50 +460,117 @@ input[type="file"]:focus::file-selector-button {
   }
   #backgroundThree {
     margin-left: 140%;
-    border: black solid 1px;
   }
   #backgroundFour {
     margin-left: 130%;
-    border: pink solid 20px;
   }
 
   #backgroundFive {
     margin-left: 120%;
-    border: pink solid 20px;
   }
 
   #backgroundSix {
     margin-left: 110%;
-    border: pink solid 20px;
   }
 }
 
 @media screen and (max-width: 800px) {
-  .backgroundColor {
-    height: 4000px;
+  #kretsBoxOne,
+  #kretsBoxTwo,
+  #kretsBoxThree,
+  #kretsBoxFour {
+    width: 120px;
+    height: 120px;
+  }
+
+  #kretsBoxOne {
+    margin-top: -80px;
+    margin-left: 40px;
+    z-index: 1;
+  }
+
+  #kretsBoxTwo {
+    margin-top: -80px;
+    margin-left: 160px;
+    z-index: 3;
+  }
+
+  #kretsBoxThree {
+    margin-top: -140px;
+    z-index: 2;
+  }
+
+  #kretsBoxFour {
+    margin-top: -50px;
+    height: 100px;
+    z-index: 1;
+  }
+
+  .bannerImage {
+    margin-top: -50px;
+
+    z-index: 4;
+    margin-left: 55px;
+    height: 60px;
+    width: 205px;
   }
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (min-width: 800px) and (max-width: 1280px) {
+  .bannerImage {
+    height: 80px;
+    width: 300px;
+    margin-left: 50px;
+    margin-top: -70px;
+  }
+
+  #kretsBoxContainer {
+    margin-top: 350px;
+    padding-right: 100px;
+  }
   .backgroundColor {
-    height: 3400px;
+    height: 3000px;
   }
 }
 
-@media screen and (max-width: 1280px) {
-  .backgroundColor {
-    height: 2700px;
+@media screen and (max-width: 768px) {
+  .imageInSquareOne {
+    background-image: url(./imagesMidlertidig/office300pxOne.jpeg);
   }
+
+  .imageInSquareTwo {
+    background-image: url(./imagesMidlertidig/office300pxTwo.jpeg);
+  }
+  .imageInSquareThree {
+    background-image: url(./imagesMidlertidig/office300pxThree.jpeg);
+  }
+
+  .imagesInSquares {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+  }
+
   #squareTwo {
-    margin-left: 15px;
-    margin-top: 2%;
+    margin-left: 70%;
+    margin-top: 10%;
   }
 
   #squareThree {
-    background-color: green;
-    margin-left: 20px;
-    width: 150px;
-    height: 150px;
-    margin-top: 2%;
+    margin-left: 35%;
+  }
+
+  .backgroundBox {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 50px 100px;
+    border-radius: 16px;
+    width: 70%;
+    height: 70%;
+  }
+
+  #backgroundSix,
+  #backgroundSeven,
+  #backgroundEight,
+  #backgroundNine {
+    display: none;
   }
 }

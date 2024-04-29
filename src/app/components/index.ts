@@ -25,7 +25,7 @@ import Location from "./Location";
 import Modal from "./Modal";
 import SocialMediaIcons from "./SocialMediaIcons";
 import Statistics from "./Statistics";
-import WavesBackground from "./WavesBackground";
+
 import Sertifications from "./Sertifications";
 import Navbar from "./Navbar";
 
@@ -58,6 +58,5 @@ export {
   Modal,
   SocialMediaIcons,
   Statistics,
-  WavesBackground,
   Navbar,
 };

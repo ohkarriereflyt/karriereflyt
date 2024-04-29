@@ -1,7 +1,9 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import footerAndBoxes from "./components/footerAndBoxes";
 import BackgroundBoxes from "./components/BackgroundBoxes";
+import { Footer } from "./components";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,8 +19,11 @@ export default function RootLayout({ children }) {
         <Navbar />
         <div id="boxCollection">
           <BackgroundBoxes />
+
           {children}
+          <Footer />
         </div>
+        
       </body>
     </html>
   );

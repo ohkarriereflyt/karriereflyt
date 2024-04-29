@@ -5,10 +5,6 @@ export default function Statistics() {
       number: "12",
     },
     {
-      headline: "Intervjuer daglig",
-      number: "3",
-    },
-    {
       headline: "Fornøyde kunder",
       number: "3",
     },
