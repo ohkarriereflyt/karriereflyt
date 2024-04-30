@@ -2,7 +2,7 @@ import { Squada_One } from "next/font/google";
 
 export default function ImagesInSaquares() {
   return (
-    <>
+    <div className="md:h-0 h-[500px]">
       <div
         id="squareOne"
         className="rounded-connie shadow-2xl imagesInSquares lg:tra"
@@ -21,6 +21,6 @@ export default function ImagesInSaquares() {
       >
         <div className="imageInSquareThree"></div>
       </div>
-    </>
+    </div>
   );
 }

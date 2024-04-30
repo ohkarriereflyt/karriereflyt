@@ -92,7 +92,7 @@ p {
 }
 
 .button-text,
-button,
+.button,
 button[type="submit"],
 input[type="file"]::file-selector-button {
   position: relative;
@@ -101,7 +101,7 @@ input[type="file"]::file-selector-button {
   color: var(--color-text-light);
 }
 
-button,
+.button,
 button[type="submit"],
 input[type="file"]::file-selector-button {
   height: 44px;
@@ -110,7 +110,7 @@ input[type="file"]::file-selector-button {
   background-color: var(--background-dark);
 }
 
-button:hover,
+.button:hover,
 button[type="submit"]:hover,
 input[type="file"]::file-selector-button:hover {
   cursor: pointer;
@@ -131,7 +131,7 @@ input[type="file"]:focus {
   border: none;
 }
 
-button:focus,
+.button:focus,
 input[type="file"]:focus::file-selector-button {
   outline: none;
   filter: brightness(1.2);
@@ -168,13 +168,13 @@ input[type="file"]:focus::file-selector-button {
   }
 
   .button-text,
-  button,
+  .button,
   button[type="submit"],
   input[type="file"]::file-selector-button {
     font-size: 16px;
   }
 
-  button,
+  .button,
   button[type="submit"],
   input[type="file"]::file-selector-button {
     padding: 0 32px;
@@ -189,7 +189,7 @@ input[type="file"]:focus::file-selector-button {
 
   .kf-border-light,
   .kf-border-dark,
-  button::after,
+  .button::after,
   button[type="submit"]::after,
   .kf-border-light::after,
   .kf-border-dark::after,
@@ -225,7 +225,7 @@ input[type="file"]:focus::file-selector-button {
   overflow: hidden;
 }
 
-button::after,
+.button::after,
 button[type="submit"]::after,
 .kf-border-light::after,
 .kf-border-dark::after {

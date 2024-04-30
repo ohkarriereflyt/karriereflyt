@@ -62,7 +62,7 @@ const CardEmployee = ({ index, member, backgroundColor = 'slate-gray', foregroun
                                 <div className="hidden md:inline-flex self-stretch py-2 justify-start items-end gap-2.5">
                                     <p>{member.bioShort}</p>
                                 </div>
-                                <div className="hidden h-14 p-2 justify-center items-center gap-4 md:inline-flex cursor-pointer">
+                                <div className='w-full justify-end hidden md:flex'>
                                     <ButtonArrow color={foregroundColor} href={`/contact/${encodeURIComponent(member.name)}`} />
                                 </div>
                             </>
@@ -139,7 +139,7 @@ const CardEmployee = ({ index, member, backgroundColor = 'slate-gray', foregroun
                         <div className="inline-flex self-stretch py-2 justify-start items-end gap-2.5">
                             <p>{member.bioShort}</p>
                         </div>
-                        <div className="h-14 p-2 justify-end w-full items-center gap-4 inline-flex cursor-pointer">
+                        <div className='w-full flex justify-end'>
                             <ButtonArrow color={foregroundColor} href={`/contact/${encodeURIComponent(member.name)}`} />
                         </div>
                     </div>
