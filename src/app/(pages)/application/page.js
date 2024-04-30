@@ -29,15 +29,19 @@ async function fetchJobBranches() {
 
 
 async function fetchJobRegions() {
-    const response = await fetch(`https://api.recman.no/v2/get/?key=${apiKey}&scope=jobPost&fields=branchCategoryId,regionId`);
-    if (!response.ok) throw new Error('Failed to fetch job regions');
-    return response.json();
+    const regionResponse = await fetch(`https://api.recman.no/v2/get/?key=${apiKey}&scope=jobPost&fields=branchCategoryId,regionId`);
+    const data = await regionResponse.json();
+    return data.data
 }
 
 async function fetchRegions() {
     const response = await fetch(`https://api.recman.no/v2/get/?key=${apiKey}&scope=location`);
-    if (!response.ok) throw new Error('Failed to fetch regions');
-    return response.json();
+    const dataResponse = await response.json();
+    return dataResponse.data.region.reduce((acc, cur) => {
+        acc[cur.regionId] = cur.name;
+        return acc;
+    }, {});
+
 }
 
 
@@ -80,6 +84,12 @@ export default async function Page() {
     const usedBranchCategories = Object.keys(branchCategories)
         .filter(id => usedBranchCategoryIds.has(id))
         .map(id => ({ id, name: branchCategories[id] }));
+
+    const regionCategories = await fetchJobRegions();
+    const jobRegions = await fetchJobRegions();
+
+    const usedRegionCategoryIds = new Set(Object.values(jobRegions))
+
 
     return (
         <div className='w-full min-h-screen flex flex-col justify-between items-center '>
