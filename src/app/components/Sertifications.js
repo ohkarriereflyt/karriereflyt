@@ -24,7 +24,7 @@ export default function Sertifications() {
   return (
     <>
       {serts.map((sert) => (
-        <div key={serts.name} className="py-2 flex">
+        <div key={serts.name} className="py-2 flex sm:pl-0 pl-4">
           <FontAwesomeIcon icon={faCheck} className="mr-3" />
           <p className="inline">{sert.name}</p>
         </div>
