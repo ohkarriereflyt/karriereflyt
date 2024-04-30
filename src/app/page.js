@@ -40,7 +40,7 @@ export default function Home() {
       </div>
 
       {/* Tilbakemeldinger fra våre kunder */}
-      <div class="relativ">
+      <div className="relative">
         <CustomerFeedback />
         <OurSubjectArea />
       </div>
@@ -64,7 +64,9 @@ export default function Home() {
             <button>For jobbsøkere</button>
           </Link>
           <Link href="/services">
-            <button className="bg-3 kf-border-dark text-text-flat">For bedrifter</button>
+            <button className="bg-3 kf-border-dark text-text-flat">
+              For bedrifter
+            </button>
           </Link>
         </>
       </div>
