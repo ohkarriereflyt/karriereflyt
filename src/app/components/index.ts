@@ -26,7 +26,7 @@ import Location from "./Location";
 import Modal from "./Modal";
 import SocialMediaIcons from "./SocialMediaIcons";
 import Statistics from "./Statistics";
-import WavesBackground from "./WavesBackground";
+
 import Sertifications from "./Sertifications";
 import Navbar from "./Navbar";
 import ButtonArrow from "./ButtonArrow";
@@ -64,7 +64,6 @@ export {
   Modal,
   SocialMediaIcons,
   Statistics,
-  WavesBackground,
   Navbar,
   ButtonArrow,
   Banner,

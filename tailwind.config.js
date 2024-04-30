@@ -39,11 +39,12 @@ module.exports = {
         "pistasch-flat": "#8A9482",
         "vanilla-latte-flat": "#A59584",
 
-        "purple": "#8F8799",
+        purple: "#8F8799",
         "weird-red": "#998787",
         "weird-green": "#6B8D8B",
         // Primary gradient
-        "slate-gray-gradient": "linear-gradient(90deg, #7E9AA3 0%, #516F76 100%)",
+        "slate-gray-gradient":
+          "linear-gradient(90deg, #7E9AA3 0%, #516F76 100%)",
         "pistach-gradient": "linear-gradient(90deg, #9CA594 0%, #77826F 100%)",
         "vanilla-latte": "linear-gradient(90deg, #C2B2A2 0%, #8D7D6D 100%)",
 
@@ -52,12 +53,13 @@ module.exports = {
         "text-flat-inverted": "#FFFBF8",
         "background-flat": "#FFFBF8",
         "background-flat-inverted": "#4A4A4A",
-        "3": "#E6E4E2",
-        
+        3: "#E6E4E2",
+
         // Secondary gradiant
         "icons-gradient": "linear-gradient(90deg, #FFFBF8 0%, #EDE4DE 100%)",
-        "background-gradient": "linear-gradient(90deg, #ECEAE8 0%, #DEDBD9 100%)",
-        
+        "background-gradient":
+          "linear-gradient(90deg, #ECEAE8 0%, #DEDBD9 100%)",
+
         // Border colors
         "border-dark": "#dbd8d5",
 
@@ -74,6 +76,15 @@ module.exports = {
         footer: "12px",
         button: "16px",
         icon: "18px",
+
+        //mobile
+        mobileHeadline: "42px",
+        mobileSubheadline: "21px",
+        mobileHeader: "28px",
+        mobileHeader2: "16px",
+        mobileHeader3: "12px",
+        mobileNormal: "12px",
+        mobileButton: "12px",
       },
 
       width: {
