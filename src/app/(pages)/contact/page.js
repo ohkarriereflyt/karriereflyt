@@ -69,6 +69,10 @@ const employees = [
   },
 ];
 
+const address = 'C. Sundts Gate 51'
+const phoneNumber = '+47 41 28 28 78'
+const email = 'post@karriereflyt.no'
+
 export default function Page() {
   return (
     <div className="mx-auto w-full backdrop-blur-xl pt-4 ">
@@ -106,12 +110,11 @@ export default function Page() {
           </clipPath>
         </defs>
       </svg>
-
       <div className="bg-slate-gray-flat w-full">
         <div className="max-w-7xl mx-auto px-4 md:px-8 p-16 flex md:flex-row-reverse flex-col gap-16">
           <div className="w-full">
-            <ContactInfo />
-            <LocationWithNoSSR address={'C. Sundts Gate 51'} />
+            <ContactInfo address = {address} phoneNumber = {phoneNumber} email = {email}/>
+            <LocationWithNoSSR address={address} />
           </div>
           <ContactForm />
         </div>
