@@ -36,7 +36,7 @@ export default function Navbar() {
                 <Link href="/" className="text-lg font-semibold py-2">Hjem</Link>
               </li>
               <li>
-                <Link href="/applicants" className="text-lg font-semibold py-2">For jobbsøkere</Link>
+                <Link href="/application" className="text-lg font-semibold py-2">For jobbsøkere</Link>
               </li>
               <li>
                 <Link href="/services" className="text-lg font-semibold py-2">Tjenester</Link>
@@ -55,7 +55,7 @@ export default function Navbar() {
                   <Link href="/" className={`${pathname === "/" ? "" : "text-text-flat"}`}>Hjem</Link>
                 </li>
                 <li>
-                  <Link href="/applicants" className={`${pathname === "/applicants" ? "" : "text-text-flat"}`}>For jobbsøkere</Link>
+                  <Link href="/application" className={`${pathname === "/application" ? "" : "text-text-flat"}`}>For jobbsøkere</Link>
                 </li>
                 <li>
                   <Link href="/services" className={`${pathname === "/services" ? "" : "text-text-flat"}`}>Tjenester</Link>
