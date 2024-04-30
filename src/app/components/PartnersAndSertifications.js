@@ -46,16 +46,16 @@ export default function PartnersAndSertifications() {
         backdropFilter: "blur(5px)",
       }}
     >
-      <div className="w-3/5 mx-auto pt-24">
+      <div className="lg:w-3/5 lg:mx-auto lg:pt-24 pt-12 w-full">
         <div className="text-center py-8">
           <h2 className="text-3xl font-bold text-card-text-color mb-12">
             Samarbeidspartnere & sertifiseringer
           </h2>
-          <div className="xl:flex xl:justify-center xl:space-x-4 xl:align-middle md:pb-0 xl:flex-row xl:gap-0 lg:grid-cols-4 grid md:grid-cols-3 sm:grid-cols-2 md:gap-12 sm:gap:2 ">
+          <div className="2xl:flex xl:space-x-4  justify-items-center items-center md:pb-0 xl:flex-row xl:gap-0 lg:grid-cols-4 grid md:grid-cols-3 grid-cols-2 md:gap-12 sm:gap:2 ">
             {partners.map((partner) => (
-              <div
+              <div id="partnerBox"
                 key={partner.name}
-                style={{ height: "150px", width: "150px" }}
+               
                 className="bg-partner-box shadow-lg  align-middle p-4 mb-4 rounded-connie w-1/4 flex items-center justify-center"
               >
                 <Image

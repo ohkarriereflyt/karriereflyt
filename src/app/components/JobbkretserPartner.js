@@ -7,34 +7,47 @@ import { faCheck, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 export default function JobbkretserPartner() {
   return (
-    <div className="w-3/5 mx-auto mt-12 py-32 text-white">
-      <div className="text-center py-8 grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div className=" w-4/5 flex flex-col text-start text-gray-">
-          <h2 className="text-3xl mb-8 text-text-flat-inverted">
-            Som partner med jobbkrester er vi:
+    <div className="lg:w-3/5 w-full  mx-auto lg:bg-inherit bg-slate-gray-flat  text-white md:pb-36 pb-12">
+      <div className="flex xl:flex-row xl:order-first xl:items-start items-center  order-2 flex-col">
+        <div>
+          <h2 className="text-3xl  mb-8 xl:visible invisible text-text-flat-inverted xl:">
+            En del av jobbkretser
           </h2>
 
           <Sertifications />
           <ReadMore />
         </div>
-
-        <div className="flex flex-col">
-          <Image
-            src={bannerimage}
-            alt=""
-            style={{
-              height: "110px",
-              width: "450px",
-              position: "absolute",
-              marginTop: "85px",
-              marginLeft: "20px",
-              zIndex: "2",
-            }}
-          />
-          <div className="rounded-notSquared" id="kretsBoxOne"></div>
-          <div className="rounded-notSquared" id="kretsBoxTwo"></div>
-          <div className="rounded-notSquared" id="kretsBoxThree"></div>
-          <div className="rounded-notSquared" id="kretsBoxFour"></div>
+        <div className="box-container lg:py-0 md:pb-36 pb-0 lg:mt-0 xl:pl-24 pl-0 xl:order-2 order-first ">
+          <h2 className="md:text-header text-mobileHeader mb-60 xl:invisible visible text-text-flat-inverted text-center">
+            En del av Jobbkretser
+          </h2>
+          <div id="kretsBoxContainer" className="md:pr-0 pr-24">
+            <Image className="bannerImage" src={bannerimage} alt="" />
+            <div
+              className="sharedBoxClass lg:rounded-notSquared rounded-connie flex justify-center items-center"
+              id="kretsBoxOne"
+            >
+              1
+            </div>
+            <div
+              className="sharedBoxClass lg:rounded-notSquared rounded-connie"
+              id="kretsBoxTwo"
+            >
+              2
+            </div>
+            <div
+              className="sharedBoxClass lg:rounded-notSquared rounded-connie"
+              id="kretsBoxThree"
+            >
+              3
+            </div>
+            <div
+              className="sharedBoxClass lg:rounded-notSquared rounded-connie"
+              id="kretsBoxFour"
+            >
+              4
+            </div>
+          </div>
         </div>
       </div>
     </div>
