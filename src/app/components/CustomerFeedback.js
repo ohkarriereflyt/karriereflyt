@@ -35,15 +35,15 @@ const customerFeedback = [
 
 export default function CustomerFeedback() {
   return (
-    <div className="w-full max-w-screen-lg mx-auto">
+    <div className="w-full max-w-screen-lg mx-auto lg:mt-0 lg:pt-0 md:pt-48 sm:pt-0">
       <div className="text-center py-8">
-        <h2 className="text-3xl font-bold text-gray-800 mb-12">
+        <h2 className="text-3xl font-bold text-gray-800 mb-12 md:px-0 px-4">
           Tilbakemeldinger fra våre kunder
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:px-0 px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:px-0 px-6">
           {customerFeedback.map((customer) => (
             <div
-              className="flex flex-col rounded-lg bg-background-flat text-start px-6 py-5 shadow-xl"
+              className="flex flex-col rounded-lg border-4 border-border-dark bg-background-flat text-start px-6 py-5 shadow-xl"
               key={customer.name}
             >
               <h2 className="my-3  text-card-text-color">

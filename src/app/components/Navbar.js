@@ -65,7 +65,7 @@ export default function Navbar() {
                 </li>
                 <li>
                   <Link href="/contact" className={`${pathname === "/contact" ? "" : "text-text-flat"}`}>
-                    <button className="bg-background-flat kf-border-dark text-text-flat">Kontakt oss</button>
+                    <button className="button light-background kf-border-dark dark">Kontakt oss</button>
                   </Link>
                 </li>
               </ul>
