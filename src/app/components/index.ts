@@ -33,6 +33,7 @@ import ButtonArrow from "./ButtonArrow";
 import Banner from "./Banner";
 import TransitionLine from "./TransitionLine";
 import TransitionWave from "./TransitionWave";
+import JobPosts from "./JobPosts";
 
 export {
   BackgroundBoxes,
@@ -70,4 +71,5 @@ export {
   Banner,
   TransitionLine,
   TransitionWave,
+  JobPosts,
 };
