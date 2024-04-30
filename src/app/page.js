@@ -33,8 +33,15 @@ export default function Home() {
           <div className="w-1/2  flex-1 xl:mt-12 xl:mb-0 mb-36 mt-12 order-2 justify-evenly lg:pl-0 pl-20 flex ">
             <ImagesInSaquares />
           </div>
-          <div className="xl:mt-12 lg:w-full md:flex md:mt-96 mt-24 order-3 xl:ml-0  xl:justify-start justify-evenly items-center  flex-row  flex wrap">
-            <CTAButtons widthOne="md:w-48 w-36" widthTwo="md:w-48 w-36" />
+          <div className="gap-2 xl:mt-12 lg:w-full md:flex md:mt-96 mt-24 order-3 xl:ml-0  xl:justify-start justify-evenly items-center  flex-row  flex wrap">
+            <Link href="/applicants">
+              <button className="button">For jobbsøkere</button>
+            </Link>
+            <Link href="/services">
+              <button className="button light-background kf-border-dark dark">
+                For bedrifter
+              </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -63,7 +70,7 @@ export default function Home() {
           <button className="button">For jobbsøkere</button>
         </Link>
         <Link href="/services">
-          <button className="bg-3 kf-border-dark text-text-flat">
+          <button className="button light-background kf-border-dark dark">
             For bedrifter
           </button>
         </Link>

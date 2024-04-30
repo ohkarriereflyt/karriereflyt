@@ -85,7 +85,7 @@ export default function Page() {
             </div>
             <div className='flex justify-center'>
               <Link href="/contact">
-                <button className="light">Kontakt oss</button>
+                <button className="button">Kontakt oss</button>
               </Link>
               <TransitionLine />
             </div>
