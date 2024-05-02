@@ -54,7 +54,7 @@ export default function Navbar() {
                 <li><Link href="/applicants" className={desktopLinkStyle("/applicants")}>For jobbsøkere</Link></li>
                 <li><Link href="/services" className={desktopLinkStyle("/services")}>Tjenester</Link></li>
                 <li><Link href="/about" className={desktopLinkStyle("/about")}>Om oss</Link></li>
-                <li><Link href="/contact" className={desktopLinkStyle("/contact")}>
+                <li><Link href="/contact" className={desktopLinkStyle("/contact")}
                     <button className="button light-background kf-border-dark dark">Kontakt oss</button>
                   </Link>
                 </li>
