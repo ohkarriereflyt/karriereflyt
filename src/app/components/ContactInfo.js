@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ContactInfo = () => {
+const ContactInfo = ({address = 'bergen', phoneNumber = 'not available', email = 'not available'}) => {
     return (
         <div className="flex flex-row justify-between text-text-flat-inverted mb-8">
             <div className="flex flex-col items-center gap-4">
@@ -18,7 +18,7 @@ const ContactInfo = () => {
                         </linearGradient>
                     </defs>
                 </svg>
-                <p>C. Sundts Gate 51</p>
+                <p>{address}</p>
             </div>
             <div className="flex flex-col items-center gap-4">
                 <svg width="65" height="64" viewBox="0 0 65 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,7 +35,7 @@ const ContactInfo = () => {
                         </linearGradient>
                     </defs>
                 </svg>
-                <p>+47 41 28 28 78</p>
+                <p>{phoneNumber}</p>
             </div>
             <div className="flex flex-col items-center gap-4">
                 <svg width="65" height="64" viewBox="0 0 65 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,7 +52,7 @@ const ContactInfo = () => {
                         </linearGradient>
                     </defs>
                 </svg>
-                <p>post@karriereflyt.no</p>
+                <p>{email}</p>
             </div>
         </div>
     );
