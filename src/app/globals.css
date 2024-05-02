@@ -22,16 +22,21 @@
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
 
-  --color-text: #4A4A4A;
-  --color-text-light: #FFFBF8;
-  --color-icon: linear-gradient(180deg, #FFFBF8 0%, #EDE4DE 100%);
-  --background: #FFFBF8;
-  --background-dark: #4A4A4A;
-  --background-gradient: linear-gradient(180deg, #FAF7F3 0%, #EFEAE4 50%, #D1C9C1 100%);
+  --color-text: #4a4a4a;
+  --color-text-light: #fffbf8;
+  --color-icon: linear-gradient(180deg, #fffbf8 0%, #ede4de 100%);
+  --background: #fffbf8;
+  --background-dark: #4a4a4a;
+  --background-gradient: linear-gradient(
+    180deg,
+    #faf7f3 0%,
+    #efeae4 50%,
+    #d1c9c1 100%
+  );
 
-  --color-light: #FFFBF8;
-  --color-dark: #4A4A4A;
-  --color-gray: linear-gradient(180deg, #ECEAE8 0%, #DEDBD9 100%);
+  --color-light: #fffbf8;
+  --color-dark: #4a4a4a;
+  --color-gray: linear-gradient(180deg, #eceae8 0%, #dedbd9 100%);
 
   --color-slate-gray: #6b858d;
   --color-pistachio: #8a9482;
@@ -301,7 +306,7 @@ button[type="submit"]::after,
 }
 
 .gray-background {
-  background: linear-gradient(#ECEAE8, #DEDBD9);
+  background: linear-gradient(#eceae8, #dedbd9);
 }
 
 .slate-gray {
@@ -400,8 +405,6 @@ button[type="submit"]::after,
   stroke: var(--color-green);
 }
 
-
-
 .contact-icon {
   height: 28px;
   width: 28px;
@@ -491,76 +494,68 @@ button[type="submit"]::after,
 
 #boxCollection {
   height: 100vh;
-  overflow-y:auto;
+  overflow-y: auto;
   width: 100%;
 
   perspective: 12px;
 }
 
-.waveOneFooter {
-  min-height: 2vh;
-  background-color: rgba(107, 133, 141, 0.2);
-}
+@media screen and (min-width: 768px) {
+  .imageInSquareOne,
+  .imageInSquareTwo,
+  .imageInSquareThree {
+    width: 750px;
+    height: 750px;
+    rotate: -45deg;
 
-.waveTwoFooter {
-  min-height: 2vh;
-  background-color: rgba(107, 133, 141, 0.6);
-}
+    margin-top: -200px;
+    margin-left: -40px;
+  }
 
-.imagesInSquares {
-  width: 300px;
-  height: 300px;
-  rotate: 45deg;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
+  #squareOne {
+    margin-right: 0px;
+    margin-top: 5%;
+    z-index: 1;
+    overflow: hidden;
+  }
 
-#backgroundDiffuser {
-  width: 100%;
-  margin-top: -120%;
-  position: absolute;
-}
+  #squareTwo {
+    margin-left: 350px;
+    margin-top: -50px;
+  }
 
-#squareOne {
-  margin-top: 8%;
-  z-index: 2;
+  #squareThree {
+    margin-left: 350px;
+    margin-top: 200px;
+    z-index: -1;
+  }
 
-  overflow: hidden;
-}
+  #squareOne,
+  #squareTwo,
+  #squareThree {
+    width: 300px;
+    height: 300px;
+    border-radius: 8px;
+    rotate: 45deg;
+    overflow: hidden;
+    position: absolute;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
 
-.imageInSquareOne {
-  background-image: url(./imagesMidlertidig/officeImageOne.jpeg);
-}
+  .imageInSquareOne {
+    background-image: url(./imagesMidlertidig/officeImageOne.jpeg);
+    z-index: 1;
+  }
 
-.imageInSquareTwo {
-  background-image: url(./imagesMidlertidig/officeImageTwo.jpeg);
-}
+  .imageInSquareTwo {
+    background-image: url(./imagesMidlertidig/officeImageTwo.jpeg);
+    z-index: -2;
+  }
 
-.imageInSquareThree {
-  background-image: url(./imagesMidlertidig/officeImageThree.jpeg);
-}
-
-#squareTwo {
-  margin-left: 22%;
-  margin-top: 14%;
-
-  z-index: -1;
-  overflow: hidden;
-}
-
-#squareThree {
-  margin-left: 22%;
-  z-index: -1;
-  overflow: hidden;
-}
-
-.imageInSquareOne,
-.imageInSquareTwo,
-.imageInSquareThree {
-  height: 500px;
-  width: 500px;
-  margin-top: -120px;
-  margin-left: -60px;
-  rotate: -45deg;
+  .imageInSquareThree {
+    background-image: url(./imagesMidlertidig/officeImageThree.jpeg);
+    z-index: -3;
+  }
 }
 
 .sharedBoxClass {
@@ -735,6 +730,16 @@ button[type="submit"]::after,
 }
 
 @media screen and (max-width: 768px) {
+  .imageInSquareOne,
+  .imageInSquareTwo,
+  .imageInSquareThree {
+    width: 350px;
+    height: 350px;
+    rotate: -45deg;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-top: -110px;
+    margin-left: -50px;
+  }
   .imageInSquareOne {
     background-image: url(./imagesMidlertidig/office300pxOne.jpeg);
   }
@@ -746,19 +751,29 @@ button[type="submit"]::after,
     background-image: url(./imagesMidlertidig/office300pxThree.jpeg);
   }
 
-  .imagesInSquares {
-    width: 150px;
-    height: 150px;
-    border-radius: 8px;
-  }
-
-  #squareTwo {
-    margin-left: 70%;
-    margin-top: 10%;
+  #squareOne {
+    margin-right: 40%;
+    margin-top: 5%;
+    z-index: 1;
+    overflow: hidden;
   }
 
   #squareThree {
-    margin-left: 35%;
+    margin-left: 37%;
+    margin-top: 5%;
+    z-index: -1;
+  }
+
+  #squareOne,
+  #squareTwo,
+  #squareThree {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    border: 1px solid black;
+    rotate: 45deg;
+    overflow: hidden;
+    position: absolute;
   }
 
   .backgroundBox {

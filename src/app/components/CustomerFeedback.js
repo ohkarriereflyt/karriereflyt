@@ -35,7 +35,7 @@ const customerFeedback = [
 
 export default function CustomerFeedback() {
   return (
-    <div className="w-full max-w-screen-lg mx-auto lg:mt-0 lg:pt-0 md:pt-48 sm:pt-0">
+    <div className="w-full max-w-screen-lg mx-auto lg:mt-0 lg:pt-0 md:pt-48">
       <div className="text-center py-8">
         <h2 className="text-3xl font-bold text-gray-800 mb-12 md:px-0 px-4">
           Tilbakemeldinger fra våre kunder
