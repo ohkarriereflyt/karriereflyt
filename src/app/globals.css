@@ -779,3 +779,24 @@ button[type="submit"]::after,
     display: none;
   }
 }
+
+@media (max-width: 1200px) {
+  .md\:w-\[1200px\] {  /* Correct escaping for Tailwind in CSS */
+      width: 100%;
+      max-width: 100%;  /* Ensures it never exceeds the viewport width */
+  }
+}
+
+@media (max-width: 928px) {
+  .inline-flex, .flex {
+      flex-wrap: wrap;  /* Allows flex items to wrap within the container */
+  }
+
+}
+
+@media (max-width: 775px) {
+  .some-specific-class {  /* Further adjustments for even narrower views */
+      width: auto;  /* Lets the element adjust to content or available space */
+      max-width: 95%;  /* Ensures a little margin on the sides */
+  }
+}
