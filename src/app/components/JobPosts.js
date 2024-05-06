@@ -1,76 +1,116 @@
 'use client'
-import { useState } from 'react';
+
+import Link from 'next/link';
+import { useState, useEffect } from 'react';
+
 
 const JobPosts = (props) => {
     const [jobApi, setJobApi] = useState(props.jobApi);
     const [searchQuery, setSearchQuery] = useState('');
-    const [searchResults, setSearchResults] = useState(jobApi);
-
-    const handleChange = (e) => {
+    const [searchResults, setSearchResults] = useState(jobApi); //Det siste arrayet som blir vist. Det er arrayet som blir printet ut til siden ettter den har blitt tuklet med
+    const [selectedBranches, setSelectedBranches] = useState([]);
+    const [selectedRegions, setSelectedRegions] = useState([]);
+    const [fullTimeOnly, setFullTimeOnly] = useState(false);
+   
+    // This function is triggered when search input changes
+     const handleChange = (e) => {
         const query = e.target.value.toLowerCase();
         setSearchQuery(query);
-
-        if (!query) {
-            setSearchResults(jobApi);
-            return;
-        }
-
-        const results = jobApi.filter(job => {
-            // Calculate score for each field
-            const fields = [
-                { value: job.name, weight: 1 },
-                { value: job.title, weight: 2 },  // higher weight for title
-                { value: job.companyName, weight: 1 },
-                { value: job.position, weight: 1 },
-                { value: job.city, weight: 1 }
-            ];
-    
-            job.score = fields.reduce((acc, field) => {
-                const matchStart = new RegExp(`\\b${query}`, 'i'); // RegEx to match the start of the word
-                const matchAnywhere = new RegExp(`${query}`, 'i');
-    
-                if (field.value.match(matchStart)) {
-                    acc += (field.weight * 2); // Double the weight if the query matches at the start of a word
-                } else if (field.value.match(matchAnywhere)) {
-                    acc += field.weight;
-                }
-    
-                return acc;
-            }, 0);
-    
-            return job.score > 0;
-        });
-
-        // Sort by the highest score to prioritize more relevant results
-        results.sort((a, b) => b.score - a.score);
-
-        setSearchResults(results);
+        filterJobs(query, selectedBranches, selectedRegions);
     }
 
-    function highlightText(text, query) {
-        if (!query) {
-            return text;
+    // Handle filtering of jobs based on search query and selected branches
+    const filterJobs = (query, branches, regions) => {
+        let filtered = jobApi;
+        if (query) {
+            filtered = filtered.filter(job => {
+                const score = ['name', 'title', 'companyName', 'position', 'city'].reduce((acc, field) => {
+                    const matchStart = new RegExp(`\\b${query}`, 'i');
+                    const matchAnywhere = new RegExp(`${query}`, 'i');
+                    const weight = field === 'title' ? 2 : 1;
+                    if (job[field].match(matchStart)) {
+                        acc += weight * 2;  // Double the weight for starts-with matches
+                    } else if (job[field].match(matchAnywhere)) {
+                        acc += weight;
+                    }
+                    return acc;
+                }, 0);
+                return score > 0;
+            }).sort((a, b) => b.score - a.score);
         }
-    
+        if (branches.length > 0) {
+            filtered = filtered.filter(job => branches.includes(job.branchCategoryId));
+        }
+
+        if (regions.length > 0) {
+            filtered = filtered.filter(job => regions.includes(job.regionId));
+        }
+
+        if (fullTimeOnly) {
+            filtered = filtered.filter(job => job.position === 'fullTime');
+        }
+
+        setSearchResults(filtered);
+    }
+
+    // Trigger filter when jobApi, selectedBranches, or searchQuery changes
+    useEffect(() => {
+        filterJobs(searchQuery, selectedBranches, selectedRegions);
+    }, [jobApi, selectedBranches, searchQuery, selectedRegions, fullTimeOnly]);
+
+    const handleBranchClick = (branchId) => {
+        setSelectedBranches(prevBranches =>
+            prevBranches.includes(branchId)
+                ? prevBranches.filter(id => id !== branchId)
+                : [...prevBranches, branchId]
+        );
+    }
+
+  
+    const handleRegionClick = (regionId) => {
+        setSelectedRegions(prevRegions =>
+            prevRegions.includes(regionId)
+                ? prevRegions.filter(id => id !== regionId)
+                : [...prevRegions, regionId]
+        );
+    };
+
+    const handleFullTimeToggle = () => {
+        setFullTimeOnly(prev => !prev);
+    };
+
+
+    function highlightText(text, query) {
+        if (!query) return text;
         const parts = text.split(new RegExp(`(${query})`, 'gi'));
-        return parts.map((part, index) => 
+        return parts.map((part, index) =>
             part.toLowerCase() === query.toLowerCase() ? <span key={index} style={{ backgroundColor: '#A5BBC2' }}>{part}</span> : part
         );
     }
+
+    const [isExpanded, setIsExpanded] = useState(false);
+    const toggleExpand = () => setIsExpanded(!isExpanded);
+
+ 
 
     return (
         <div className='w-full min-h-screen flex flex-col justify-between items-center '>
             {/* Din Karrierepartner (Full Width at the Top) */}
             <div style={{ backgroundColor: "#6B858D" }} className="w-full px-4  shadow flex flex-col justify-start items-center relative z-10">
-                <div className="w-full md:w-[1200px] justify-start items-start gap-8 inline-flex">
-                    <div className='grow shrink basis-0 self-stretch py-4 flex-col justify-start items-start gap-4 inline-flex'>
-                        <div className="self-strech text-stone-50 text-[40px] font-normal font-['Filson pro']">Din karriere Partner</div>
-                        <div className="self-strech text-stone-50 text-xl font-bold font-['Filson Pro']">Finn din Jobb som får hverdagen til å gli</div>
-                        <div className="self-strech text-stone-50 text-base font-normal font-['Filson Pro'] leading-loose">
-                            Velkommen til oss i Karriereflyt, hvor vårt mål er å gjøre jobbsøkingen så effektiv og tilfredsstillende som mulig for deg. Vi forstår at riktig jobb kan forvandle din hverdag, og derfor legger vi vår stolthet i å matche dine unike ferdigheter og ambisjoner med den perfekte stillingen. Vår tilnærming er personlig; vi lytter til dine behov, forstår dine mål, og bruker vår inngående kunnskap om arbeidsmarkedet til å finne posisjoner som ikke bare utfordrer og engasjerer deg, men som også bidrar til en bedre arbeids- og livsbalance
+            <div className="w-full md:w-[1200px] justify-start items-start gap-8 inline-flex">
+                <div className='grow shrink basis-0 self-stretch py-4 flex-col justify-start items-start gap-4 inline-flex'>
+                    <div className="self-strech text-stone-50 text-[40px] font-normal font-['Filson pro']">Din karriere Partner</div>
+                    <div className="self-strech text-stone-50 text-xl font-bold font-['Filson Pro']">Finn din Jobb som får hverdagen til å gli</div>
+                    <div className="self-strech text-stone-50 text-base font-normal font-['Filson Pro'] leading-loose">
+                        {isExpanded ? (
+                            `Velkommen til oss i Karriereflyt, hvor vårt mål er å gjøre jobbsøkingen så effektiv og tilfredsstillende som mulig for deg. Vi forstår at riktig jobb kan forvandle din hverdag, og derfor legger vi vår stolthet i å matche dine unike ferdigheter og ambisjoner med den perfekte stillingen. Vår tilnærming er personlig; vi lytter til dine behov, forstår dine mål, og bruker vår inngående kunnskap om arbeidsmarkedet til å finne posisjoner som ikke bare utfordrer og engasjerer deg, men som også bidrar til en bedre arbeids- og livsbalance`
+                        ): (
+                            `Velkommen til oss i Karriereflyt, hvor vårt mål er å gjøre jobbsøkingen så effektiv og tilfredsstillende som mulig for deg. Vi forstår at riktig jobb kan forvandle..`
+                        )}
+                        
                         </div>
-                    </div>
                 </div>
+            </div>
                 <div className="w-full md:w-[1200px] justify-between items-center inline-flex">
                     <div className="justify-start items-start gap-8 flex">
                         <div className="w-full md:w-[236px] px-8 bg-neutral-600 rounded-2xl border-4 border-white border-opacity-20 justify-center items-center gap-4 flex">
@@ -78,7 +118,7 @@ const JobPosts = (props) => {
                         </div>
                     </div>
 
-                    <div className="w-full md:w-['113px'] py-2 justify-center items-center gap-4 flex">
+                    <div className="w-full md:w-['113px'] py-2 justify-center items-center gap-4 flex" onClick={toggleExpand}>
                         <div className="text-stone-50 text-base font-medium font-['Filson Pro']">Les mer</div>
                         <div className="justify-center items-center gap-[12.86px] flex">
                             <div className="w-9 h-9 relative origin-top-left rotate-90">
@@ -129,26 +169,30 @@ const JobPosts = (props) => {
                                 <div className='w-full py-2 justify-start items-end gap-2.5 inline-flex'>
                                     <div style={{ color: "#6B858D" }} className=' text-base font-bold font-["Filison Pro"]'>Område</div>
                                 </div>
-                                {/*{region.length > 0 ? ( region.map((job, index) => (
-                            <div key={index} className="w-full py-2 justify-start items-center gap-2.5 inline-flex">
-                                <label onClick={() => handleRegionClick(job.regionId)}>
-                                <input type="checkbox" id={`region-${index}`} /></label>
-                                <div style={{ color: "#6B858D"}} className="text-base font-normal font-['Filson Pro'] leading-loose">{job.regionName}</div>
-                            </div>
-                            ))
-                            ) : (
-                            <p>No region data available.</p>
-                            )}*/}
+                            {props.uniqueRegions.map(region => (
+                                <div key={region.regionId} className='w-full py-2 justify-start items-center gap-2.5 inline-flex'>
+                                    <label>
+                                        <input 
+                                        type='checkbox'
+                                        checked={selectedRegions.includes(region.regionId)}
+                                        onChange={() => handleRegionClick(region.regionId)}
+                                        />
+                                    </label>
+                                    <div style={{ color: "#6B858D" }} className="text-base font-normal font-['Filison pro'] leading-loose">{region.regionName}</div>
+                                </div>
+                            ))}
                             </div>
                         </div>
                         <div className='w-full h-auto p-4 flex-col justify-start items-start flex overflow-y-auto'>
                             <div className='w-full py-2 justify-start items-end gap-2.5 inline-flex'>
                                 <div style={{ color: "#6B858D" }} className="text-base font-bold font-['Filison Pro']">Bransjer</div>
                             </div>
-                            {props.usedBranchCategories.map(branch => (
-                                <div key={branch.jobPostId} className='w-full py-2 justify-start items-center gap-2.5 inline-flex'>
-
-                                    <div style={{ color: "#6B858D" }} className="text-base font-normal font-['Filison pro'] leading-loose">{branch.name}</div>
+                            {props.finishedBranch.map((branch, index) => (
+                                <div key={`branchCategoryId-${branch.branchCategoryId || index}`} className='w-full py-2 justify-start items-center gap-2.5 inline-flex'>
+                                    <label onClick={() => handleBranchClick(branch.branchCategoryId)}>
+                                        <input type='checkbox'/>
+                                    </label>
+                                <div style={{ color: "#6B858D" }} className="text-base font-normal font-['Filison pro'] leading-loose">{props.categoriesBranch[branch.branchCategoryId]}</div>
                                 </div>
                             ))}
                         </div>
@@ -156,10 +200,13 @@ const JobPosts = (props) => {
                             <div className='w-full py-2 justify-start items-end gap-2.5 inline-flex'>
                                 <div style={{ color: "#6B858D" }} className="text-base font-bold font-['Filison Pro']">Stilling</div>
                             </div>
-
                             <div className='w-full py-2 justify-start items-center gap-2.5 inline-flex'>
                                 <label>
-                                    {/*<input type='checkbox' checked={selectedPositions.includes("fullTime")} onChange={handleFastClick}/> */}
+                                    <input
+                                        type='checkbox'
+                                        checked={fullTimeOnly}
+                                        onChange={handleFullTimeToggle}
+                                    />
                                 </label>
                                 <div style={{ color: "#6B858D" }} className="text-base font-normal font-['Filison pro'] leading-loose">Fast</div>
                             </div>
@@ -171,7 +218,7 @@ const JobPosts = (props) => {
                     {/* Assuming dynamic job results generation */}
                     <ul className="space-y-4 pb-4">
                         {searchResults.map(job => (
-                            <li key={job.jobPostId} className="bg-stone-50 rounded-2xl shadow border-4 border-white border-opacity-20 ">
+                            <li key={`jobPostId-${job.id}`} className="bg-stone-50 rounded-2xl shadow border-4 border-white border-opacity-20 ">
                                 <div className="flex flex-col md:flex-row justify-start items-center">
                                     <div className="md:w-[259px] w-full h-[152px] bg-white rounded-tl-2xl rounded-bl-2x md:rounded-bl-2xl md:rounded-tl-xl border flex justify-center items-center flex-shrink-0">
                                         <img className="max-w-full max-h-full object-contain" src={job.logo} alt="Placeholder" />
@@ -187,9 +234,28 @@ const JobPosts = (props) => {
                                             <div className="text-stone-50 text-base font-normal font-['Filson Pro'] leading-loose">{highlightText(job.city, searchQuery)}</div>
                                         </div>
                                         <div className="flex justify-end items-center">
-                                            <div className="text-stone-50 text-base font-medium font-['Filson Pro']">
+                                            <Link href={{
+                                                pathname: `/jobDetail/{job.id}`,
+                                                query: {
+                                                    id: job.jobPostId, 
+                                                    logo: job.logo, 
+                                                    name: job.name, 
+                                                    body: job.body, 
+                                                    title: job.title, 
+                                                    deadline: job.deadline, 
+                                                    numberOfPositions: job.numberOfPositions,
+                                                    workplace: job.workplace,
+                                                    accession: job.accession,
+                                                    position: job.position,
+                                                    sector: job.sector,
+                                                    address1: job.address1,
+                                                    applyUrl: job.applyUrl,
+                                                    skills: job.skills,
+                                                    contacts: encodeURIComponent(JSON.stringify(job.contacts))
+                                                }}}        
+                                                className="text-stone-50 text-base font-medium font-['Filson Pro']">
                                                 Les mer
-                                            </div>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
