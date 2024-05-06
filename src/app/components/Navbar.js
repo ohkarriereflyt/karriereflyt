@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars,faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import Banner from "../imagesMidlertidig/banner-slategray-full-2.0.svg";
 
 export default function Navbar() {
@@ -15,6 +15,15 @@ export default function Navbar() {
     setIsOpen(!isOpen);
   };
 
+  const mobileLinkStyle = (path) => {
+    return pathname === path ? "text-lg font-bold py-2" : " text-lg  py-2";
+  };
+
+  
+  const desktopLinkStyle = (path) => {
+    return pathname === path ? " font-bold " : "";
+  };
+
   return (
     <>
       <nav className="fixed z-10 w-full bg-gradient-to-b from-gr-start to-gr-end text-text-flat backdrop-blur-3xl overflow-hidden">
@@ -23,7 +32,7 @@ export default function Navbar() {
             <div className="flex justify-between items-center w-full lg:w-auto">
               <Link href="/" className="flex">
                 <div className="flex items-center mr-2 h-20">
-                  <Image src={Banner} alt="Karriereflyt Logo"  />
+                  <Image src={Banner} alt="Karriereflyt Logo" className="w-48 h-16 md:w-64 md:h-20 lg:w-72 lg:h-24" />
                 </div>
               </Link>
               <div className="lg:hidden cursor-pointer" onClick={toggleMenu}>
@@ -32,39 +41,20 @@ export default function Navbar() {
             </div>
 
             <ul className={`flex flex-col items-start space-y-4 w-full pt-3 pb-6 ${isOpen ? 'block' : 'hidden'} lg:hidden`}>
-              <li>
-                <Link href="/" className="text-lg font-semibold py-2">Hjem</Link>
-              </li>
-              <li>
-                <Link href="/application" className="text-lg font-semibold py-2">For jobbsøkere</Link>
-              </li>
-              <li>
-                <Link href="/services" className="text-lg font-semibold py-2">Tjenester</Link>
-              </li>
-              <li>
-                <Link href="/about" className="text-lg font-semibold py-2" >Om oss</Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-lg font-semibold py-2">Kontakt oss</Link>
-              </li>
+              <li><Link href="/" className={mobileLinkStyle("/")}>Hjem</Link></li>
+              <li><Link href="/applicants" className={mobileLinkStyle("/applicants")}>For jobbsøkere</Link></li>
+              <li><Link href="/services" className={mobileLinkStyle("/services")}>Tjenester</Link></li>
+              <li><Link href="/about" className={mobileLinkStyle("/about")}>Om oss</Link></li>
+              <li><Link href="/contact" className={mobileLinkStyle("/contact")}>Kontakt oss</Link></li>
             </ul>
 
             <div className="hidden lg:flex w-full justify-end">
               <ul className="flex flex-row items-center space-x-7">
-                <li>
-                  <Link href="/" className={`${pathname === "/" ? "" : "text-text-flat"}`}>Hjem</Link>
-                </li>
-                <li>
-                  <Link href="/application" className={`${pathname === "/application" ? "" : "text-text-flat"}`}>For jobbsøkere</Link>
-                </li>
-                <li>
-                  <Link href="/services" className={`${pathname === "/services" ? "" : "text-text-flat"}`}>Tjenester</Link>
-                </li>
-                <li>
-                  <Link href="/about" className={`${pathname === "/about" ? "" : "text-text-flat"}`}>Om oss</Link>
-                </li>
-                <li>
-                  <Link href="/contact" className={`${pathname === "/contact" ? "" : "text-text-flat"}`}>
+                <li><Link href="/" className={desktopLinkStyle("/")}>Hjem</Link></li>
+                <li><Link href="/applicants" className={desktopLinkStyle("/applicants")}>For jobbsøkere</Link></li>
+                <li><Link href="/services" className={desktopLinkStyle("/services")}>Tjenester</Link></li>
+                <li><Link href="/about" className={desktopLinkStyle("/about")}>Om oss</Link></li>
+                <li><Link href="/contact" className={desktopLinkStyle("/contact")}
                     <button className="button light-background kf-border-dark dark">Kontakt oss</button>
                   </Link>
                 </li>
