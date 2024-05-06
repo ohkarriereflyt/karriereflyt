@@ -2,31 +2,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faCheck, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-const serts = [
-  {
-    name: "Medlem av NHO Service og Handel.",
-  },
-  {
-    name: "Revidert arbeidsgiver.",
-  },
-  {
-    name: "Registrert i EPIM.",
-  },
-  {
-    name: "Registrert i Startbank.",
-  },
-  {
-    name: "Registrert som godkjent bemanningsbyrå hos Arbeidstilsynet.",
-  },
-];
-
-export default function Sertifications() {
+export default function Sertifications({jobbkretserContItems}) {
   return (
     <>
-      {serts.map((sert) => (
-        <div key={serts.name} className="py-2 flex sm:pl-0 pl-4">
+      {jobbkretserContItems.map((item) => (
+        <div key={item.index} className="py-2 flex sm:pl-0 pl-4">
           <FontAwesomeIcon icon={faCheck} className="mr-3" />
-          <p className="inline">{sert.name}</p>
+          <p className="inline">{item}</p>
         </div>
       ))}
     </>
