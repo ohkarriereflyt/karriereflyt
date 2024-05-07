@@ -40,7 +40,9 @@ export default function Footer({ transitionLine = true }) {
   return (
     <footer className="relative w-full">
       {transitionLine && (
-        <TransitionLine />
+        <div className="mb-[-1px]">
+          <TransitionLine />
+        </div>
       )
       }
       <div className="w-full flex flex-col items-center bg-slate-gray-flat text-text-flat-inverted " >

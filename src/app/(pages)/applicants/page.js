@@ -1,4 +1,4 @@
-import { JobPosts } from '../../components/index'
+import { Footer, JobPosts } from '../../components/index'
 
 const apiKey = process.env.RECMAN_API_SECRET;
 
@@ -20,7 +20,7 @@ const branchToNorwegian = {
 };
 
 const jobTypeToNorwegian = {
-    "fullTime" : "Fast",
+    "fullTime": "Fast",
     "partTime": "Deltid",
 };
 
@@ -67,7 +67,7 @@ export default async function Page() {
     const jobApi = jobApiResponse.data ? Object.values(jobApiResponse.data).map(job => {
         // Conditionally modify the 'position' field
         const position = job.position ? jobTypeToNorwegian[job.position] || job.position : "Not provided";
-    
+
         return {
             id: job.jobPostId,
             name: job.name,
@@ -95,15 +95,15 @@ export default async function Page() {
 
     const jobBranches = await fetchJobBranches();
     const branchesObject = Object.values(jobBranches);
-   
+
     const uniqueJobs = {};
     branchesObject.forEach(job => {
-        if (!uniqueJobs[job.branchCategoryId]) {                 
-            uniqueJobs[job.branchCategoryId] = job; 
+        if (!uniqueJobs[job.branchCategoryId]) {
+            uniqueJobs[job.branchCategoryId] = job;
         }
     })
 
-    const finishedBranch = Object.values(uniqueJobs); 
+    const finishedBranch = Object.values(uniqueJobs);
 
 
     const branchCategories = await fetchBranchCategories();
@@ -140,9 +140,12 @@ export default async function Page() {
         regionId: regionId,
         regionName: regionMap[regionId] || "Unknown"
     }));
-    
-   
+
+
     return (
-        <JobPosts jobApi={jobApi} finishedBranch={finishedBranch} categoriesBranch={categoriesBranch}  uniqueRegions={uniqueRegions}/>
+        <>
+            <JobPosts jobApi={jobApi} finishedBranch={finishedBranch} categoriesBranch={categoriesBranch} uniqueRegions={uniqueRegions} />
+            <Footer />
+        </>
     );
 }
