@@ -44,9 +44,9 @@ export default function Footer({ transitionLine = true }) {
       )
       }
       <div className="w-full flex flex-col items-center bg-slate-gray-flat text-text-flat-inverted " >
-        <div className="w-full max-w-7xl flex md:flex-row justify-around flex-wrap">
+        <div className="w-full max-w-7xl flex md:flex-row justify-between flex-wrap">
           {footerItems.map((footerItem, index) => (
-            <div key={index} className="flex-1 text-nowrap flex-shrink-0 p-4">
+            <div key={index} className=" text-nowrap flex-shrink-0 p-4">
               <h3>{footerItem.header}</h3>
               {footerItem.items.map((item, index) => (
                 <p key={index} className="text-footer">{item}</p>

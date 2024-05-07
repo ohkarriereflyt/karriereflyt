@@ -89,7 +89,7 @@ export default async function Home() {
           </button>
         </Link>
       </div>
-      <Footer transitionLine={false} />
+      <Footer/>
     </main>
   );
 }
