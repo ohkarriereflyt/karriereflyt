@@ -11,6 +11,7 @@ const JobPosts = (props) => {
     const [selectedBranches, setSelectedBranches] = useState([]);
     const [selectedRegions, setSelectedRegions] = useState([]);
     const [fullTimeOnly, setFullTimeOnly] = useState(false);
+    const [loaded, setLoaded] = useState(false);
    
     // This function is triggered when search input changes
      const handleChange = (e) => {
@@ -56,6 +57,7 @@ const JobPosts = (props) => {
     // Trigger filter when jobApi, selectedBranches, or searchQuery changes
     useEffect(() => {
         filterJobs(searchQuery, selectedBranches, selectedRegions);
+        setLoaded(true);
     }, [jobApi, selectedBranches, searchQuery, selectedRegions, fullTimeOnly]);
 
     const handleBranchClick = (branchId) => {
@@ -216,6 +218,7 @@ const JobPosts = (props) => {
                 {/* Job Results */}
                 <div className='flex-grow '>
                     {/* Assuming dynamic job results generation */}
+                    {searchResults.length > 0 ? (
                     <ul className="space-y-4 pb-4">
                         {searchResults.map(job => (
                             <li key={`jobPostId-${job.id}`} className="bg-stone-50 rounded-2xl shadow border-4 border-white border-opacity-20 ">
@@ -262,6 +265,55 @@ const JobPosts = (props) => {
                             </li>
                         ))}
                     </ul>
+                    ): loaded ? (
+                        <ul className="space-y-4">
+                        <li className="bg-stone-50 rounded-2xl shadow border-4 border-white border-opacity-20 ">
+                                <div className="flex md:flex-row flex-col justify-start items-center">
+                                    <div className="md:w-[259px] w-full h-[152px] bg-white rounded-tl-2xl rounded-bl-2x md:rounded-bl-2xl md:rounded-tl-xl border flex justify-center items-center">
+                                        <img className="max-w-full max-h-full object-contain" alt="Placehoder" />
+                                    </div>
+                                    <div className="flex-grow p-4">
+                                        <div className="text-neutral-600 text-xl font-bold font-['Filson Pro']">Ingenting</div>
+                                        <div className="text-neutral-600 text-base font-normal font-['Filson Pro'] leading-loose">Desverre er det ingen stillinger som har navnet {searchQuery}</div>
+                                    </div>
+                                    <div style={{ backgroundColor: "#6B858D"}} className="w-full md:w-[200px] rounded-br-xl rounded-bl-xl md:rounded-bl-none md:rounded-tr-xl p-4 flex flex-col justify-between flex-shrink-0 ">
+                                        <div>
+                                            <div className="text-stone-50 text-xl font-bold font-['Filson Pro']">Ingenting</div>
+                                            <div className="text-stone-50 text-base font-normal font-['Filson Pro'] leading-loose">Ingenting</div>
+                                            <div className="text-stone-50 text-base font-normal font-['Filson Pro'] leading-loose">Ingenting</div>
+                                        </div>
+                                        <div className="flex justify-end items-center">
+                                            <div className="text-stone-50 text-base font-medium font-['Filson Pro']">ikke les mer</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    ): (
+                        <ul className="space-y-4">
+                        <li className="bg-stone-50 rounded-2xl shadow border-4 border-white border-opacity-20 ">
+                                <div className="flex md:flex-row flex-col justify-start items-center">
+                                    <div className="md:w-[259px] w-full h-[152px] bg-white rounded-tl-2xl rounded-bl-2x md:rounded-bl-2xl md:rounded-tl-xl border flex justify-center items-center">
+                                        <img className="max-w-full max-h-full object-contain" alt="Placehoder" />
+                                    </div>
+                                    <div className="flex-grow p-4">
+                                        <div className="text-neutral-600 text-xl font-bold font-['Filson Pro']">Ingenting</div>
+                                        <div className="text-neutral-600 text-base font-normal font-['Filson Pro'] leading-loose">Desverrer er det ingen stillinger som matcher filterene du valgte</div>
+                                    </div>
+                                    <div style={{ backgroundColor: "#6B858D"}} className="w-full md:w-[200px] rounded-br-xl rounded-bl-xl md:rounded-bl-none md:rounded-tr-xl p-4 flex flex-col justify-between flex-shrink-0 ">
+                                        <div>
+                                            <div className="text-stone-50 text-xl font-bold font-['Filson Pro']">Ingenting</div>
+                                            <div className="text-stone-50 text-base font-normal font-['Filson Pro'] leading-loose">Ingenting</div>
+                                            <div className="text-stone-50 text-base font-normal font-['Filson Pro'] leading-loose">Ingenting</div>
+                                        </div>
+                                        <div className="flex justify-end items-center">
+                                            <div className="text-stone-50 text-base font-medium font-['Filson Pro']">ikke les mer</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    )}
                 </div>
             </div>
             {/* "Finner ikke" Full Width at the Bottom */}
