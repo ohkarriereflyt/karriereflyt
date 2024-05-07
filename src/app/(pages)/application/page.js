@@ -20,7 +20,8 @@ const branchToNorwegian = {
 };
 
 const jobTypeToNorwegian = {
-    "fullTime" : "Fast"
+    "fullTime" : "Fast",
+    "partTime": "Deltid",
 };
 
 async function fetchJobs() {
@@ -63,31 +64,34 @@ async function fetchRegions() {
 
 export default async function Page() {
     const jobApiResponse = await fetchJobs();
-    const jobApi = jobApiResponse.data ? Object.values(jobApiResponse.data).map(job => ({
-        id: job.jobPostId,
-        name: job.name,
-        title: job.title,
-        ingress: job.ingress,
-        body: job.body,
-        numberOfPositions: job.numberOfPositions,
-        logo: job.logo,
-        deadline: job.deadline,
-        postalCode: job.postalCode,
-        city: job.city,
-        applyUrl: job.applyUrl,
-        companyName: job.companyName,
-        workplace: job.workplace,
-        position: job.position,
-        positionType: job.positionType,
-        address1: job.address1,
-        contacts: job.contacts,
-        skills: job.skills,
-        accession: job.accession,
-        branchCategoryId: job.branchCategoryId || "Not provided",  // Default value if missing
-        regionId: job.regionId || "Not provided",
-
-    }
-    )) : [];
+    const jobApi = jobApiResponse.data ? Object.values(jobApiResponse.data).map(job => {
+        // Conditionally modify the 'position' field
+        const position = job.position ? jobTypeToNorwegian[job.position] || job.position : "Not provided";
+    
+        return {
+            id: job.jobPostId,
+            name: job.name,
+            title: job.title,
+            ingress: job.ingress,
+            body: job.body,
+            numberOfPositions: job.numberOfPositions,
+            logo: job.logo,
+            deadline: job.deadline,
+            postalCode: job.postalCode,
+            city: job.city,
+            applyUrl: job.applyUrl,
+            companyName: job.companyName,
+            workplace: job.workplace,
+            position, // Use the transformed 'position' value here
+            positionType: job.positionType,
+            address1: job.address1,
+            contacts: job.contacts,
+            skills: job.skills,
+            accession: job.accession,
+            branchCategoryId: job.branchCategoryId || "Not provided", // Default value if missing
+            regionId: job.regionId || "Not provided",
+        };
+    }) : [];
 
     const jobBranches = await fetchJobBranches();
     const branchesObject = Object.values(jobBranches);
