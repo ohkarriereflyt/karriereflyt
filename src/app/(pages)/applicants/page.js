@@ -143,9 +143,9 @@ export default async function Page() {
 
 
     return (
-        <>
+        <div className="background-blur">
             <JobPosts jobApi={jobApi} finishedBranch={finishedBranch} categoriesBranch={categoriesBranch} uniqueRegions={uniqueRegions} />
             <Footer />
-        </>
+        </div>
     );
 }

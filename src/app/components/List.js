@@ -1,24 +1,29 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
-
 export default function List(props) {
     return (
         <ul className="list-none mb-8">
-            <li className="flex items-center text-2xl mb-4 underline"> 
-                <FontAwesomeIcon icon={faCheck} className="text-secondary-grey mr-2 w-6 h-6" />
-                <span>{props.listItemOne}</span>
+            <li className="flex items-center underline">
+                <svg width="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path className="dark-stroke" d="M23.6126 11L12.8786 21.734L7.99951 16.8549" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <h2 className='subheadline m-2'>{props.listItemOne}</h2>
             </li>
-            <li className="flex items-center text-2xl mb-4 underline"> 
-                <FontAwesomeIcon icon={faCheck} className="text-secondary-grey mr-2 w-6 h-6" />
-                <span>{props.listItemTwo}</span>
+            <li className="flex items-center underline">
+                <svg width="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path className="dark-stroke" d="M23.6126 11L12.8786 21.734L7.99951 16.8549" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <h2 className='subheadline m-2'>{props.listItemTwo}</h2>
             </li>
-            <li className="flex items-center text-2xl mb-4 underline"> 
-                <FontAwesomeIcon icon={faCheck} className="text-secondary-grey mr-2 w-6 h-6" />
-                <span>{props.listItemThree}</span>
+            <li className="flex items-center underline">
+                <svg width="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path className="dark-stroke" d="M23.6126 11L12.8786 21.734L7.99951 16.8549" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <h2 className='subheadline m-2'>{props.listItemThree}</h2>
             </li>
-            <li className="flex items-center text-2xl mb-4 underline"> 
-                <FontAwesomeIcon icon={faCheck} className="text-secondary-grey mr-2 w-6 h-6" />
-                <span>{props.listItemFour}</span>
+            <li className="flex items-center underline">
+                <svg width="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path className="dark-stroke" d="M23.6126 11L12.8786 21.734L7.99951 16.8549" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <h2 className='subheadline m-2'>{props.listItemFour}</h2>
             </li>
         </ul>
     );

@@ -39,9 +39,13 @@ export default function Footer({ transitionLine = true }) {
 
   return (
     <footer className="relative w-full">
-      {transitionLine && (
-        <div className="mb-[-1px]">
+      {transitionLine ? (
+        <div className="mb-[-2px]">
           <TransitionLine />
+        </div>
+      ) : (
+        <div className="w-full h-4 slate-gray-background">
+          <div className="w-full h-1 light-background opacity-10"></div>
         </div>
       )
       }

@@ -1,41 +1,44 @@
-import HeadshotOne from "../imagesMidlertidig/HeadshotOne.jpg";
-import HeadshotTwo from "../imagesMidlertidig/HeadshotTwo.jpg";
-import HeadshotThree from "../imagesMidlertidig/HeadshotThree.jpg";
-import Image from "next/image";
+import { TransitionWave } from "./index";
 
-export default function CustomerFeedback({reviewsTitle, reviews}) {
+export default function CustomerFeedback({ reviewsTitle, reviews }) {
   return (
-    <div className="w-full max-w-screen-lg mx-auto lg:mt-0 lg:pt-0 md:pt-48">
-      <div className="text-center py-8">
-        <h2 className="text-3xl font-bold text-gray-800 mb-12 md:px-0 px-4">
-          {reviewsTitle}
-        </h2>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:px-0 px-6">
-          {reviews.map((customer) => (
-            <div
-              className="flex flex-col rounded-lg border-4 border-border-dark bg-background-flat text-start px-6 py-5 shadow-xl"
-              key={customer.author}
-            >
-              <h2 className="my-3  text-card-text-color">
-                {customer.textTitle}
-              </h2>
-              <p className="mb-12 text-card-text-color">{customer.text}</p>
-              <div className="flex items-center mt-auto pb-8">
-                <img
-                  className=" object-fit w-20 h-20 rounded-full  mr-4"
-                  src={customer.reviewImage}
-                  alt={customer.author}
-                />
-                <div>
-                  <h2 className="font-bold  text-card-text-color">
-                    {customer.author}
+    <div className="relative">
+      <div className="lg:absolute w-full h-full">
+        <div className="w-full half-way-transition-wave">
+          <TransitionWave />
+        </div>
+      </div>
+      <div className="half-slate-gray-background">
+        <div className="max-w-7xl w-full mx-auto md:p-8 p-4">
+          <h1 className="relative lg:dark light text-center mb-12">
+            {reviewsTitle}
+          </h1>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            {reviews.map((customer) => (
+              <div className="flex justify-center w-full">
+                <div
+                  className="flex flex-col kf-border-light gray-background px-6 py-4 shadow-xl lg:min-h-80 lg:max-w-72"
+                  key={customer.author}>
+                  <h2 className="my-2">
+                    {customer.textTitle}
                   </h2>
-                  <p className="text-card-text-color">{customer.company}</p>
-                  <p className="text-card-text-color">{customer.position}</p>
+                  <p className="mb-4">{customer.text}</p>
+                  <div className="flex items-center mt-auto">
+                    <img
+                      className=" object-cover w-20 h-20 rounded-full mr-4"
+                      src={customer.reviewImage}
+                      alt={customer.author}
+                    />
+                    <div>
+                      <h2>{customer.author}</h2>
+                      <p>{customer.company}</p>
+                      <p>{customer.position}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import footerAndBoxes from "./components/footerAndBoxes";
 import BackgroundBoxes from "./components/BackgroundBoxes";
-import  Footer  from "./components/Footer";
+import Footer from "./components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,15 +15,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body id="main" className={inter.className}>
+      <body className={`${inter.className} beige-background`}>
+        <BackgroundBoxes />
         <Navbar />
-        <div id="boxCollection">
-          <BackgroundBoxes />
-          <div className="mt-20">
-            {children}
-          </div>
+        <div className="pt-16">
+          {children}
         </div>
-        
       </body>
     </html>
   );

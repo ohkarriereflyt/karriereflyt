@@ -39,7 +39,7 @@ export default async function Page() {
         <OurHistorySection title = {events.mainTitle} text = {events.mainSectionText} img = {events.mainimg}/>
         <OurVisionSection title = {events.ourVisionTitle} text = {events.ourVisionText} img = {events.visionimg}/>
         <div className="bg-slate-gray-flat w-full">
-          <div className="max-w-7xl mx-auto px-4 md:p-8">
+          <div className="max-w-7xl mx-auto px-4">
             <h1 className="text-center light mb-8">{events.employeesTitle}</h1>
             <div className="w-full mb-8">
               <EmployeeGrid employees={events.employees} backgroundColor='gray' foregroundColor='dark' border='dark' />

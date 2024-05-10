@@ -93,7 +93,6 @@ module.exports = {
       },
 
       borderRadius: {
-        connie: "16px",
         notSquared: "32px",
       },
     },

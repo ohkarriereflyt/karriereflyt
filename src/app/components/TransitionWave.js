@@ -5,20 +5,20 @@ const TransitionWave = ({ reverse = false }) => {
     return (
         <>
             <svg className='md:hidden block' width="100%" viewBox="0 0 393 97" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginBottom: '-2px', rotate: reverse ? '180deg' : '' }}>
-                <g clip-path="url(#clip0_1347_13674)">
+                <g clipPath="url(#clip0_1347_13674)">
                     <g filter="url(#filter0_d_1347_13674)">
-                        <path d="M487.603 25.3819H487.551C487.551 25.3819 429.177 54.2459 328.85 54.2459C228.523 54.2459 179.927 7.60938 72.1539 7.60938C-35.6194 7.60938 -143 38.9616 -143 38.9616V89.3894H487.603V25.3819Z" fill="#6B858D" fill-opacity="0.2" shape-rendering="crispEdges" />
+                        <path d="M487.603 25.3819H487.551C487.551 25.3819 429.177 54.2459 328.85 54.2459C228.523 54.2459 179.927 7.60938 72.1539 7.60938C-35.6194 7.60938 -143 38.9616 -143 38.9616V89.3894H487.603V25.3819Z" fill="#6B858D" fillOpacity="0.2" shapeRendering="crispEdges" />
                     </g>
                     <g filter="url(#filter1_d_1347_13674)">
-                        <path d="M487.603 38.7472C487.603 38.7472 428.002 67.7483 327.675 67.7483C227.347 67.7483 167.292 15.5664 59.5184 15.5664C-48.2549 15.5664 -143 55.9912 -143 55.9912V92.3102H487.603V38.7472Z" fill="#6B858D" fill-opacity="0.5" shape-rendering="crispEdges" />
+                        <path d="M487.603 38.7472C487.603 38.7472 428.002 67.7483 327.675 67.7483C227.347 67.7483 167.292 15.5664 59.5184 15.5664C-48.2549 15.5664 -143 55.9912 -143 55.9912V92.3102H487.603V38.7472Z" fill="#6B858D" fillOpacity="0.5" shapeRendering="crispEdges" />
                     </g>
                     <g filter="url(#filter2_d_1347_13674)">
                         <path d="M487.603 62.9866C487.603 62.9866 428.394 80.6222 328.066 80.6222C227.739 80.6222 150.116 33.4844 42.3432 33.4844C-65.4301 33.4844 -143 67.2789 -143 67.2789V97.3463H487.603V62.9866Z" fill="#6B858D" />
                     </g>
                 </g>
                 <defs>
-                    <filter id="filter0_d_1347_13674" x="-151.798" y="-1.18819" width="648.198" height="99.3764" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <filter id="filter0_d_1347_13674" x="-151.798" y="-1.18819" width="648.198" height="99.3764" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                        <feFlood floodOpacity="0" result="BackgroundImageFix" />
                         <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
                         <feOffset />
                         <feGaussianBlur stdDeviation="4.39878" />
@@ -27,8 +27,8 @@ const TransitionWave = ({ reverse = false }) => {
                         <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1347_13674" />
                         <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1347_13674" result="shape" />
                     </filter>
-                    <filter id="filter1_d_1347_13674" x="-147" y="11.5664" width="638.603" height="84.7422" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <filter id="filter1_d_1347_13674" x="-147" y="11.5664" width="638.603" height="84.7422" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                        <feFlood floodOpacity="0" result="BackgroundImageFix" />
                         <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
                         <feOffset />
                         <feGaussianBlur stdDeviation="2" />
@@ -37,8 +37,8 @@ const TransitionWave = ({ reverse = false }) => {
                         <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1347_13674" />
                         <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1347_13674" result="shape" />
                     </filter>
-                    <filter id="filter2_d_1347_13674" x="-151.798" y="24.6868" width="648.198" height="81.4584" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <filter id="filter2_d_1347_13674" x="-151.798" y="24.6868" width="648.198" height="81.4584" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                        <feFlood floodOpacity="0" result="BackgroundImageFix" />
                         <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
                         <feOffset />
                         <feGaussianBlur stdDeviation="4.39878" />

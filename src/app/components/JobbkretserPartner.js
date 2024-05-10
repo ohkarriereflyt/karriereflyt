@@ -1,51 +1,36 @@
-import bannerimage from "../imagesMidlertidig/Bannerimage.png";
-import Image from "next/image";
-import ReadMore from "./ReadMore";
 import Sertifications from "./Sertifications";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import ButtonArrow from "./ButtonArrow";
 
-export default function JobbkretserPartner({jobbkretserTitle, jobbkretserContItems, jobbkretserImage, jobbkretserReadMore}) {
+export default function JobbkretserPartner({ jobbkretserTitle, jobbkretserContItems, jobbkretserImage, jobbkretserReadMore }) {
   return (
-    <div className="lg:w-3/5 w-full  mx-auto lg:bg-inherit bg-slate-gray-flat  text-white md:pb-36 pb-12">
-      <div className="flex xl:flex-row xl:order-first xl:items-start items-center  order-2 flex-col">
-        <div>
-          <h2 className="text-3xl  mb-8 xl:visible invisible text-text-flat-inverted xl:">
-            {jobbkretserTitle}
-          </h2>
-
-          <Sertifications jobbkretserContItems = {jobbkretserContItems}/>
-          <ReadMore jobbkretserReadMore = {jobbkretserReadMore}/>
-        </div>
-        <div className="box-container lg:py-0 md:pb-36 pb-0 lg:mt-0 xl:pl-24 pl-0 xl:order-2 order-first ">
-          <h2 className="md:text-header text-mobileHeader mb-60 xl:invisible visible text-text-flat-inverted text-center">
-            {jobbkretserTitle}
-          </h2>
-          <div id="kretsBoxContainer" className="md:pr-0 pr-24">
-            <img className="bannerImage" src={jobbkretserImage} alt="" />
-            <div
-              className="sharedBoxClass lg:rounded-notSquared rounded-connie flex justify-center items-center"
-              id="kretsBoxOne"
-            >
-              1
+    <div className="w-full slate-gray-background">
+      <div className="max-w-7xl w-full mx-auto p-8 light">
+        <div className="grid md:grid-cols-2 grid-cols-1">
+          <div className="flex flex-col justify-end lg:mb-8 md:text-left text-center">
+            <h1>{jobbkretserTitle}</h1>
+          </div>
+          <div className="relative row-span-2 mx-auto">
+            <img className="bannerImage opacity-40" src={jobbkretserImage} alt="" />
+            <div className="xl:w-60 xl:h-60 w-36 h-36 relative xl:m-44 m-24">
+              <div id="kretsBox1" className="sharedBoxClass top-full left-1/2 kf-border-light-big"></div>
+              <div id="kretsBox2" className="sharedBoxClass top-1/2 left-0 kf-border-light-big"></div>
+              <div id="kretsBox3" className="sharedBoxClass top-0 left-1/2 kf-border-light-big"></div>
+              <div id="kretsBox4" className="sharedBoxClass top-1/2 left-full kf-border-light-big"></div>
             </div>
-            <div
-              className="sharedBoxClass lg:rounded-notSquared rounded-connie"
-              id="kretsBoxTwo"
-            >
-              2
-            </div>
-            <div
-              className="sharedBoxClass lg:rounded-notSquared rounded-connie"
-              id="kretsBoxThree"
-            >
-              3
-            </div>
-            <div
-              className="sharedBoxClass lg:rounded-notSquared rounded-connie"
-              id="kretsBoxFour"
-            >
-              4
+          </div>
+          <div>
+            <Sertifications jobbkretserContItems={jobbkretserContItems} />
+            <div className="flex md:justify-normal justify-end">
+              <ButtonArrow href={{
+                pathname: `/jobbkretser`,
+                query: {
+                  title: jobbkretserTitle,
+                  contItems: jobbkretserContItems,
+                  image: jobbkretserImage,
+                  readMore: jobbkretserReadMore,
+                }
+              }}
+              ></ButtonArrow>
             </div>
           </div>
         </div>

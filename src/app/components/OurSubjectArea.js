@@ -1,47 +1,53 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import ContactButton from "./ContactButton";
+import Link from "next/link";
 
-export default function OurSubjectArea({subjectAreaTitle, subjectAreaCont1Title,  subjectAreaCont1Items, subjectAreaCont2Title,  subjectAreaCont2Items, subjectAreaFooterText}) {
+export default function OurSubjectArea({ subjectAreaTitle, subjectAreaCont1Title, subjectAreaCont1Items, subjectAreaCont2Title, subjectAreaCont2Items, subjectAreaFooterText }) {
   return (
-    <>
-      <h1 className="text-center text-subHeadline text-text-flat-inverted mt-36 mb-10">
-        {subjectAreaTitle}
+    <div className="bg-slate-gray-flat pt-16 pb-8">
+      <h1 className="text-center text-text-flat-inverted mb-8">
+        {subjectAreaTitle}Nothing in databse yet
       </h1>
-      <div className="max-w-7xl bg-slate-gray-flat w-full mx-auto md:px-0 px-8 lg:flex xl:flex-row lg:flex-col  text-slate-gray-flat font-bold">
-        <div className=" xl:w-45 shadow-lg rounded-connie p-5 border-2 lg:mb-0 mb-12 bg-background-flat border-border-dark">
-          <h3 className="pb-4 md:text-header2 text-mobileHeader2">
+      <div className="max-w-7xl w-full mx-auto md:p-8 p-4 lg:flex xl:flex-row lg:flex-col slate-gray">
+        <div className="w-full shadow-lg p-8 mb-4 kf-border-light gray-background">
+          <h2 className="pb-4">
             {subjectAreaCont1Title}
-          </h3>
+          </h2>
           {subjectAreaCont1Items.map((item) => (
-            <div key={item.index} className="py-2 flex" style={{}}>
-              <FontAwesomeIcon icon={faCheck} className="mr-5 mt-1" />
+            <div key={item.index} className="py-2 flex items-center gap-2" style={{}}>
+              <svg width="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path className="slate-gray-stroke" d="M23.6126 11L12.8786 21.734L7.99951 16.8549" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
               <li className="md:text-header3 text-mobileHeader3 inline">
-                {item}
+                <p>{item}</p>
               </li>
             </div>
           ))}
         </div>
         <div className="lg:w-10 md:h-4"></div>
 
-        <div className=" xl:w-45 shadow-lg rounded-connie p-5 border-4 lg:mb-0 mb-12 bg-background-flat border-border-dark">
-          <h3 className="pb-4 md:text-header2 text-mobileHeader2">{subjectAreaCont2Title}</h3>
+        <div className="w-full shadow-lg p-8 mb-4 kf-border-light gray-background">
+          <h2 className="pb-4">{subjectAreaCont2Title}</h2>
           {subjectAreaCont2Items.map((item) => (
-            <div key={item.index} className="py-2 flex" style={{}}>
-              <FontAwesomeIcon icon={faCheck} className="mr-5 mt-1" />
+            <div key={item.index} className="py-2 flex items-center gap-2" style={{}}>
+              <svg width="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path className="slate-gray-stroke" d="M23.6126 11L12.8786 21.734L7.99951 16.8549" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
               <li className="inline md:text-header3 text-mobileHeader3">
-                {item}
+                <p>{item}</p>
               </li>
             </div>
           ))}
         </div>
       </div>
-      <div className="max-w-7xl w-full mx-auto mb-36 mt-12 ">
-        <p className="text-center md:text-xl text-mobileNormal text-text-flat-inverted">
+      <div className="max-w-7xl mx-auto">
+        <p className="text-center light mb-8">
           {subjectAreaFooterText}
         </p>
-        {/* <ContactButton /> */}
+        <div className="flex justify-center items-center">
+          <Link href="/contact">
+            <button className={`button light-background kf-border-dark dark`}>Kontakt oss</button>
+          </Link>
+        </div>
       </div>
-    </>
+    </div>
   );
 }
