@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import ButtonArrow from './ButtonArrow';
+import { PrefixPathnameNormalizer } from 'next/dist/server/future/normalizers/request/prefix';
 
 
 const JobPosts = (props) => {
@@ -111,10 +112,10 @@ const JobPosts = (props) => {
                 <div className="max-w-7xl p-4 flex flex-col justify-start items-center relative z-10">
                     <div className="w-full justify-start items-start gap-8 inline-flex">
                         <div className='grow shrink basis-0 self-stretch py-4 flex-col justify-start items-start gap-4 inline-flex light'>
-                            <h1 >Din karriere Partner</h1>
-                            <h2 >Finn din Jobb som får hverdagen til å gli</h2>
+                            <h1 >{props.topSectionTitle}</h1>
+                            <h2 >{props.topSectionSubTitle}</h2>
                             <p className={`${isExpanded ? '' : 'line-clamp-1'}`}>
-                                Velkommen til oss i Karriereflyt, hvor vårt mål er å gjøre jobbsøkingen så effektiv og tilfredsstillende som mulig for deg. Vi forstår at riktig jobb kan forvandle din hverdag, og derfor legger vi vår stolthet i å matche dine unike ferdigheter og ambisjoner med den perfekte stillingen. Vår tilnærming er personlig; vi lytter til dine behov, forstår dine mål, og bruker vår inngående kunnskap om arbeidsmarkedet til å finne posisjoner som ikke bare utfordrer og engasjerer deg, men som også bidrar til en bedre arbeids- og livsbalance
+                                {props.topSectionText}
                             </p>
                         </div>
                     </div>
@@ -343,10 +344,8 @@ const JobPosts = (props) => {
             {/* "Finner ikke" Full Width at the Bottom */}
             <div className="w-full py-12 light-background shadow text-center">
                 <div className="flex-col justify-start items-center gap-4 inline-flex">
-                    <h2>Finner du ikke det du leter etter</h2>
-                    <p>Vi jobber med et bredt spekter av stillinger innen kontor & handel samt industri</p>
-                    <p>Send oss gjerne en CV og en åpen søknad her, så vil muligens ta kontakt for jobbmuligheter</p>
-                    <p>Det hender også at vi representerer kunder hvor jobbmulighetene ikke bli annonsert slik som du ser denne listen.</p>
+                    <h2>{props.bottomSectionTitle}</h2>
+                    <p>{props.bottomSectionText}</p>
                     <div className=" items-center gap-16 inline-flex">
                         <button className="button">Send en åpen søknad</button>
                         <button className="button">Kontakt oss</button>

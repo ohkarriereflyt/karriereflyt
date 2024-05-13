@@ -1,4 +1,5 @@
 import { Footer, JobPosts } from '../../components/index'
+import { client } from '../../sanity';
 
 const apiKey = process.env.RECMAN_API_SECRET;
 
@@ -23,6 +24,15 @@ const jobTypeToNorwegian = {
     "fullTime": "Fast",
     "partTime": "Deltid",
 };
+
+// Sanity GROQ
+const EVENTS_QUERY = `*[_type == "applicants"][0]{
+    topSectionTitle,
+    topSectionSubTitle,
+    topSectionText,
+    bottomSectionTitle,
+    bottomSectionText
+  }`;
 
 async function fetchJobs() {
     const jobResponse = await fetch(`https://api.recman.no/v2/get/?key=${apiKey}&scope=jobPost&fields=projectId, name, title, ingress, body, numberOfPositions, startDate, endDate, logo, deadline, departmentId, facebook, linkedin, twitter, instagram, address1, address2, postalCode, city, country, web, salary, corporationId, created, updated, applyUrl, contacts, type, sector, accession, companyName, workplace, images, videoUrl, branchCategoryId, branchId, secondaryBranchCategoryId, secondaryBranchId, skills, countryId, regionId, cityId, position, positionType, socialMedia, finnUrl, locations`);
@@ -63,6 +73,15 @@ async function fetchRegions() {
 }
 
 export default async function Page() {
+
+    // Sanity
+    console.log("Sanity client:", client);
+    if (!client) {
+    throw new Error("Sanity client is not initialized");
+    }
+    const events = await client.fetch(EVENTS_QUERY);
+    console.log(events);
+
     const jobApiResponse = await fetchJobs();
     const jobApi = jobApiResponse.data ? Object.values(jobApiResponse.data).map(job => {
         // Conditionally modify the 'position' field
@@ -144,7 +163,8 @@ export default async function Page() {
 
     return (
         <div className="background-blur">
-            <JobPosts jobApi={jobApi} finishedBranch={finishedBranch} categoriesBranch={categoriesBranch} uniqueRegions={uniqueRegions} />
+            <JobPosts jobApi={jobApi} finishedBranch={finishedBranch} categoriesBranch={categoriesBranch} uniqueRegions={uniqueRegions} 
+            topSectionTitle = {events.topSectionTitle} topSectionSubTitle = {events.topSectionSubTitle} topSectionText = {events.topSectionText} bottomSectionTitle = {events.bottomSectionTitle} bottomSectionText = {events.bottomSectionText}/>
             <Footer />
         </div>
     );
