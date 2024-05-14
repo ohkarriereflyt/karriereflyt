@@ -2,6 +2,7 @@
 import localImg from '../imagesMidlertidig/øyvind-haugen.png'
 import { useState } from 'react'
 import ButtonArrow from './ButtonArrow'
+import Link from 'next/link'
 
 const CardEmployee = ({ index, member, backgroundColor = 'slate-gray', foregroundColor = 'light', border = 'light' }) => {
     const [openIndex, setOpenIndex] = useState(null);
@@ -15,7 +16,9 @@ const CardEmployee = ({ index, member, backgroundColor = 'slate-gray', foregroun
             <div className={`flex-col w-full md:max-w-[356px] kf-border-${border} gap-2.5 ${backgroundColor + "-background"} ${foregroundColor}`}>
                 <div className="flex flex-row md:flex-col w-full">
                     <div className="flex-shrink-0 md:h-[356px] md:w-full background-3 flex justify-center">
-                        <img className='md:h-full md:w-auto h-[35vw] w-[35vw]' src={member.img ? member.img : localImg} alt={member.name} />
+                        <Link href={`/contact/${encodeURIComponent(member.name)}`}>
+                            <img className='md:h-full md:w-auto h-[35vw] w-[35vw]' src={member.img ? member.img : (member.image ? member.image : localImg)} alt={member.name} />
+                        </Link>
                     </div>
                     <div className="w-full md:p-3 md:pb-2 pl-3 pr-2 py-2 flex-col justify-between items-end flex">
                         <div className="self-stretch">
