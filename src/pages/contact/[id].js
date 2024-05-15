@@ -83,10 +83,10 @@ const MemberDetailPage = () => {
     }
 
     return (
-        <>
+        <body>
+            <BackgroundBoxes />
             <Navbar />
-            <div id="boxCollection">
-                <BackgroundBoxes />
+            <div className="pt-16">
                 <div className="max-w-7xl mx-auto p-2 sm:p-4 md:p-8 mb-16 mt-24">
                     <div className='flex md:flex-row flex-col w-fill gap-4 text-text-flat-inverted'>
                         <div className='flex flex-col sm:gap-4 gap-2'>
@@ -188,9 +188,9 @@ const MemberDetailPage = () => {
                         </div>
                     </div>
                 </div>
+                <Footer transitionLine={false} />
             </div>
-            <Footer transitionLine={false}/>
-        </>
+        </body>
     );
 };
 

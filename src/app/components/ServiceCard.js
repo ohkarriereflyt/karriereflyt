@@ -27,7 +27,7 @@ const ServiceCardRight = ({
     <div className={`flex flex-col kf-border-light light-background shadow-md overflow-hidden md:flex-row${reverse ? '-reverse' : ''} min-h-[360px]`}>
       <div className={`flex-none w-full ${color}-background flex items-center justify-center p-4 md:w-1/3`}>
         {svg && (
-          <Image src={svg} alt={svg} className='h-12 md:h-32 beige-fill' />
+          <Image src={svg} alt={svg} className='h-12 md:h-32 eggshell-fill' />
         )}
       </div>
 
