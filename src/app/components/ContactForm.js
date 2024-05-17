@@ -11,6 +11,7 @@ const ContactForm = () => {
     const [file, setFile] = useState(null);
     const fileInputRef = useRef(null);
     const message = state.error ? state.error : 'Meldingen ble sendt!';
+    const [success] = useState(!state.error && state.isLoading === false);
     const [isModalOpen, setModalOpen] = useState(false);
 
     const handleFileChange = (e) => {
@@ -18,8 +19,9 @@ const ContactForm = () => {
     };
     const { values, isLoading, error } = state;
 
-    const onBlur = ({ target }) =>
+    const onBlur = ({ target }) => {
         setTouched((prev) => ({ ...prev, [target.name]: true }));
+    }
 
     const handleChange = ({ target }) => {
         setState((prev) => ({
@@ -48,21 +50,17 @@ const ContactForm = () => {
             data.append("email", values.email);
             data.append("subject", values.subject);
             data.append("message", values.message);
-            data.append("file", file);
-            await fetch("/api/nodemailer", {
+            if (file) {
+                data.append("file", file);
+            }
+            const response = await fetch("/api/nodemailer", {
                 method: "POST",
                 body: data,
-            }).then(response => {
-                if (response.ok) {
-                    return response.json(); // Process success response
-                } else {
-                    throw new Error('Failed to send message with status: ' + response.status);
-                }
-            }).then(data => {
-                console.log('Success:', data); // Success data from the server
-            }).catch(error => {
-                console.error('Error:', error); // Handle any errors
             });
+    
+            if (!response.ok) {
+                throw new Error(`Failed to send message with status: ${response.status}`);
+            }
 
             // Wait for 2 seconds to see if isLoading is working
             await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -158,8 +156,17 @@ const ContactForm = () => {
                 </div>
             </form>
             <Modal isOpen={isModalOpen} onClose={closeModal} className="relative" >
-                <p className='p-4' >{message}</p>
-                <button onClick={closeModal} className="mt-4 px-4 py-2 bg-slate-gray-flat">Close</button>
+                {state.error ? 
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    :
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 light" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                }
+                <p className='p-4 light' >{state.error ? state.error : 'Meldingen ble sendt!'}</p>
+                <button onClick={closeModal} className="button ">Lukk</button>
             </Modal>
         </div>
     );

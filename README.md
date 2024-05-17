@@ -32,3 +32,18 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Set up nodemailer
+
+Get mail and keys for .env file:
+
+```
+EMAIL=
+EMAIL_PASS=
+```
+
+**Update Mail service passkey**
+
+Log in with karriereflyt@gmail.com.
+
+Use this directly to manage [Application Spesific](https://security.google.com/settings/security/apppasswords) password. Or read the documentation on [nodemailer.com](https://nodemailer.com/usage/using-gmail/).
