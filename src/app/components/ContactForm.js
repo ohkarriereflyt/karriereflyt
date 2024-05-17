@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, } from 'react';
+import React, { useState, useRef } from 'react';
 import Modal from './Modal';
 
 const initValues = { name: "", email: "", subject: "", message: "", file: null }
@@ -9,6 +9,7 @@ const ContactForm = () => {
     const [state, setState] = useState(initState);
     const [touched, setTouched] = useState({});
     const [file, setFile] = useState(null);
+    const fileInputRef = useRef(null);
     const message = state.error ? state.error : 'Meldingen ble sendt!';
     const [isModalOpen, setModalOpen] = useState(false);
 
@@ -42,30 +43,34 @@ const ContactForm = () => {
             isLoading: true,
         }));
         try {
-            // const data = new FormData();
-            // data.append("name", values.name);
-            // data.append("email", values.email);
-            // data.append("subject", values.subject);
-            // data.append("message", values.message);
-            // data.append("file", file);
-            // await fetch("/api/nodemailer", {
-            //     method: "POST",
-            //     body: data,
-            // }).then(response => {
-            //     if (response.ok) {
-            //         return response.json(); // Process success response
-            //     } else {
-            //         throw new Error('Failed to send message with status: ' + response.status);
-            //     }
-            // }).then(data => {
-            //     console.log('Success:', data); // Success data from the server
-            // }).catch(error => {
-            //     console.error('Error:', error); // Handle any errors
-            // });
+            const data = new FormData();
+            data.append("name", values.name);
+            data.append("email", values.email);
+            data.append("subject", values.subject);
+            data.append("message", values.message);
+            data.append("file", file);
+            await fetch("/api/nodemailer", {
+                method: "POST",
+                body: data,
+            }).then(response => {
+                if (response.ok) {
+                    return response.json(); // Process success response
+                } else {
+                    throw new Error('Failed to send message with status: ' + response.status);
+                }
+            }).then(data => {
+                console.log('Success:', data); // Success data from the server
+            }).catch(error => {
+                console.error('Error:', error); // Handle any errors
+            });
 
             // Wait for 2 seconds to see if isLoading is working
             await new Promise((resolve) => setTimeout(resolve, 1000));
             setState(initState);
+            setFile(null);
+            if (fileInputRef.current) {
+                fileInputRef.current.value = null; // Clear the file input field
+            }
             setModalOpen(true);
         } catch (error) {
             setState((prev) => ({
@@ -139,7 +144,13 @@ const ContactForm = () => {
                 <div className='flex justify-between'>
                     <div className="flex items-center overflow-x-hidden">
                         <label htmlFor="attachment" className="sr-only">Vedlegg:</label>
-                        <input type="file" id="attachment" onChange={handleFileChange} className="text-text-flat" />
+                        <input 
+                            type="file" 
+                            id="attachment" 
+                            onChange={handleFileChange} 
+                            ref={fileInputRef}
+                            className="text-text-flat"
+                        />
                     </div>
                     <button type="submit" disabled={isLoading} className={`${isLoading || !values.name || !values.email || !values.subject || !values.message ? 'opacity-60' : 'opacity-100'}`}>
                         {isLoading ? 'Sender...' : 'Send'}
