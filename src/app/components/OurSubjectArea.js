@@ -1,10 +1,10 @@
 import Link from "next/link";
 
-export default function OurSubjectArea({ subjectAreaTitle, subjectAreaCont1Title, subjectAreaCont1Items, subjectAreaCont2Title, subjectAreaCont2Items, subjectAreaFooterText }) {
+export default function OurSubjectArea({ subjectAreasTitle, subjectAreaCont1Title, subjectAreaCont1Items, subjectAreaCont2Title, subjectAreaCont2Items, subjectAreaFooterText }) {
   return (
     <div className="bg-slate-gray-flat pt-16 pb-8">
       <h1 className="text-center text-text-flat-inverted mb-8">
-        {subjectAreaTitle}Nothing in databse yet
+        {subjectAreasTitle}
       </h1>
       <div className="max-w-7xl w-full mx-auto md:p-8 p-4 lg:flex xl:flex-row lg:flex-col slate-gray">
         <div className="w-full shadow-lg p-8 mb-4 kf-border-light gray-background">
