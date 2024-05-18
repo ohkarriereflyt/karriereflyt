@@ -70,7 +70,7 @@ const CardEmployee = ({ index, member, backgroundColor = 'slate-gray', foregroun
                                 </div>
                             </>
                         )}
-                        <div className="self-stretch md:px-6 md:py-3 justify-between items-center inline-flex background-flat">
+                        <div className="self-stretch md:px-6 md:py-3 sm:pr-2 sm:pb-2 justify-between items-center inline-flex background-flat">
                             <button
                                 onClick={() => member.phoneNumber && window.open(`tel:${member.phoneNumber}`, '_self')}
                                 className={`hover:scale-105 noStyle w-8 h-8 flex-col justify-center items-center inline-flex ${!member.phoneNumber && 'opacity-50 cursor-default'}`}>
@@ -124,7 +124,7 @@ const CardEmployee = ({ index, member, backgroundColor = 'slate-gray', foregroun
                     </div>
                 </div>
                 {openIndex === index &&
-                    <div className='md:hidden pl-3 pr-2 py-2'>
+                    <div className='md:hidden px-3 pt-2'>
                         <div className='sm:hidden flex flex-col'>
                             {member.emailText && (
                                 <div className="inline-flex self-stretch justify-start items-center gap-2.5  mt-3">
@@ -132,7 +132,7 @@ const CardEmployee = ({ index, member, backgroundColor = 'slate-gray', foregroun
                                     <p>{member.emailText}</p>
                                 </div>
                             )}
-                            {member.phone && (
+                            {member.phoneNumber && (
                                 <div className="inline-flex py-1 self-stretch justify-start items-center gap-2.5 ">
                                     <h3 className="w-16 ">Telefon:</h3>
                                     <p>{member.phoneNumber}</p>
