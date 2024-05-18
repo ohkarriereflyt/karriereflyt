@@ -82,7 +82,7 @@ const ContactForm = () => {
     };
 
     return (
-        <div className='bg-3 md:p-6 p-4 kf-border-dark w-full'>
+        <div id='contact-form' className='bg-3 md:p-6 p-4 kf-border-dark w-full'>
             <h2 className='text-center md:mb-6 mb-4'>Kontaktskjema</h2>
             <form onSubmit={(e) => onSubmit(e)}>
                 <div className="md:mb-6 mb-5">

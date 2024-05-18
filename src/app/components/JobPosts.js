@@ -1,10 +1,7 @@
 'use client'
-
-import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import ButtonArrow from './ButtonArrow';
-import { PrefixPathnameNormalizer } from 'next/dist/server/future/normalizers/request/prefix';
-
+import Link from 'next/link';
 
 const JobPosts = (props) => {
     const [jobApi, setJobApi] = useState(props.jobApi);
@@ -76,7 +73,6 @@ const JobPosts = (props) => {
         );
     }
 
-
     const handleRegionClick = (regionId) => {
         setSelectedRegions(prevRegions =>
             prevRegions.includes(regionId)
@@ -89,7 +85,6 @@ const JobPosts = (props) => {
         setFullTimeOnly(prev => !prev);
     };
 
-
     function highlightText(text, query) {
         if (!query) return text;
         const parts = text.split(new RegExp(`(${query})`, 'gi'));
@@ -101,9 +96,9 @@ const JobPosts = (props) => {
     const [isExpanded, setIsExpanded] = useState(false);
     const toggleExpand = () => setIsExpanded(!isExpanded);
 
-    jobApi.forEach(job => {
-        console.log(job);
-    });
+    // jobApi.forEach(job => {
+    //     console.log(job);
+    // });
 
     return (
         <div className='w-full min-h-screen flex flex-col justify-between items-center'>
@@ -120,7 +115,9 @@ const JobPosts = (props) => {
                         </div>
                     </div>
                     <div className="w-full justify-between items-center inline-flex">
-                        <button className="button">Send en åpen søknad</button>
+                        <Link href="/contact#contact-form">
+                            <button className="button">Send en åpen søknad</button>
+                        </Link>
                         <div onClick={toggleExpand}>
                             <ButtonArrow direction={`${isExpanded ? 'up' : 'down'}`}></ButtonArrow>
                         </div>
@@ -282,57 +279,80 @@ const JobPosts = (props) => {
                     {searchResults.length > 0 ? (
                         <ul className="flex flex-col gap-4">
                             {searchResults.map(job => (
-                                <li key={`jobPostId-${job.id}`} className="shadow kf-border-light light-background flex md:flex-row md:h-[216px] w-full h-auto flex-col">
-                                    <div className="md:w-[216px] w-full md:h-full h-[100px] flex justify-center items-center flex-shrink-0">
-                                        <img className="max-w-full max-h-full object-contain" src={job.logo} alt="Placeholder" />
-                                    </div>
-                                    <div className="p-4 w-full overflow-auto">
-                                        <h2 className='line-clamp-3'>{highlightText(job.companyName, searchQuery)}</h2>
-                                        <p className='line-clamp-3'>{highlightText(job.name, searchQuery)}</p>
-                                    </div>
-                                    <div className="md:w-[256px] w-full p-4 pb-0 flex flex-col justify-between flex-shrink-0 slate-gray-background">
-                                        <div className="max-w-full overflow-hidden light">
-                                            <h2 className='line-clamp-2'>{highlightText(job.title, searchQuery)}</h2>
-                                            <div className='flex gap-2 py-1'>
-                                                <svg className='sm:h-8 h-6' viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M5.4539 12.9622C5.02431 12.9622 4.70212 12.64 4.70212 12.2104C4.70212 11.7915 5.02431 11.4693 5.4539 11.4693H10.319V4.97175C10.319 4.5529 10.6413 4.2307 11.0601 4.2307C11.4789 4.2307 11.8119 4.5529 11.8119 4.97175V12.2104C11.8119 12.64 11.4789 12.9622 11.0601 12.9622H5.4539ZM11.0708 22.7568C17.0637 22.7568 22.0254 17.7844 22.0254 11.8022C22.0254 5.80945 17.0529 0.847656 11.0601 0.847656C5.07801 0.847656 0.116211 5.80945 0.116211 11.8022C0.116211 17.7844 5.08875 22.7568 11.0708 22.7568Z" fill="white" fill-opacity="0.2" />
-                                                    <path d="M4.70312 12.2101C4.70312 12.6398 5.02532 12.962 5.45491 12.962H11.0611C11.4799 12.962 11.8129 12.6398 11.8129 12.2101V4.97151C11.8129 4.55266 11.4799 4.23047 11.0611 4.23047C10.6423 4.23047 10.32 4.55266 10.32 4.97151V11.4691H5.45491C5.02532 11.4691 4.70312 11.7913 4.70312 12.2101Z" fill="#FFFBF8" />
-                                                </svg>
-                                                <p className='line-clamp-2'>{highlightText(job.position, searchQuery)}</p>
+                                <li key={`jobPostId-${job.id}`}>
+                                    <Link
+                                        className="shadow kf-border-light light-background flex md:flex-row md:h-[216px] w-full h-auto flex-col"
+                                        href={{
+                                            pathname: `/jobDetail/{job.id}`,
+                                            query: {
+                                                id: job.jobPostId,
+                                                logo: job.logo,
+                                                name: job.name,
+                                                body: job.body,
+                                                title: job.title,
+                                                deadline: job.deadline,
+                                                numberOfPositions: job.numberOfPositions,
+                                                workplace: job.workplace,
+                                                accession: job.accession,
+                                                position: job.position,
+                                                sector: job.sector,
+                                                address1: job.address1,
+                                                applyUrl: job.applyUrl,
+                                                skills: job.skills,
+                                                contacts: encodeURIComponent(JSON.stringify(job.contacts))
+                                            }
+                                        }}>
+                                        <div className="md:w-[216px] w-full md:h-full h-[100px] flex justify-center items-center flex-shrink-0">
+                                            <img className="max-w-full max-h-full object-contain" src={job.logo} alt="Placeholder" />
+                                        </div>
+                                        <div className="p-4 w-full overflow-auto">
+                                            <h2 className='line-clamp-3'>{highlightText(job.companyName, searchQuery)}</h2>
+                                            <p className='line-clamp-3'>{highlightText(job.name, searchQuery)}</p>
+                                        </div>
+                                        <div className="md:w-[256px] w-full p-4 pb-0 flex flex-col justify-between flex-shrink-0 slate-gray-background">
+                                            <div className="max-w-full overflow-hidden light">
+                                                <h2 className='line-clamp-2'>{highlightText(job.title, searchQuery)}</h2>
+                                                <div className='flex gap-2 py-1 items-center'>
+                                                    <svg className='sm:h-8 h-6' viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M5.4539 12.9622C5.02431 12.9622 4.70212 12.64 4.70212 12.2104C4.70212 11.7915 5.02431 11.4693 5.4539 11.4693H10.319V4.97175C10.319 4.5529 10.6413 4.2307 11.0601 4.2307C11.4789 4.2307 11.8119 4.5529 11.8119 4.97175V12.2104C11.8119 12.64 11.4789 12.9622 11.0601 12.9622H5.4539ZM11.0708 22.7568C17.0637 22.7568 22.0254 17.7844 22.0254 11.8022C22.0254 5.80945 17.0529 0.847656 11.0601 0.847656C5.07801 0.847656 0.116211 5.80945 0.116211 11.8022C0.116211 17.7844 5.08875 22.7568 11.0708 22.7568Z" fill="white" fillOpacity="0.2" />
+                                                        <path d="M4.70312 12.2101C4.70312 12.6398 5.02532 12.962 5.45491 12.962H11.0611C11.4799 12.962 11.8129 12.6398 11.8129 12.2101V4.97151C11.8129 4.55266 11.4799 4.23047 11.0611 4.23047C10.6423 4.23047 10.32 4.55266 10.32 4.97151V11.4691H5.45491C5.02532 11.4691 4.70312 11.7913 4.70312 12.2101Z" fill="#FFFBF8" />
+                                                    </svg>
+                                                    <p className='line-clamp-2'>{highlightText(job.position, searchQuery)}</p>
+                                                </div>
+                                                <div className='flex gap-2 py-1 items-center'>
+                                                    <svg className='sm:h-8 h-6' viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M11.0708 22.8272C17.0637 22.8272 22.0254 17.8654 22.0254 11.8725C22.0254 5.89051 17.0529 0.917969 11.0601 0.917969C5.07801 0.917969 0.116211 5.89051 0.116211 11.8725C0.116211 17.8654 5.08875 22.8272 11.0708 22.8272Z" fill="white" fillOpacity="0.2" />
+                                                        <path d="M8.53613 7.72699C8.53613 6.33081 9.68529 5.20312 11.0707 5.20312C12.4669 5.20312 13.6054 6.33081 13.6054 7.72699C13.6054 8.87614 12.8535 9.82124 11.8333 10.122V15.6745C11.8333 17.3284 11.5862 18.7568 11.0707 18.7568C10.5659 18.7568 10.2975 17.2961 10.2975 15.6745V10.122C9.28791 9.8105 8.53613 8.8654 8.53613 7.72699Z" fill="white" />
+                                                    </svg>
+                                                    <p className='line-clamp-2'>{highlightText(job.city, searchQuery)}</p>
+                                                </div>
                                             </div>
-                                            <div className='flex gap-2 py-1'>
-                                                <svg className='sm:h-8 h-6' viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M11.0708 22.8272C17.0637 22.8272 22.0254 17.8654 22.0254 11.8725C22.0254 5.89051 17.0529 0.917969 11.0601 0.917969C5.07801 0.917969 0.116211 5.89051 0.116211 11.8725C0.116211 17.8654 5.08875 22.8272 11.0708 22.8272Z" fill="white" fill-opacity="0.2" />
-                                                    <path d="M8.53613 7.72699C8.53613 6.33081 9.68529 5.20312 11.0707 5.20312C12.4669 5.20312 13.6054 6.33081 13.6054 7.72699C13.6054 8.87614 12.8535 9.82124 11.8333 10.122V15.6745C11.8333 17.3284 11.5862 18.7568 11.0707 18.7568C10.5659 18.7568 10.2975 17.2961 10.2975 15.6745V10.122C9.28791 9.8105 8.53613 8.8654 8.53613 7.72699Z" fill="white" />
-                                                </svg>
-                                                <p className='line-clamp-2'>{highlightText(job.city, searchQuery)}</p>
+                                            <div className="flex justify-end items-center sm:pb-1">
+                                                <ButtonArrow href={{
+                                                    pathname: `/jobDetail/{job.id}`,
+                                                    query: {
+                                                        id: job.jobPostId,
+                                                        logo: job.logo,
+                                                        name: job.name,
+                                                        body: job.body,
+                                                        title: job.title,
+                                                        deadline: job.deadline,
+                                                        numberOfPositions: job.numberOfPositions,
+                                                        workplace: job.workplace,
+                                                        accession: job.accession,
+                                                        position: job.position,
+                                                        sector: job.sector,
+                                                        address1: job.address1,
+                                                        applyUrl: job.applyUrl,
+                                                        skills: job.skills,
+                                                        contacts: encodeURIComponent(JSON.stringify(job.contacts))
+                                                    }
+                                                }}
+                                                    direction='right'
+                                                ></ButtonArrow>
                                             </div>
                                         </div>
-                                        <div className="flex justify-end items-center">
-                                            <ButtonArrow href={{
-                                                pathname: `/jobDetail/{job.id}`,
-                                                query: {
-                                                    id: job.jobPostId,
-                                                    logo: job.logo,
-                                                    name: job.name,
-                                                    body: job.body,
-                                                    title: job.title,
-                                                    deadline: job.deadline,
-                                                    numberOfPositions: job.numberOfPositions,
-                                                    workplace: job.workplace,
-                                                    accession: job.accession,
-                                                    position: job.position,
-                                                    sector: job.sector,
-                                                    address1: job.address1,
-                                                    applyUrl: job.applyUrl,
-                                                    skills: job.skills,
-                                                    contacts: encodeURIComponent(JSON.stringify(job.contacts))
-                                                }
-                                            }}
-                                                direction='right'
-                                            ></ButtonArrow>
-                                        </div>
-                                    </div>
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
@@ -347,8 +367,12 @@ const JobPosts = (props) => {
                     <h2>{props.bottomSectionTitle}</h2>
                     <p>{props.bottomSectionText}</p>
                     <div className=" items-center gap-16 inline-flex">
-                        <button className="button">Send en åpen søknad</button>
-                        <button className="button">Kontakt oss</button>
+                        <Link href="/contact#contact-form">
+                            <button className="button">Send en åpen søknad</button>
+                        </Link>
+                        <Link href="/contact">
+                            <button className="button">Kontakt oss</button>
+                        </Link>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,17 @@
+@font-face {
+    font-family: FilsonProRegular;
+    src: url(./fonts/filsonpro/FilsonProRegular.otf);
+}
+
+* {
+    font-family: FilsonProRegular;
+}
+
+h3 {
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+p {
+    margin-bottom: 0.5rem !important;
+}
