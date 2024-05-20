@@ -36,7 +36,7 @@ export default async function Page() {
         <h2 className="subheadline justify-center text-center pb-4">{events.mainSubTitle}</h2>
         <EmployeeGrid employees={events.employees} />
       </div>
-      <div class="mb-[-2px]">
+      <div className="mb-[-2px]">
         <TransitionLine />
       </div>
       <div className="bg-slate-gray-flat w-full">

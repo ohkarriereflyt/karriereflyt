@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, } from 'react';
+import React, { useState, useRef } from 'react';
 import Modal from './Modal';
 
 const initValues = { name: "", email: "", subject: "", message: "", file: null }
@@ -9,7 +9,9 @@ const ContactForm = () => {
     const [state, setState] = useState(initState);
     const [touched, setTouched] = useState({});
     const [file, setFile] = useState(null);
+    const fileInputRef = useRef(null);
     const message = state.error ? state.error : 'Meldingen ble sendt!';
+    const [success] = useState(!state.error && state.isLoading === false);
     const [isModalOpen, setModalOpen] = useState(false);
 
     const handleFileChange = (e) => {
@@ -17,8 +19,9 @@ const ContactForm = () => {
     };
     const { values, isLoading, error } = state;
 
-    const onBlur = ({ target }) =>
+    const onBlur = ({ target }) => {
         setTouched((prev) => ({ ...prev, [target.name]: true }));
+    }
 
     const handleChange = ({ target }) => {
         setState((prev) => ({
@@ -42,30 +45,30 @@ const ContactForm = () => {
             isLoading: true,
         }));
         try {
-            // const data = new FormData();
-            // data.append("name", values.name);
-            // data.append("email", values.email);
-            // data.append("subject", values.subject);
-            // data.append("message", values.message);
-            // data.append("file", file);
-            // await fetch("/api/nodemailer", {
-            //     method: "POST",
-            //     body: data,
-            // }).then(response => {
-            //     if (response.ok) {
-            //         return response.json(); // Process success response
-            //     } else {
-            //         throw new Error('Failed to send message with status: ' + response.status);
-            //     }
-            // }).then(data => {
-            //     console.log('Success:', data); // Success data from the server
-            // }).catch(error => {
-            //     console.error('Error:', error); // Handle any errors
-            // });
+            const data = new FormData();
+            data.append("name", values.name);
+            data.append("email", values.email);
+            data.append("subject", values.subject);
+            data.append("message", values.message);
+            if (file) {
+                data.append("file", file);
+            }
+            const response = await fetch("/api/nodemailer", {
+                method: "POST",
+                body: data,
+            });
+    
+            if (!response.ok) {
+                throw new Error(`Failed to send message with status: ${response.status}`);
+            }
 
             // Wait for 2 seconds to see if isLoading is working
             await new Promise((resolve) => setTimeout(resolve, 1000));
             setState(initState);
+            setFile(null);
+            if (fileInputRef.current) {
+                fileInputRef.current.value = null; // Clear the file input field
+            }
             setModalOpen(true);
         } catch (error) {
             setState((prev) => ({
@@ -79,7 +82,7 @@ const ContactForm = () => {
     };
 
     return (
-        <div className='bg-3 md:p-6 p-4 kf-border-dark w-full'>
+        <div id='contact-form' className='bg-3 md:p-6 p-4 kf-border-dark w-full'>
             <h2 className='text-center md:mb-6 mb-4'>Kontaktskjema</h2>
             <form onSubmit={(e) => onSubmit(e)}>
                 <div className="md:mb-6 mb-5">
@@ -139,7 +142,13 @@ const ContactForm = () => {
                 <div className='flex justify-between'>
                     <div className="flex items-center overflow-x-hidden">
                         <label htmlFor="attachment" className="sr-only">Vedlegg:</label>
-                        <input type="file" id="attachment" onChange={handleFileChange} className="text-text-flat" />
+                        <input 
+                            type="file" 
+                            id="attachment" 
+                            onChange={handleFileChange} 
+                            ref={fileInputRef}
+                            className="text-text-flat"
+                        />
                     </div>
                     <button type="submit" disabled={isLoading} className={`${isLoading || !values.name || !values.email || !values.subject || !values.message ? 'opacity-60' : 'opacity-100'}`}>
                         {isLoading ? 'Sender...' : 'Send'}
@@ -147,8 +156,17 @@ const ContactForm = () => {
                 </div>
             </form>
             <Modal isOpen={isModalOpen} onClose={closeModal} className="relative" >
-                <p className='p-4' >{message}</p>
-                <button onClick={closeModal} className="mt-4 px-4 py-2 bg-slate-gray-flat">Close</button>
+                {state.error ? 
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    :
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 light" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                }
+                <p className='p-4 light' >{state.error ? state.error : 'Meldingen ble sendt!'}</p>
+                <button onClick={closeModal} className="button ">Lukk</button>
             </Modal>
         </div>
     );

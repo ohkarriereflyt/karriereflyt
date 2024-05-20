@@ -1,10 +1,9 @@
 import "../../app/globals.css";
+import "../../app/hardCodedHtml.css";
 import { useRouter } from 'next/router';
 import Navbar from "../../app/components/Navbar";
 import BackgroundBoxes from "../../app/components/BackgroundBoxes";
 import Footer from "../../app/components/Footer";
-import Link from 'next/link';
-import ButtonArrow from "../../app/components/ButtonArrow";
 
 
 export default function JobDetail({ contacts }) {
@@ -28,8 +27,8 @@ export default function JobDetail({ contacts }) {
         <>
             <BackgroundBoxes />
             <Navbar />
-            <div className="pt-16">
-                <div className="max-w-7xl mx-auto p-2 sm:p-4 md:p-8 flex flex-col justify-between items-center background-blur">
+            <div className="pt-16 background-blur">
+                <div className="max-w-7xl mx-auto p-2 sm:p-4 md:p-8 flex flex-col justify-between items-center">
                     {/* Description and Details Section */}
                     <div className="flex flex-col lg:flex-row gap-4 w-full py-4">
                         {/* Description Section */}
@@ -41,39 +40,23 @@ export default function JobDetail({ contacts }) {
                         {/* Details Section */}
                         <div className="md:p-8 flex flex-col gap-2 light-background p-4 kf-border-light mt-4 lg:mt-0 lg:ml-4 w-full lg:max-w-screen-lg">
                             <h2 className="text-xl font-bold pb-4">Detaljer</h2>
-                            <div className="md:w-[259px] w-full h-[152px] rounded-tl-2xl md:rounded-bl-xl md:rounded-tl-xl flex justify-center items-center">
+                            <div className="md:w-[259px] w-full rounded-tl-2xl md:rounded-bl-xl md:rounded-tl-xl">
                                 <img className="max-w-full max-h-full object-contain" src={logo} alt="Job logo" />
-                            </div>
-                            <div>
-                                <p className="text-base font-bold py-2">Tittel:</p>
+                                <h3>Tittel:</h3>
                                 <p>{title}</p>
-                            </div>
-                            <div>
-                                <p className="text-base font-bold py-2">Søknadsfrist:</p>
+                                <h3>Søknadsfrist:</h3>
                                 <p>{deadline}</p>
-                            </div>
-                            <div>
-                                <p className="text-base font-bold py-2">Antall Stillinger:</p>
+                                <h3>Antall Stillinger:</h3>
                                 <p>{numberOfPositions}</p>
-                            </div>
-                            <div>
-                                <p className="text-base font-bold py-2">Arbeidssted:</p>
+                                <h3>Arbeidssted:</h3>
                                 <p>{workplace}</p>
-                            </div>
-                            <div>
-                                <p className="text-base font-bold py-2">Lønn:</p>
+                                <h3>Lønn:</h3>
                                 <p>{accession}</p>
-                            </div>
-                            <div>
-                                <p className="text-base font-bold py-2">Varighet:</p>
+                                <h3>Varighet:</h3>
                                 <p>{position}</p>
-                            </div>
-                            <div>
-                                <p className="text-base font-bold py-2">Sektor:</p>
+                                <h3>Sektor:</h3>
                                 <p>{sector}</p>
-                            </div>
-                            <div>
-                                <p className="text-base font-bold py-2">Adresse:</p>
+                                <h3>Adresse:</h3>
                                 <p>{address1}</p>
                             </div>
 
@@ -108,7 +91,7 @@ export default function JobDetail({ contacts }) {
                         </div>
                     </div>
                 </div>
-                <Footer transitionLine={false} />
+                <Footer />
             </div>
         </>
     );

@@ -67,7 +67,7 @@ export default async function Home() {
       </div>
 
       <CustomerFeedback reviewsTitle={events.reviewsTitle} reviews={events.reviews} />
-      <OurSubjectArea subjectAreaTitle={events.subjectAreaTitle} subjectAreaCont1Title={events.subjectAreasContainer1Title} subjectAreaCont1Items={events.container1Items} subjectAreaCont2Title={events.subjectAreasContainer2Title} subjectAreaCont2Items={events.container2Items} subjectAreaFooterText={events.subjectAreasFooterText} />
+      <OurSubjectArea subjectAreasTitle={events.subjectAreasTitle} subjectAreaCont1Title={events.subjectAreasContainer1Title} subjectAreaCont1Items={events.container1Items} subjectAreaCont2Title={events.subjectAreasContainer2Title} subjectAreaCont2Items={events.container2Items} subjectAreaFooterText={events.subjectAreasFooterText} />
       <div className="background-blur">
         <JobbkretserPartner jobbkretserTitle={events.jobbkretserSectionTitle} jobbkretserContItems={events.jobbkretserContainerItems} jobbkretserImage={events.jobbkretserImage} jobbkretserReadMore={events.jobbkretserSectionReadMore} />
         <TransitionLine reverse />
