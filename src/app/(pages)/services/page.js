@@ -1,9 +1,6 @@
 import Image from "next/image";
 import {
-  HeroCardTitle,
   List,
-  ServiceCardLeft,
-  ServiceCardRight,
   ServiceCard,
   Pentagon,
   Footer
@@ -73,56 +70,64 @@ export default async function Page() {
               </p>
             </div>
             <div className="flex flex-col md:gap-16 gap-4">
-              <ServiceCard
-                svg={BriefCase}
-                color="slate-gray"
-                category="Kandidater"
-                title={events.recruitingTitle}
-                listItems={[
-                  { text: events.recruitingTitleItems[0] },
-                  { text: events.recruitingTitleItems[1] },
-                  { text: events.recruitingTitleItems[2] },
-                ]}
-                description={events.recruitingReadMoreText}
-              />
-              <ServiceCard
-                svg={Building}
-                color="pistasch"
-                category="Bedrifter"
-                title={events.hireTitle}
-                listItems={[
-                  { text: events.hireTitleItems[0] },
-                  { text: events.hireTitleItems[1] },
-                  { text: events.hireTitleItems[2] },
-                ]}
-                description={events.hireReadMoreText}
-                reverse
-              />
-              <ServiceCard
-                svg={Target}
-                color="red"
-                category="Headhunting"
-                title={events.headhuntingTitle}
-                listItems={[
-                  { text: events.headhuntingTitleItems[0] },
-                  { text: events.headhuntingTitleItems[1] },
-                  { text: events.headhuntingTitleItems[2] },
-                ]}
-                description={events.headhuntingReadMoreText}
-              />
-              <ServiceCard
-                svg={Bulb}
-                color="vanilla-latte"
-                category="Rådgivning"
-                title={events.counselingTitle}
-                listItems={[
-                  { text: events.counselingTitleItems[0] },
-                  { text: events.counselingTitleItems[1] },
-                  { text: events.counselingTitleItems[2] },
-                ]}
-                description={events.counselingReadMoreText}
-                reverse
-              />
+              <div id="section1">
+                <ServiceCard
+                  svg={BriefCase}
+                  color="slate-gray"
+                  category="Kandidater"
+                  title={events.recruitingTitle}
+                  listItems={[
+                    { text: events.recruitingTitleItems[0] },
+                    { text: events.recruitingTitleItems[1] },
+                    { text: events.recruitingTitleItems[2] },
+                  ]}
+                  description={events.recruitingReadMoreText}
+                />
+              </div>
+              <div id="section2">
+                <ServiceCard
+                  svg={Building}
+                  color="pistasch"
+                  category="Bedrifter"
+                  title={events.hireTitle}
+                  listItems={[
+                    { text: events.hireTitleItems[0] },
+                    { text: events.hireTitleItems[1] },
+                    { text: events.hireTitleItems[2] },
+                  ]}
+                  description={events.hireReadMoreText}
+                  reverse
+                />
+              </div>
+              <div id="section3">
+                <ServiceCard
+                  svg={Target}
+                  color="red"
+                  category="Headhunting"
+                  title={events.headhuntingTitle}
+                  listItems={[
+                    { text: events.headhuntingTitleItems[0] },
+                    { text: events.headhuntingTitleItems[1] },
+                    { text: events.headhuntingTitleItems[2] },
+                  ]}
+                  description={events.headhuntingReadMoreText}
+                />
+              </div>
+              <div id="section4">
+                <ServiceCard
+                  svg={Bulb}
+                  color="vanilla-latte"
+                  category="Rådgivning"
+                  title={events.counselingTitle}
+                  listItems={[
+                    { text: events.counselingTitleItems[0] },
+                    { text: events.counselingTitleItems[1] },
+                    { text: events.counselingTitleItems[2] },
+                  ]}
+                  description={events.counselingReadMoreText}
+                  reverse
+                />
+              </div>
               <div className="text-center">
                 <h1>{events.middleTextTitle}</h1>
               </div>

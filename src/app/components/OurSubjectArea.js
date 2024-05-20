@@ -14,7 +14,7 @@ export default function OurSubjectArea({ subjectAreaTitle, subjectAreaCont1Title
           {subjectAreaCont1Items.map((item) => (
             <div key={item.index} className="py-2 flex items-center gap-2" style={{}}>
               <svg width="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path className="slate-gray-stroke" d="M23.6126 11L12.8786 21.734L7.99951 16.8549" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                <path className="slate-gray-stroke" d="M23.6126 11L12.8786 21.734L7.99951 16.8549" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               <li className="md:text-header3 text-mobileHeader3 inline">
                 <p>{item}</p>
@@ -29,7 +29,7 @@ export default function OurSubjectArea({ subjectAreaTitle, subjectAreaCont1Title
           {subjectAreaCont2Items.map((item) => (
             <div key={item.index} className="py-2 flex items-center gap-2" style={{}}>
               <svg width="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path className="slate-gray-stroke" d="M23.6126 11L12.8786 21.734L7.99951 16.8549" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                <path className="slate-gray-stroke" d="M23.6126 11L12.8786 21.734L7.99951 16.8549" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               <li className="inline md:text-header3 text-mobileHeader3">
                 <p>{item}</p>
