@@ -72,7 +72,7 @@ export default async function Home() {
         <JobbkretserPartner jobbkretserTitle={events.jobbkretserSectionTitle} jobbkretserContItems={events.jobbkretserContainerItems} jobbkretserImage={events.jobbkretserImage} jobbkretserReadMore={events.jobbkretserSectionReadMore} />
         <TransitionLine reverse />
         <PartnersAndSertifications PandSTitle={events.partnerCertificationSectionTitle} PandSImages={events.partnerCertificationSectionImages} />
-        <Statistics />
+        {/* <Statistics />*/}
         <h1 className="text-center">{events.bottomSectionTitle}</h1>
         <div className="flex justify-center items-center gap-4 py-8">
           <Link href="/applicants">

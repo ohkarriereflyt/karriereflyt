@@ -13,7 +13,7 @@ export default function CustomerFeedback({ reviewsTitle, reviews }) {
           <h1 className="relative lg:dark light text-center mb-12">
             {reviewsTitle}
           </h1>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             {reviews.map((customer) => (
               <div className="flex justify-center w-full">
                 <div

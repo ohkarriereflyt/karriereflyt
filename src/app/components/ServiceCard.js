@@ -2,8 +2,9 @@
 import { useState } from 'react'
 import { ButtonArrow } from "./index";
 import Image from 'next/image';
+import Link from "next/link";
 
-const ServiceCardRight = ({
+const ServiceCard = ({
   svg,
   color,
   category,
@@ -27,7 +28,7 @@ const ServiceCardRight = ({
     <div className={`flex flex-col kf-border-light light-background shadow-md overflow-hidden md:flex-row${reverse ? '-reverse' : ''} min-h-[360px]`}>
       <div className={`flex-none w-full ${color}-background flex items-center justify-center p-4 md:w-1/3`}>
         {svg && (
-          <Image src={svg} alt={svg} className='h-12 md:h-32 eggshell-fill' />
+          <Image src={svg} alt={svg} className='h-12 w-auto md:h-32 eggshell-fill' />
         )}
       </div>
 
@@ -40,7 +41,7 @@ const ServiceCardRight = ({
               {listItems.map((item, index) => (
                 <li key={index} className="py-2 flex items-center gap-2">
                   <svg width="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path className={`${color}-stroke`} d="M23.6126 11L12.8786 21.734L7.99951 16.8549" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                    <path className={`${color}-stroke`} d="M23.6126 11L12.8786 21.734L7.99951 16.8549" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                   <p>{item.text}</p>
                 </li>
@@ -50,8 +51,15 @@ const ServiceCardRight = ({
           <div className={`${open ? '' : 'hidden'}`}>
             <p>{description}</p>
           </div>
-          <div onClick={toggleOpen} className='self-stretch flex md:justify-start justify-end'>
-            <ButtonArrow text={open ? "Lukk" : "Les mer"} direction={open ? 'up' : 'down'} color={color} onClick={toggleOpen} />
+          <div className='self-stretch flex md:justify-between justify-end items-center'>
+            <div onClick={toggleOpen}>
+              <ButtonArrow text={open ? "Lukk" : "Les mer"} direction={open ? 'up' : 'down'} color={color} onClick={toggleOpen} />
+            </div>
+            {open && (
+              <Link href="/contact">
+                <button className={`button light-background kf-border-dark dark ml-4`}>Kontakt oss</button>
+              </Link>
+            )}
           </div>
         </div>
       </div>
@@ -59,5 +67,5 @@ const ServiceCardRight = ({
   );
 };
 
-export default ServiceCardRight;
+export default ServiceCard;
 
