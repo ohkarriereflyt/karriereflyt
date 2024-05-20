@@ -47,7 +47,7 @@ export default function Navbar() {
             <li><Link href="/applicants" className={mobileLinkStyle("/applicants")} onClick={closeMenu}>For jobbsøkere</Link></li>
             <li><Link href="/services" className={mobileLinkStyle("/services")} onClick={closeMenu}>Tjenester</Link></li>
             <li><Link href="/about" className={mobileLinkStyle("/about")} onClick={closeMenu}>Om oss</Link></li>
-            <li><Link href="/contact" className={mobileLinkStyle("/contact")} onClick={closeMenu}>Kontakt oss</Link></li>
+            <li><Link href="/contact" className={mobileLinkStyle("/about")} onClick={closeMenu}>Kontakt oss</Link></li>
           </ul>
 
           <div className="hidden lg:flex w-full justify-end">
