@@ -4,9 +4,9 @@ export default function List(props) {
         const element = document.getElementById(id);
         element.scrollIntoView({ behavior: 'smooth' });
 
-        // Adjust scroll position after a short delay
+        
         setTimeout(() => {
-            const yOffset = -100; // Adjust this value as needed
+            const yOffset = -100; 
             const y = element.getBoundingClientRect().top + yOffset;
             window.scrollTo({ top: y, behavior: 'smooth' });
         }, 10);
