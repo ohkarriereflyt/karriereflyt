@@ -39,7 +39,7 @@ const ContactForm = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-    
+
         setState((prev) => ({
             ...prev,
             isLoading: true,
@@ -57,7 +57,7 @@ const ContactForm = () => {
                 method: "POST",
                 body: data,
             });
-    
+
             if (!response.ok) {
                 throw new Error(`Failed to send message with status: ${response.status}`);
             }
@@ -82,7 +82,7 @@ const ContactForm = () => {
     };
 
     return (
-        <div id='contact-form' className='bg-3 md:p-6 p-4 kf-border-dark w-full'>
+        <div id='contact-form' className='bg-3 md:p-6 p-4 kf-border-dark w-full h-full'>
             <h2 className='text-center md:mb-6 mb-4'>Kontaktskjema</h2>
             <form onSubmit={(e) => onSubmit(e)}>
                 <div className="md:mb-6 mb-5">
@@ -142,10 +142,10 @@ const ContactForm = () => {
                 <div className='flex justify-between'>
                     <div className="flex items-center overflow-x-hidden">
                         <label htmlFor="attachment" className="sr-only">Vedlegg:</label>
-                        <input 
-                            type="file" 
-                            id="attachment" 
-                            onChange={handleFileChange} 
+                        <input
+                            type="file"
+                            id="attachment"
+                            onChange={handleFileChange}
                             ref={fileInputRef}
                             className="text-text-flat"
                         />
@@ -156,7 +156,7 @@ const ContactForm = () => {
                 </div>
             </form>
             <Modal isOpen={isModalOpen} onClose={closeModal} className="relative" >
-                {state.error ? 
+                {state.error ?
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>

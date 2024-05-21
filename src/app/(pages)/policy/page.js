@@ -1,37 +1,41 @@
-import Link from 'next/link';
 import Footer from '../../components/Footer';
-import {
-    Banner
-  } from "../../components/index";
+import { client } from '../../sanity';
 
-export default function Policy() {
+const EVENTS_QUERY = `*[_type == "contact"][0]{
+  contactAddress,
+  contactPhoneNumber,
+  contactEmail,
+}`;
+
+export default async function Policy() {
+  let contactInfo = await client.fetch(EVENTS_QUERY);
+
   return (
-    <div className='pt-5'>
-    <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 overflow-auto min-h-[80vh] flex flex-col pt-8">
-      <div className="w-full p-4 flex flex-col items-start justify-start space-y-4 bg-white rounded">
-        <h2 className="font-bold text-xl">Karriereflyt AS</h2>
+    <div className='pt-4'>
+    <div className="max-w-7xl mx-auto sm:p-8 p-4 overflow-auto flex flex-col">
+      <div className="w-full sm:p-8 p-4 flex flex-col items-start justify-start space-y-4 light-background kf-border-light">
+        <h2>Karriereflyt AS</h2>
         <p>Org.nr 930 011 428</p>
-        <p>C. Sundts Gate 51</p>
-        <p>5004 Bergen</p>
-        <p>E-post: <a href="mailto:post@karriereflyt.no" className="text-blue-500 hover:underline">post@karriereflyt.no</a></p>
+        <p>{contactInfo.contactAddress}</p>
+        <p>E-post: <a href={`mailto:${contactInfo.contactEmail}`} className="slate-gray hover:underline">{contactInfo.contactEmail}</a></p>
 
-        <h2 className="font-bold text-xl mt-8">Personvernerklæring</h2>
+        <h2 className="mt-8">Personvernerklæring</h2>
         <p>Karriereflyt AS er behandlingsansvarlig for behandlingen av personopplysninger som beskrevet i denne personvernerklæringen. I denne personvernerklæringen forklarer vi hva slags personopplysninger vi lagrer, hvordan vi behandler de og hvor lenge vi lagrer de.</p>
 
-        <h3 className="font-bold text-lg mt-6">Personopplysninger vi samler inn og behandler</h3>
+        <h2 className="mt-6">Personopplysninger vi samler inn og behandler</h2>
         <p>Vi behandler følgende kategorier av personopplysninger:</p>
         <ul className="list-disc pl-6">
-          <li>Grunnleggende informasjon: navn, fødselsdato</li>
-          <li>Kontaktinformasjon: adresse, telefonnummer, epostadresse</li>
-          <li>Konto og profilinformasjon: Innstillinger, preferanser</li>
-          <li>Betalingsinformasjon: Transaksjonsinformasjon, betalingsmiddel</li>
-          <li>Kundehistorikk og kundeengasjement: bestillings- og leveringsopplysninger, handlekurvbevegelser, rabattkoder, lojalitetsprograminformasjon</li>
-          <li>Kundehistorikk og kundeengasjement: aktive produkter og avtaler samt produkter og tjenester du har hatt tidligere, hvor mye og hvor ofte de brukes, status på produkter/tjenester</li>
-          <li>Kundeaktivitet: lese- og handlingshistorikk fra app, nettsider eller elektronisk kommunikasjon vi sender ut. Samt teknisk informasjon om enhetene du bruker.</li>
-          <li>Cookies: se vår informasjon om cookies</li>
+          <li><p>Grunnleggende informasjon: navn, fødselsdato</p></li>
+          <li><p>Kontaktinformasjon: adresse, telefonnummer, epostadresse</p></li>
+          <li><p>Konto og profilinformasjon: Innstillinger, preferanser</p></li>
+          <li><p>Betalingsinformasjon: Transaksjonsinformasjon, betalingsmiddel</p></li>
+          <li><p>Kundehistorikk og kundeengasjement: bestillings- og leveringsopplysninger, handlekurvbevegelser, rabattkoder, lojalitetsprograminformasjon</p></li>
+          <li><p>Kundehistorikk og kundeengasjement: aktive produkter og avtaler samt produkter og tjenester du har hatt tidligere, hvor mye og hvor ofte de brukes, status på produkter/tjenester</p></li>
+          <li><p>Kundeaktivitet: lese- og handlingshistorikk fra app, nettsider eller elektronisk kommunikasjon vi sender ut. Samt teknisk informasjon om enhetene du bruker.</p></li>
+          <li><p>Cookies: se vår informasjon om cookies</p></li>
         </ul>
 
-        <h3 className="font-bold text-lg mt-6">Hvordan vi bruker personopplysningene</h3>
+        <h2 className="mt-6">Hvordan vi bruker personopplysningene</h2>
         <p><strong>Levering av tjeneste/avtaleinngåelse:</strong> Vi bruker dine personopplysninger til å oppfylle våre avtaler med deg, det vil si når du har bestilt et produkt eller en tjeneste fra oss. Det rettslige grunnlaget for å behandle personopplysninger til dette formålet er at behandlingen er nødvendig for å oppfylle en avtale med deg.</p>
 
         <p><strong>Administrasjon av kundeforhold:</strong> Vi bruker dine personopplysninger til å administrere vårt kundeforhold med deg. Det kan for eksempel være kundeservice, klagebehandling og feilretting vedrørende ditt kundeforhold. Det rettslige grunnlaget for å behandle personopplysninger til dette formålet er at behandlingen er nødvendig for å oppfylle en avtale med deg.</p>
@@ -48,7 +52,7 @@ export default function Policy() {
 
         <p><strong>Overholde rettslige forpliktelser:</strong> I enkelte tilfeller er vi pålagt å behandle personopplysninger av hensyn til andre rettslige forpliktelser. Et eksempel på dette er informasjon knyttet til salg, som vi er pliktig til å regnskapsføre og oppbevare i henhold til bokføringsloven. Det rettslige grunnlaget for å behandle personopplysninger til dette formålet er at behandlingen er nødvendig for å oppfylle en rettslig forpliktelse som påhviler oss.</p>
 
-        <h3 className="font-bold text-lg mt-6">Dine rettigheter</h3>
+        <h2 className="mt-6">Dine rettigheter</h2>
         <p><strong>Rett til innsyn i egne opplysninger:</strong> Du kan be om en kopi av alle opplysninger vi behandler om deg. Ta kontakt på epostadressen ovenfor for å bruke innsynsretten din.</p>
         <p><strong>Rett til korrigering av personopplysninger:</strong> Du har rett til å be oss rette eller supplere opplysninger som er feilaktige eller misvisende.</p>
         <p><strong>Retten til sletting av personopplysninger:</strong> Du har rett til å få dine personopplysninger slettet uten ugrunnet opphold. Du kan derfor når som helst be oss slette opplysninger om deg selv. Men merk at informasjon som vi er pålagt beholde av hensyn til andre rettslige forpliktelser (som for eksempel bokføringsloven) ikke vil bli slettet.</p>

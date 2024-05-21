@@ -282,26 +282,7 @@ const JobPosts = (props) => {
                                 <li key={`jobPostId-${job.id}`}>
                                     <Link
                                         className="shadow kf-border-light light-background flex md:flex-row md:h-[216px] w-full h-auto flex-col"
-                                        href={{
-                                            pathname: `/jobDetail/{job.id}`,
-                                            query: {
-                                                id: job.jobPostId,
-                                                logo: job.logo,
-                                                name: job.name,
-                                                body: job.body,
-                                                title: job.title,
-                                                deadline: job.deadline,
-                                                numberOfPositions: job.numberOfPositions,
-                                                workplace: job.workplace,
-                                                accession: job.accession,
-                                                position: job.position,
-                                                sector: job.sector,
-                                                address1: job.address1,
-                                                applyUrl: job.applyUrl,
-                                                skills: job.skills,
-                                                contacts: encodeURIComponent(JSON.stringify(job.contacts))
-                                            }
-                                        }}>
+                                        href={{ pathname: `/applicants/${job.id}` }}>
                                         <div className="md:w-[216px] w-full md:h-full h-[100px] flex justify-center items-center flex-shrink-0">
                                             <img className="max-w-full max-h-full object-contain" src={job.logo} alt="Placeholder" />
                                         </div>
@@ -328,26 +309,7 @@ const JobPosts = (props) => {
                                                 </div>
                                             </div>
                                             <div className="flex justify-end items-center sm:pb-1">
-                                                <ButtonArrow href={{
-                                                    pathname: `/jobDetail/{job.id}`,
-                                                    query: {
-                                                        id: job.jobPostId,
-                                                        logo: job.logo,
-                                                        name: job.name,
-                                                        body: job.body,
-                                                        title: job.title,
-                                                        deadline: job.deadline,
-                                                        numberOfPositions: job.numberOfPositions,
-                                                        workplace: job.workplace,
-                                                        accession: job.accession,
-                                                        position: job.position,
-                                                        sector: job.sector,
-                                                        address1: job.address1,
-                                                        applyUrl: job.applyUrl,
-                                                        skills: job.skills,
-                                                        contacts: encodeURIComponent(JSON.stringify(job.contacts))
-                                                    }
-                                                }}
+                                                <ButtonArrow href={{ pathname: `/applicants/${job.id}` }}
                                                     direction='right'
                                                 ></ButtonArrow>
                                             </div>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const ContactInfo = ({address = 'bergen', phoneNumber = 'not available', email = 'not available'}) => {
     return (
-        <div className="flex md:flex-row flex-col justify-between light mb-8 gap-4">
+        <div className="flex lg:flex-row flex-col justify-between light mb-8 gap-2">
             <div className="flex flex-col items-center gap-4">
                 <svg className='md:h-16 h-10' viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path opacity="0.2" d="M32.8241 64.0273C50.3214 64.0273 64.8083 49.5402 64.8083 32.0428C64.8083 14.577 50.2901 0.0585938 32.7928 0.0585938C15.3268 0.0585938 0.839844 14.577 0.839844 32.0428C0.839844 49.5402 15.3582 64.0273 32.8241 64.0273Z" fill="url(#paint0_linear_937_12789)" />
@@ -18,7 +18,7 @@ const ContactInfo = ({address = 'bergen', phoneNumber = 'not available', email =
                         </linearGradient>
                     </defs>
                 </svg>
-                <p>{address}</p>
+                <p className='text-center line-clamp-1'>{address}</p>
             </div>
             <div className="flex flex-col items-center gap-4">
                 <svg className='md:h-16 h-10' viewBox="0 0 65 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,7 +35,7 @@ const ContactInfo = ({address = 'bergen', phoneNumber = 'not available', email =
                         </linearGradient>
                     </defs>
                 </svg>
-                <p>{phoneNumber}</p>
+                <p className='text-center line-clamp-1'>{phoneNumber}</p>
             </div>
             <div className="flex flex-col items-center gap-4">
                 <svg className='md:h-16 h-10' viewBox="0 0 65 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,7 +52,7 @@ const ContactInfo = ({address = 'bergen', phoneNumber = 'not available', email =
                         </linearGradient>
                     </defs>
                 </svg>
-                <p>{email}</p>
+                <p className='text-center line-clamp-1'>{email}</p>
             </div>
         </div>
     );

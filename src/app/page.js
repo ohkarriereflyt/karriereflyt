@@ -45,7 +45,7 @@ export default async function Home() {
     throw new Error("Sanity client is not initialized");
   }
   const events = await client.fetch(EVENTS_QUERY);
-  console.log(events);
+  // console.log(events);
   return (
     <main>
       <div className="max-w-7xl w-full mx-auto p-8 grid lg:grid-cols-2 grid-cols-1">

@@ -26,6 +26,7 @@ import Banner from "./Banner";
 import TransitionLine from "./TransitionLine";
 import TransitionWave from "./TransitionWave";
 import JobPosts from "./JobPosts";
+import SocialLinks from "./SocialLinks";
 
 export {
   BackgroundBoxes,
@@ -55,4 +56,5 @@ export {
   TransitionLine,
   TransitionWave,
   JobPosts,
+  SocialLinks,
 };

@@ -1,0 +1,25 @@
+@font-face {
+    font-family: FilsonProRegular;
+    src: url(../../../fonts/filsonpro/FilsonProRegular.otf);
+}
+
+.filsonProRegular {
+    font-family: FilsonProRegular;
+}
+
+.dangerouslySetInnerHTML h3 {
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.dangerouslySetInnerHTML p {
+    margin-bottom: 0.5rem !important;
+}
+
+.dangerouslySetInnerHTML li {
+    font-family: FilsonProRegular;
+}
+
+.dangerouslySetInnerHTML {
+    font-family: FilsonProRegular;
+}

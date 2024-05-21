@@ -1,7 +1,17 @@
-import Link from 'next/link';
 import TransitionLine from "./TransitionLine";
+import Link from "next/link";
+import { client } from '../sanity';
 
-export default function Footer({ transitionLine = true }) {
+const EVENTS_QUERY = `*[_type == "contact"][0]{
+  contactAddress,
+  contactPhoneNumber,
+  contactEmail,
+}`;
+
+export default async function Footer({ transitionLine = true }) {
+
+  let footerData = await client.fetch(EVENTS_QUERY);
+
   const socialMediaLinks = {
     facebook: "https://www.facebook.com/karriereflyt/",
     instagram: "https://www.instagram.com/karriereflyt/",
@@ -19,8 +29,9 @@ export default function Footer({ transitionLine = true }) {
     {
       header: "Kontakt oss",
       items: [
-        "E-post: post@karriereflyt.no",
-        "Telefon: +47 41 28 28 78",
+        "E-post: " + footerData.contactEmail,
+        "Telefon: " + footerData.contactPhoneNumber,
+        "Adresse: " + footerData.contactAddress
       ],
     },
     {
@@ -55,19 +66,19 @@ export default function Footer({ transitionLine = true }) {
               {footerItem.header === "Sider" ? (
                 footerItem.items.map((item, index) => (
                   <Link key={index} href={item.href} passHref>
-                    <button className="text-footer block text-left">{item.name}</button>
+                    <button className="text-footer block text-left pb-1 hover:underline">{item.name}</button>
                   </Link>
                 ))
               ) : (
                 footerItem.items.map((item, index) => (
-                  <p key={index} className="text-footer">{item}</p>
+                  <p key={index} className="text-footer pb-1">{item}</p>
                 ))
               )}
             </div>
           ))}
         </div>
-        <div className="w-full max-w-7xl flex justify-center items-center flex-row p-4">
-        {socialMediaLinks.linkedin != null && (
+        <div className="w-full max-w-7xl flex justify-center items-center flex-row p-4 ">
+          {socialMediaLinks.linkedin != null && (
             <Link
               href={socialMediaLinks.linkedin}
               className={`hover:scale-105 noStyle w-8 h-8 flex-col justify-center items-center inline-flex`}>
