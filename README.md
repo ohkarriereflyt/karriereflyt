@@ -43,3 +43,6 @@ export const mailOptions = {
   to: 'add email here',
 };
 ```
+
+## RECMAN DOCS
+[Read Docs](https://developers.recman.no/)
