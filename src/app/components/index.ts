@@ -12,13 +12,11 @@ import OurSubjectArea from "./OurSubjectArea";
 import PartnersAndSertifications from "./PartnersAndSertifications";
 import Pentagon from "./Pentagon";
 import ServiceCard from "./ServiceCard";
-import ContactButton from "./ContactButton";
 import ContactForm from "./ContactForm";
 import ContactInfo from "./ContactInfo";
 import Location from "./Location";
 import Modal from "./Modal";
 import Statistics from "./Statistics";
-
 import Sertifications from "./Sertifications";
 import Navbar from "./Navbar";
 import ButtonArrow from "./ButtonArrow";
@@ -44,7 +42,6 @@ export {
   Pentagon,
   Sertifications,
   ServiceCard,
-  ContactButton,
   ContactForm,
   ContactInfo,
   Location,
