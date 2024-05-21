@@ -20,7 +20,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### **Set up nodemailer**
 
-Get mail and keys for .env file:
+Get mail and keys for `.env.local` file:
 
 ```env
 EMAIL=karriereflyt@gmail.com
@@ -35,7 +35,7 @@ Use this directly to manage [Application Spesific](https://security.google.com/s
 
 ### **Update email reciever**
 
-Go to src/app/config/nodemailer.js and change `mailOptions` to desired email.
+Go to `src/app/config/nodemailer.js` and change `mailOptions` to desired email.
 
 ```javascript
 export const mailOptions = {
@@ -44,8 +44,22 @@ export const mailOptions = {
 };
 ```
 
-## RECMAN DOCS
+## RECMAN
+
+Recman is implemented in `applicants/page.js`
+
+Set recman key in `.env.local` file:
+
+```env
+RECMAN_API_SECRET=key
+```
 
 [Read Docs](https://developers.recman.no/#b370496f-5492-4fca-b313-a70ce3f8972b)
 
-Recman is implemented in applicants/page.js
+## Sanity
+
+Set sanity id in `.env.local` file:
+
+```env
+SANITY_PROJECT_ID=id
+```
