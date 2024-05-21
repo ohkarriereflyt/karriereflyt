@@ -8,7 +8,7 @@
 npm install
 ```
 
-2. **Rn the development server:**
+2. **Run the development server:**
 
 ```bash
 npm run dev
@@ -16,34 +16,30 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Nodemailer
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-## Set up nodemailer
+### **Set up nodemailer**
 
 Get mail and keys for .env file:
 
-```
-EMAIL=
-EMAIL_PASS=
+```env
+EMAIL=karriereflyt@gmail.com
+EMAIL_PASS=passkey
 ```
 
-**Update Mail service passkey**
+### **Update Mail service passkey**
 
 Log in with karriereflyt@gmail.com.
 
 Use this directly to manage [Application Spesific](https://security.google.com/settings/security/apppasswords) password. Or read the documentation on [nodemailer.com](https://nodemailer.com/usage/using-gmail/).
+
+### **Update email reciever**
+
+Go to src/app/config/nodemailer.js and change `mailOptions` to desired email.
+
+```javascript
+export const mailOptions = {
+  from: email,
+  to: 'add email here',
+};
+```

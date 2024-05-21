@@ -1,5 +1,5 @@
 import EmployeeGrid from '../../../components/EmployeeGrid';
-import localImg from '../../../imagesMidlertidig/øyvind-haugen.png';
+import localImg from '../../../images/øyvind-haugen.png';
 import TransitionLine from '../../../components/TransitionLine';
 import Footer from '../../../components/Footer';
 import SocialLinks from '../../../components/SocialLinks';

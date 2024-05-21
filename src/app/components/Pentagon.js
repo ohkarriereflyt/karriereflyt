@@ -1,4 +1,4 @@
-import Curve from "../imagesMidlertidig/curve.svg";
+import Curve from "../images/curve.svg";
 import Image from "next/image";
 
 export default function Pentagon() {

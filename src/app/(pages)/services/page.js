@@ -5,12 +5,12 @@ import {
   Footer
 } from "../../components/index";
 
-import BriefCase from "../../imagesMidlertidig/briefcase.svg";
-import Building from "../../imagesMidlertidig/building.svg";
-import Target from "../../imagesMidlertidig/target.svg";
-import Bulb from "../../imagesMidlertidig/lightbulb.svg";
-import Megaphone from "../../imagesMidlertidig/megaphone.svg";
-import Brain from "../../imagesMidlertidig/head.svg";
+import BriefCase from "../../images/briefcase.svg";
+import Building from "../../images/building.svg";
+import Target from "../../images/target.svg";
+import Bulb from "../../images/lightbulb.svg";
+import Megaphone from "../../images/megaphone.svg";
+import Brain from "../../images/head.svg";
 import { client } from '../../sanity';
 
 const EVENTS_QUERY = `*[_type == "services"][0]{

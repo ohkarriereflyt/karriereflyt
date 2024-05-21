@@ -1,5 +1,5 @@
 'use client'
-import localImg from '../imagesMidlertidig/øyvind-haugen.png'
+import localImg from '../images/øyvind-haugen.png'
 import { useState } from 'react'
 import ButtonArrow from './ButtonArrow'
 import Link from 'next/link'
