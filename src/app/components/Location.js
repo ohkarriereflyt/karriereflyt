@@ -64,7 +64,7 @@ const Location = ({ address }) => {
         <div className="flex flex-col">
             <div id="map" className="w-full md:h-80 h-44 bg-background-flat kf-border-dark-hard mb-4"></div>
             <div>
-                <button className="noStyle gap-4 items-center inline-flex" onClick={redirectToGoogleMaps}>
+                <button className="noStyle gap-4 items-center inline-flex hover:scale-105" onClick={redirectToGoogleMaps}>
                     <h3 className="text-text-flat-inverted">Veibeskrivelse</h3>
                     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <ellipse opacity="0.2" cx="18.0011" cy="18.0037" rx="18.0002" ry="18.0008" transform="rotate(-90 18.0011 18.0037)" fill="#FFFBF8" />
