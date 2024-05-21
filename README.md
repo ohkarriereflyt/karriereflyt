@@ -45,4 +45,5 @@ export const mailOptions = {
 ```
 
 ## RECMAN DOCS
-[Read Docs](https://developers.recman.no/)
+
+[Read Docs](https://developers.recman.no/#b370496f-5492-4fca-b313-a70ce3f8972b)
