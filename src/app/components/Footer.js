@@ -47,6 +47,8 @@ export default async function Footer({ transitionLine = true }) {
     },
   ];
 
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="relative w-full">
       {transitionLine ? (
@@ -120,7 +122,7 @@ export default async function Footer({ transitionLine = true }) {
             </Link>
           )}
         </div>
-        <p className="text-footer pb-4 opacity-50">Karriereflyt AS © 2024</p>
+        <p className="text-footer pb-4 opacity-50">Karriereflyt AS © { currentYear }</p>
       </div>
     </footer>
   );
