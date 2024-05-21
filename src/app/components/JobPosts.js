@@ -225,32 +225,35 @@ const JobPosts = (props) => {
                                         <div className='w-full py-2 justify-start items-end gap-2.5 inline-flex'>
                                             <h3>Stilling</h3>
                                         </div>
-                                        <div className='w-full py-2 flex items-center gap-2.5'>
+                                        <div className={`w-full py-2 flex items-center gap-2.5 ${jobApi.filter(job => job.position === "Fast").length == 0 ? 'opacity-50' : ''}`}>
                                             <input
                                                 checked={fullTimeOnly}
                                                 type='checkbox'
                                                 className='w-4 h-4 mx-1'
                                                 onChange={handleFullTimeToggle}
+                                                disabled={jobApi.filter(job => job.position === "Fast").length == 0}
                                             />
                                             <p>Fast</p>
                                             <p>({jobApi.filter(job => job.position === "Fast").length})</p>
                                         </div>
-                                        <div className='w-full py-2 flex items-center gap-2.5'>
+                                        <div className={`w-full py-2 flex items-center gap-2.5 ${jobApi.filter(job => job.position === "Partime").length == 0 ? 'opacity-50' : ''}`}>
                                             <input
                                                 checked={partTimeOnly}
                                                 type='checkbox'
                                                 className='w-4 h-4 mx-1'
                                                 onChange={handlePartTimeToggle}
+                                                disabled={jobApi.filter(job => job.position === "Partime").length == 0}
                                             />
                                             <p>Deltid</p>
                                             <p>({jobApi.filter(job => job.position === "Partime").length})</p>
                                         </div>
-                                        <div className='w-full py-2 flex items-center gap-2.5'>
+                                        <div className={`w-full py-2 flex items-center gap-2.5 ${jobApi.filter(job => job.position === "commitment").length == 0 ? 'opacity-50' : ''}`}>
                                             <input
                                                 checked={engagementOnly}
                                                 type='checkbox'
                                                 className='w-4 h-4 mx-1'
                                                 onChange={handleEngagementToggle}
+                                                disabled={jobApi.filter(job => job.position === "commitment").length == 0}
                                             />
                                             <p>Engasjemang</p>
                                             <p>({jobApi.filter(job => job.position === "commitment").length})</p>
@@ -301,32 +304,35 @@ const JobPosts = (props) => {
                                     <div className='w-full py-2 justify-start items-end gap-2.5 inline-flex'>
                                         <h3>Stilling</h3>
                                     </div>
-                                    <div className='w-full py-2 flex items-center gap-2.5'>
+                                    <div className={`w-full py-2 flex items-center gap-2.5 ${jobApi.filter(job => job.position === "Fast").length == 0 ? 'opacity-50' : ''}`}>
                                         <input
                                             checked={fullTimeOnly}
                                             type='checkbox'
                                             className='w-4 h-4 mx-1'
                                             onChange={handleFullTimeToggle}
+                                            disabled={jobApi.filter(job => job.position === "Fast").length == 0}
                                         />
                                         <p>Fast</p>
                                         <p>({jobApi.filter(job => job.position === "Fast").length})</p>
                                     </div>
-                                    <div className='w-full py-2 flex items-center gap-2.5'>
-                                        <input
+                                    <div className={`w-full py-2 flex items-center gap-2.5 ${jobApi.filter(job => job.position === "Partime").length == 0 ? 'opacity-50' : ''}`}>
+                                        <input 
                                             checked={partTimeOnly}
                                             type='checkbox'
                                             className='w-4 h-4 mx-1'
                                             onChange={handlePartTimeToggle}
+                                            disabled={jobApi.filter(job => job.position === "Partime").length == 0}
                                         />
                                         <p>Deltid</p>
                                         <p>({jobApi.filter(job => job.position === "Partime").length})</p>
                                         </div>
-                                    <div className='w-full py-2 flex items-center gap-2.5'>
+                                    <div className={`w-full py-2 flex items-center gap-2.5 ${jobApi.filter(job => job.position === "commitment").length == 0 ? 'opacity-50' : ''}`}>
                                         <input
                                             checked={engagementOnly}
                                             type='checkbox'
                                             className='w-4 h-4 mx-1'
                                             onChange={handleEngagementToggle}
+                                            disabled={jobApi.filter(job => job.position === "commitment").length == 0}
                                         />
                                         <p>Engasjemang</p>
                                         <p>({jobApi.filter(job => job.position === "commitment").length})</p>
