@@ -21,7 +21,12 @@ const EVENTS_QUERY = `*[_type == "about"][0]{
     jobTitle,
     emailText,
     phoneNumber,
-    'img': employeeImage.asset->url
+    'img': employeeImage.asset->url,
+    facebook,
+    linkedin,
+    bioShort,
+    bio,
+    keywords,
   }
 }`;
 

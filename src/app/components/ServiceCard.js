@@ -48,18 +48,19 @@ const ServiceCard = ({
               ))}
             </ul>
           </div>
-          <div className={`${open ? '' : 'hidden'}`}>
-            <p>{description}</p>
+          <div className={`${open ? '' : 'hidden'} my-2`}>
+            <p className=''>{description}</p>
           </div>
+          {open && (
+            <Link href="/contact">
+              {/* <button className={`button ${color}-background kf-border-ligth ligth my-2`}>Kontakt oss</button> */}
+              <button className={`button light-background kf-border-dark dark my-2`}>Kontakt oss</button>
+            </Link>
+          )}
           <div className='self-stretch flex md:justify-between justify-end items-center'>
             <div onClick={toggleOpen}>
               <ButtonArrow text={open ? "Lukk" : "Les mer"} direction={open ? 'up' : 'down'} color={color} />
             </div>
-            {open && (
-              <Link href="/contact">
-                <button className={`button light-background kf-border-dark dark ml-4`}>Kontakt oss</button>
-              </Link>
-            )}
           </div>
         </div>
       </div>

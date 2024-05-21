@@ -1,6 +1,7 @@
 import "./page.css";
 import Footer from "../../../components/Footer";
 import Link from "next/link";
+import { SocialLinks } from "../../../components";
 
 const apiKey = process.env.RECMAN_API_SECRET;
 
@@ -48,6 +49,8 @@ export default async function Page({ params }) {
     }) : [];
 
     const { title, logo, name, body, deadline, numberOfPositions, workplace, accession, position, sector, address1, applyUrl, contacts } = jobApi.find(job => job.id === params.jobId) || {};
+
+    console.log("CONTACTS", contacts)
 
     return (
         <div className="pt-16 background-blur">
@@ -114,6 +117,12 @@ export default async function Page({ params }) {
                                                 <p>{contact.email}</p>
                                                 <p>{contact.mobilePhone}</p>
                                             </div>
+                                            <SocialLinks color="dark" employee={{
+                                                emailText: contact.email,
+                                                phoneNumber: contact.mobilePhone,
+                                                linkedin: contact.linkedin,
+                                                facebook: ''
+                                            }} paddingX={false} />
                                         </li>
                                     ))}
                                 </ul>

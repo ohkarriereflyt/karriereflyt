@@ -378,7 +378,7 @@ const JobPosts = (props) => {
                                                 </div>
                                             </div>
                                             <div className="flex justify-end items-center sm:pb-1">
-                                                <ButtonArrow href={{ pathname: `/applicants/${job.id}` }}
+                                                <ButtonArrow
                                                     direction='right'
                                                 ></ButtonArrow>
                                             </div>

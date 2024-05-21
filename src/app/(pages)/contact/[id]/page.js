@@ -67,7 +67,9 @@ export default async function MemberDetailPage({ params }) {
                                 </div>
                             </div>
                         )}
-                        <SocialLinks phoneNumber={employee.phoneNumber} emailText={employee.emailText} facebook={employee.facebook} linkedin={employee.linkedin} />
+                        <div className='bg-slate-gray-flat kf-border-light'>
+                            <SocialLinks employee={employee} />
+                        </div>
                     </div>
                     <div className='w-full bg-slate-gray-flat  kf-border-light p-4'>
                         <h2 className="">Om {employee.name}</h2>
