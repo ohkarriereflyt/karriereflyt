@@ -10,6 +10,8 @@ const JobPosts = (props) => {
     const [selectedBranches, setSelectedBranches] = useState([]);
     const [selectedRegions, setSelectedRegions] = useState([]);
     const [fullTimeOnly, setFullTimeOnly] = useState(false);
+    const [partTimeOnly, setParTimeOnly] = useState(false);
+    const [engagementOnly, setEngagementOnly] = useState(false)
     const [loaded, setLoaded] = useState(false);
     const [filterOpen, setFilterOpen] = useState(false);
 
@@ -53,7 +55,15 @@ const JobPosts = (props) => {
         }
 
         if (fullTimeOnly) {
-            filtered = filtered.filter(job => job.position === 'fullTime');
+            filtered = filtered.filter(job => job.position === 'Fast');
+        }
+
+        if (partTimeOnly){
+            filtered = filtered.filter(job => job.position === 'partTime')
+        }
+
+        if (engagementOnly){
+            filtered = filtered.filter(job => job.position === "commitment")
         }
 
         setSearchResults(filtered);
@@ -63,7 +73,7 @@ const JobPosts = (props) => {
     useEffect(() => {
         filterJobs(searchQuery, selectedBranches, selectedRegions);
         setLoaded(true);
-    }, [jobApi, selectedBranches, searchQuery, selectedRegions, fullTimeOnly]);
+    }, [jobApi, selectedBranches, searchQuery, selectedRegions, fullTimeOnly, partTimeOnly, engagementOnly]);
 
     const handleBranchClick = (branchId) => {
         setSelectedBranches(prevBranches =>
@@ -84,6 +94,15 @@ const JobPosts = (props) => {
     const handleFullTimeToggle = () => {
         setFullTimeOnly(prev => !prev);
     };
+
+    const handlePartTimeToggle = () => {
+        setParTimeOnly(prev => !prev)
+    }
+
+    const handleEngagementToggle = () => {
+        setEngagementOnly(prev => !prev)
+    }
+
 
     function highlightText(text, query) {
         if (!query) return text;
@@ -181,6 +200,7 @@ const JobPosts = (props) => {
                                                         onChange={() => handleRegionClick(region.regionId)}
                                                     />
                                                     <p>{region.regionName}</p>
+                                                    <p>({jobApi.filter(job => job.regionId === region.regionId).length})</p>
                                                 </div>
                                             ))}
                                         </div>
@@ -195,8 +215,9 @@ const JobPosts = (props) => {
                                                     checked={selectedBranches.includes(branch.branchCategoryId)}
                                                     type='checkbox'
                                                     className='w-4 h-4 mx-1'
-                                                    onClick={() => handleBranchClick(branch.branchCategoryId)} />
+                                                    onChange={() => handleBranchClick(branch.branchCategoryId)} />
                                                 <p>{props.categoriesBranch[branch.branchCategoryId]}</p>
+                                                <p>({jobApi.filter(job => job.branchCategoryId === branch.branchCategoryId).length})</p>
                                             </div>
                                         ))}
                                     </div>
@@ -212,6 +233,27 @@ const JobPosts = (props) => {
                                                 onChange={handleFullTimeToggle}
                                             />
                                             <p>Fast</p>
+                                            <p>({jobApi.filter(job => job.position === "Fast").length})</p>
+                                        </div>
+                                        <div className='w-full py-2 flex items-center gap-2.5'>
+                                            <input
+                                                checked={partTimeOnly}
+                                                type='checkbox'
+                                                className='w-4 h-4 mx-1'
+                                                onChange={handlePartTimeToggle}
+                                            />
+                                            <p>Deltid</p>
+                                            <p>({jobApi.filter(job => job.position === "Partime").length})</p>
+                                        </div>
+                                        <div className='w-full py-2 flex items-center gap-2.5'>
+                                            <input
+                                                checked={engagementOnly}
+                                                type='checkbox'
+                                                className='w-4 h-4 mx-1'
+                                                onChange={handleEngagementToggle}
+                                            />
+                                            <p>Engasjemang</p>
+                                            <p>({jobApi.filter(job => job.position === "commitment").length})</p>
                                         </div>
                                     </div>
                                 </div>
@@ -249,7 +291,7 @@ const JobPosts = (props) => {
                                                 checked={selectedBranches.includes(branch.branchCategoryId)}
                                                 type='checkbox'
                                                 className='w-4 h-4 mx-1'
-                                                onClick={() => handleBranchClick(branch.branchCategoryId)} />
+                                                onChange={() => handleBranchClick(branch.branchCategoryId)} />
                                             <p>{props.categoriesBranch[branch.branchCategoryId]}</p>
                                             <p>({jobApi.filter(job => job.branchCategoryId === branch.branchCategoryId).length})</p>
                                         </div>
@@ -267,6 +309,27 @@ const JobPosts = (props) => {
                                             onChange={handleFullTimeToggle}
                                         />
                                         <p>Fast</p>
+                                        <p>({jobApi.filter(job => job.position === "Fast").length})</p>
+                                    </div>
+                                    <div className='w-full py-2 flex items-center gap-2.5'>
+                                        <input
+                                            checked={partTimeOnly}
+                                            type='checkbox'
+                                            className='w-4 h-4 mx-1'
+                                            onChange={handlePartTimeToggle}
+                                        />
+                                        <p>Deltid</p>
+                                        <p>({jobApi.filter(job => job.position === "Partime").length})</p>
+                                        </div>
+                                    <div className='w-full py-2 flex items-center gap-2.5'>
+                                        <input
+                                            checked={engagementOnly}
+                                            type='checkbox'
+                                            className='w-4 h-4 mx-1'
+                                            onChange={handleEngagementToggle}
+                                        />
+                                        <p>Engasjemang</p>
+                                        <p>({jobApi.filter(job => job.position === "commitment").length})</p>
                                     </div>
                                 </div>
                             </div>
