@@ -31,9 +31,9 @@ export default async function Page() {
   console.log(events);
   return (
     <div className="mx-auto w-full backdrop-blur-xl pt-4 ">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 md:mb-16 mb-6" >
+      <div className="max-w-7xl mx-auto px-4 md:px-8 md:mb-16 mb-6 pt-8" >
         <h1 className="headline justify-center text-center">{events.mainTitle}</h1>
-        <h2 className="subheadline justify-center text-center pb-4">{events.mainSubTitle}</h2>
+        <h2 className="subheadline justify-center text-center pb-7">{events.mainSubTitle}</h2>
         <EmployeeGrid employees={events.employees} />
       </div>
       <div class="mb-[-2px]">
