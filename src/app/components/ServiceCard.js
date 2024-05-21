@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { ButtonArrow } from "./index";
+import ButtonArrow from './ButtonArrow'
 import Image from 'next/image';
 import Link from "next/link";
 
@@ -53,7 +53,7 @@ const ServiceCard = ({
           </div>
           <div className='self-stretch flex md:justify-between justify-end items-center'>
             <div onClick={toggleOpen}>
-              <ButtonArrow text={open ? "Lukk" : "Les mer"} direction={open ? 'up' : 'down'} color={color} onClick={toggleOpen} />
+              <ButtonArrow text={open ? "Lukk" : "Les mer"} direction={open ? 'up' : 'down'} color={color} />
             </div>
             {open && (
               <Link href="/contact">

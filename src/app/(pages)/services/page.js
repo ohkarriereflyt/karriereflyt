@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {
   List,
   ServiceCard,
@@ -39,7 +38,7 @@ const EVENTS_QUERY = `*[_type == "services"][0]{
   personalityTestAndAbilityTestReadMoreText
 }`;
 
-export default async function Page() {
+export default async function Services() {
   console.log("Sanity client:", client);
   if (!client) {
     throw new Error("Sanity client is not initialized");
