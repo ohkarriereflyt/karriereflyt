@@ -100,7 +100,7 @@ const ContactForm = () => {
                     />
                 </div>
                 <div className="md:mb-6 mb-5">
-                    <label htmlFor="email" className="sr-only">Email:</label>
+                    <label htmlFor="email" className="sr-only">E-post:</label>
                     <input
                         type="email"
                         id="email"
@@ -109,7 +109,7 @@ const ContactForm = () => {
                         onChange={handleChange}
                         onBlur={onBlur}
                         className="py-3 px-4 w-full kf-border-dark bg-background-flat"
-                        placeholder="Email"
+                        placeholder="E-post"
                     />
                 </div>
                 <div className="md:mb-6 mb-5">

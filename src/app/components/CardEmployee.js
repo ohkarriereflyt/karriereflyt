@@ -35,7 +35,7 @@ const CardEmployee = ({ index, employee, backgroundColor = 'slate-gray', foregro
                             <div className='md:hidden sm:flex flex-col hidden'>
                                 {employee.emailText && (
                                     <div className="inline-flex self-stretch justify-start items-center gap-2.5  mt-3">
-                                        <h3 className="w-16 ">Email:</h3>
+                                        <h3 className="w-16 ">E-post:</h3>
                                         <p>{employee.emailText}</p>
                                     </div>
                                 )}
@@ -52,7 +52,7 @@ const CardEmployee = ({ index, employee, backgroundColor = 'slate-gray', foregro
                                 <div className="self-stretch h-20 py-2 flex-col justify-start items-end md:flex hidden">
                                     {employee.emailText && (
                                         <div className="self-stretch justify-start items-center gap-2.5 inline-flex">
-                                            <h3 className="w-16 ">Email:</h3>
+                                            <h3 className="w-16 ">E-post:</h3>
                                             <p className=" leading-loose">{employee.emailText}</p>
                                         </div>
                                     )}
@@ -79,7 +79,7 @@ const CardEmployee = ({ index, employee, backgroundColor = 'slate-gray', foregro
                         <div className='sm:hidden flex flex-col'>
                             {employee.emailText && (
                                 <div className="inline-flex self-stretch justify-start items-center gap-2.5  mt-3">
-                                    <h3 className="w-16 ">Email:</h3>
+                                    <h3 className="w-16 ">E-post:</h3>
                                     <p>{employee.emailText}</p>
                                 </div>
                             )}

@@ -87,10 +87,20 @@ export default async function Page() {
         // Conditionally modify the 'position' field
         const position = job.position ? jobTypeToNorwegian[job.position] || job.position : "Not provided";
 
+        // Remove all jobs where the 'endDate' has passed
+        const now = new Date();
+        const endDate = new Date(job.endDate);
+        if (endDate < now) {
+            return null;
+        }
+
         return {
             id: job.jobPostId,
             name: job.name,
+            created: job.created,
             title: job.title,
+            startDate: job.startDate,
+            endDate: job.endDate,
             ingress: job.ingress,
             body: job.body,
             numberOfPositions: job.numberOfPositions,
@@ -110,7 +120,7 @@ export default async function Page() {
             branchCategoryId: job.branchCategoryId || "Not provided", // Default value if missing
             regionId: job.regionId || "Not provided",
         };
-    }) : [];
+    }).sort((a, b) => new Date(b.created) - new Date(a.created)) : []; // Sort by 'created' date
 
     const jobBranches = await fetchJobBranches();
     const branchesObject = Object.values(jobBranches);
@@ -133,7 +143,9 @@ export default async function Page() {
         categoriesBranch[category.branchCategoryId] = translated;
     })
 
-
+    // jobApi.forEach(job => {
+    //     console.log("Startdate: " + job.logo + " - " + job.title );
+    // });
 
 
     //RegionData

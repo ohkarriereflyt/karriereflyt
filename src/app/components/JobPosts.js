@@ -2,6 +2,8 @@
 import { useState, useEffect } from 'react';
 import ButtonArrow from './ButtonArrow';
 import Link from 'next/link';
+import Image from 'next/image';
+import noImage from '../images/no-image.png';
 
 const JobPosts = (props) => {
     const [jobApi, setJobApi] = useState(props.jobApi);
@@ -58,11 +60,11 @@ const JobPosts = (props) => {
             filtered = filtered.filter(job => job.position === 'Fast');
         }
 
-        if (partTimeOnly){
+        if (partTimeOnly) {
             filtered = filtered.filter(job => job.position === 'partTime')
         }
 
-        if (engagementOnly){
+        if (engagementOnly) {
             filtered = filtered.filter(job => job.position === "commitment")
         }
 
@@ -255,7 +257,7 @@ const JobPosts = (props) => {
                                                 onChange={handleEngagementToggle}
                                                 disabled={jobApi.filter(job => job.position === "commitment").length == 0}
                                             />
-                                            <p>Engasjemang</p>
+                                            <p>Engasjement</p>
                                             <p>({jobApi.filter(job => job.position === "commitment").length})</p>
                                         </div>
                                     </div>
@@ -316,7 +318,7 @@ const JobPosts = (props) => {
                                         <p>({jobApi.filter(job => job.position === "Fast").length})</p>
                                     </div>
                                     <div className={`w-full py-2 flex items-center gap-2.5 ${jobApi.filter(job => job.position === "Partime").length == 0 ? 'opacity-50' : ''}`}>
-                                        <input 
+                                        <input
                                             checked={partTimeOnly}
                                             type='checkbox'
                                             className='w-4 h-4 mx-1'
@@ -325,7 +327,7 @@ const JobPosts = (props) => {
                                         />
                                         <p>Deltid</p>
                                         <p>({jobApi.filter(job => job.position === "Partime").length})</p>
-                                        </div>
+                                    </div>
                                     <div className={`w-full py-2 flex items-center gap-2.5 ${jobApi.filter(job => job.position === "commitment").length == 0 ? 'opacity-50' : ''}`}>
                                         <input
                                             checked={engagementOnly}
@@ -334,7 +336,7 @@ const JobPosts = (props) => {
                                             onChange={handleEngagementToggle}
                                             disabled={jobApi.filter(job => job.position === "commitment").length == 0}
                                         />
-                                        <p>Engasjemang</p>
+                                        <p>Engasjement</p>
                                         <p>({jobApi.filter(job => job.position === "commitment").length})</p>
                                     </div>
                                 </div>
@@ -353,7 +355,17 @@ const JobPosts = (props) => {
                                         className="shadow kf-border-light light-background flex md:flex-row md:h-[216px] w-full h-auto flex-col"
                                         href={{ pathname: `/applicants/${job.id}` }}>
                                         <div className="md:w-[216px] w-full md:h-full h-[100px] flex justify-center items-center flex-shrink-0">
-                                            <img className="max-w-full max-h-full object-contain" src={job.logo} alt="Placeholder" />
+                                            { job.logo == '' ? (
+                                                <Image
+                                                    src={noImage}
+                                                    alt="Firma logo"
+                                                    width={100}
+                                                    height={100}
+                                                />
+                                            ) : (
+                                                <img className="max-w-full max-h-full object-contain" src={job.logo} alt="Firma logo" />
+                                            )
+                                            }
                                         </div>
                                         <div className="p-4 w-full overflow-auto">
                                             <h2 className='line-clamp-3'>{highlightText(job.companyName, searchQuery)}</h2>

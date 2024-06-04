@@ -11,6 +11,11 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'upload.wikimedia.org',
                 pathname: '/**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'cdn.recman.no',
+                pathname: '/**',
             }
         ],
     },

@@ -41,7 +41,7 @@ export default async function MemberDetailPage({ params }) {
                             <div className="pt-2 flex-col justify-start items-end flex">
                                 {employee.emailText && (
                                     <div className="self-stretch justify-start items-center gap-2.5 inline-flex">
-                                        <p className="w-16 ">Email:</p>
+                                        <p className="w-16 ">E-post:</p>
                                         <p>{employee.emailText}</p>
                                     </div>
                                 )}

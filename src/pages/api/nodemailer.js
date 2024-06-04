@@ -4,7 +4,7 @@ import multer from 'multer';
 
 const CONTACT_MESSAGE_FIELDS = {
     name: "Navn",
-    email: "Email",
+    email: "E-post",
     subject: "Emne",
     message: "Melding",
 };
@@ -54,9 +54,9 @@ const generateEmailContent = (data) => {
                                             </tr>
                                             <tr>
                                                 <td style="font-weight: bold; padding: 10px 10px 10px 0; vertical-align: top;">
-                                                    Email:</td>
+                                                    E-post:</td>
                                                 <td>
-                                                    <!-- Email -->
+                                                    <!-- E-post -->
                                                     <a href="mailto:${data.email}" style="color: #4a4a4a; text-decoration: none;">
                                                         ${data.email}</a>
                                                 </td>
