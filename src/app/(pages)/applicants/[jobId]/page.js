@@ -11,7 +11,7 @@ const jobTypeToNorwegian = {
 };
 
 async function fetchJobs() {
-    const jobResponse = await fetch(`https://api.recman.no/v2/get/?key=${apiKey}&scope=jobPost&fields=projectId, name, title, ingress, body, numberOfPositions, startDate, endDate, logo, deadline, departmentId, facebook, linkedin, twitter, instagram, address1, address2, postalCode, city, country, web, salary, corporationId, created, updated, applyUrl, contacts, type, sector, accession, companyName, workplace, images, videoUrl, branchCategoryId, branchId, secondaryBranchCategoryId, secondaryBranchId, skills, countryId, regionId, cityId, position, positionType, socialMedia, finnUrl, locations`);
+    const jobResponse = await fetch(`https://api.recman.no/v2/get/?key=${apiKey}&scope=jobPost&fields=projectId,name,title,ingress,body,numberOfPositions,startDate,endDate,logo,deadline,departmentId,facebook,linkedin,twitter,instagram,address1,address2,postalCode,city,country,web,salary,corporationId,created,updated,applyUrl,contacts,type,sector,accession,companyName,workplace,images,videoUrl,branchCategoryId,branchId,secondaryBranchCategoryId,secondaryBranchId,skills,countryId,regionId,cityId,position,positionType,socialMedia,finnUrl,locations`);
     if (!jobResponse.ok) throw new Error('Failed to fetch jobs');
     return jobResponse.json();
 }
@@ -48,9 +48,18 @@ export default async function Page({ params }) {
         };
     }) : [];
 
-    const { title, logo, name, body, deadline, numberOfPositions, workplace, accession, position, sector, address1, applyUrl, contacts } = jobApi.find(job => job.id === params.jobId) || {};
+    const { title, logo, name, body, deadline, numberOfPositions, workplace, accession, position, sector, address1, applyUrl, contacts = [] } = jobApi.find(job => job.id === params.jobId) || {};
 
-    console.log("CONTACTS", contacts)
+    // jobApi.forEach((job, index) => {
+    //     // console.log("Jobs" + job.title + "job.id: " + job.id + " === " + "params.jobID: " + params.jobId + " = " + (job.id === params.jobId))
+    //     console.log("id: " + job.id)
+    //     console.log("name: " + job.name)
+    //     console.log("title: " + job.title)
+    //     console.log("applyUrl: " + job.applyUrl)
+    //     console.log("address1: " + job.address1)
+    //     console.log("skills: " + job.skills)
+    //     console.log("accession: " + job.accession)
+    // });
 
     return (
         <div className="pt-16 background-blur">
@@ -60,7 +69,12 @@ export default async function Page({ params }) {
                     {/* Description Section */}
                     <div className="md:p-8 p-4 flex flex-col light-background kf-border-light grow">
                         <h1 className="mb-4">{name}</h1>
-                        <div className={`px-4 dangerouslySetInnerHTML`} dangerouslySetInnerHTML={{ __html: body }} />
+                        {body ? (
+                            <div className={`px-4 dangerouslySetInnerHTML`} dangerouslySetInnerHTML={{ __html: body }} />
+                        ) : (
+                            <p className="pb-4">Problems loading content</p>
+                        )
+                        }
                     </div>
 
                     {/* Details Section */}
@@ -103,8 +117,8 @@ export default async function Page({ params }) {
                         </div>
 
                         <div className="py-3">
-                            <Link href={applyUrl}><button className="button w-full" >Søk</button></Link>
-                            {contacts.length > 0 ? (
+                            <Link href={applyUrl || "undefined"}><button className="button w-full" >Søk</button></Link>
+                            {contacts ? (
                                 <ul className="flex-1 py-4 flex flex-col gap-6">
                                     {contacts.map((contact, index) => (
                                         <li key={index}>

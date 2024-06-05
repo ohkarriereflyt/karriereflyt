@@ -141,7 +141,7 @@ export default async function Page() {
         .sort((a, b) => new Date(b.created) - new Date(a.created))
     : []; // Sort by 'created' date
 
-  console.log(jobApi);
+  // console.log(jobApi);
   // Do something with the filtered and sorted jobs
 
   const jobBranches = await fetchJobBranches();
