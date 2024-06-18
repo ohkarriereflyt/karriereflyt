@@ -4,6 +4,7 @@ import ButtonArrow from './ButtonArrow';
 import Link from 'next/link';
 import Image from 'next/image';
 import noImage from '../images/no-image.png';
+import TransitionLine from './TransitionLine';
 
 const JobPosts = (props) => {
     const [jobApi, setJobApi] = useState(props.jobApi);
@@ -124,8 +125,8 @@ const JobPosts = (props) => {
     return (
         <div className='w-full min-h-screen flex flex-col justify-between items-center'>
             {/* Din Karrierepartner (Full Width at the Top) */}
-            <div className="w-full slate-gray-background shadow flex justify-center mb-4">
-                <div className="max-w-7xl p-4 flex flex-col justify-start items-center relative z-10">
+            <div className="w-full slate-gray-background shadow flex justify-center">
+                <div className="max-w-7xl p-4 pb-0 flex flex-col justify-start items-center relative z-10">
                     <div className="w-full justify-start items-start gap-8 inline-flex">
                         <div className='grow shrink basis-0 self-stretch py-4 flex-col justify-start items-start gap-4 inline-flex light'>
                             <h1 >{props.topSectionTitle}</h1>
@@ -145,6 +146,10 @@ const JobPosts = (props) => {
                     </div>
                 </div>
             </div>
+            <div className="w-full">
+                <TransitionLine reverse />
+            </div>
+            
             {/* "Ledige stillinger" Text */}
             <div className="lg:block hidden max-w-7xl mx-auto px-2 sm:px-4 w-full text-center mb-4">
                 <h1 >Ledige Stillinger</h1>
@@ -363,7 +368,7 @@ const JobPosts = (props) => {
                                                     height={100}
                                                 />
                                             ) : (
-                                                <img className="max-w-full max-h-full object-contain" src={job.logo} alt="Firma logo" />
+                                                <img className="max-w-full max-h-full object-contain p-4" src={job.logo} alt="Firma logo" />
                                             )
                                             }
                                         </div>
@@ -406,11 +411,11 @@ const JobPosts = (props) => {
             </div>
             {/* "Finner ikke" Full Width at the Bottom */}
             <div className="w-full py-12 light-background shadow text-center">
-                <div className="flex-col justify-start items-center gap-4 inline-flex">
+                <div className="max-w-7xl flex-col justify-start items-center gap-4 inline-flex">
                     <h2>{props.bottomSectionTitle}</h2>
                     <p>{props.bottomSectionText}</p>
                     <div className=" items-center gap-16 inline-flex">
-                        <Link href="/contact#contact-form">
+                        <Link href="https://karriereflyt.recman.no/register.php" target="_blank">
                             <button className="button">Send en åpen søknad</button>
                         </Link>
                         <Link href="/contact">

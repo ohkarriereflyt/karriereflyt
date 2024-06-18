@@ -13,10 +13,10 @@ export default function CustomerFeedback({ reviewsTitle, reviews }) {
           <h1 className="relative lg:dark light text-center mb-12">
             {reviewsTitle}
           </h1>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             {reviews.map((customer) => (
               <div className="flex justify-center w-full" key={customer.author}>
-                <div className="flex flex-col kf-border-light gray-background px-6 py-4 shadow-xl lg:min-h-80 lg:max-w-72">
+                <div className="flex flex-col kf-border-light gray-background px-6 py-4 shadow-xl lg:min-h-80 w-full">
                   <h2 className="my-2">{customer.textTitle}</h2>
                   <p className="mb-4">{customer.text}</p>
                   <div className="flex items-center mt-auto">

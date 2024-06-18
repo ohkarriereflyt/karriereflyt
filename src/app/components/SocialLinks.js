@@ -1,10 +1,10 @@
 'use client'
-const SocialLinks = ({ color='light', employee, paddingX=true}) => {
+const SocialLinks = ({ color='light', employee, paddingX}) => {
     return (
-            <div className={`w-full ${paddingX ? 'px-6' : ''} py-3 justify-between items-center inline-flex background-flat`}>
+            <div className={`w-full ${paddingX ? paddingX : 'sm:px-6 px-2'} py-3 justify-between items-center inline-flex background-flat`}>
                 <button
                     onClick={() => employee.phoneNumber && window.open(`tel:${employee.phoneNumber}`, '_self')}
-                    className={`noStyle w-8 h-8 flex-col justify-center items-center inline-flex ${employee.phoneNumber ? 'hover:scale-105' : 'opacity-50 cursor-default'}`}
+                    className={`noStyle sm:w-8 sm:h-8 w-7 h-7 flex-col justify-center items-center inline-flex ${employee.phoneNumber ? 'hover:scale-105' : 'opacity-50 cursor-default'}`}
                     title={employee.phoneNumber ? 'Call' : 'No Phone Number'}>
                     <svg viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clipPath="url(#clip0_810_12787)">
@@ -19,7 +19,7 @@ const SocialLinks = ({ color='light', employee, paddingX=true}) => {
                 </button>
                 <button
                     onClick={() => employee.emailText && window.open(`mailto:${employee.emailText}`, '_self')}
-                    className={`noStyle w-8 h-8 flex-col justify-center items-center inline-flex ${employee.emailText ? 'hover:scale-105' : 'opacity-50 cursor-default'}`}
+                    className={`noStyle sm:w-8 sm:h-8 w-7 h-7 flex-col justify-center items-center inline-flex ${employee.emailText ? 'hover:scale-105' : 'opacity-50 cursor-default'}`}
                     title={employee.emailText ? 'Send E-post' : 'No E-post'}>
                     <svg viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clipPath="url(#clip0_810_12792)">
@@ -33,8 +33,8 @@ const SocialLinks = ({ color='light', employee, paddingX=true}) => {
                     </svg>
                 </button>
                 <button
-                    onClick={() => employee.facebook && window.open(employee.facebook, '_self')}
-                    className={`noStyle w-8 h-8 flex-col justify-center items-center inline-flex ${employee.facebook ? 'hover:scale-105' : 'opacity-50 cursor-default'}`}
+                    onClick={() => employee.facebook && window.open(employee.facebook, '_blank')}
+                    className={`noStyle sm:w-8 sm:h-8 w-7 h-7 flex-col justify-center items-center inline-flex ${employee.facebook ? 'hover:scale-105' : 'opacity-50 cursor-default'}`}
                     title={employee.facebook ? 'Open Facebook Profile' : 'No Facebook Profile'}>
                     <svg viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clipPath="url(#clip0_810_12797)">
@@ -48,8 +48,8 @@ const SocialLinks = ({ color='light', employee, paddingX=true}) => {
                     </svg>
                 </button>
                 <button
-                    onClick={() => employee.linkedin && window.open(employee.linkedin, '_self')}
-                    className={`noStyle w-8 h-8 flex-col justify-center items-center inline-flex ${employee.linkedin ? 'hover:scale-105' : 'opacity-50 cursor-default'}`}
+                    onClick={() => employee.linkedin && window.open(employee.linkedin, '_blank')}
+                    className={`noStyle sm:w-8 sm:h-8 w-7 h-7 flex-col justify-center items-center inline-flex ${employee.linkedin ? 'hover:scale-105' : 'opacity-50 cursor-default'}`}
                     title={employee.linkedin ? 'Open LinkedIn Profile' : 'No LinkedIn Profile'}>
                     <svg viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path className={`${color}-fill`} fillRule="evenodd" clipRule="evenodd" d="M4.8 0.40625C2.14903 0.40625 0 2.55528 0 5.20625V27.6063C0 30.2572 2.14903 32.4062 4.8 32.4062H27.2C29.851 32.4062 32 30.2572 32 27.6063V5.20625C32 2.55528 29.851 0.40625 27.2 0.40625H4.8ZM4.7998 9.04469C4.7998 10.3247 5.7598 11.2847 7.1998 11.2847C8.7998 11.2847 9.75983 10.3247 9.75983 9.04469C9.75983 7.76469 8.7998 6.80469 7.3598 6.80469C5.7598 6.80469 4.7998 7.76469 4.7998 9.04469ZM4.7998 26.6272H9.75983V12.8672H4.7998V26.6272ZM27.1848 26.6272H22.2248V19.1072C22.2248 17.0272 20.9448 16.5472 20.4648 16.5472C19.9848 16.5472 18.3848 16.8672 18.3848 19.1072V26.6272H13.4248V12.8672H18.3848V14.7872C19.0248 13.6672 20.3048 12.8672 22.7048 12.8672C25.1048 12.8672 27.1848 14.7872 27.1848 19.1072V26.6272Z" />

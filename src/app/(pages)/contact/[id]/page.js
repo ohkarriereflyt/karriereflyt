@@ -68,7 +68,7 @@ export default async function MemberDetailPage({ params }) {
                             </div>
                         )}
                         <div className='bg-slate-gray-flat kf-border-light'>
-                            <SocialLinks employee={employee} />
+                            <SocialLinks employee={employee} paddingX={'px-8'} />
                         </div>
                     </div>
                     <div className='w-full bg-slate-gray-flat  kf-border-light p-4'>

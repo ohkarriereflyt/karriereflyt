@@ -6,9 +6,9 @@ export default function OurSubjectArea({ subjectAreasTitle, subjectAreaCont1Titl
       <h1 className="text-center text-text-flat-inverted mb-8">
         {subjectAreasTitle}
       </h1>
-      <div className="max-w-7xl w-full mx-auto md:p-8 p-4 lg:flex xl:flex-row lg:flex-col slate-gray">
-        <div className="w-full shadow-lg p-8 mb-4 kf-border-light gray-background">
-          <h2 className="pb-4">
+      <div className="max-w-7xl w-full mx-auto md:p-8 p-4 flex flex-wrap slate-gray">
+      <div className="lg:mr-0 mx-auto sm:w-auto w-full shadow-lg p-8 pr-16 mb-4 kf-border-light gray-background">
+          <h2 className="pb-4 text-center w-full">
             {subjectAreaCont1Title}
           </h2>
           {subjectAreaCont1Items.map((item) => (
@@ -24,8 +24,8 @@ export default function OurSubjectArea({ subjectAreasTitle, subjectAreaCont1Titl
         </div>
         <div className="lg:w-10 md:h-4"></div>
 
-        <div className="w-full shadow-lg p-8 mb-4 kf-border-light gray-background">
-          <h2 className="pb-4">{subjectAreaCont2Title}</h2>
+        <div className="lg:ml-0 mx-auto sm:w-auto w-full shadow-lg p-8 pr-16 mb-4 kf-border-light gray-background">
+          <h2 className="pb-4 text-center w-full">{subjectAreaCont2Title}</h2>
           {subjectAreaCont2Items.map((item) => (
             <div key={item.index} className="py-2 flex items-center gap-2" style={{}}>
               <svg width="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -38,7 +38,7 @@ export default function OurSubjectArea({ subjectAreasTitle, subjectAreaCont1Titl
           ))}
         </div>
       </div>
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-4">
         <p className="text-center light mb-8">
           {subjectAreaFooterText}
         </p>
