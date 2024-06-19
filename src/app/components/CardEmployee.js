@@ -18,14 +18,16 @@ const CardEmployee = ({ index, employee, backgroundColor = 'slate-gray', foregro
                 <div className="flex flex-row md:flex-col w-full">
                     <div className="flex-shrink-0 md:h-[258px] md:w-full background-3 flex justify-center">
                         <Link href={`/contact/${encodeURIComponent(employee.name)}`}>
-                            <img className='md:h-full md:w-auto h-[35vw] w-[35vw]' src={employee.img ? employee.img : (employee.image ? employee.image : localImg)} alt={employee.name} />
+                            <div className='md:h-full md:w-auto h-[35vw] w-[35vw]'>
+                                <img src={employee.img ? employee.img : (employee.image ? employee.image : localImg)} alt={employee.name} />
+                            </div>
                         </Link>
                     </div>
                     <div className="w-full md:p-3 md:pb-2 pl-3 pr-2 py-2 flex-col justify-between items-end flex">
                         <div className="self-stretch">
                             <h2>{employee.name}</h2>
                             <div className="w-full justify-between items-center inline-flex">
-                                <p className="self-stretch ">{employee.jobTitle}</p>
+                                <p className="self-stretch mt-1 line-clamp-1">{employee.jobTitle}</p>
                                 <button onClick={() => toggleOpen(index)} className='noStyle h-9' >
                                     <svg width="36" height="37" viewBox="0 0 36 37" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transform: openIndex === index ? 'scaleY(-1)' : 'scaleY(1)' }}>
                                         <path className={`${foregroundColor}-stroke`} d="M24 15.332L18 21.332L12 15.332" strokeWidth="2.57143" strokeLinecap="round" strokeLinejoin="round" />
@@ -71,7 +73,7 @@ const CardEmployee = ({ index, employee, backgroundColor = 'slate-gray', foregro
                                 </div>
                             </>
                         )}
-                        <SocialLinks color={foregroundColor} employee={employee}/>
+                        <SocialLinks color={foregroundColor} employee={employee} />
                     </div>
                 </div>
                 {openIndex === index &&
