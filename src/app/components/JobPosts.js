@@ -137,7 +137,7 @@ const JobPosts = (props) => {
                         </div>
                     </div>
                     <div className="w-full justify-between items-center inline-flex">
-                        <Link href="/contact#contact-form">
+                        <Link href="https://karriereflyt.recman.no/register.php" target="_blank">
                             <button className="button">Send en åpen søknad</button>
                         </Link>
                         <div onClick={toggleExpand}>
