@@ -17,9 +17,9 @@ const CardEmployee = ({ index, employee, backgroundColor = 'slate-gray', foregro
             <div className={`flex-col w-full md:max-w-[258px] kf-border-${border} gap-2.5 ${backgroundColor + "-background"} ${foregroundColor}`}>
                 <div className="flex flex-row md:flex-col w-full">
                     <div className="flex-shrink-0 md:h-[258px] md:w-full background-3 flex justify-center">
-                        <Link href={`/contact/${encodeURIComponent(employee.name)}`}>
-                            <div className='md:h-full md:w-auto h-[35vw] w-[35vw]'>
-                                <img src={employee.img ? employee.img : (employee.image ? employee.image : localImg)} alt={employee.name} />
+                        <Link className='w-full h-full flex items-end' href={`/contact/${encodeURIComponent(employee.name)}`}>
+                            <div className='md:h-full md:w-full h-[35vw] w-[35vw] overflow-hidden'>
+                                <img className='w-full h-full object-cover' src={employee.img ? employee.img : (employee.image ? employee.image : localImg)} alt={employee.name} />
                             </div>
                         </Link>
                     </div>
@@ -54,13 +54,11 @@ const CardEmployee = ({ index, employee, backgroundColor = 'slate-gray', foregro
                                 <div className="self-stretch h-20 py-2 flex-col justify-start items-end md:flex hidden">
                                     {employee.emailText && (
                                         <div className="self-stretch justify-start items-center gap-2.5 inline-flex">
-                                            <h3 className="w-16 ">E-post:</h3>
                                             <p className=" leading-loose">{employee.emailText}</p>
                                         </div>
                                     )}
                                     {employee.phoneNumber && (
                                         <div className="self-stretch justify-start items-center gap-2.5 inline-flex">
-                                            <h3 className="w-16 ">Telefon:</h3>
                                             <p className=" leading-loose">{employee.phoneNumber}</p>
                                         </div>
                                     )}
