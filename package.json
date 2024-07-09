@@ -14,7 +14,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@portabletext/react": "^3.0.18",
+    "@portabletext/react": "^3.1.0",
     "@react-spring/parallax": "^9.7.3",
     "@sanity/client": "^6.15.20",
     "@sanity/image-url": "^1.0.2",

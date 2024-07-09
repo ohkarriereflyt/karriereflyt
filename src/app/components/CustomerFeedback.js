@@ -1,6 +1,8 @@
 import { TransitionWave } from "./index";
 
 export default function CustomerFeedback({ reviewsTitle, reviews }) {
+  console.log("CustomerFeedback props:", { reviewsTitle, reviews });
+
   return (
     <div className="relative">
       <div className="lg:absolute w-full h-full">
@@ -14,14 +16,18 @@ export default function CustomerFeedback({ reviewsTitle, reviews }) {
             {reviewsTitle}
           </h1>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
-            {reviews.map((customer) => (
-              <div className="flex justify-center w-full" key={customer.author}>
+            {reviews.map((customer, index) => (
+              <div className="flex justify-center w-full" key={index}>
                 <div className="flex flex-col kf-border-light gray-background px-6 py-4 shadow-xl lg:min-h-80 w-full">
                   <h2 className="my-2">{customer.textTitle}</h2>
-                  <p className="mb-4">{customer.text}</p>
+                  <p className="mb-4">
+                    {Array.isArray(customer.text)
+                      ? customer.text.join(" ")
+                      : customer.text}
+                  </p>
                   <div className="flex items-center mt-auto">
                     <img
-                      className=" object-cover w-20 h-20 rounded-full mr-4"
+                      className="object-cover w-20 h-20 rounded-full mr-4"
                       src={customer.reviewImage}
                       alt={customer.author}
                     />
