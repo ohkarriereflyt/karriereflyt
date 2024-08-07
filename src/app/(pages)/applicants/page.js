@@ -207,6 +207,10 @@ export default async function Page() {
   }));
 
   const formatTextWithBreaks = (text) => {
+    if (!text) {
+      return <></>; // or you can return any default value you prefer
+    }
+
     return text.split("\n").map((item, index) => (
       <span key={index}>
         {item}

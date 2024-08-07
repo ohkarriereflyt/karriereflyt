@@ -40,6 +40,10 @@ export default async function Services() {
   }
 
   const formatTextWithBreaks = (text) => {
+    if (!text) {
+      return <></>; // or you can return any default value you prefer
+    }
+  
     return text.split("\n").map((item, index) => (
       <span key={index}>
         {item}
@@ -47,6 +51,7 @@ export default async function Services() {
       </span>
     ));
   };
+  
 
   const events = await client.fetch(EVENTS_QUERY);
   console.log(events);

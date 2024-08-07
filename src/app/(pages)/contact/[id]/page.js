@@ -29,6 +29,10 @@ export default async function MemberDetailPage({ params }) {
   console.log(employee.bio);
 
   const formatTextWithBreaks = (text) => {
+    if (!text) {
+      return <></>; // or you can return any default value you prefer
+    }
+
     return text.split("\n").map((item, index) => (
       <span key={index}>
         {item}
