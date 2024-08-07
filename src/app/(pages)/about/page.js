@@ -25,8 +25,14 @@ const EVENTS_QUERY = `*[_type == "about"][0]{
     facebook,
     linkedin,
     bioShort,
-    bio,
     keywords,
+  }
+}`;
+
+const BIO_QUERY = `*[_type == "about"][0]{
+  'employees': employees[]->{
+    name,
+    bio
   }
 }`;
 
@@ -36,7 +42,16 @@ export default async function Page() {
     throw new Error("Sanity client is not initialized");
   }
   const events = await client.fetch(EVENTS_QUERY);
-  console.log(events);
+
+  try {
+    const bioData = await client.fetch(BIO_QUERY);
+    const bio = bioData.employees.find((bio) => bio.name === employee.name);
+    if (bio) {
+      employeeBio = bio.bio;
+    }
+  } catch (error) {
+    console.error("Error fetching bio data:", error);
+  }
 
   const formatTextWithBreaks = (text) => {
     if (!text) {
