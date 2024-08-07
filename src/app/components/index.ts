@@ -30,7 +30,6 @@ export {
   EmployeeGrid,
   CustomerFeedback,
   Footer,
-  HeroCardImages,
   ImagesInSaquares,
   JobbkretserPartner,
   List,
