@@ -5,7 +5,7 @@ const apiKey = process.env.RECMAN_API_SECRET;
 
 const branchToNorwegian = {
   "Banking / Finance / Insurance": "Bankvirksomhet / Finans / Forsikring",
-  "Consulting": "Konsulentvirksomhet",
+  Consulting: "Konsulentvirksomhet",
   "Research / Development": "Forskning / Utvikling",
   "Health / Welfare": "Helse / Velferd",
   "Hotel / Restaurant": "Hotell / Restaurant",
@@ -23,12 +23,12 @@ const branchToNorwegian = {
   "Sales / Marketing": "Salg / Markedsføring",
   "Transport / Logistics / Warehouse": "Transport / Logistikk / Lager",
   "Education / Teaching / Research": "Utdanning / Undervisning / Forskning",
-  "Retail": "Detaljhandel",
-  "Other": "Annet",
+  Retail: "Detaljhandel",
+  Other: "Annet",
   "Administration / Office / Personnel": "Administrasjon / Kontor / Personell",
   "Economy / Controlling": "Økonomi / Kontroll",
-  "Engineering": "Ingeniørvirksomhet",
-  "Tourism": "Turisme",
+  Engineering: "Ingeniørvirksomhet",
+  Tourism: "Turisme",
   "Plumbing / Heating / Sanitary": "VVS (Vann, Varme, Sanitær)",
   "Aviation / Aerospace": "Luftfart / Romfart",
   "Real estate": "Eiendom",
@@ -206,6 +206,15 @@ export default async function Page() {
     regionName: regionMap[regionId] || "Unknown",
   }));
 
+  const formatTextWithBreaks = (text) => {
+    return text.split("\n").map((item, index) => (
+      <span key={index}>
+        {item}
+        <br />
+      </span>
+    ));
+  };
+
   return (
     <div className="background-blur">
       <JobPosts
@@ -215,9 +224,9 @@ export default async function Page() {
         uniqueRegions={uniqueRegions}
         topSectionTitle={events.topSectionTitle}
         topSectionSubTitle={events.topSectionSubTitle}
-        topSectionText={events.topSectionText}
+        topSectionText={formatTextWithBreaks(events.topSectionText)}
         bottomSectionTitle={events.bottomSectionTitle}
-        bottomSectionText={events.bottomSectionText}
+        bottomSectionText={formatTextWithBreaks(events.bottomSectionText)}
       />
       <Footer />
     </div>

@@ -1,9 +1,4 @@
-import {
-  List,
-  ServiceCard,
-  Pentagon,
-  Footer
-} from "../../components/index";
+import { List, ServiceCard, Pentagon, Footer } from "../../components/index";
 
 import BriefCase from "../../images/briefcase.svg";
 import Building from "../../images/building.svg";
@@ -11,7 +6,7 @@ import Target from "../../images/target.svg";
 import Bulb from "../../images/lightbulb.svg";
 import Megaphone from "../../images/megaphone.svg";
 import Brain from "../../images/head.svg";
-import { client } from '../../sanity';
+import { client } from "../../sanity";
 
 const EVENTS_QUERY = `*[_type == "services"][0]{
   mainTitle,
@@ -43,30 +38,45 @@ export default async function Services() {
   if (!client) {
     throw new Error("Sanity client is not initialized");
   }
+
+  const formatTextWithBreaks = (text) => {
+    return text.split("\n").map((item, index) => (
+      <span key={index}>
+        {item}
+        <br />
+      </span>
+    ));
+  };
+
   const events = await client.fetch(EVENTS_QUERY);
   console.log(events);
   return (
-    <div >
+    <div>
       <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 overflow-auto min-h-[80vh] flex">
         <div className="w-full p-4 flex flex-col md:flex-row items-start md:items-center justify-start md:justify-center">
           <div className="w-full">
             <h1 className="headline">{events.mainTitle}</h1>
-            <List listItemOne={events.mainSubTitleItems[0]} listItemTwo={events.mainSubTitleItems[1]} listItemThree={events.mainSubTitleItems[2]} listItemFour={events.mainSubTitleItems[3]} />
+            <List
+              listItemOne={events.mainSubTitleItems[0]}
+              listItemTwo={events.mainSubTitleItems[1]}
+              listItemThree={events.mainSubTitleItems[2]}
+              listItemFour={events.mainSubTitleItems[3]}
+            />
           </div>
           <div className="w-full flex justify-center">
             <Pentagon />
           </div>
         </div>
       </div>
-      <div className="backdrop-filter backdrop-blur-lg" style={{ borderTop: '4px solid rgba(255, 255, 255, 0.4)' }}>
+      <div
+        className="backdrop-filter backdrop-blur-lg"
+        style={{ borderTop: "4px solid rgba(255, 255, 255, 0.4)" }}
+      >
         <div className="px-6 pt-8 pb-8">
           <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 ">
             <div className="text-center">
-              <h1 className={"dark mb-8 pr-1"}>
-                {events.topTextTitle}
-              </h1>
-              <p>
-              </p>
+              <h1 className={"dark mb-8 pr-1"}>{events.topTextTitle}</h1>
+              <p></p>
             </div>
             <div className="flex flex-col md:gap-16 gap-4">
               <div id="section1">
@@ -80,7 +90,9 @@ export default async function Services() {
                     { text: events.recruitingTitleItems[1] },
                     { text: events.recruitingTitleItems[2] },
                   ]}
-                  description={events.recruitingReadMoreText}
+                  description={formatTextWithBreaks(
+                    events.recruitingReadMoreText
+                  )}
                 />
               </div>
               <div id="section2">
@@ -94,7 +106,7 @@ export default async function Services() {
                     { text: events.hireTitleItems[1] },
                     { text: events.hireTitleItems[2] },
                   ]}
-                  description={events.hireReadMoreText}
+                  description={formatTextWithBreaks(events.hireReadMoreText)}
                   reverse
                 />
               </div>
@@ -109,7 +121,9 @@ export default async function Services() {
                     { text: events.headhuntingTitleItems[1] },
                     { text: events.headhuntingTitleItems[2] },
                   ]}
-                  description={events.headhuntingReadMoreText}
+                  description={formatTextWithBreaks(
+                    events.headhuntingReadMoreText
+                  )}
                 />
               </div>
               <div id="section4">
@@ -123,7 +137,9 @@ export default async function Services() {
                     { text: events.counselingTitleItems[1] },
                     { text: events.counselingTitleItems[2] },
                   ]}
-                  description={events.counselingReadMoreText}
+                  description={formatTextWithBreaks(
+                    events.counselingReadMoreText
+                  )}
                   reverse
                 />
               </div>
@@ -140,7 +156,9 @@ export default async function Services() {
                   { text: events.adaptedToNeedsTitleItems[1] },
                   { text: events.adaptedToNeedsTitleItems[2] },
                 ]}
-                description={events.adaptedToNeedsReadMoreText}
+                description={formatTextWithBreaks(
+                  events.adaptedToNeedsReadMoreText
+                )}
               />
               <ServiceCard
                 svg={Brain}
@@ -152,7 +170,9 @@ export default async function Services() {
                   { text: events.personalityTestAndAbilityTestTitleItems[1] },
                   { text: events.personalityTestAndAbilityTestTitleItems[2] },
                 ]}
-                description={events.personalityTestAndAbilityTestReadMoreText}
+                description={formatTextWithBreaks(
+                  events.personalityTestAndAbilityTestReadMoreText
+                )}
                 reverse
               />
             </div>
