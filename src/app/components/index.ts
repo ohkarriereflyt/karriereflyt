@@ -2,7 +2,6 @@ import BackgroundBoxes from "./BackgroundBoxes";
 import EmployeeGrid from "./EmployeeGrid";
 import CustomerFeedback from "./CustomerFeedback";
 import Footer from "./Footer";
-import HeroCardImages from "./HeroCardImages";
 import ImagesInSaquares from "./ImagesInSquares";
 import JobbkretserPartner from "./JobbkretserPartner";
 import List from "./List";
