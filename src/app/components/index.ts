@@ -24,7 +24,7 @@ import TransitionLine from "./TransitionLine";
 import TransitionWave from "./TransitionWave";
 import JobPosts from "./JobPosts";
 import SocialLinks from "./SocialLinks";
-
+//full export
 export {
   BackgroundBoxes,
   EmployeeGrid,
