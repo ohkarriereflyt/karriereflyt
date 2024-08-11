@@ -128,7 +128,7 @@ const JobPosts = (props) => {
             <div className="w-full slate-gray-background shadow flex justify-center">
                 <div className="max-w-7xl p-4 pb-0 flex flex-col justify-start items-center relative z-10">
                     <div className="w-full justify-start items-start gap-8 inline-flex">
-                        <div className='grow shrink basis-0 self-stretch py-4 flex-col justify-start items-start gap-4 inline-flex light'>
+                        <div className='grow shrink basis-0 self-stretch py-4 pt-6 gap-1 flex-col justify-start items-start inline-flex light'>
                             <h1 >{props.topSectionTitle}</h1>
                             <h2 >{props.topSectionSubTitle}</h2>
                             <p className={`${isExpanded ? '' : 'line-clamp-1'}`}>
