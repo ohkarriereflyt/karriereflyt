@@ -24,6 +24,7 @@ const EVENTS_QUERY = `*[_type == "services"][0]{
   headhuntingTitle,
   headhuntingTitleItems,
   headhuntingReadMoreText,
+  counselingCategory,
   counselingTitle,
   counselingTitleItems,
   counselingReadMoreText,
