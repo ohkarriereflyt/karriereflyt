@@ -12,12 +12,15 @@ const EVENTS_QUERY = `*[_type == "services"][0]{
   mainTitle,
   mainSubTitleItems,
   topTextTitle,
+  recruitingCategory,
   recruitingTitle,
   recruitingTitleItems,
   recruitingReadMoreText,
+  hireCategory,
   hireTitle,
   hireTitleItems,
   hireReadMoreText,
+  headhuntingCategory,
   headhuntingTitle,
   headhuntingTitleItems,
   headhuntingReadMoreText,
@@ -25,9 +28,11 @@ const EVENTS_QUERY = `*[_type == "services"][0]{
   counselingTitleItems,
   counselingReadMoreText,
   middleTextTitle,
+  adaptedToNeedsCategory,
   adaptedToNeedsTitle,
   adaptedToNeedsTitleItems,
   adaptedToNeedsReadMoreText,
+  personalityTestAndAbilityTestCategory,
   personalityTestAndAbilityTestTitle,
   personalityTestAndAbilityTestTitleItems,
   personalityTestAndAbilityTestReadMoreText
@@ -43,7 +48,7 @@ export default async function Services() {
     if (!text) {
       return <></>; // or you can return any default value you prefer
     }
-  
+
     return text.split("\n").map((item, index) => (
       <span key={index}>
         {item}
@@ -51,7 +56,6 @@ export default async function Services() {
       </span>
     ));
   };
-  
 
   const events = await client.fetch(EVENTS_QUERY);
   console.log(events);
@@ -88,7 +92,7 @@ export default async function Services() {
                 <ServiceCard
                   svg={BriefCase}
                   color="slate-gray"
-                  category="Kandidater"
+                  category={events.recruitingCategory}
                   title={events.recruitingTitle}
                   listItems={[
                     { text: events.recruitingTitleItems[0] },
@@ -104,7 +108,7 @@ export default async function Services() {
                 <ServiceCard
                   svg={Building}
                   color="pistasch"
-                  category="Bedrifter"
+                  category={events.hireCategory}
                   title={events.hireTitle}
                   listItems={[
                     { text: events.hireTitleItems[0] },
@@ -119,7 +123,7 @@ export default async function Services() {
                 <ServiceCard
                   svg={Target}
                   color="red"
-                  category="Headhunting"
+                  category={events.headhuntingCategory}
                   title={events.headhuntingTitle}
                   listItems={[
                     { text: events.headhuntingTitleItems[0] },
@@ -154,7 +158,7 @@ export default async function Services() {
               <ServiceCard
                 svg={Megaphone}
                 color="purple"
-                category="Behovtilpasset"
+                category={events.adaptedToNeedsCategory}
                 title={events.adaptedToNeedsTitle}
                 listItems={[
                   { text: events.adaptedToNeedsTitleItems[0] },
@@ -168,7 +172,7 @@ export default async function Services() {
               <ServiceCard
                 svg={Brain}
                 color="green"
-                category="Behovtilpasset"
+                category={events.personalityTestAndAbilityTestCategory}
                 title={events.personalityTestAndAbilityTestTitle}
                 listItems={[
                   { text: events.personalityTestAndAbilityTestTitleItems[0] },
