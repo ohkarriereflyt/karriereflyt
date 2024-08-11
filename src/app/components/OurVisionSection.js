@@ -19,7 +19,7 @@ export default function OurVisionSection({ title = "Our Vision Title", text = "O
           </div>
           <div className="w-full px-4 m-6 lg:mb-0">
             <h2 className="text-3xl font-bold mb-4">{title}</h2>
-            <p className={`${readMoreOpen ? '' : 'line-clamp-3'}`}>
+            <p className={`${readMoreOpen ? '' : 'line-clamp-3 md:line-clamp-5'}`}>
               {text}
             </p>
             <button onClick={toggleReadMore} className="no-style flex items-center">
