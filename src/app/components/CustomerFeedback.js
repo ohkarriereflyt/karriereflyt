@@ -1,6 +1,8 @@
 import { TransitionWave } from "./index";
+import ToggleReadMore from "./ToggleReadMore";
 
 export default function CustomerFeedback({ reviewsTitle, reviews }) {
+
   const formatTextWithBreaks = (text) => {
     if (!text) {
       return <></>; // or you can return any default value you prefer
@@ -29,19 +31,21 @@ export default function CustomerFeedback({ reviewsTitle, reviews }) {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             {reviews.map((customer) => (
               <div className="flex justify-center w-full" key={customer.author}>
-                <div className="flex flex-col kf-border-light gray-background px-6 py-4 shadow-xl lg:min-h-80 w-full">
-                  <h2 className="my-2">{customer.textTitle}</h2>
-                  <p className="mb-4">{formatTextWithBreaks(customer.text)}</p>
-                  <div className="flex items-center mt-auto">
-                    <img
-                      className=" object-cover w-20 h-20 rounded-full mr-4"
-                      src={customer.reviewImage}
-                      alt={customer.author}
-                    />
-                    <div>
-                      <h2>{customer.author}</h2>
-                      <p>{customer.company}</p>
-                      <p>{customer.position}</p>
+                <div className="flex flex-col">
+                  <div className="kf-border-light gray-background px-6 py-4 shadow-xl lg:min-h-80 w-full">
+                    <h2 className="my-2 h-14">{customer.textTitle}</h2>
+                    <ToggleReadMore text={formatTextWithBreaks(customer.text)} />
+                    <div className="flex items-center mt-auto">
+                      <img
+                        className=" object-cover w-20 h-20 rounded-full mr-4"
+                        src={customer.reviewImage}
+                        alt={customer.author}
+                      />
+                      <div>
+                        <h2>{customer.author}</h2>
+                        <p>{customer.company}</p>
+                        <p>{customer.position}</p>
+                      </div>
                     </div>
                   </div>
                 </div>

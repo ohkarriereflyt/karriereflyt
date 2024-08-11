@@ -45,7 +45,7 @@ export default async function MemberDetailPage({ params }) {
     <div>
       <div className="max-w-7xl mx-auto p-2 sm:p-4 md:p-8 mt-4">
         <div className="flex md:flex-row flex-col w-fill gap-4 text-text-flat-inverted">
-          <div className="flex flex-col sm:gap-4 gap-2">
+          <div className="flex flex-col md:w-[356px] sm:gap-4 gap-2">
             <div className="bg-slate-gray-flat kf-border-light">
               <div className="flex-shrink-0 h-[356px] md:w-[356px] w-full background-3">
                 <img
@@ -74,7 +74,7 @@ export default async function MemberDetailPage({ params }) {
               </div>
             </div>
             {employee.keywords && employee.keywords.length > 0 && (
-              <div className="bg-slate-gray-flat  kf-border-light p-4">
+              <div className="bg-slate-gray-flat kf-border-light p-4">
                 <p>Ord som beskriver {employee.name}:</p>
                 <div className="w-full flex flex-wrap mt-1">
                   {employee.keywords &&
