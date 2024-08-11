@@ -62,8 +62,8 @@ export default async function Services() {
   console.log(events);
   return (
     <div>
-      <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 overflow-auto min-h-[80vh] flex">
-        <div className="w-full p-4 flex flex-col md:flex-row items-start md:items-center justify-start md:justify-center">
+      <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 overflow-auto min-h-[80vh] flex pt-4 ">
+        <div className="w-full p-4 md:pt-4 pt-8 flex flex-col md:flex-row items-start md:items-center justify-start md:justify-center">
           <div className="w-full">
             <h1 className="headline">{events.mainTitle}</h1>
             <List
