@@ -139,7 +139,7 @@ export default async function Services() {
                 <ServiceCard
                   svg={Bulb}
                   color="vanilla-latte"
-                  category="Rådgivning"
+                  category={events.counselingCategory}
                   title={events.counselingTitle}
                   listItems={[
                     { text: events.counselingTitleItems[0] },
