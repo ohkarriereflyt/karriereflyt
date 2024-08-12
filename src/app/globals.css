@@ -17,6 +17,10 @@
   src: url(./fonts/filsonpro/FilsonProBold.otf);
 }
 
+#fontNormal {
+  font-family: FilsonProRegular;
+}
+
 * {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -24,13 +28,15 @@
 
   --color-text: #4a4a4a;
   --color-text-light: #fffbf8;
-  --color-eggshell: linear-gradient(180deg, #FAF7F3 0%, #D1C9C1 100%);
+  --color-eggshell: linear-gradient(180deg, #faf7f3 0%, #d1c9c1 100%);
   --background: #fffbf8;
   --background-dark: #4a4a4a;
-  --background-gradient: linear-gradient(180deg,
-      #faf7f3 0%,
-      #efeae4 50%,
-      #d1c9c1 100%);
+  --background-gradient: linear-gradient(
+    180deg,
+    #faf7f3 0%,
+    #efeae4 50%,
+    #d1c9c1 100%
+  );
 
   --color-light: #fffbf8;
   --color-dark: #4a4a4a;
@@ -157,7 +163,11 @@ input[type="file"]:focus::file-selector-button {
 }
 
 .navbar {
-  background: linear-gradient(180deg, rgba(250, 247, 243, 0.6) 0%, rgba(209, 201, 193, 0.6) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(250, 247, 243, 0.6) 0%,
+    rgba(209, 201, 193, 0.6) 100%
+  );
   backdrop-filter: blur(100px);
   -webkit-backdrop-filter: blur(100px);
 }
@@ -228,7 +238,6 @@ input[type="file"]:focus::file-selector-button {
   .kf-border-dark-big::after {
     border-radius: 24px !important;
   }
-
 }
 
 .background-blur {
@@ -303,7 +312,6 @@ button[type="submit"]::after,
   background: linear-gradient(90deg, #eceae8 0%, #dedbd9 100%);
 }
 
-
 #boxCollection {
   perspective: 10px;
   position: fixed;
@@ -311,7 +319,7 @@ button[type="submit"]::after,
   height: 100vh;
   width: 100%;
   z-index: -1;
-  background: var(--color-eggshell)
+  background: var(--color-eggshell);
 }
 
 .backgroundBox {
@@ -378,7 +386,6 @@ button[type="submit"]::after,
   margin-left: -20%;
   transform: translateZ(-7px) scale(1.7);
 }
-
 
 .half-slate-gray-background {
   position: relative;
@@ -560,7 +567,6 @@ button[type="submit"]::after,
   stroke: var(--color-eggshell);
 }
 
-
 .contact-icon {
   height: 28px;
   width: 28px;
@@ -574,8 +580,6 @@ button[type="submit"]::after,
 }
 
 @media screen and (min-width: 768px) {
-
-
   #squareOne {
     margin-right: 0px;
     margin-top: 5%;
@@ -684,7 +688,6 @@ button[type="submit"]::after,
 } */
 
 @media screen and (max-width: 800px) {
-
   #kretsBoxOne,
   #kretsBoxTwo,
   #kretsBoxThree,

@@ -85,10 +85,12 @@ export default async function Services() {
         <div className="px-6 pt-8 pb-8">
           <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 ">
             <div className="text-center">
-              <h1 className={"dark mb-8 pr-1"}>{events.topTextTitle}</h1>
+              <h1 className={"dark md:pb-8 pt-8 md:pt-0 pb-12 pr-1"}>
+                {events.topTextTitle}
+              </h1>
               <p></p>
             </div>
-            <div className="flex flex-col md:gap-16 gap-4">
+            <div className="flex flex-col md:gap-16 gap-4 md:space-y-0 space-y-12">
               <div id="section1">
                 <ServiceCard
                   svg={BriefCase}
