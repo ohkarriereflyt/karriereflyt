@@ -66,7 +66,6 @@ export default async function Page({ params }) {
     position,
     sector,
     address1,
-    applyUrl,
     contacts = [],
   } = jobApi.find((job) => job.id === params.jobId) || {};
 
@@ -85,6 +84,8 @@ export default async function Page({ params }) {
     const redirectUrl = `https://karriereflyt.recman.no/job.php?job_id=${params.jobId}`;
     redirect(redirectUrl); // Replace with the URL you want to redirect to
   }
+
+  const applyUrl = `https://karriereflyt.recman.no/job.php?job_id=${params.jobId}&apply_only`;
 
   return (
     <div className="pt-16 background-blur">
