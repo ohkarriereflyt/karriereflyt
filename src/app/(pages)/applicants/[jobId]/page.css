@@ -1,25 +1,27 @@
 @font-face {
-    font-family: FilsonProRegular;
-    src: url(../../../fonts/filsonpro/FilsonProRegular.otf);
+  font-family: FilsonProRegular;
+  src: url(../../../fonts/filsonpro/FilsonProRegular.otf);
 }
 
 .filsonProRegular {
-    font-family: FilsonProRegular;
+  font-family: FilsonProRegular;
 }
 
 .dangerouslySetInnerHTML h3 {
-    margin-top: 1.5rem !important;
-    margin-bottom: 0.5rem !important;
+  margin-top: 1.5rem !important;
+  margin-bottom: 0.5rem !important;
 }
 
 .dangerouslySetInnerHTML p {
-    margin-bottom: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
 }
 
 .dangerouslySetInnerHTML li {
-    font-family: FilsonProRegular;
+  font-family: FilsonProRegular;
+  list-style-type: disc;
+  margin-left: 30px;
 }
 
 .dangerouslySetInnerHTML {
-    font-family: FilsonProRegular;
+  font-family: FilsonProRegular;
 }
