@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.karriereflyt.no" />
         <meta property="og:description" content="Karriereflyt hjelper deg med å finne drømmejobben" />
-        <meta property="og:image" content="https://karriereflyt.no/logo-slategray.png" />
+        <meta property="og:image" content="https://karriereflyt.no/logo-pistasch.png" />
       </head>
       <body className={`${inter.className} eggshell-background`}>
         <BackgroundBoxes />
