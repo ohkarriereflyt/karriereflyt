@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <meta property="og:title" content={metadata.title} />
+        <meta property="og:title" content= "Karriereflyt - Rekruttering & Bemanning"/>
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.karriereflyt.no" />
         <meta property="og:description" content="Karriereflyt hjelper deg med å finne drømmejobben" />
