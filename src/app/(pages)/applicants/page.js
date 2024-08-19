@@ -1,5 +1,8 @@
 import { Footer, JobPosts } from "../../components/index";
 import { client } from "../../sanity";
+import JobPostsTop from "./components/JobPostsTop";
+import JobPostsBottom from "./components/JobPostsBottom";
+import JobPostsRecman from "./components/JobPostsRecman";
 
 const apiKey = process.env.RECMAN_API_SECRET;
 
@@ -221,18 +224,19 @@ export default async function Page() {
 
   return (
     <div className="background-blur">
-      <JobPosts
-        jobApi={enhancedJobApi}
-        finishedBranch={finishedBranch}
-        categoriesBranch={categoriesBranch}
-        uniqueRegions={uniqueRegions}
-        topSectionTitle={events.topSectionTitle}
-        topSectionSubTitle={events.topSectionSubTitle}
-        topSectionText={formatTextWithBreaks(events.topSectionText)}
-        bottomSectionTitle={events.bottomSectionTitle}
-        bottomSectionText={formatTextWithBreaks(events.bottomSectionText)}
-      />
-      <Footer />
+      <div className="w-full min-h-screen flex flex-col justify-between items-center">
+        <JobPostsTop
+          topSectionTitle={events.topSectionTitle}
+          topSectionSubTitle={events.topSectionSubTitle}
+          topSectionText={formatTextWithBreaks(events.topSectionText)}
+        />
+        <JobPostsRecman />
+        <JobPostsBottom
+          bottomSectionTitle={events.bottomSectionTitle}
+          bottomSectionText={formatTextWithBreaks(events.bottomSectionText)}
+        />
+        <Footer />
+      </div>
     </div>
   );
 }

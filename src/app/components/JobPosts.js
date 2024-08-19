@@ -126,7 +126,7 @@ const JobPosts = (props) => {
         <div className='w-full min-h-screen flex flex-col justify-between items-center'>
             {/* Din Karrierepartner (Full Width at the Top) */}
             <div className="w-full slate-gray-background shadow flex justify-center">
-                <div className="max-w-7xl p-4 pb-0 flex flex-col justify-start items-center relative z-10">
+                {/* <div className="max-w-7xl p-4 pb-0 flex flex-col justify-start items-center relative z-10">
                     <div className="w-full justify-start items-start gap-8 inline-flex">
                         <div className='grow shrink basis-0 self-stretch py-4 pt-6 gap-1 flex-col justify-start items-start inline-flex light'>
                             <h1 >{props.topSectionTitle}</h1>
@@ -144,7 +144,7 @@ const JobPosts = (props) => {
                             <ButtonArrow direction={`${isExpanded ? 'up' : 'down'}`}></ButtonArrow>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
             <div className="w-full">
                 <TransitionLine reverse />
@@ -410,7 +410,7 @@ const JobPosts = (props) => {
                 </div>
             </div>
             {/* "Finner ikke" Full Width at the Bottom */}
-            <div className="w-full py-12 light-background shadow text-center">
+            {/* <div className="w-full py-12 light-background shadow text-center">
                 <div className="max-w-7xl flex-col justify-start items-center gap-4 inline-flex">
                     <h2>{props.bottomSectionTitle}</h2>
                     <p>{props.bottomSectionText}</p>
@@ -423,7 +423,7 @@ const JobPosts = (props) => {
                         </Link>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };
