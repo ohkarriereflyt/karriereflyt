@@ -3,6 +3,7 @@ import Footer from "../../../components/Footer";
 import Link from "next/link";
 import { SocialLinks } from "../../../components";
 import { redirect } from "next/navigation";
+import { fetchJobs } from "../../../../pages/api/jobPosts";
 
 const apiKey = process.env.RECMAN_API_SECRET;
 
@@ -11,13 +12,7 @@ const jobTypeToNorwegian = {
   partTime: "Deltid",
 };
 
-async function fetchJobs() {
-  const jobResponse = await fetch(
-    `https://api.recman.no/v2/get/?key=${apiKey}&scope=jobPost&fields=projectId,name,title,ingress,body,numberOfPositions,startDate,endDate,logo,deadline,departmentId,facebook,linkedin,twitter,instagram,address1,address2,postalCode,city,country,web,salary,corporationId,created,updated,applyUrl,contacts,type,sector,accession,companyName,workplace,images,videoUrl,branchCategoryId,branchId,secondaryBranchCategoryId,secondaryBranchId,skills,countryId,regionId,cityId,position,positionType,socialMedia,finnUrl,locations`
-  );
-  if (!jobResponse.ok) throw new Error("Failed to fetch jobs");
-  return jobResponse.json();
-}
+fetchJobs();
 
 export default async function Page({ params }) {
   const jobApiResponse = await fetchJobs();
