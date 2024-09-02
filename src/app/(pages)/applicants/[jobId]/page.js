@@ -4,6 +4,9 @@ import Link from "next/link";
 import { SocialLinks } from "../../../components";
 import { redirect } from "next/navigation";
 import { fetchJobs } from "../../../../pages/api/jobPosts";
+import noImage from "../../../images/no-image.png";
+
+import Image from "next/image";
 
 const apiKey = process.env.RECMAN_API_SECRET;
 
@@ -104,11 +107,20 @@ export default async function Page({ params }) {
           <div className="sm:w-[300px] md:p-8 flex flex-col gap-2 light-background p-4 kf-border-light mt-4 lg:mt-0 lg:ml-4 w-full lg:max-w-screen-lg flex-shrink-0">
             <h2 className="text-xl font-bold pb-4">Detaljer</h2>
             <div className=" w-full rounded-tl-2xl md:rounded-bl-xl md:rounded-tl-xl">
-              <img
-                className="max-w-full max-h-full object-contain"
-                src={logo}
-                alt="Job logo"
-              />
+              {logo == "" ? (
+                <Image
+                  src={noImage}
+                  alt="Firma logo"
+                  width={100}
+                  height={100}
+                />
+              ) : (
+                <img
+                  className="max-w-full max-h-full object-contain p-4"
+                  src={logo}
+                  alt="Firma logo"
+                />
+              )}
               <div className="my-4">
                 <h3>Tittel:</h3>
                 <p>{title}</p>
