@@ -8,6 +8,7 @@ import {
   fetchJobRegions,
   fetchRegions,
 } from "../../../pages/api/jobPosts";
+import { log } from "console";
 
 const apiKey = process.env.RECMAN_API_SECRET;
 
@@ -71,6 +72,7 @@ export default async function Page() {
   console.log(events);
 
   const jobApiResponse = await fetchJobs();
+  console.log("hei" + jobApiResponse.data);
   const jobApi = jobApiResponse.data
     ? Object.values(jobApiResponse.data)
         .filter((job) => {
@@ -162,6 +164,13 @@ export default async function Page() {
     ...job,
     regionName: regionMap[job.regionId] || "Unknown",
   }));
+  const numberOfPos = enhancedJobApi.reduce((total, job) => {
+    const positions = parseInt(job.numberOfPositions, 10);
+    // Add to total only if positions is a valid number
+    return total + (isNaN(positions) ? 0 : positions);
+  }, 0);
+
+  const numberOfPosts = enhancedJobApi.length;
 
   // For unique regions used in jobs, create a list for filtering or displaying
   const uniqueRegionIds = new Set(jobRegions.map((job) => job.regionId));
@@ -186,6 +195,8 @@ export default async function Page() {
   return (
     <div className="background-blur">
       <JobPosts
+        numberOfPositions={numberOfPos}
+        numberOfPosts={numberOfPosts}
         jobApi={enhancedJobApi}
         finishedBranch={finishedBranch}
         categoriesBranch={categoriesBranch}
