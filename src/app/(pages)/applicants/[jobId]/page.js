@@ -41,6 +41,7 @@ export default async function Page({ params }) {
           companyName: job.companyName,
           workplace: job.workplace,
           position,
+          sector: job.sector,
           positionType: job.positionType,
           address1: job.address1,
           contacts: job.contacts,
@@ -53,6 +54,7 @@ export default async function Page({ params }) {
     : [];
 
   const {
+    positionType,
     title,
     logo,
     name,
@@ -84,6 +86,32 @@ export default async function Page({ params }) {
   }
 
   const applyUrl = `https://karriereflyt.recman.no/job.php?job_id=${params.jobId}&apply_only`;
+
+  const positionTypetoNorwegian = () => {
+    switch (positionType) {
+      case "fixed":
+        return "Fulltid";
+      case "partTime":
+        return "Deltid";
+      case "substitute":
+        return "Vikariat";
+      case "engagement":
+        return "Engasjement";
+      default:
+        return "Fulltid";
+    }
+  };
+
+  const sectorToNorwegian = () => {
+    switch (sector) {
+      case "private":
+        return "Privat";
+      case "public":
+        return "Offentlig";
+      default:
+        return "Privat";
+    }
+  };
 
   return (
     <div className="pt-16 background-blur">
@@ -146,8 +174,12 @@ export default async function Page({ params }) {
                 <p>{position}</p>
               </div>
               <div className="my-4">
+                <h3>Omfang:</h3>
+                <p>{positionTypetoNorwegian()}</p>
+              </div>
+              <div className="my-4">
                 <h3>Sektor:</h3>
-                <p>{sector}</p>
+                <p>{sectorToNorwegian()}</p>
               </div>
               <div className="my-4">
                 <h3>Adresse:</h3>

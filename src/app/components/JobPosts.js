@@ -12,9 +12,8 @@ const JobPosts = (props) => {
   const [searchResults, setSearchResults] = useState(jobApi); //Det siste arrayet som blir vist. Det er arrayet som blir printet ut til siden etter den har blitt tuklet med
   const [selectedBranches, setSelectedBranches] = useState([]);
   const [selectedRegions, setSelectedRegions] = useState([]);
-  const [fullTimeOnly, setFullTimeOnly] = useState(false);
-  const [partTimeOnly, setParTimeOnly] = useState(false);
-  const [engagementOnly, setEngagementOnly] = useState(false);
+  const [selectedPositionTypes, setSelectedPositionTypes] = useState([]);
+
   const [loaded, setLoaded] = useState(false);
   const [filterOpen, setFilterOpen] = useState(false);
 
@@ -30,9 +29,19 @@ const JobPosts = (props) => {
     filterJobs(query, selectedBranches, selectedRegions);
   };
 
-  // Handle filtering of jobs based on search query and selected branches
+  const handlePositionTypeToggle = (positionType) => {
+    setSelectedPositionTypes((prevTypes) =>
+      prevTypes.includes(positionType)
+        ? prevTypes.filter((type) => type !== positionType)
+        : [...prevTypes, positionType]
+    );
+  };
+
+  // Handle filtering of jobs based on search query, selected branches, regions, and position types
   const filterJobs = (query, branches, regions) => {
     let filtered = jobApi;
+
+    // Filter by search query
     if (query) {
       filtered = filtered
         .filter((job) => {
@@ -40,7 +49,7 @@ const JobPosts = (props) => {
             "name",
             "title",
             "companyName",
-            "position",
+            "positionType",
             "city",
           ].reduce((acc, field) => {
             const matchStart = new RegExp(`\\b${query}`, "i");
@@ -57,28 +66,27 @@ const JobPosts = (props) => {
         })
         .sort((a, b) => b.score - a.score);
     }
+
+    // Filter by branches
     if (branches.length > 0) {
       filtered = filtered.filter((job) =>
         branches.includes(job.branchCategoryId)
       );
     }
 
+    // Filter by regions
     if (regions.length > 0) {
       filtered = filtered.filter((job) => regions.includes(job.regionId));
     }
 
-    if (fullTimeOnly) {
-      filtered = filtered.filter((job) => job.position === "Fast");
+    // Filter by position types
+    if (selectedPositionTypes.length > 0) {
+      filtered = filtered.filter((job) =>
+        selectedPositionTypes.includes(job.positionType)
+      );
     }
 
-    if (partTimeOnly) {
-      filtered = filtered.filter((job) => job.position === "partTime");
-    }
-
-    if (engagementOnly) {
-      filtered = filtered.filter((job) => job.position === "commitment");
-    }
-
+    // Update search results
     setSearchResults(filtered);
   };
 
@@ -91,9 +99,7 @@ const JobPosts = (props) => {
     selectedBranches,
     searchQuery,
     selectedRegions,
-    fullTimeOnly,
-    partTimeOnly,
-    engagementOnly,
+    selectedPositionTypes,
   ]);
 
   const handleBranchClick = (branchId) => {
@@ -112,18 +118,6 @@ const JobPosts = (props) => {
     );
   };
 
-  const handleFullTimeToggle = () => {
-    setFullTimeOnly((prev) => !prev);
-  };
-
-  const handlePartTimeToggle = () => {
-    setParTimeOnly((prev) => !prev);
-  };
-
-  const handleEngagementToggle = () => {
-    setEngagementOnly((prev) => !prev);
-  };
-
   function highlightText(text, query) {
     if (!query) return text;
     const parts = text.split(new RegExp(`(${query})`, "gi"));
@@ -140,10 +134,6 @@ const JobPosts = (props) => {
 
   const [isExpanded, setIsExpanded] = useState(false);
   const toggleExpand = () => setIsExpanded(!isExpanded);
-
-  // jobApi.forEach(job => {
-  //     console.log(job);
-  // });
 
   return (
     <div className="w-full min-h-screen flex flex-col justify-between items-center">
@@ -329,52 +319,23 @@ const JobPosts = (props) => {
                     </div>
                     <div
                       className={`w-full py-2 flex items-center gap-2.5 ${
-                        jobApi.filter((job) => job.position === "Fast")
+                        jobApi.filter((job) => job.positionType === "fixed")
                           .length == 0
                           ? "opacity-50"
                           : ""
                       }`}
                     >
                       <input
-                        checked={fullTimeOnly}
+                        checked={selectedPositionTypes.includes("fixed")}
                         type="checkbox"
                         className="w-4 h-4 mx-1"
-                        onChange={handleFullTimeToggle}
-                        disabled={
-                          jobApi.filter((job) => job.position === "Fast")
-                            .length == 0
-                        }
+                        onChange={() => handlePositionTypeToggle("fixed")}
                       />
                       <p>Fast</p>
                       <p>
                         (
-                        {jobApi.filter((job) => job.position === "Fast").length}
-                        )
-                      </p>
-                    </div>
-                    <div
-                      className={`w-full py-2 flex items-center gap-2.5 ${
-                        jobApi.filter((job) => job.position === "Partime")
-                          .length == 0
-                          ? "opacity-50"
-                          : ""
-                      }`}
-                    >
-                      <input
-                        checked={partTimeOnly}
-                        type="checkbox"
-                        className="w-4 h-4 mx-1"
-                        onChange={handlePartTimeToggle}
-                        disabled={
-                          jobApi.filter((job) => job.position === "Partime")
-                            .length == 0
-                        }
-                      />
-                      <p>Deltid</p>
-                      <p>
-                        (
                         {
-                          jobApi.filter((job) => job.position === "Partime")
+                          jobApi.filter((job) => job.positionType === "fixed")
                             .length
                         }
                         )
@@ -382,28 +343,52 @@ const JobPosts = (props) => {
                     </div>
                     <div
                       className={`w-full py-2 flex items-center gap-2.5 ${
-                        jobApi.filter((job) => job.position === "commitment")
-                          .length == 0
+                        jobApi.filter(
+                          (job) => job.positionType === "substitute"
+                        ).length == 0
                           ? "opacity-50"
                           : ""
                       }`}
                     >
                       <input
-                        checked={engagementOnly}
+                        checked={selectedPositionTypes.includes("substitute")}
                         type="checkbox"
                         className="w-4 h-4 mx-1"
-                        onChange={handleEngagementToggle}
-                        disabled={
-                          jobApi.filter((job) => job.position === "commitment")
-                            .length == 0
+                        onChange={() => handlePositionTypeToggle("substitute")}
+                      />
+                      <p>Vikariat</p>
+                      <p>
+                        (
+                        {
+                          jobApi.filter(
+                            (job) => job.positionType === "substitute"
+                          ).length
                         }
+                        )
+                      </p>
+                    </div>
+                    <div
+                      className={`w-full py-2 flex items-center gap-2.5 ${
+                        jobApi.filter(
+                          (job) => job.positionType === "engagement"
+                        ).length == 0
+                          ? "opacity-50"
+                          : ""
+                      }`}
+                    >
+                      <input
+                        checked={selectedPositionTypes.includes("engagement")}
+                        type="checkbox"
+                        className="w-4 h-4 mx-1"
+                        onChange={() => handlePositionTypeToggle("engagement")}
                       />
                       <p>Engasjement</p>
                       <p>
                         (
                         {
-                          jobApi.filter((job) => job.position === "commitment")
-                            .length
+                          jobApi.filter(
+                            (job) => job.positionType === "engagement"
+                          ).length
                         }
                         )
                       </p>
@@ -485,50 +470,23 @@ const JobPosts = (props) => {
                   </div>
                   <div
                     className={`w-full py-2 flex items-center gap-2.5 ${
-                      jobApi.filter((job) => job.position === "Fast").length ==
-                      0
-                        ? "opacity-50"
-                        : ""
-                    }`}
-                  >
-                    <input
-                      checked={fullTimeOnly}
-                      type="checkbox"
-                      className="w-4 h-4 mx-1"
-                      onChange={handleFullTimeToggle}
-                      disabled={
-                        jobApi.filter((job) => job.position === "Fast")
-                          .length == 0
-                      }
-                    />
-                    <p>Fast</p>
-                    <p>
-                      ({jobApi.filter((job) => job.position === "Fast").length})
-                    </p>
-                  </div>
-                  <div
-                    className={`w-full py-2 flex items-center gap-2.5 ${
-                      jobApi.filter((job) => job.position === "Partime")
+                      jobApi.filter((job) => job.positionType === "fixed")
                         .length == 0
                         ? "opacity-50"
                         : ""
                     }`}
                   >
                     <input
-                      checked={partTimeOnly}
+                      checked={selectedPositionTypes.includes("fixed")}
                       type="checkbox"
                       className="w-4 h-4 mx-1"
-                      onChange={handlePartTimeToggle}
-                      disabled={
-                        jobApi.filter((job) => job.position === "Partime")
-                          .length == 0
-                      }
+                      onChange={() => handlePositionTypeToggle("fixed")}
                     />
-                    <p>Deltid</p>
+                    <p>Fast</p>
                     <p>
                       (
                       {
-                        jobApi.filter((job) => job.position === "Partime")
+                        jobApi.filter((job) => job.positionType === "fixed")
                           .length
                       }
                       )
@@ -536,28 +494,50 @@ const JobPosts = (props) => {
                   </div>
                   <div
                     className={`w-full py-2 flex items-center gap-2.5 ${
-                      jobApi.filter((job) => job.position === "commitment")
+                      jobApi.filter((job) => job.positionType === "substitute")
                         .length == 0
                         ? "opacity-50"
                         : ""
                     }`}
                   >
                     <input
-                      checked={engagementOnly}
+                      checked={selectedPositionTypes.includes("substitute")}
                       type="checkbox"
                       className="w-4 h-4 mx-1"
-                      onChange={handleEngagementToggle}
-                      disabled={
-                        jobApi.filter((job) => job.position === "commitment")
-                          .length == 0
+                      onChange={() => handlePositionTypeToggle("substitute")}
+                    />
+                    <p>Vikariat</p>
+                    <p>
+                      (
+                      {
+                        jobApi.filter(
+                          (job) => job.positionType === "substitute"
+                        ).length
                       }
+                      )
+                    </p>
+                  </div>
+                  <div
+                    className={`w-full py-2 flex items-center gap-2.5 ${
+                      jobApi.filter((job) => job.positionType === "engagement")
+                        .length == 0
+                        ? "opacity-50"
+                        : ""
+                    }`}
+                  >
+                    <input
+                      checked={selectedPositionTypes.includes("engagement")}
+                      type="checkbox"
+                      className="w-4 h-4 mx-1"
+                      onChange={() => handlePositionTypeToggle("engagement")}
                     />
                     <p>Engasjement</p>
                     <p>
                       (
                       {
-                        jobApi.filter((job) => job.position === "commitment")
-                          .length
+                        jobApi.filter(
+                          (job) => job.positionType === "engagement"
+                        ).length
                       }
                       )
                     </p>

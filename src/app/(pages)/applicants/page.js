@@ -80,7 +80,7 @@ export default async function Page() {
           const now = new Date();
           const endDate = new Date(job.endDate);
           console.log(
-            `Filtering job: ${job.title}, endDate: ${endDate}, now: ${now}`
+            `Filtering job: ${job.title}, endDate: ${endDate}, now: ${now} type: ${job.position}`
           );
           return !isNaN(endDate) && endDate >= now;
         })
@@ -178,6 +178,13 @@ export default async function Page() {
     regionId: regionId,
     regionName: regionMap[regionId] || "Unknown",
   }));
+
+  const jobArray = enhancedJobApi.toString();
+  const printJobs = () => {
+    console.log(jobArray);
+  };
+
+  printJobs();
 
   const formatTextWithBreaks = (text) => {
     if (!text) {
