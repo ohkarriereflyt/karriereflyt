@@ -1,5 +1,14 @@
+"use server";
 import { Footer, JobPosts } from "../../components/index";
 import { client } from "../../sanity";
+import {
+  fetchJobs,
+  fetchBranchCategories,
+  fetchJobBranches,
+  fetchJobRegions,
+  fetchRegions,
+} from "../../../pages/api/jobPosts";
+import { log } from "console";
 
 const apiKey = process.env.RECMAN_API_SECRET;
 
@@ -47,55 +56,11 @@ const EVENTS_QUERY = `*[_type == "applicants"][0]{
     bottomSectionTitle,
     bottomSectionText
   }`;
-
-async function fetchJobs() {
-  const jobResponse = await fetch(
-    `https://api.recman.no/v2/get/?key=${apiKey}&scope=jobPost&fields=projectId,name,title,ingress,body,numberOfPositions,startDate,endDate,logo,deadline,departmentId,facebook,linkedin,twitter,instagram,address1,address2,postalCode,city,country,web,salary,corporationId,created,updated,applyUrl,contacts,type,sector,accession,companyName,workplace,images,videoUrl,branchCategoryId,branchId,secondaryBranchCategoryId,secondaryBranchId,skills,countryId,regionId,cityId,position,positionType,socialMedia,finnUrl,locations`
-  );
-  if (!jobResponse.ok) throw new Error("Failed to fetch jobs");
-  return jobResponse.json();
-}
-
-async function fetchBranchCategories() {
-  const response = await fetch(
-    `https://api.recman.no/v2/get/?key=${apiKey}&scope=branch`
-  );
-  const data = await response.json();
-  return data.data;
-}
-
-async function fetchJobBranches() {
-  const response = await fetch(
-    `https://api.recman.no/v2/get/?key=${apiKey}&scope=jobPost&fields=branchCategoryId`
-  );
-  const data = await response.json();
-  return data.data; // This should be an object with jobPostIds as keys
-}
-
-async function fetchJobRegions() {
-  const regionResponse = await fetch(
-    `https://api.recman.no/v2/get/?key=${apiKey}&scope=jobPost&fields=regionId`
-  );
-  const data = await regionResponse.json();
-  return data.data;
-}
-
-async function fetchRegions() {
-  const response = await fetch(
-    `https://api.recman.no/v2/get/?key=${apiKey}&scope=location`
-  );
-  if (!response.ok) {
-    console.error("Failed to fetch regions:", response.status);
-    return []; // Return an empty array if the fetch fails
-  }
-  const data = await response.json();
-  if (!data || !data.region) {
-    // Ensure that data.region exists
-    console.error("Invalid region data structure:", data);
-    return []; // Return empty array if data is not structured correctly
-  }
-  return data.region; // Directly return the region array
-}
+fetchJobs();
+fetchBranchCategories();
+fetchJobBranches();
+fetchJobRegions();
+fetchRegions();
 
 export default async function Page() {
   // Sanity
@@ -107,6 +72,7 @@ export default async function Page() {
   console.log(events);
 
   const jobApiResponse = await fetchJobs();
+  console.log("hei" + jobApiResponse.data);
   const jobApi = jobApiResponse.data
     ? Object.values(jobApiResponse.data)
         .filter((job) => {
@@ -114,7 +80,7 @@ export default async function Page() {
           const now = new Date();
           const endDate = new Date(job.endDate);
           console.log(
-            `Filtering job: ${job.title}, endDate: ${endDate}, now: ${now}`
+            `Filtering job: ${job.title}, endDate: ${endDate}, now: ${now} type: ${job.position}`
           );
           return !isNaN(endDate) && endDate >= now;
         })
@@ -198,6 +164,13 @@ export default async function Page() {
     ...job,
     regionName: regionMap[job.regionId] || "Unknown",
   }));
+  const numberOfPos = enhancedJobApi.reduce((total, job) => {
+    const positions = parseInt(job.numberOfPositions, 10);
+    // Add to total only if positions is a valid number
+    return total + (isNaN(positions) ? 0 : positions);
+  }, 0);
+
+  const numberOfPosts = enhancedJobApi.length;
 
   // For unique regions used in jobs, create a list for filtering or displaying
   const uniqueRegionIds = new Set(jobRegions.map((job) => job.regionId));
@@ -205,6 +178,13 @@ export default async function Page() {
     regionId: regionId,
     regionName: regionMap[regionId] || "Unknown",
   }));
+
+  const jobArray = enhancedJobApi.toString();
+  const printJobs = () => {
+    console.log(jobArray);
+  };
+
+  printJobs();
 
   const formatTextWithBreaks = (text) => {
     if (!text) {
@@ -222,6 +202,8 @@ export default async function Page() {
   return (
     <div className="background-blur">
       <JobPosts
+        numberOfPositions={numberOfPos}
+        numberOfPosts={numberOfPosts}
         jobApi={enhancedJobApi}
         finishedBranch={finishedBranch}
         categoriesBranch={categoriesBranch}

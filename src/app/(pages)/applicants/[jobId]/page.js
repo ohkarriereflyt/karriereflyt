@@ -3,6 +3,10 @@ import Footer from "../../../components/Footer";
 import Link from "next/link";
 import { SocialLinks } from "../../../components";
 import { redirect } from "next/navigation";
+import { fetchJobs } from "../../../../pages/api/jobPosts";
+import noImage from "../../../images/no-image.png";
+
+import Image from "next/image";
 
 const apiKey = process.env.RECMAN_API_SECRET;
 
@@ -11,13 +15,7 @@ const jobTypeToNorwegian = {
   partTime: "Deltid",
 };
 
-async function fetchJobs() {
-  const jobResponse = await fetch(
-    `https://api.recman.no/v2/get/?key=${apiKey}&scope=jobPost&fields=projectId,name,title,ingress,body,numberOfPositions,startDate,endDate,logo,deadline,departmentId,facebook,linkedin,twitter,instagram,address1,address2,postalCode,city,country,web,salary,corporationId,created,updated,applyUrl,contacts,type,sector,accession,companyName,workplace,images,videoUrl,branchCategoryId,branchId,secondaryBranchCategoryId,secondaryBranchId,skills,countryId,regionId,cityId,position,positionType,socialMedia,finnUrl,locations`
-  );
-  if (!jobResponse.ok) throw new Error("Failed to fetch jobs");
-  return jobResponse.json();
-}
+fetchJobs();
 
 export default async function Page({ params }) {
   const jobApiResponse = await fetchJobs();
@@ -43,6 +41,7 @@ export default async function Page({ params }) {
           companyName: job.companyName,
           workplace: job.workplace,
           position,
+          sector: job.sector,
           positionType: job.positionType,
           address1: job.address1,
           contacts: job.contacts,
@@ -55,6 +54,7 @@ export default async function Page({ params }) {
     : [];
 
   const {
+    positionType,
     title,
     logo,
     name,
@@ -87,6 +87,32 @@ export default async function Page({ params }) {
 
   const applyUrl = `https://karriereflyt.recman.no/job.php?job_id=${params.jobId}&apply_only`;
 
+  const positionTypetoNorwegian = () => {
+    switch (positionType) {
+      case "fixed":
+        return "Fulltid";
+      case "partTime":
+        return "Deltid";
+      case "substitute":
+        return "Vikariat";
+      case "engagement":
+        return "Engasjement";
+      default:
+        return "Fulltid";
+    }
+  };
+
+  const sectorToNorwegian = () => {
+    switch (sector) {
+      case "private":
+        return "Privat";
+      case "public":
+        return "Offentlig";
+      default:
+        return "Privat";
+    }
+  };
+
   return (
     <div className="pt-16 background-blur">
       <div className="max-w-7xl mx-auto p-2 sm:p-4 md:p-8 flex flex-col justify-between items-center">
@@ -109,11 +135,20 @@ export default async function Page({ params }) {
           <div className="sm:w-[300px] md:p-8 flex flex-col gap-2 light-background p-4 kf-border-light mt-4 lg:mt-0 lg:ml-4 w-full lg:max-w-screen-lg flex-shrink-0">
             <h2 className="text-xl font-bold pb-4">Detaljer</h2>
             <div className=" w-full rounded-tl-2xl md:rounded-bl-xl md:rounded-tl-xl">
-              <img
-                className="max-w-full max-h-full object-contain"
-                src={logo}
-                alt="Job logo"
-              />
+              {logo == "" ? (
+                <Image
+                  src={noImage}
+                  alt="Firma logo"
+                  width={100}
+                  height={100}
+                />
+              ) : (
+                <img
+                  className="max-w-full max-h-full object-contain p-4"
+                  src={logo}
+                  alt="Firma logo"
+                />
+              )}
               <div className="my-4">
                 <h3>Tittel:</h3>
                 <p>{title}</p>
@@ -139,8 +174,12 @@ export default async function Page({ params }) {
                 <p>{position}</p>
               </div>
               <div className="my-4">
+                <h3>Omfang:</h3>
+                <p>{positionTypetoNorwegian()}</p>
+              </div>
+              <div className="my-4">
                 <h3>Sektor:</h3>
-                <p>{sector}</p>
+                <p>{sectorToNorwegian()}</p>
               </div>
               <div className="my-4">
                 <h3>Adresse:</h3>
