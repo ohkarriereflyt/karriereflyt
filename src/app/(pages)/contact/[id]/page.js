@@ -6,31 +6,48 @@ import SocialLinks from "../../../components/SocialLinks";
 import { client } from "../../../sanity";
 
 const EVENTS_QUERY = `*[_type == "contact"][0]{
-    'employees': employees[]->{
-      name,
-      jobTitle,
-      emailText,
-      phoneNumber,
-      'img': employeeImage.asset->url,
-      facebook,
-      linkedin,
-      bioShort,
-      bio,
-      keywords,
-    }
-  }`;
+  'employees': employees[]->{
+    name,
+    jobTitle,
+    emailText,
+    phoneNumber,
+    'img': employeeImage.asset->url,
+    facebook,
+    linkedin,
+    bioShort,
+    bio,
+    keywords,
+  }
+}`;
+
+function slugify(str) {
+  return str
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)+/g, "");
+}
 
 export default async function MemberDetailPage({ params }) {
   const contactsData = await client.fetch(EVENTS_QUERY);
 
   const employee = contactsData.employees.find(
-    (employee) => employee.name === decodeURIComponent(params.id)
+    (employee) => slugify(employee.name) === slugify(decodeURIComponent(params.id))
   );
-  console.log(employee.bio);
+
+  if (!employee) {
+    return (
+      <div className="p-8">
+        <h1>Fant ikke den ansatte du leter etter.</h1>
+        <p>Lenken kan være feil, eller informasjon mangler.</p>
+      </div>
+    );
+  }
 
   const formatTextWithBreaks = (text) => {
     if (!text) {
-      return <></>; // or you can return any default value you prefer
+      return <></>;
     }
 
     return text.split("\n").map((item, index) => (
@@ -61,13 +78,13 @@ export default async function MemberDetailPage({ params }) {
               <div className="pt-2 flex-col justify-start items-end flex">
                 {employee.emailText && (
                   <div className="self-stretch justify-start items-center gap-2.5 inline-flex">
-                    <p className="w-16 ">E-post:</p>
+                    <p className="w-16">E-post:</p>
                     <p>{employee.emailText}</p>
                   </div>
                 )}
                 {employee.phoneNumber && (
                   <div className="self-stretch justify-start items-center gap-2.5 inline-flex">
-                    <p className="w-16 ">Telefon:</p>
+                    <p className="w-16">Telefon:</p>
                     <p>{employee.phoneNumber}</p>
                   </div>
                 )}
@@ -77,16 +94,14 @@ export default async function MemberDetailPage({ params }) {
               <div className="bg-slate-gray-flat kf-border-light p-4">
                 <p>Ord som beskriver {employee.name}:</p>
                 <div className="w-full flex flex-wrap mt-1">
-                  {employee.keywords &&
-                    employee.keywords.map((keywords, index) => (
-                      <div key={index} className="flex items-center gap-2 mr-2">
-                        {index != 0 && (
-                          <div className="w-1 h-1 light-background rounded-full"></div>
-                        )}
-                        {/* {<div className="w-1 h-1 bg-stone-50 rounded-full"></div>} */}
-                        <p>{keywords}</p>
-                      </div>
-                    ))}
+                  {employee.keywords.map((keyword, index) => (
+                    <div key={index} className="flex items-center gap-2 mr-2">
+                      {index !== 0 && (
+                        <div className="w-1 h-1 light-background rounded-full"></div>
+                      )}
+                      <p>{keyword}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             )}
@@ -94,9 +109,9 @@ export default async function MemberDetailPage({ params }) {
               <SocialLinks employee={employee} paddingX={"px-8"} />
             </div>
           </div>
-          <div className="w-full bg-slate-gray-flat  kf-border-light p-4">
-            <h2 className="">Om {employee.name}</h2>
-            <p className="">{formatTextWithBreaks(employee.bio)}</p>
+          <div className="w-full bg-slate-gray-flat kf-border-light p-4">
+            <h2>Om {employee.name}</h2>
+            <p>{formatTextWithBreaks(employee.bio)}</p>
           </div>
         </div>
       </div>
